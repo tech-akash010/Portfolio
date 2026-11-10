@@ -58,7 +58,7 @@ export const ContactCTA: React.FC = () => {
         {/* Social Links Row */}
         <div className="mt-12 flex flex-wrap justify-center gap-6 font-mono text-xs text-[#FAF3E1]/60">
           <a
-            href="https://linkedin.com/in/akashkundu"
+            href="https://www.linkedin.com/in/akashkundu010/"
             target="_blank"
             rel="noopener noreferrer"
             onMouseEnter={() => setCursorType('external')}
@@ -70,7 +70,19 @@ export const ContactCTA: React.FC = () => {
           </a>
           <span className="opacity-30">•</span>
           <a
-            href="https://github.com/akashkundu"
+            href="https://www.instagram.com/0x.akash/"
+            target="_blank"
+            rel="noopener noreferrer"
+            onMouseEnter={() => setCursorType('external')}
+            onMouseLeave={resetCursor}
+            className="hover:text-[#FF6D1F] transition-colors flex items-center gap-1"
+          >
+            <span>INSTAGRAM</span>
+            <ArrowUpRight className="w-3 h-3 text-[#FF6D1F]" />
+          </a>
+          <span className="opacity-30">•</span>
+          <a
+            href="https://github.com/tech-akash010"
             target="_blank"
             rel="noopener noreferrer"
             onMouseEnter={() => setCursorType('external')}
@@ -82,14 +94,14 @@ export const ContactCTA: React.FC = () => {
           </a>
           <span className="opacity-30">•</span>
           <a
-            href="https://instagram.com/akashkundu"
+            href="https://x.com/officialak_X"
             target="_blank"
             rel="noopener noreferrer"
             onMouseEnter={() => setCursorType('external')}
             onMouseLeave={resetCursor}
             className="hover:text-[#FF6D1F] transition-colors flex items-center gap-1"
           >
-            <span>INSTAGRAM</span>
+            <span>X (TWITTER)</span>
             <ArrowUpRight className="w-3 h-3 text-[#FF6D1F]" />
           </a>
         </div>

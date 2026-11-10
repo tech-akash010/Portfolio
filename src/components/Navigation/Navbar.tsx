@@ -179,9 +179,9 @@ export const Navbar: React.FC = () => {
                 <span className="w-2 h-2 rounded-full bg-[#FF6D1F] animate-pulse"></span>
                 <span>OPEN FOR COLLABORATION 2026</span>
               </div>
-              <div className="flex justify-between items-center text-[11px]">
+              <div className="flex flex-wrap justify-between items-center text-[11px] gap-2">
                 <a
-                  href="https://github.com/akashkundu"
+                  href="https://github.com/tech-akash010"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:text-[#FF6D1F] flex items-center gap-1"
@@ -189,7 +189,7 @@ export const Navbar: React.FC = () => {
                   GitHub <ArrowUpRight className="w-3 h-3" />
                 </a>
                 <a
-                  href="https://linkedin.com/in/akashkundu"
+                  href="https://www.linkedin.com/in/akashkundu010/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:text-[#FF6D1F] flex items-center gap-1"
@@ -197,10 +197,20 @@ export const Navbar: React.FC = () => {
                   LinkedIn <ArrowUpRight className="w-3 h-3" />
                 </a>
                 <a
-                  href="mailto:contact@akashkundu.dev"
-                  className="hover:text-[#FF6D1F]"
+                  href="https://x.com/officialak_X"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-[#FF6D1F] flex items-center gap-1"
                 >
-                  Email
+                  X <ArrowUpRight className="w-3 h-3" />
+                </a>
+                <a
+                  href="https://www.instagram.com/0x.akash/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-[#FF6D1F] flex items-center gap-1"
+                >
+                  Instagram <ArrowUpRight className="w-3 h-3" />
                 </a>
               </div>
             </div>

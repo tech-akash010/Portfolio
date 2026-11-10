@@ -20,9 +20,10 @@ export const Footer: React.FC = () => {
   ];
 
   const socialLinks = [
-    { name: 'GitHub', url: 'https://github.com/akashkundu', handle: '@akashkundu' },
-    { name: 'LinkedIn', url: 'https://linkedin.com/in/akashkundu', handle: 'in/akashkundu' },
-    { name: 'Instagram', url: 'https://instagram.com/akashkundu', handle: '@akashkundu.design' },
+    { name: 'LinkedIn', url: 'https://www.linkedin.com/in/akashkundu010/', handle: 'in/akashkundu010' },
+    { name: 'Instagram', url: 'https://www.instagram.com/0x.akash/', handle: '@0x.akash' },
+    { name: 'GitHub', url: 'https://github.com/tech-akash010', handle: '@tech-akash010' },
+    { name: 'X (Twitter)', url: 'https://x.com/officialak_X', handle: '@officialak_X' },
     { name: 'Email', url: 'mailto:contact@akashkundu.dev', handle: 'contact@akashkundu.dev' },
   ];
 

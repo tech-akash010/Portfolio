@@ -216,9 +216,10 @@ export const ConnectPage: React.FC = () => {
             </span>
 
             {[
-              { label: 'LinkedIn', url: 'https://linkedin.com/in/akashkundu', handle: 'in/akashkundu' },
-              { label: 'GitHub', url: 'https://github.com/akashkundu', handle: '@akashkundu' },
-              { label: 'Instagram', url: 'https://instagram.com/akashkundu', handle: '@akashkundu.design' },
+              { label: 'LinkedIn', url: 'https://www.linkedin.com/in/akashkundu010/', handle: 'in/akashkundu010' },
+              { label: 'Instagram', url: 'https://www.instagram.com/0x.akash/', handle: '@0x.akash' },
+              { label: 'GitHub', url: 'https://github.com/tech-akash010', handle: '@tech-akash010' },
+              { label: 'X (Twitter)', url: 'https://x.com/officialak_X', handle: '@officialak_X' },
             ].map((profile) => (
               <a
                 key={profile.label}

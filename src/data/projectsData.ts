@@ -443,7 +443,7 @@ export const techProjects: TechProject[] = [
         learning: 'Engineered custom keyboard traps with Escape fallbacks following ARIA authoring practices.'
       }
     ],
-    githubUrl: 'https://github.com/akashkundu/openlearn-hub',
+    githubUrl: 'https://github.com/tech-akash010/openlearn-hub',
     liveUrl: 'https://openlearn-hub.vercel.app',
     stats: [
       { label: 'Active Learners', value: '450+' },
@@ -540,7 +540,7 @@ export const techProjects: TechProject[] = [
         learning: 'Implemented one-time masked call relays and opt-in location radius limits to safeguard student personal numbers.'
       }
     ],
-    githubUrl: 'https://github.com/akashkundu/sankalp-portal',
+    githubUrl: 'https://github.com/tech-akash010/sankalp-portal',
     liveUrl: 'https://sankalp-impact.web.app',
     stats: [
       { label: 'Volunteers Registered', value: '300+' },
@@ -609,7 +609,7 @@ export const techProjects: TechProject[] = [
         learning: 'Offloaded layout computation to a background Web Worker, keeping the main UI thread completely responsive at 60fps.'
       }
     ],
-    githubUrl: 'https://github.com/akashkundu/structo-analyzer',
+    githubUrl: 'https://github.com/tech-akash010/structo-analyzer',
     liveUrl: 'https://structo-graph.vercel.app',
     stats: [
       { label: 'Max Nodes Handled', value: '10k+' },
@@ -678,7 +678,7 @@ export const techProjects: TechProject[] = [
         learning: 'Employed the Douglas-Peucker line simplification algorithm to reduce coordinate points by 80% without visible loss of road fidelity.'
       }
     ],
-    githubUrl: 'https://github.com/akashkundu/rayofroads',
+    githubUrl: 'https://github.com/tech-akash010/rayofroads',
     liveUrl: 'https://rayofroads.vercel.app',
     stats: [
       { label: 'Scenic Routes Indexed', value: '85+' },
@@ -736,7 +736,7 @@ export const techProjects: TechProject[] = [
         learning: 'Developed an incremental JSON parser that tolerates unclosed brackets and streaming partials.'
       }
     ],
-    githubUrl: 'https://github.com/akashkundu/synapse-ai-studio',
+    githubUrl: 'https://github.com/tech-akash010/synapse-ai-studio',
     liveUrl: 'https://synapse-studio.vercel.app',
     stats: [
       { label: 'Supported Models', value: '8+' },
@@ -794,7 +794,7 @@ export const techProjects: TechProject[] = [
         learning: 'Utilized generator functions that yield pure immutable graph snapshots at every decision point.'
       }
     ],
-    githubUrl: 'https://github.com/akashkundu/omnigraph',
+    githubUrl: 'https://github.com/tech-akash010/omnigraph',
     liveUrl: 'https://omnigraph.vercel.app',
     stats: [
       { label: 'Algorithms Visualized', value: '7' },
