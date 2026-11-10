@@ -1,10 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { techProjects } from '../../data/projectsData';
-import { TechSubcategory } from '../../types/project';
 import { ProjectVisualPreview } from '../../components/ProjectCard/ProjectVisualPreview';
 import { useCursor } from '../../components/CustomCursor/CursorContext';
-import { ArrowUpRight, Code2, ExternalLink, Filter } from 'lucide-react';
+import { ArrowUpRight, Code2, ExternalLink } from 'lucide-react';
 
 const GithubIcon: React.FC<{ className?: string }> = ({ className = 'w-3.5 h-3.5' }) => (
   <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -13,28 +12,13 @@ const GithubIcon: React.FC<{ className?: string }> = ({ className = 'w-3.5 h-3.5
   </svg>
 );
 
-const CATEGORIES: ('All' | TechSubcategory)[] = [
-  'All',
-  'Web Applications',
-  'Developer Tools',
-  'Open Source',
-  'AI Applications',
-  'Experiments',
-];
-
 export const TechProjectsPage: React.FC = () => {
   const { setCursorType, resetCursor } = useCursor();
-  const [selectedCategory, setSelectedCategory] = useState<'All' | TechSubcategory>('All');
-
-  const filteredProjects = techProjects.filter((p) => {
-    if (selectedCategory === 'All') return true;
-    return p.subcategory === selectedCategory;
-  });
 
   return (
     <div className="pt-36 sm:pt-40 md:pt-44 pb-24 px-6 sm:px-8 md:px-12 max-w-7xl mx-auto min-h-screen">
       {/* Header */}
-      <div className="border-b border-[#222222]/15 pb-8 mb-10">
+      <div className="border-b border-[#222222]/15 pb-8 mb-12">
         <h1 className="font-display text-5xl sm:text-6xl md:text-7xl font-black tracking-tight text-[#222222]">
           TECHNOLOGY PROJECTS<span className="text-[#FF6D1F]">.</span>
         </h1>
@@ -43,26 +27,9 @@ export const TechProjectsPage: React.FC = () => {
         </p>
       </div>
 
-      {/* Category Filter Pills */}
-      <div className="flex flex-wrap items-center gap-2 mb-12">
-        {CATEGORIES.map((cat) => (
-          <button
-            key={cat}
-            onClick={() => setSelectedCategory(cat)}
-            className={`px-3.5 py-1.5 rounded-full font-mono text-xs uppercase tracking-wider transition-all ${
-              selectedCategory === cat
-                ? 'bg-[#222222] text-[#FAF3E1] font-bold shadow-sm'
-                : 'bg-[#F5E7C6] text-[#222222] hover:bg-[#222222] hover:text-[#FAF3E1]'
-            }`}
-          >
-            {cat}
-          </button>
-        ))}
-      </div>
-
       {/* Structured Technical Project Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {filteredProjects.map((project) => (
+        {techProjects.map((project) => (
           <div
             key={project.id}
             className="group bg-[#FAF3E1] border border-[#222222]/20 rounded-lg overflow-hidden flex flex-col justify-between hover:border-[#FF6D1F] hover:shadow-xl transition-all duration-300"
