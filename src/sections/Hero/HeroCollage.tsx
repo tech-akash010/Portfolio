@@ -8,27 +8,9 @@ export const HeroCollage: React.FC = () => {
   const { setCursorType, resetCursor } = useCursor();
 
   return (
-    <section className="relative min-h-[88svh] flex flex-col justify-between pt-32 sm:pt-36 md:pt-40 pb-16 px-6 sm:px-8 md:px-12 max-w-7xl mx-auto overflow-hidden">
-      {/* Top Subtle Studio Meta Bar */}
-      <motion.div
-        initial={{ opacity: 0, y: -10 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-        className="flex flex-wrap items-center justify-between gap-4 font-mono text-xs uppercase tracking-wider text-[#222222]/70 pb-6 border-b border-[#222222]/15"
-      >
-        <div className="flex items-center gap-2.5">
-          <span className="w-2 h-2 rounded-full bg-[#FF6D1F] animate-pulse" />
-          <span className="font-semibold text-[#222222]">AVAILABLE FOR SELECT COLLABORATIONS 2026</span>
-        </div>
-        <div className="flex items-center gap-3">
-          <span>KOLKATA, INDIA</span>
-          <span className="opacity-30">•</span>
-          <span>22.57°N 88.36°E</span>
-        </div>
-      </motion.div>
-
+    <section className="relative min-h-[85svh] flex flex-col justify-center pt-32 sm:pt-36 md:pt-40 pb-16 px-6 sm:px-8 md:px-12 max-w-7xl mx-auto overflow-hidden">
       {/* Center Giant Kinetic Typographic Stage */}
-      <div className="my-auto py-8 sm:py-12 space-y-1 sm:space-y-3">
+      <div className="py-6 sm:py-10 space-y-1 sm:space-y-3">
         <div className="overflow-hidden">
           <motion.h1
             initial={{ y: '100%' }}
