@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="900" viewBox="0 0 1200 900">
+  <rect width="1200" height="900" fill="#F5E7C6"/>
+
+  <!-- Circle, Triangle, Square in Brand Colors -->
+  <circle cx="360" cy="450" r="160" fill="#FF6D1F"/>
+  <polygon points="620,290 500,590 740,590" fill="#222222"/>
+  <rect x="760" y="320" width="220" height="220" fill="#FAF3E1" stroke="#222222" stroke-width="4"/>
+
+  <text x="120" y="160" font-family="'Outfit', sans-serif" font-weight="900" font-size="70" fill="#222222">
+    BAUHAUS 2026
+  </text>
+  <text x="120" y="210" font-family="'DM Mono', monospace" font-size="14" fill="#FF6D1F" letter-spacing="3">
+    PRIMARY FORMS: CIRCLE · TRIANGLE · SQUARE
+  </text>
+
+  <line x1="120" y1="720" x2="1080" y2="720" stroke="#222222" stroke-width="2"/>
+  <text x="120" y="760" font-family="'DM Mono', monospace" font-size="13" fill="#222222" opacity="0.8">
+    FORM FOLLOWS INTENTION // TRIBUTE TO KANDINSKY &amp; ITTEN
+  </text>
+</svg>

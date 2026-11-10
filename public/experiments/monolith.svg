@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="900" viewBox="0 0 1200 900">
+  <rect width="1200" height="900" fill="#FAF3E1"/>
+
+  <!-- Constructivist Geometric Elements -->
+  <!-- Giant Monolith Slab tilted 8 degrees -->
+  <g transform="translate(620, 440) rotate(-6)">
+    <rect x="-180" y="-320" width="360" height="640" fill="#222222"/>
+    <!-- Internal Orange Inset -->
+    <rect x="-140" y="-280" width="40" height="560" fill="#FF6D1F"/>
+  </g>
+
+  <!-- Big Red/Orange Circle behind -->
+  <circle cx="380" cy="460" r="220" fill="#FF6D1F" opacity="0.9"/>
+  <!-- Oatmeal circle overlay -->
+  <circle cx="440" cy="420" r="160" fill="#F5E7C6" opacity="0.6"/>
+
+  <!-- Constructivist lines -->
+  <line x1="80" y1="80" x2="1120" y2="80" stroke="#222222" stroke-width="4"/>
+  <line x1="80" y1="820" x2="1120" y2="820" stroke="#222222" stroke-width="4"/>
+  <line x1="80" y1="80" x2="80" y2="820" stroke="#222222" stroke-width="4"/>
+  <line x1="1120" y1="80" x2="1120" y2="820" stroke="#222222" stroke-width="4"/>
+
+  <!-- Monolith Typography Header -->
+  <text x="130" y="170" font-family="'DM Mono', monospace" font-size="14" fill="#FF6D1F" letter-spacing="4">ABSTRACT MONOLITH PRINT SERIES</text>
+  <text x="130" y="250" font-family="'Outfit', sans-serif" font-weight="900" font-size="70" fill="#222222">
+    EQUILIBRIUM.
+  </text>
+  <text x="130" y="300" font-family="'Playfair Display', serif" font-style="italic" font-size="28" fill="#222222" opacity="0.75">
+    Algorithmic Planar Balance &amp; Non-Representational Form
+  </text>
+
+  <!-- Risograph details -->
+  <g transform="translate(130, 680)">
+    <text x="0" y="20" font-family="'DM Mono', monospace" font-size="13" font-weight="bold" fill="#222222">EDITION: 1 OF 25 RISOGRAPH PRINTS</text>
+    <text x="0" y="44" font-family="'DM Mono', monospace" font-size="12" fill="#FF6D1F">INK: SOY-BASED CARBON BLACK &amp; FLUORESCENT ORANGE</text>
+    <text x="0" y="68" font-family="'DM Mono', monospace" font-size="11" fill="#222222" opacity="0.6">STUDIO EXPERIMENT // AKASH KUNDU 2026</text>
+  </g>
+</svg>

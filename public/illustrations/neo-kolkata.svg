@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="900" viewBox="0 0 1200 900">
+  <rect width="1200" height="900" fill="#F5E7C6"/>
+
+  <!-- Sun Circle in Accent Orange -->
+  <circle cx="820" cy="380" r="220" fill="#FF6D1F"/>
+  <circle cx="820" cy="380" r="220" fill="#FAF3E1" opacity="0.15"/>
+
+  <!-- Howrah Cantilever Structure Trusses -->
+  <g stroke="#222222" stroke-width="3" fill="none">
+    <path d="M 100 680 L 300 320 L 550 500 L 800 240 L 1050 480 L 1150 680"/>
+    <path d="M 100 680 L 1150 680"/>
+    <line x1="300" y1="320" x2="300" y2="680"/>
+    <line x1="550" y1="500" x2="550" y2="680"/>
+    <line x1="800" y1="240" x2="800" y2="680"/>
+    <line x1="1050" y1="480" x2="1050" y2="680"/>
+    
+    <!-- Cross Bracing -->
+    <line x1="100" y1="680" x2="300" y2="320"/>
+    <line x1="300" y1="680" x2="100" y2="320" opacity="0.4"/>
+    <line x1="300" y1="320" x2="550" y2="680"/>
+    <line x1="550" y1="500" x2="300" y2="680"/>
+    <line x1="550" y1="500" x2="800" y2="680"/>
+    <line x1="800" y1="240" x2="550" y2="680"/>
+    <line x1="800" y1="240" x2="1050" y2="680"/>
+    <line x1="1050" y1="480" x2="800" y2="680"/>
+  </g>
+
+  <!-- Heritage Electric Tramway Silhouette -->
+  <g transform="translate(420, 600)">
+    <rect width="280" height="90" rx="12" fill="#222222"/>
+    <!-- Windows -->
+    <rect x="25" y="18" width="40" height="35" rx="4" fill="#FAF3E1"/>
+    <rect x="80" y="18" width="40" height="35" rx="4" fill="#FAF3E1"/>
+    <rect x="135" y="18" width="40" height="35" rx="4" fill="#FAF3E1"/>
+    <rect x="190" y="18" width="40" height="35" rx="4" fill="#FAF3E1"/>
+    <!-- Tram Headlight -->
+    <circle cx="15" cy="50" r="8" fill="#FF6D1F"/>
+    <!-- Pantograph -->
+    <line x1="140" y1="0" x2="160" y2="-40" stroke="#222222" stroke-width="4"/>
+    <line x1="160" y1="-40" x2="190" y2="-40" stroke="#FF6D1F" stroke-width="4"/>
+  </g>
+
+  <!-- Foreground Ground Band -->
+  <rect x="0" y="700" width="1200" height="200" fill="#222222"/>
+  
+  <!-- Editorial Typography Header -->
+  <text x="100" y="140" font-family="'DM Mono', monospace" font-size="14" fill="#FF6D1F" letter-spacing="3">SPECULATIVE HERITAGE // SERIES 03</text>
+  <text x="100" y="220" font-family="'Outfit', sans-serif" font-weight="900" font-size="70" fill="#222222">
+    NEO-KOLKATA
+  </text>
+  <text x="100" y="270" font-family="'Playfair Display', serif" font-style="italic" font-size="30" fill="#222222" opacity="0.8">
+    Cyber-Heritage Vector Series Capturing Architecture &amp; Transit
+  </text>
+
+  <!-- Bottom Details -->
+  <text x="100" y="780" font-family="'DM Mono', monospace" font-size="15" fill="#FAF3E1">
+    PLATE 01: CANTILEVERED HORIZONS &amp; THE ELECTRIC TRAMWAY
+  </text>
+  <text x="100" y="810" font-family="'DM Mono', monospace" font-size="12" fill="#FF6D1F">
+    KOLKATA HERITAGE COMMISSION × DIGITAL ART ARCHIVE
+  </text>
+</svg>

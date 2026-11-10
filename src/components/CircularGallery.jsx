@@ -427,6 +427,12 @@ const CircularGallery = ({
         entry.loaded = true;
         wake();
       };
+      image.onerror = () => {
+        if (!textures.has(url)) return;
+        entry.loaded = true;
+        entry.ready = 1;
+        wake();
+      };
       image.src = url;
       return entry;
     };
@@ -1070,8 +1076,61 @@ const CircularGallery = ({
     >
       <canvas ref={canvasRef} className={CLASSES.canvas} aria-hidden="true" />
       <div ref={labelsRef} className={CLASSES.labels} aria-hidden="true" />
-      <div ref={captionRef} className={CLASSES.caption} aria-hidden={!open}>
+      <div ref={captionRef} className={CLASSES.caption} aria-hidden={!open} data-open={open ? 'true' : 'false'}>
+        {current?.category && (
+          <div style={{ marginBottom: '8px' }}>
+            <span
+              style={{
+                display: 'inline-block',
+                padding: '3px 12px',
+                borderRadius: '9999px',
+                backgroundColor: '#FF6D1F',
+                color: '#FAF3E1',
+                fontFamily: 'monospace',
+                fontSize: '11px',
+                fontWeight: 'bold',
+                letterSpacing: '0.08em',
+                textTransform: 'uppercase'
+              }}
+            >
+              {current.category}
+            </span>
+          </div>
+        )}
         {current?.description && <p className={CLASSES.captionText}>{current.description}</p>}
+        {current?.slug && (
+          <div style={{ marginTop: '14px', pointerEvents: 'auto' }}>
+            <a
+              href={`/projects/design/${current.slug}`}
+              className="gallery-case-study-btn"
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '8px',
+                padding: '8px 20px',
+                borderRadius: '9999px',
+                backgroundColor: '#222222',
+                color: '#FAF3E1',
+                fontFamily: 'monospace',
+                fontSize: '12px',
+                fontWeight: 'bold',
+                textTransform: 'uppercase',
+                letterSpacing: '0.06em',
+                textDecoration: 'none',
+                boxShadow: '0 4px 14px rgba(0,0,0,0.2)',
+                transition: 'all 0.2s ease',
+                pointerEvents: 'auto'
+              }}
+              onClick={e => e.stopPropagation()}
+            >
+              <span>Explore Case Study</span>
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                <line x1="7" y1="17" x2="17" y2="7"></line>
+                <polyline points="7 7 17 7 17 17"></polyline>
+              </svg>
+            </a>
+          </div>
+        )}
       </div>
       <button
         type="button"

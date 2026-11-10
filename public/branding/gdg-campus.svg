@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="900" viewBox="0 0 1200 900">
+  <rect width="1200" height="900" fill="#FAF3E1"/>
+
+  <!-- Brutalist poster block -->
+  <rect x="80" y="80" width="1040" height="740" fill="#222222" rx="16"/>
+
+  <!-- Google Developer Groups On Campus Branding -->
+  <g transform="translate(140, 160)">
+    <text x="0" y="30" font-family="'DM Mono', monospace" font-size="14" fill="#FF6D1F" letter-spacing="3">COMMUNITY BRAND KIT // 2025</text>
+    <text x="0" y="110" font-family="'Outfit', sans-serif" font-weight="900" font-size="74" fill="#FAF3E1">
+      GDG ON CAMPUS
+    </text>
+    <text x="0" y="160" font-family="'Playfair Display', serif" font-style="italic" font-size="32" fill="#FF6D1F">
+      Visual Direction &amp; Event Collateral Architecture
+    </text>
+  </g>
+
+  <!-- Badges / Lanyard Card Mockup -->
+  <g transform="translate(140, 380)">
+    <rect width="280" height="360" rx="16" fill="#FAF3E1"/>
+    <rect x="0" y="0" width="280" height="80" rx="16" fill="#FF6D1F"/>
+    <!-- Hole punch for lanyard -->
+    <rect x="110" y="20" width="60" height="12" rx="6" fill="#222222"/>
+    <text x="140" y="130" font-family="'Outfit', sans-serif" font-weight="900" font-size="24" fill="#222222" text-anchor="middle">SPEAKER PASS</text>
+    <text x="140" y="155" font-family="'DM Mono', monospace" font-size="12" fill="#FF6D1F" text-anchor="middle">ANNUAL DEVCON '25</text>
+    <circle cx="140" cy="220" r="40" fill="#F5E7C6"/>
+    <text x="140" y="228" font-family="'Outfit', sans-serif" font-weight="bold" font-size="28" fill="#222222" text-anchor="middle">AK</text>
+    <text x="140" y="290" font-family="'Geist', sans-serif" font-size="12" fill="#222222" text-anchor="middle">LEAD ORGANIZER &amp; DESIGNER</text>
+    <line x1="40" y1="310" x2="240" y2="310" stroke="#222222" stroke-width="1" opacity="0.2"/>
+    <text x="140" y="335" font-family="'DM Mono', monospace" font-size="10" fill="#222222" opacity="0.6" text-anchor="middle">VERIFIED BADGE #001</text>
+  </g>
+
+  <!-- Keynote Slide Frame -->
+  <g transform="translate(460, 380)">
+    <rect width="600" height="360" rx="16" fill="#F5E7C6"/>
+    <rect x="20" y="20" width="560" height="320" rx="12" fill="#222222"/>
+    <text x="50" y="80" font-family="'Outfit', sans-serif" font-weight="bold" font-size="32" fill="#FAF3E1">
+      BUILDING FOR BILLIONS
+    </text>
+    <text x="50" y="120" font-family="'DM Mono', monospace" font-size="14" fill="#FF6D1F">
+      TECHNICAL SPEAKER KEYNOTE DECK
+    </text>
+    
+    <!-- Visual Terminal Prompt -->
+    <rect x="50" y="150" width="500" height="150" rx="8" fill="#FAF3E1" opacity="0.05"/>
+    <text x="75" y="190" font-family="'DM Mono', monospace" font-size="13" fill="#FAF3E1">$ git clone https://github.com/akashkundu/community</text>
+    <text x="75" y="220" font-family="'DM Mono', monospace" font-size="13" fill="#FF6D1F">✓ 1,200+ ATTENDEES ACROSS 12 WORKSHOPS</text>
+    <text x="75" y="250" font-family="'DM Mono', monospace" font-size="13" fill="#FAF3E1" opacity="0.7">STATUS: IMPACT DELIVERED WITH 99.4% SATISFACTION</text>
+  </g>
+</svg>

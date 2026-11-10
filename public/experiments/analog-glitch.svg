@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="900" viewBox="0 0 1200 900">
+  <rect width="1200" height="900" fill="#FAF3E1"/>
+  <!-- Scanlines -->
+  <g stroke="#222222" stroke-width="2" opacity="0.1">
+    <line x1="0" y1="100" x2="1200" y2="100"/>
+    <line x1="0" y1="200" x2="1200" y2="200"/>
+    <line x1="0" y1="300" x2="1200" y2="300"/>
+    <line x1="0" y1="400" x2="1200" y2="400"/>
+    <line x1="0" y1="500" x2="1200" y2="500"/>
+    <line x1="0" y1="600" x2="1200" y2="600"/>
+    <line x1="0" y1="700" x2="1200" y2="700"/>
+    <line x1="0" y1="800" x2="1200" y2="800"/>
+  </g>
+
+  <!-- Shifted chromatic glitch blocks -->
+  <rect x="280" y="240" width="640" height="120" fill="#222222"/>
+  <rect x="300" y="220" width="600" height="40" fill="#FF6D1F" opacity="0.8"/>
+  <rect x="250" y="380" width="700" height="80" fill="#F5E7C6"/>
+  <rect x="290" y="480" width="580" height="160" fill="#222222"/>
+  <rect x="340" y="520" width="200" height="80" fill="#FF6D1F"/>
+
+  <text x="320" y="320" font-family="'Outfit', sans-serif" font-weight="900" font-size="70" fill="#FAF3E1">
+    ANALOG SIGNAL
+  </text>
+  <text x="340" y="580" font-family="'DM Mono', monospace" font-size="28" font-weight="bold" fill="#FAF3E1">
+    DISRUPTION
+  </text>
+
+  <text x="100" y="820" font-family="'DM Mono', monospace" font-size="13" fill="#222222" font-weight="bold">
+    EXPERIMENTAL CRT CATHODE RAYS // RESOLUTION 525 LINES
+  </text>
+</svg>
