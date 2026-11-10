@@ -819,3 +819,4 @@ export const featuredProjects: Project[] = [
   techProjects.find(p => p.slug === 'structo')!,
   techProjects.find(p => p.slug === 'rayofroads')!,
 ].filter(Boolean);
+

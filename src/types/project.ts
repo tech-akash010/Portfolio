@@ -85,3 +85,4 @@ export interface TechProject extends BaseProject {
 }
 
 export type Project = DesignProject | TechProject;
+

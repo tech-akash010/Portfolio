@@ -120,3 +120,4 @@ export const DesignProjectsPage: React.FC = () => {
     </div>
   );
 };
+

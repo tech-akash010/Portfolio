@@ -141,3 +141,4 @@ export const AboutPreview: React.FC = () => {
     </section>
   );
 };
+
