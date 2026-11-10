@@ -2,11 +2,8 @@ import React, { useState, useRef, useEffect, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import { useCursor } from '../../components/CustomCursor/CursorContext';
 import {
-  Play,
-  Pause,
   ChevronLeft,
   ChevronRight,
-  MoveHorizontal
 } from 'lucide-react';
 
 interface DesignExhibit {
@@ -94,19 +91,12 @@ export const DesignProjectsPage: React.FC = () => {
   const [isGrabbing, setIsGrabbing] = useState(false);
 
   // Auto-scroll State
-  const [isAutoScrolling, setIsAutoScrolling] = useState(true);
-  const [speed, setSpeed] = useState<'slow' | 'normal' | 'fast'>('normal');
+  const AUTO_SCROLL_SPEED = 60; // Smooth continuous runway speed
   const [isUserInteracting, setIsUserInteracting] = useState(false);
   const interactionTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   // Scroll Progress (0 to 100%)
   const [scrollProgress, setScrollProgress] = useState(0);
-
-  const speedValues = {
-    slow: 35,
-    normal: 65,
-    fast: 125,
-  };
 
   // Pause auto-scroll temporarily during interaction, resume after 2s of idle
   const notifyUserInteraction = useCallback(() => {
@@ -160,9 +150,8 @@ export const DesignProjectsPage: React.FC = () => {
           setScrollProgress((normalizedLeft / segmentWidth) * 100);
 
           // Auto-scroll from left to right (decreasing scrollLeft moves content rightwards)
-          if (isAutoScrolling && !isDragging.current && !isUserInteracting) {
-            const pxPerSec = speedValues[speed];
-            container.scrollLeft -= pxPerSec * dt;
+          if (!isDragging.current && !isUserInteracting) {
+            container.scrollLeft -= AUTO_SCROLL_SPEED * dt;
           }
         }
       }
@@ -172,7 +161,7 @@ export const DesignProjectsPage: React.FC = () => {
 
     animationFrameId = requestAnimationFrame(loop);
     return () => cancelAnimationFrame(animationFrameId);
-  }, [isAutoScrolling, isUserInteracting, speed]);
+  }, [isUserInteracting]);
 
   // Trackpad / Wheel Horizontal & Vertical Translation
   const handleWheel = (e: React.WheelEvent) => {
@@ -237,81 +226,32 @@ export const DesignProjectsPage: React.FC = () => {
             Visual communication, branding, graphic design, illustrations, UI/UX and creative direction.
           </p>
 
-          {/* Interactive Runway Controls Bar */}
-          <div className="flex flex-wrap items-center justify-between gap-4 mt-8 pt-6 border-t border-[#222222]/10">
-            {/* Left: Auto-scroll Toggle & Direction Indicator */}
-            <div className="flex items-center gap-3">
+          {/* Gallery Stepping Bar */}
+          <div className="flex items-center justify-between gap-4 mt-8 pt-6 border-t border-[#222222]/10">
+            <span className="font-mono text-xs uppercase tracking-widest text-[#222222]/50">
+              FEATURED EXHIBITS // 10 WORKS
+            </span>
+
+            {/* Stepping Arrows */}
+            <div className="flex items-center gap-2 font-mono text-xs">
               <button
                 type="button"
-                onClick={() => setIsAutoScrolling(!isAutoScrolling)}
-                onMouseEnter={() => setCursorType('hover')}
-                onMouseLeave={resetCursor}
-                className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#222222] text-[#FAF3E1] font-mono text-xs uppercase tracking-wider hover:bg-[#FF6D1F] transition-colors shadow-sm"
-                aria-label={isAutoScrolling ? 'Pause auto-scroll' : 'Resume auto-scroll'}
+                onClick={() => stepScroll('left')}
+                className="p-2 rounded-full bg-[#F5E7C6] border border-[#222222]/20 hover:bg-[#222222] hover:text-[#FAF3E1] transition-colors"
+                title="Scroll Left"
+                aria-label="Scroll Left"
               >
-                {isAutoScrolling ? (
-                  <>
-                    <Pause className="w-3.5 h-3.5 fill-current" />
-                    <span>Pause</span>
-                  </>
-                ) : (
-                  <>
-                    <Play className="w-3.5 h-3.5 fill-current" />
-                    <span>Resume</span>
-                  </>
-                )}
+                <ChevronLeft className="w-4 h-4" />
               </button>
-
-              <div className="flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#F5E7C6] border border-[#222222]/15 font-mono text-xs text-[#222222]">
-                <MoveHorizontal className="w-3.5 h-3.5 text-[#FF6D1F]" />
-                <span className="font-bold">SCROLL OR DRAG</span>
-              </div>
-            </div>
-
-            {/* Right: Step Arrow Buttons & Speed Selector */}
-            <div className="flex items-center gap-3 font-mono text-xs">
-              {/* Stepping Arrows */}
-              <div className="flex items-center gap-1.5">
-                <button
-                  type="button"
-                  onClick={() => stepScroll('left')}
-                  className="p-2 rounded-full bg-[#F5E7C6] border border-[#222222]/20 hover:bg-[#222222] hover:text-[#FAF3E1] transition-colors"
-                  title="Scroll Left"
-                  aria-label="Scroll Left"
-                >
-                  <ChevronLeft className="w-4 h-4" />
-                </button>
-                <button
-                  type="button"
-                  onClick={() => stepScroll('right')}
-                  className="p-2 rounded-full bg-[#F5E7C6] border border-[#222222]/20 hover:bg-[#222222] hover:text-[#FAF3E1] transition-colors"
-                  title="Scroll Right"
-                  aria-label="Scroll Right"
-                >
-                  <ChevronRight className="w-4 h-4" />
-                </button>
-              </div>
-
-              {/* Speed Buttons */}
-              <div className="flex items-center bg-[#F5E7C6] p-1 rounded-full border border-[#222222]/15">
-                {(['slow', 'normal', 'fast'] as const).map((s) => (
-                  <button
-                    key={s}
-                    type="button"
-                    onClick={() => {
-                      setSpeed(s);
-                      notifyUserInteraction();
-                    }}
-                    className={`px-3 py-1 rounded-full uppercase tracking-wider transition-colors ${
-                      speed === s
-                        ? 'bg-[#222222] text-[#FAF3E1] font-bold'
-                        : 'text-[#222222]/70 hover:text-[#222222]'
-                    }`}
-                  >
-                    {s}
-                  </button>
-                ))}
-              </div>
+              <button
+                type="button"
+                onClick={() => stepScroll('right')}
+                className="p-2 rounded-full bg-[#F5E7C6] border border-[#222222]/20 hover:bg-[#222222] hover:text-[#FAF3E1] transition-colors"
+                title="Scroll Right"
+                aria-label="Scroll Right"
+              >
+                <ChevronRight className="w-4 h-4" />
+              </button>
             </div>
           </div>
         </div>
