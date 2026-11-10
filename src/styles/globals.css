@@ -17,10 +17,10 @@
   --color-accent-orange: #FF6D1F;
   --color-dark-charcoal: #222222;
 
-  --font-display: 'Space Grotesk', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-display: 'Outfit', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-body: 'Geist', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   --font-editorial: 'Playfair Display', Georgia, serif;
-  --font-mono: 'Space Mono', monospace;
+  --font-mono: 'DM Mono', monospace;
 }
 
 @layer base {
@@ -48,9 +48,9 @@
   }
 }
 
-/* Custom Utilities for Editorial & Swiss Layouts */
+/* Custom Utilities for Neo-Minimalist & Swiss Layouts */
 .font-display {
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: 'Outfit', sans-serif;
 }
 
 .font-editorial {
@@ -58,11 +58,11 @@
 }
 
 .font-mono {
-  font-family: 'Space Mono', monospace;
+  font-family: 'DM Mono', monospace;
 }
 
 .font-body {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Geist', sans-serif;
 }
 
 /* Swiss Grid Lines */

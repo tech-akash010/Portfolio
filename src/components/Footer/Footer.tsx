@@ -130,7 +130,7 @@ export const Footer: React.FC = () => {
               Art-directed digital experience. Engineered with React 19, TypeScript, Tailwind CSS, Motion & GSAP.
             </p>
             <div className="pt-2 text-[10px] space-y-1 text-[#FAF3E1]/40">
-              <div>TYPE: Space Grotesk, Inter, Space Mono, Playfair</div>
+              <div>TYPE: Outfit, Geist, Playfair Display, DM Mono</div>
               <div>PALETTE: #FAF3E1 / #F5E7C6 / #FF6D1F / #222222</div>
             </div>
           </div>
