@@ -32,70 +32,70 @@ const CATEGORIES: ('All' | DesignSubcategory)[] = [
 
 const GALLERY_ITEMS: CircularGalleryItem[] = [
   {
-    image: '/posters/poster-lab.svg',
+    image: '/posters/poster-lab.png',
     text: 'Kinetic Type Lab',
     category: 'Event Posters',
     slug: 'kinetic-type-poster-lab',
     description: 'Experimental typography and Swiss poster explorations deconstructing Josef Müller-Brockmann grid principles.',
   },
   {
-    image: '/branding/aether-brand.svg',
+    image: '/branding/aether-brand.png',
     text: 'Aether Identity',
     category: 'Branding and Identity',
     slug: 'aether-identity-system',
     description: 'Dynamic brand identity system and 80-page specification book for a generative media studio.',
   },
   {
-    image: '/illustrations/neo-kolkata.svg',
+    image: '/illustrations/neo-kolkata.png',
     text: 'Neo-Kolkata',
     category: 'Illustrations',
     slug: 'neo-kolkata-illustrated',
     description: 'Cyber-heritage vector series capturing historic colonial arches, trams, and Howrah Bridge cantilever structures.',
   },
   {
-    image: '/ui/nexus-ds.svg',
+    image: '/ui/nexus-ds.png',
     text: 'Nexus Design System',
     category: 'UI/UX',
     slug: 'nexus-design-system',
     description: 'Modular cross-platform design token architecture and 140+ accessible high-density UI components.',
   },
   {
-    image: '/branding/gdg-campus.svg',
+    image: '/branding/gdg-campus.png',
     text: 'GDG Campus Brand',
     category: 'Social Media Design',
     slug: 'gdg-campus-brand-kit',
     description: 'Dynamic visual identity package, speaker decks, and brutalist social collateral for developer communities.',
   },
   {
-    image: '/experiments/monolith.svg',
+    image: '/experiments/monolith.png',
     text: 'Abstract Monolith',
     category: 'Creative Experiments',
     slug: 'abstract-monolith-print',
     description: 'Constructivist geometric equilibrium study rendered in carbon black soy ink and safety orange paper textures.',
   },
   {
-    image: '/posters/swiss-grid-74.svg',
+    image: '/posters/swiss-grid-74.png',
     text: 'Swiss Grid 74',
     category: 'Event Posters',
     slug: 'kinetic-type-poster-lab',
     description: 'Archival study exploring 12-column baseline typographic grids and asymmetrical planar tension.',
   },
   {
-    image: '/branding/solaris-spatial.svg',
+    image: '/branding/solaris-spatial.png',
     text: 'Solaris Spatial UI',
     category: 'UI/UX',
     slug: 'nexus-design-system',
     description: 'Speculative 3D spatial interface tokens, volumetric coordinate typography, and 120 FPS FOV rendering.',
   },
   {
-    image: '/experiments/analog-glitch.svg',
+    image: '/experiments/analog-glitch.png',
     text: 'Analog Disruption',
     category: 'Creative Experiments',
     slug: 'abstract-monolith-print',
     description: 'Cathode-ray tube scanline investigations and optical halftone distortion algorithms.',
   },
   {
-    image: '/posters/bauhaus-form.svg',
+    image: '/posters/bauhaus-form.png',
     text: 'Bauhaus 2026',
     category: 'Event Posters',
     slug: 'kinetic-type-poster-lab',
@@ -123,7 +123,7 @@ export const DesignProjectsPage: React.FC = () => {
   };
 
   return (
-    <div className="pt-28 pb-24 px-6 sm:px-8 md:px-12 max-w-7xl mx-auto min-h-screen">
+    <div className="pt-36 sm:pt-40 md:pt-44 pb-24 px-6 sm:px-8 md:px-12 max-w-7xl mx-auto min-h-screen">
       {/* Editorial Header */}
       <div className="border-b border-[#222222]/15 pb-8 mb-10">
         <div className="flex flex-wrap items-center justify-between gap-4 mb-3">
@@ -140,7 +140,7 @@ export const DesignProjectsPage: React.FC = () => {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-end">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-end mt-2">
           <div className="lg:col-span-8">
             <h1 className="font-display text-5xl sm:text-6xl md:text-7xl font-black tracking-tight text-[#222222]">
               DESIGN PORTFOLIO<span className="text-[#FF6D1F]">.</span>

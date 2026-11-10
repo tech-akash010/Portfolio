@@ -66,7 +66,7 @@ export const ProjectDetailPage: React.FC = () => {
   const nextProject = currentIndex < projectsList.length - 1 ? projectsList[currentIndex + 1] : null;
 
   return (
-    <article className="pt-28 pb-24 px-6 sm:px-8 md:px-12 max-w-5xl mx-auto min-h-screen">
+    <article className="pt-36 sm:pt-40 md:pt-44 pb-24 px-6 sm:px-8 md:px-12 max-w-5xl mx-auto min-h-screen">
       {/* Top Back Navigation Bar */}
       <div className="flex items-center justify-between border-b border-[#222222]/15 pb-4 mb-8">
         <Link

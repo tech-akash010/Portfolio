@@ -32,7 +32,7 @@ export const TechProjectsPage: React.FC = () => {
   });
 
   return (
-    <div className="pt-28 pb-24 px-6 sm:px-8 md:px-12 max-w-7xl mx-auto min-h-screen">
+    <div className="pt-36 sm:pt-40 md:pt-44 pb-24 px-6 sm:px-8 md:px-12 max-w-7xl mx-auto min-h-screen">
       {/* Header */}
       <div className="border-b border-[#222222]/15 pb-8 mb-10">
         <div className="flex items-center gap-2 font-mono text-xs text-[#FF6D1F] uppercase tracking-widest mb-2">

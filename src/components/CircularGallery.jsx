@@ -115,7 +115,7 @@ void main() {
   vec3 color = mix(uPlaceholder, image, uReady);
   float luma = dot(color, vec3(0.2126, 0.7152, 0.0722));
   color = mix(color, vec3(luma), uGray) * (1.0 - uDim);
-  float body = cover * mix(0.08, 1.0, uReady);
+  float body = cover * mix(0.92, 1.0, uReady);
   float band = abs(d - uRingGap - uRingWidth * 0.5) - uRingWidth * 0.5;
   float ring = clamp(0.5 - band / pixel, 0.0, 1.0) * uRing;
   vec4 card = vec4(color * body, body);
@@ -348,7 +348,7 @@ const CircularGallery = ({
     const anisotropy = gl.getExtension('EXT_texture_filter_anisotropic');
     const blank = gl.createTexture();
     gl.bindTexture(gl.TEXTURE_2D, blank);
-    gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, 1, 1, 0, gl.RGBA, gl.UNSIGNED_BYTE, new Uint8Array([0, 0, 0, 0]));
+    gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, 1, 1, 0, gl.RGBA, gl.UNSIGNED_BYTE, new Uint8Array([245, 231, 198, 255]));
 
     const probe = document.createElement('canvas').getContext('2d', { willReadFrequently: true });
     const colorCache = new Map();
@@ -398,40 +398,102 @@ const CircularGallery = ({
     let lastItems = null;
     let typing = false;
 
-    const textureFor = url => {
-      const existing = textures.get(url);
-      if (existing) return existing;
-      const entry = { texture: null, aspect: 1, ready: 0, loaded: false };
-      textures.set(url, entry);
-      const image = new Image();
-      image.crossOrigin = 'anonymous';
-      image.decoding = 'async';
-      image.onload = () => {
-        if (!textures.has(url)) return;
-        const texture = gl.createTexture();
-        gl.bindTexture(gl.TEXTURE_2D, texture);
-        gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL, true);
-        gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, image);
-        gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL, false);
-        gl.generateMipmap(gl.TEXTURE_2D);
-        gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR_MIPMAP_LINEAR);
-        gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR);
-        gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
-        gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
-        if (anisotropy) {
-          const max = gl.getParameter(anisotropy.MAX_TEXTURE_MAX_ANISOTROPY_EXT);
-          gl.texParameterf(gl.TEXTURE_2D, anisotropy.TEXTURE_MAX_ANISOTROPY_EXT, Math.min(8, max));
+    const createFallbackCanvasTexture = (entry, label) => {
+      try {
+        const c = document.createElement('canvas');
+        c.width = 600;
+        c.height = 800;
+        const ctx = c.getContext('2d');
+        if (ctx) {
+          ctx.fillStyle = '#FAF3E1';
+          ctx.fillRect(0, 0, 600, 800);
+          ctx.fillStyle = '#F5E7C6';
+          ctx.fillRect(40, 40, 520, 720);
+          ctx.strokeStyle = '#222222';
+          ctx.lineWidth = 4;
+          ctx.strokeRect(40, 40, 520, 720);
+          ctx.fillStyle = '#FF6D1F';
+          ctx.fillRect(60, 60, 480, 12);
+          ctx.beginPath();
+          ctx.arc(300, 360, 110, 0, Math.PI * 2);
+          ctx.fillStyle = '#FF6D1F';
+          ctx.fill();
+          ctx.fillStyle = '#222222';
+          ctx.fillRect(240, 300, 120, 120);
+          ctx.fillStyle = '#222222';
+          ctx.font = 'bold 32px sans-serif';
+          ctx.textAlign = 'center';
+          ctx.fillText(label || 'DESIGN WORK', 300, 560);
+          ctx.fillStyle = '#FF6D1F';
+          ctx.font = 'bold 18px monospace';
+          ctx.fillText('SWISS EDITORIAL SYSTEM', 300, 600);
+
+          const texture = gl.createTexture();
+          gl.bindTexture(gl.TEXTURE_2D, texture);
+          gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL, true);
+          gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, c);
+          gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL, false);
+          gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR);
+          gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR);
+          gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
+          gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
+          entry.texture = texture;
+          entry.aspect = 0.75;
+          entry.loaded = true;
+          entry.ready = 1;
+          wake();
         }
-        entry.texture = texture;
-        entry.aspect = image.naturalWidth / Math.max(1, image.naturalHeight);
-        entry.loaded = true;
-        wake();
-      };
-      image.onerror = () => {
-        if (!textures.has(url)) return;
+      } catch {
         entry.loaded = true;
         entry.ready = 1;
         wake();
+      }
+    };
+
+    const textureFor = url => {
+      const existing = textures.get(url);
+      if (existing) return existing;
+      const entry = { texture: null, aspect: 0.75, ready: 0, loaded: false };
+      textures.set(url, entry);
+      const image = new Image();
+      // Only set crossOrigin for remote http(s) URLs, not local paths (fixes Safari CORS block)
+      if (/^https?:\/\//i.test(url)) {
+        image.crossOrigin = 'anonymous';
+      }
+      image.decoding = 'async';
+      image.onload = () => {
+        if (!textures.has(url)) return;
+        try {
+          const texture = gl.createTexture();
+          gl.bindTexture(gl.TEXTURE_2D, texture);
+          gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL, true);
+          gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, image);
+          gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL, false);
+          try {
+            gl.generateMipmap(gl.TEXTURE_2D);
+            gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR_MIPMAP_LINEAR);
+          } catch {
+            gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR);
+          }
+          gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR);
+          gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
+          gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
+          if (anisotropy) {
+            const max = gl.getParameter(anisotropy.MAX_TEXTURE_MAX_ANISOTROPY_EXT);
+            gl.texParameterf(gl.TEXTURE_2D, anisotropy.TEXTURE_MAX_ANISOTROPY_EXT, Math.min(8, max));
+          }
+          entry.texture = texture;
+          entry.aspect = (image.naturalWidth || 600) / Math.max(1, image.naturalHeight || 800);
+          entry.loaded = true;
+          entry.ready = 1;
+          wake();
+        } catch {
+          createFallbackCanvasTexture(entry);
+        }
+      };
+      image.onerror = () => {
+        if (!textures.has(url)) return;
+        createFallbackCanvasTexture(entry);
       };
       image.src = url;
       return entry;
