@@ -9,15 +9,10 @@ export const CreativeIdentities: React.FC = () => {
   return (
     <section id="studio-disciplines" className="py-24 px-6 sm:px-8 md:px-12 max-w-7xl mx-auto border-t border-[#222222]/15">
       {/* Studio Header */}
-      <div className="flex flex-col sm:flex-row sm:items-end justify-between border-b border-[#222222]/15 pb-6 mb-12 gap-4">
-        <div>
-          <h2 className="font-display text-4xl sm:text-5xl font-black tracking-tight text-[#222222]">
-            TWO DISCIPLINES<span className="text-[#FF6D1F]">.</span> ONE VISION<span className="text-[#FF6D1F]">.</span>
-          </h2>
-        </div>
-        <p className="font-mono text-xs text-[#222222]/70 max-w-xs leading-relaxed">
-          Bridging visual precision with computational logic. Select a discipline to inspect archives.
-        </p>
+      <div className="border-b border-[#222222]/15 pb-6 mb-12">
+        <h2 className="font-display text-4xl sm:text-5xl font-black tracking-tight text-[#222222]">
+          TWO DISCIPLINES<span className="text-[#FF6D1F]">.</span> ONE VISION<span className="text-[#FF6D1F]">.</span>
+        </h2>
       </div>
 
       {/* Split-Screen Architectural Studio Panels */}
