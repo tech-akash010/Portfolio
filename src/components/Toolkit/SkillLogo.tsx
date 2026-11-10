@@ -239,3 +239,4 @@ export const SkillLogo: React.FC<SkillLogoProps> = ({ name, className = 'w-10 h-
       );
   }
 };
+
