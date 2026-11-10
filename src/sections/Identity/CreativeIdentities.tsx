@@ -72,7 +72,7 @@ export const CreativeIdentities: React.FC = () => {
               <span className="font-mono text-[10px] text-[#FAF3E1]/50 uppercase tracking-widest block">
                 FEATURING:
               </span>
-              <div className="flex -space-x-3 transition-all duration-500 group-hover:space-x-2">
+              <div className="flex -space-x-3 transition-all duration-500 ease-out group-hover:space-x-2">
                 {[
                   {
                     name: 'Art of Not Giving a Shit',
@@ -89,7 +89,7 @@ export const CreativeIdentities: React.FC = () => {
                 ].map((art, idx) => (
                   <div
                     key={art.name}
-                    className="w-12 h-16 rounded-md bg-[#F5E7C6] border-2 border-[#222222] overflow-hidden shadow-lg transform transition-transform duration-500 group-hover:-translate-y-2 group-hover:rotate-0"
+                    className="w-12 h-16 rounded-md bg-[#F5E7C6] border-2 border-[#222222] overflow-hidden shadow-lg transform transition-all duration-500 ease-out group-hover:-translate-y-2 group-hover:rotate-0"
                     style={{
                       transform: `rotate(${(idx - 1) * 6}deg)`,
                     }}

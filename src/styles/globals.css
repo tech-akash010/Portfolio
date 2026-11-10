@@ -113,6 +113,9 @@
   display: flex;
   width: max-content;
   animation: marquee-scroll 24s linear infinite;
+  will-change: transform;
+  backface-visibility: hidden;
+  transform: translateZ(0);
 }
 
 .animate-marquee:hover {
@@ -133,6 +136,9 @@
   display: flex;
   width: max-content;
   animation: marquee-scroll-ltr 38s linear infinite;
+  will-change: transform;
+  backface-visibility: hidden;
+  transform: translateZ(0);
 }
 
 .animate-marquee-ltr:hover {
