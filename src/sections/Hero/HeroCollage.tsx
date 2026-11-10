@@ -1,85 +1,120 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
-import { motion, AnimatePresence } from 'motion/react';
+import { motion } from 'motion/react';
 import { useCursor } from '../../components/CustomCursor/CursorContext';
-import { ArrowUpRight } from 'lucide-react';
+import { ArrowUpRight, ArrowDown } from 'lucide-react';
 
 export const HeroCollage: React.FC = () => {
   const { setCursorType, resetCursor } = useCursor();
-  const [activeDiscipline, setActiveDiscipline] = useState<'all' | 'design' | 'tech'>('all');
 
   return (
-    <section className="relative min-h-[85svh] flex flex-col justify-center pt-32 sm:pt-36 pb-16 px-6 sm:px-8 md:px-12 max-w-7xl mx-auto overflow-hidden">
-      {/* Main Studio Canvas */}
-      <div className="relative z-10 my-auto py-6 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
-        {/* Left Column: Oversized Kinetic Headlines & Bio */}
-        <div className="lg:col-span-7 space-y-6">
-          {/* Staggered Giant Headlines */}
-          <div className="space-y-1">
-            <div className="overflow-hidden">
-              <motion.h1
-                initial={{ y: '100%' }}
-                animate={{ y: 0 }}
-                transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: 0.05 }}
-                className="font-display text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-black tracking-tighter text-[#222222] leading-[0.88]"
-              >
-                THINK<span className="text-[#FF6D1F]">.</span>
-              </motion.h1>
-            </div>
+    <section className="relative min-h-[88svh] flex flex-col justify-between pt-32 sm:pt-36 md:pt-40 pb-16 px-6 sm:px-8 md:px-12 max-w-7xl mx-auto overflow-hidden">
+      {/* Top Subtle Studio Meta Bar */}
+      <motion.div
+        initial={{ opacity: 0, y: -10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+        className="flex flex-wrap items-center justify-between gap-4 font-mono text-xs uppercase tracking-wider text-[#222222]/70 pb-6 border-b border-[#222222]/15"
+      >
+        <div className="flex items-center gap-2.5">
+          <span className="w-2 h-2 rounded-full bg-[#FF6D1F] animate-pulse" />
+          <span className="font-semibold text-[#222222]">AVAILABLE FOR SELECT COLLABORATIONS 2026</span>
+        </div>
+        <div className="flex items-center gap-3">
+          <span>KOLKATA, INDIA</span>
+          <span className="opacity-30">•</span>
+          <span>22.57°N 88.36°E</span>
+        </div>
+      </motion.div>
 
-            <div className="overflow-hidden flex flex-wrap items-baseline gap-4">
-              <motion.h1
-                initial={{ y: '100%' }}
-                animate={{ y: 0 }}
-                transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: 0.15 }}
-                className="font-display text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-black tracking-tighter text-[#222222] leading-[0.88]"
-              >
-                CREATE<span className="text-[#FF6D1F]">.</span>
-              </motion.h1>
-              <motion.span
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.6, delay: 0.35 }}
-                className="font-editorial italic text-2xl sm:text-3xl md:text-4xl text-[#222222]/60 font-normal"
-              >
-                a mind in motion
-              </motion.span>
-            </div>
+      {/* Center Giant Kinetic Typographic Stage */}
+      <div className="my-auto py-8 sm:py-12 space-y-1 sm:space-y-3">
+        <div className="overflow-hidden">
+          <motion.h1
+            initial={{ y: '100%' }}
+            animate={{ y: 0 }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.05 }}
+            className="font-display text-7xl sm:text-8xl md:text-9xl lg:text-[10rem] xl:text-[11.5rem] font-black tracking-tighter text-[#222222] leading-[0.84]"
+          >
+            THINK<span className="text-[#FF6D1F]">.</span>
+          </motion.h1>
+        </div>
 
-            <div className="overflow-hidden">
-              <motion.h1
-                initial={{ y: '100%' }}
-                animate={{ y: 0 }}
-                transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: 0.25 }}
-                className="font-display text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-black tracking-tighter text-[#222222] leading-[0.88]"
-              >
-                BUILD<span className="text-[#FF6D1F]">.</span>
-              </motion.h1>
-            </div>
-          </div>
+        <div className="overflow-hidden flex flex-wrap items-baseline gap-4 sm:gap-6 md:gap-8">
+          <motion.h1
+            initial={{ y: '100%' }}
+            animate={{ y: 0 }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.15 }}
+            className="font-display text-7xl sm:text-8xl md:text-9xl lg:text-[10rem] xl:text-[11.5rem] font-black tracking-tighter text-[#222222] leading-[0.84]"
+          >
+            CREATE<span className="text-[#FF6D1F]">.</span>
+          </motion.h1>
+          <motion.span
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.7, delay: 0.35 }}
+            className="font-editorial italic text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-[#222222]/55 font-normal tracking-normal select-none"
+          >
+            a mind in motion
+          </motion.span>
+        </div>
 
-          {/* Supporting Bio Description */}
+        <div className="overflow-hidden">
+          <motion.h1
+            initial={{ y: '100%' }}
+            animate={{ y: 0 }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.25 }}
+            className="font-display text-7xl sm:text-8xl md:text-9xl lg:text-[10rem] xl:text-[11.5rem] font-black tracking-tighter text-[#222222] leading-[0.84]"
+          >
+            BUILD<span className="text-[#FF6D1F]">.</span>
+          </motion.h1>
+        </div>
+      </div>
+
+      {/* Editorial Hairline Divider & Balanced Split Row */}
+      <div className="border-t border-[#222222]/15 pt-8 grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        {/* Left Column: Author Narrative & Focus Areas */}
+        <div className="lg:col-span-7 space-y-4">
           <motion.p
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-            className="font-body text-base sm:text-lg md:text-xl text-[#222222]/85 max-w-xl leading-relaxed"
+            transition={{ duration: 0.6, delay: 0.35 }}
+            className="font-body text-lg sm:text-xl md:text-2xl text-[#222222]/90 leading-relaxed font-normal max-w-2xl"
           >
-            I'm <strong className="text-[#222222] font-semibold">Akash Kundu (AK)</strong>, an engineering student, designer and software developer based in India. I craft high-performance software systems and art-directed digital identities.
+            I'm <strong className="text-[#222222] font-semibold">Akash Kundu (AK)</strong> — an engineering student, software developer, and graphic designer based in India. I engineer high-performance systems and architect art-directed visual identities.
           </motion.p>
 
-          {/* Quick Action Navigation CTAs */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.6, delay: 0.45 }}
+            className="flex flex-wrap items-center gap-x-6 gap-y-2 pt-1 font-mono text-xs text-[#222222]/65"
+          >
+            <span className="flex items-center gap-1.5">
+              <span className="text-[#FF6D1F] font-bold">/</span> Full-Stack Systems
+            </span>
+            <span className="flex items-center gap-1.5">
+              <span className="text-[#FF6D1F] font-bold">/</span> Editorial Design &amp; Posters
+            </span>
+            <span className="flex items-center gap-1.5">
+              <span className="text-[#FF6D1F] font-bold">/</span> Computational Logic
+            </span>
+          </motion.div>
+        </div>
+
+        {/* Right Column: Actions & Scroll Cue */}
+        <div className="lg:col-span-5 flex flex-col sm:flex-row lg:flex-col items-start lg:items-end justify-between gap-5">
           <motion.div
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.5 }}
-            className="flex flex-wrap items-center gap-4 pt-2"
+            transition={{ duration: 0.6, delay: 0.45 }}
+            className="flex flex-wrap items-center gap-3"
           >
             <Link
               to="/projects"
               onMouseEnter={() => setCursorType('hover')}
               onMouseLeave={resetCursor}
-              className="group inline-flex items-center gap-3 px-7 py-3.5 bg-[#222222] text-[#FAF3E1] font-mono text-xs uppercase tracking-wider rounded-full hover:bg-[#FF6D1F] transition-all duration-300 shadow-sm"
+              className="group inline-flex items-center gap-3 px-8 py-4 bg-[#222222] text-[#FAF3E1] font-mono text-xs uppercase tracking-wider rounded-full hover:bg-[#FF6D1F] transition-all duration-300 shadow-sm"
             >
               <span>Explore Projects Archive</span>
               <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
@@ -89,110 +124,22 @@ export const HeroCollage: React.FC = () => {
               to="/about"
               onMouseEnter={() => setCursorType('hover')}
               onMouseLeave={resetCursor}
-              className="inline-flex items-center gap-2 px-6 py-3.5 border border-[#222222]/25 text-[#222222] font-mono text-xs uppercase tracking-wider rounded-full hover:border-[#FF6D1F] hover:text-[#FF6D1F] transition-colors"
+              className="inline-flex items-center gap-2 px-6 py-4 border border-[#222222]/25 text-[#222222] font-mono text-xs uppercase tracking-wider rounded-full hover:border-[#FF6D1F] hover:text-[#FF6D1F] transition-colors"
             >
               <span>Studio Dossier / Bio</span>
             </Link>
           </motion.div>
-        </div>
 
-        {/* Right Column: Architectural Discipline Showcase */}
-        <div className="lg:col-span-5 relative w-full flex flex-col justify-center">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.96, y: 20 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="relative w-full bg-[#F5E7C6] border border-[#222222]/20 p-6 sm:p-8 rounded-2xl shadow-xl shadow-[#222222]/5"
+          <motion.a
+            href="#studio-disciplines"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.6, delay: 0.55 }}
+            className="font-mono text-xs text-[#222222]/50 hover:text-[#FF6D1F] transition-colors flex items-center gap-1.5 group pt-1"
           >
-            {/* Discipline Selector Tabs */}
-            <div className="flex items-center gap-2 mb-6">
-              <button
-                type="button"
-                onClick={() => setActiveDiscipline('all')}
-                className={`px-3 py-1 rounded-full font-mono text-xs uppercase tracking-wider transition-all duration-200 ${
-                  activeDiscipline === 'all'
-                    ? 'bg-[#222222] text-[#FAF3E1] font-bold'
-                    : 'bg-[#FAF3E1] text-[#222222] hover:bg-[#222222] hover:text-[#FAF3E1]'
-                }`}
-              >
-                Hybrid
-              </button>
-              <button
-                type="button"
-                onClick={() => setActiveDiscipline('design')}
-                className={`px-3 py-1 rounded-full font-mono text-xs uppercase tracking-wider transition-all duration-200 ${
-                  activeDiscipline === 'design'
-                    ? 'bg-[#FF6D1F] text-[#FAF3E1] font-bold'
-                    : 'bg-[#FAF3E1] text-[#222222] hover:bg-[#FF6D1F] hover:text-[#FAF3E1]'
-                }`}
-              >
-                Design
-              </button>
-              <button
-                type="button"
-                onClick={() => setActiveDiscipline('tech')}
-                className={`px-3 py-1 rounded-full font-mono text-xs uppercase tracking-wider transition-all duration-200 ${
-                  activeDiscipline === 'tech'
-                    ? 'bg-[#FF6D1F] text-[#FAF3E1] font-bold'
-                    : 'bg-[#FAF3E1] text-[#222222] hover:bg-[#FF6D1F] hover:text-[#FAF3E1]'
-                }`}
-              >
-                Code
-              </button>
-            </div>
-
-            {/* Dynamic Discipline Screen */}
-            <div className="h-60 bg-[#222222] text-[#FAF3E1] p-6 rounded-xl relative overflow-hidden flex flex-col justify-center">
-              {/* Background Grid Pattern */}
-              <div
-                className="absolute inset-0 opacity-10 pointer-events-none"
-                style={{
-                  backgroundImage:
-                    'linear-gradient(to right, rgba(250, 243, 225, 0.2) 1px, transparent 1px), linear-gradient(to bottom, rgba(250, 243, 225, 0.2) 1px, transparent 1px)',
-                  backgroundSize: '24px 24px',
-                }}
-              />
-
-              <div className="relative z-10">
-                <AnimatePresence mode="wait">
-                  <motion.div
-                    key={activeDiscipline}
-                    initial={{ opacity: 0, y: 8 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -8 }}
-                    transition={{ duration: 0.25, ease: 'easeOut' }}
-                  >
-                    <div className="font-display font-bold text-2xl sm:text-3xl tracking-tight text-[#FAF3E1]">
-                      {activeDiscipline === 'design'
-                        ? 'Editorial Typography'
-                        : activeDiscipline === 'tech'
-                        ? 'Full-Stack Architecture'
-                        : 'Design × Engineering'}
-                    </div>
-                    <p className="font-body text-sm sm:text-base text-[#FAF3E1]/75 mt-3 leading-relaxed">
-                      {activeDiscipline === 'design'
-                        ? 'Swiss grids, branding systems, vector craft & UI tokens.'
-                        : activeDiscipline === 'tech'
-                        ? 'TypeScript, React 19, Node.js, WebGL & computational algorithms.'
-                        : 'A balanced equilibrium of visual aesthetics & systems code.'}
-                    </p>
-                  </motion.div>
-                </AnimatePresence>
-              </div>
-            </div>
-
-            {/* Technical Specifications Matrix */}
-            <div className="grid grid-cols-2 gap-3 mt-4 font-mono text-xs">
-              <div className="p-3.5 bg-[#FAF3E1] border border-[#222222]/10 rounded-xl">
-                <span className="text-[10px] text-[#222222]/60 block uppercase">CORE STACK</span>
-                <span className="font-bold text-[#222222] text-sm mt-0.5 block">React 19 / TS / Node</span>
-              </div>
-              <div className="p-3.5 bg-[#FAF3E1] border border-[#222222]/10 rounded-xl">
-                <span className="text-[10px] text-[#222222]/60 block uppercase">DESIGN TOOLS</span>
-                <span className="font-bold text-[#FF6D1F] text-sm mt-0.5 block">Figma / Illustrator</span>
-              </div>
-            </div>
-          </motion.div>
+            <span>Scroll to explore disciplines</span>
+            <ArrowDown className="w-3.5 h-3.5 group-hover:translate-y-0.5 transition-transform text-[#FF6D1F]" />
+          </motion.a>
         </div>
       </div>
     </section>
