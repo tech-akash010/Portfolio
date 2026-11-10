@@ -60,11 +60,56 @@ export const CreativeIdentities: React.FC = () => {
               {['Branding', 'Poster Lab', 'Illustrations', 'Design Systems', 'UI/UX'].map((tag) => (
                 <span
                   key={tag}
-                  className="px-2.5 py-1 rounded bg-[#FAF3E1]/10 text-[#FAF3E1]/80 font-mono text-[10px] tracking-wide border border-[#FAF3E1]/10"
+                  className="px-2.5 py-1 rounded bg-[#FAF3E1]/10 text-[#FAF3E1]/80 font-mono text-[10px] tracking-wide border border-[#FAF3E1]/10 group-hover:border-[#FF6D1F]/40 transition-colors"
                 >
                   {tag}
                 </span>
               ))}
+            </div>
+
+            {/* Interactive Fan-out Artwork Micro Previews */}
+            <div className="mt-8 pt-4 flex items-center gap-3 overflow-hidden">
+              <span className="font-mono text-[10px] text-[#FAF3E1]/50 uppercase tracking-widest block">
+                FEATURING:
+              </span>
+              <div className="flex -space-x-3 transition-all duration-500 group-hover:space-x-2">
+                {[
+                  {
+                    name: 'Art of Not Giving a Shit',
+                    url: 'https://github.com/tech-akash010/portfolio-assets/blob/main/ART%20of%20not%20giving%20SHIT.png?raw=true',
+                  },
+                  {
+                    name: 'BMW Poster',
+                    url: 'https://github.com/tech-akash010/portfolio-assets/blob/main/BMW%20poster.png?raw=true',
+                  },
+                  {
+                    name: 'Lewis 4.0',
+                    url: 'https://github.com/tech-akash010/portfolio-assets/blob/main/Lewis%204.0.png?raw=true',
+                  },
+                ].map((art, idx) => (
+                  <div
+                    key={art.name}
+                    className="w-12 h-16 rounded-md bg-[#F5E7C6] border-2 border-[#222222] overflow-hidden shadow-lg transform transition-transform duration-500 group-hover:-translate-y-2 group-hover:rotate-0"
+                    style={{
+                      transform: `rotate(${(idx - 1) * 6}deg)`,
+                    }}
+                  >
+                    <img
+                      src={art.url}
+                      alt={art.name}
+                      onError={(e) => {
+                        const target = e.currentTarget;
+                        if (target.src.includes('github.com') && target.src.includes('/blob/')) {
+                          target.src = target.src
+                            .replace('github.com', 'raw.githubusercontent.com')
+                            .replace('/blob/', '/');
+                        }
+                      }}
+                      className="w-full h-full object-contain pointer-events-none select-none"
+                    />
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
 
@@ -117,11 +162,27 @@ export const CreativeIdentities: React.FC = () => {
               {['React 19', 'TypeScript', 'Node.js', 'Developer Tools', 'Open Source'].map((tag) => (
                 <span
                   key={tag}
-                  className="px-2.5 py-1 rounded bg-[#FAF3E1] text-[#222222] font-mono text-[10px] tracking-wide border border-[#222222]/15"
+                  className="px-2.5 py-1 rounded bg-[#FAF3E1] text-[#222222] font-mono text-[10px] tracking-wide border border-[#222222]/15 group-hover:border-[#FF6D1F]/40 transition-colors"
                 >
                   {tag}
                 </span>
               ))}
+            </div>
+
+            {/* Interactive Terminal Micro Preview */}
+            <div className="mt-8 pt-4">
+              <div className="p-3 bg-[#222222] rounded-md font-mono text-[11px] text-[#FAF3E1] space-y-1 shadow-md border border-[#222222]/40 transition-transform duration-500 group-hover:-translate-y-1">
+                <div className="flex items-center justify-between text-[9px] text-[#FAF3E1]/40 border-b border-[#FAF3E1]/10 pb-1">
+                  <span>runtime.ts</span>
+                  <span className="text-[#FF6D1F]">v1.4 // LIVE</span>
+                </div>
+                <div className="text-[#FF6D1F]">
+                  const <span className="text-[#FAF3E1]">engine</span> = new System&#40;&#41;;
+                </div>
+                <div className="text-[#FAF3E1]/60 text-[10px]">
+                  &gt; await engine.sync&#40;&#123; mode: 'performance' &#125;&#41;;
+                </div>
+              </div>
             </div>
           </div>
 
