@@ -40,3 +40,4 @@ export interface CircularGalleryProps {
 
 declare const CircularGallery: React.FC<CircularGalleryProps>;
 export default CircularGallery;
+
