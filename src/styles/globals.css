@@ -1,0 +1,115 @@
+@import "tailwindcss";
+
+@theme {
+  --color-canvas: #FAF3E1;
+  --color-canvas-subtle: #F5E7C6;
+  --color-accent: #FF6D1F;
+  --color-ink: #222222;
+
+  --color-bg-primary: #FAF3E1;
+  --color-bg-secondary: #F5E7C6;
+  --color-accent-orange: #FF6D1F;
+  --color-dark-charcoal: #222222;
+
+  --font-display: 'Space Grotesk', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-editorial: 'Playfair Display', Georgia, serif;
+  --font-mono: 'Space Mono', monospace;
+}
+
+@layer base {
+  * {
+    border-color: rgba(34, 34, 34, 0.12);
+  }
+
+  html {
+    background-color: #FAF3E1;
+    color: #222222;
+    font-family: var(--font-body);
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  ::selection {
+    background-color: #FF6D1F;
+    color: #FAF3E1;
+  }
+}
+
+/* Custom Utilities for Editorial & Swiss Layouts */
+.font-display {
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+.font-editorial {
+  font-family: 'Playfair Display', serif;
+}
+
+.font-mono {
+  font-family: 'Space Mono', monospace;
+}
+
+.font-body {
+  font-family: 'Inter', sans-serif;
+}
+
+/* Swiss Grid Lines */
+.swiss-grid-lines {
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, rgba(34, 34, 34, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(34, 34, 34, 0.04) 1px, transparent 1px);
+}
+
+.swiss-grid-lines-dark {
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, rgba(250, 243, 225, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(250, 243, 225, 0.05) 1px, transparent 1px);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #FAF3E1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #222222;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #FF6D1F;
+}
+
+/* Marquee infinite scroll helper */
+@keyframes marquee-scroll {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee-scroll 24s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee {
+    animation: none;
+  }
+}
