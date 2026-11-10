@@ -54,9 +54,6 @@ export const Navbar: React.FC = () => {
             <span className="font-display text-2xl md:text-3xl font-black tracking-tight text-[#222222] transition-colors group-hover:text-[#FF6D1F]">
               AK<span className="text-[#FF6D1F]">.</span>
             </span>
-            <span className="hidden sm:inline-block font-mono text-[9px] tracking-widest uppercase text-[#222222]/50 border-l border-[#222222]/20 pl-2">
-              MIND IN MOTION
-            </span>
           </Link>
 
           {/* Floating Pill Navigation on Desktop */}
@@ -97,22 +94,8 @@ export const Navbar: React.FC = () => {
             })}
           </nav>
 
-          {/* Right Action: Availability Indicator & Mobile Menu Toggle */}
-          <div className="flex items-center gap-4">
-            {/* Availability Indicator */}
-            <Link
-              to="/connect"
-              onMouseEnter={() => setCursorType('hover')}
-              onMouseLeave={resetCursor}
-              className="hidden lg:flex items-center gap-2 px-3 py-1.5 rounded-full border border-[#222222]/15 bg-[#FAF3E1]/80 backdrop-blur-xs text-[#222222] text-xs font-mono transition-all hover:border-[#FF6D1F]/50"
-            >
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#FF6D1F] opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-[#FF6D1F]"></span>
-              </span>
-              <span className="text-[11px] font-medium tracking-tight">Available for 2026</span>
-            </Link>
-
+          {/* Right Action: Mobile Menu Toggle */}
+          <div className="flex items-center">
             {/* Mobile Hamburger Button */}
             <button
               type="button"
@@ -178,7 +161,6 @@ export const Navbar: React.FC = () => {
                     onClick={() => setMobileMenuOpen(false)}
                     className="p-3 bg-[#FAF3E1]/5 rounded border border-[#FAF3E1]/10 text-xs font-mono hover:border-[#FF6D1F]"
                   >
-                    <span className="text-[#FF6D1F] block text-[10px]">01 //</span>
                     Design Portfolio
                   </Link>
                   <Link
@@ -186,7 +168,6 @@ export const Navbar: React.FC = () => {
                     onClick={() => setMobileMenuOpen(false)}
                     className="p-3 bg-[#FAF3E1]/5 rounded border border-[#FAF3E1]/10 text-xs font-mono hover:border-[#FF6D1F]"
                   >
-                    <span className="text-[#FF6D1F] block text-[10px]">02 //</span>
                     Tech Projects
                   </Link>
                 </div>

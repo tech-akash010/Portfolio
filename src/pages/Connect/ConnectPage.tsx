@@ -134,9 +134,6 @@ export const ConnectPage: React.FC = () => {
     <div className="pt-36 sm:pt-40 md:pt-44 pb-24 px-6 sm:px-8 md:px-12 max-w-6xl mx-auto min-h-screen">
       {/* Editorial Header */}
       <header className="border-b border-[#222222]/15 pb-10 mb-12">
-        <span className="font-mono text-xs tracking-widest text-[#FF6D1F] uppercase block mb-2">
-          INQUIRIES &amp; CONNECTIONS // 2026
-        </span>
         <h1 className="font-display text-4xl sm:text-6xl md:text-7xl font-black tracking-tight text-[#222222] leading-[1.05]">
           GOOD IDEAS START<br />
           WITH A CONVERSATION<span className="text-[#FF6D1F]">.</span>

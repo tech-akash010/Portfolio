@@ -11,9 +11,6 @@ export const CreativeIdentities: React.FC = () => {
       {/* Studio Header */}
       <div className="flex flex-col sm:flex-row sm:items-end justify-between border-b border-[#222222]/15 pb-6 mb-12 gap-4">
         <div>
-          <span className="font-mono text-xs tracking-widest text-[#FF6D1F] uppercase block mb-1">
-            03 // STUDIO DISCIPLINES
-          </span>
           <h2 className="font-display text-4xl sm:text-5xl font-black tracking-tight text-[#222222]">
             TWO DISCIPLINES<span className="text-[#FF6D1F]">.</span> ONE VISION<span className="text-[#FF6D1F]">.</span>
           </h2>
@@ -42,19 +39,11 @@ export const CreativeIdentities: React.FC = () => {
             }}
           />
 
-          {/* Top Panel Meta */}
+          {/* Top Panel Icon */}
           <div className="relative z-10 flex items-center justify-between">
-            <div className="flex items-center gap-2.5">
-              <div className="w-8 h-8 rounded-full bg-[#FF6D1F] text-[#FAF3E1] flex items-center justify-center shadow-xs">
-                <Palette className="w-4 h-4" />
-              </div>
-              <span className="font-mono text-xs tracking-widest text-[#FAF3E1]/70 uppercase">
-                DISCIPLINE // 01
-              </span>
+            <div className="w-10 h-10 rounded-full bg-[#FF6D1F] text-[#FAF3E1] flex items-center justify-center shadow-xs">
+              <Palette className="w-5 h-5" />
             </div>
-            <span className="font-mono text-xs text-[#FF6D1F] font-bold">
-              6 CASE STUDIES
-            </span>
           </div>
 
           {/* Center Graphic & Huge Typography */}
@@ -107,19 +96,11 @@ export const CreativeIdentities: React.FC = () => {
             }}
           />
 
-          {/* Top Panel Meta */}
+          {/* Top Panel Icon */}
           <div className="relative z-10 flex items-center justify-between">
-            <div className="flex items-center gap-2.5">
-              <div className="w-8 h-8 rounded-full bg-[#222222] text-[#FAF3E1] flex items-center justify-center shadow-xs">
-                <Code2 className="w-4 h-4 text-[#FF6D1F]" />
-              </div>
-              <span className="font-mono text-xs tracking-widest text-[#222222]/70 uppercase">
-                DISCIPLINE // 02
-              </span>
+            <div className="w-10 h-10 rounded-full bg-[#222222] text-[#FAF3E1] flex items-center justify-center shadow-xs">
+              <Code2 className="w-5 h-5 text-[#FF6D1F]" />
             </div>
-            <span className="font-mono text-xs text-[#FF6D1F] font-bold">
-              6 ACTIVE PROJECTS
-            </span>
           </div>
 
           {/* Center Graphic & Huge Typography */}

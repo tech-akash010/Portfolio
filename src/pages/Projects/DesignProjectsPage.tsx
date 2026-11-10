@@ -5,20 +5,7 @@ import { DesignSubcategory } from '../../types/project';
 import { ProjectVisualPreview } from '../../components/ProjectCard/ProjectVisualPreview';
 import { useCursor } from '../../components/CustomCursor/CursorContext';
 import CircularGallery, { CircularGalleryItem } from '../../components/CircularGallery';
-import {
-  ArrowUpRight,
-  Palette,
-  Filter,
-  Eye,
-  Grid,
-  Sparkles,
-  MoveHorizontal,
-  Play,
-  Pause,
-  Compass,
-  Layers,
-  Sliders
-} from 'lucide-react';
+import { ArrowUpRight } from 'lucide-react';
 
 const CATEGORIES: ('All' | DesignSubcategory)[] = [
   'All',
@@ -106,9 +93,6 @@ const GALLERY_ITEMS: CircularGalleryItem[] = [
 export const DesignProjectsPage: React.FC = () => {
   const { setCursorType, resetCursor } = useCursor();
   const [selectedCategory, setSelectedCategory] = useState<'All' | DesignSubcategory>('All');
-  const [activeGalleryIndex, setActiveGalleryIndex] = useState(0);
-  const [isAutoScrolling, setIsAutoScrolling] = useState(true);
-  const [bendFactor, setBendFactor] = useState(2.6);
   const archiveRef = useRef<HTMLDivElement>(null);
 
   const filteredProjects = designProjects.filter((p) => {
@@ -116,106 +100,24 @@ export const DesignProjectsPage: React.FC = () => {
     return p.subcategory === selectedCategory;
   });
 
-  const activeItem = GALLERY_ITEMS[activeGalleryIndex] || GALLERY_ITEMS[0];
-
-  const scrollToArchive = () => {
-    archiveRef.current?.scrollIntoView({ behavior: 'smooth' });
-  };
-
   return (
     <div className="pt-36 sm:pt-40 md:pt-44 pb-24 px-6 sm:px-8 md:px-12 max-w-7xl mx-auto min-h-screen">
       {/* Editorial Header */}
-      <div className="border-b border-[#222222]/15 pb-8 mb-10">
-        <div className="flex flex-wrap items-center justify-between gap-4 mb-3">
-          <div className="flex items-center gap-2 font-mono text-xs text-[#FF6D1F] uppercase tracking-widest">
-            <Palette className="w-4 h-4" />
-            <span>DISCIPLINE 01 // VISUAL COMMUNICATION</span>
-          </div>
-          <div className="flex items-center gap-4 font-mono text-xs text-[#222222]/60">
-            <span>6 CASE STUDIES</span>
-            <span className="text-[#FF6D1F]">•</span>
-            <span>10 CURATED EXHIBITS</span>
-            <span className="text-[#FF6D1F]">•</span>
-            <span>BASEL × KOLKATA</span>
-          </div>
-        </div>
-
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-end mt-2">
-          <div className="lg:col-span-8">
-            <h1 className="font-display text-5xl sm:text-6xl md:text-7xl font-black tracking-tight text-[#222222]">
-              DESIGN PORTFOLIO<span className="text-[#FF6D1F]">.</span>
-            </h1>
-            <p className="font-editorial italic text-xl sm:text-2xl text-[#222222]/70 mt-3 max-w-2xl leading-relaxed">
-              Visual communication, branding, graphic design, illustrations, UI/UX and creative direction.
-            </p>
-          </div>
-
-          <div className="lg:col-span-4 flex flex-col sm:flex-row lg:flex-col justify-end gap-3 font-mono text-xs">
-            <button
-              onClick={scrollToArchive}
-              className="px-4 py-2.5 rounded-full border border-[#222222]/20 hover:border-[#FF6D1F] hover:bg-[#F5E7C6] transition-all flex items-center justify-center gap-2 text-[#222222]"
-            >
-              <Grid className="w-3.5 h-3.5 text-[#FF6D1F]" />
-              <span>JUMP TO EDITORIAL ARCHIVE ↓</span>
-            </button>
-          </div>
-        </div>
+      <div className="border-b border-[#222222]/15 pb-8 mb-12">
+        <h1 className="font-display text-5xl sm:text-6xl md:text-7xl font-black tracking-tight text-[#222222]">
+          DESIGN PORTFOLIO<span className="text-[#FF6D1F]">.</span>
+        </h1>
+        <p className="font-editorial italic text-xl sm:text-2xl text-[#222222]/70 mt-3 max-w-2xl leading-relaxed">
+          Visual communication, branding, graphic design, illustrations, UI/UX and creative direction.
+        </p>
       </div>
 
       {/* 3D CIRCULAR GALLERY SHOWCASE */}
       <section className="mb-20">
-        {/* Gallery Control HUD */}
-        <div className="bg-[#222222] text-[#FAF3E1] px-5 py-3.5 rounded-t-2xl flex flex-wrap items-center justify-between gap-4 border-b border-[#FAF3E1]/10">
-          <div className="flex items-center gap-3 font-mono text-xs">
-            <div className="flex items-center gap-1.5">
-              <span className="w-2 h-2 rounded-full bg-[#FF6D1F] animate-pulse" />
-              <span className="font-bold tracking-wider text-[#FAF3E1]">3D CIRCULAR RUNWAY</span>
-            </div>
-            <span className="text-[#FAF3E1]/40 hidden sm:inline">//</span>
-            <span className="text-[#FAF3E1]/60 text-[11px] hidden sm:inline flex items-center gap-1">
-              <MoveHorizontal className="w-3 h-3 text-[#FF6D1F]" /> DRAG, SCROLL, OR ARROWS TO ROTATE
-            </span>
-          </div>
-
-          <div className="flex items-center gap-3 font-mono text-xs">
-            {/* Auto-scroll toggle */}
-            <button
-              type="button"
-              onClick={() => setIsAutoScrolling(!isAutoScrolling)}
-              className="flex items-center gap-1.5 px-3 py-1 rounded bg-[#FAF3E1]/10 hover:bg-[#FAF3E1]/20 text-[#FAF3E1] text-[11px] transition-colors"
-              title={isAutoScrolling ? 'Pause ambient rotation' : 'Resume ambient rotation'}
-            >
-              {isAutoScrolling ? (
-                <>
-                  <Pause className="w-3 h-3 text-[#FF6D1F]" />
-                  <span>AUTORUN: ON</span>
-                </>
-              ) : (
-                <>
-                  <Play className="w-3 h-3 text-[#FF6D1F]" />
-                  <span>AUTORUN: OFF</span>
-                </>
-              )}
-            </button>
-
-            {/* Curvature adjustment */}
-            <button
-              type="button"
-              onClick={() => setBendFactor((b) => (b === 2.6 ? 3.5 : b === 3.5 ? 1.8 : 2.6))}
-              className="flex items-center gap-1.5 px-3 py-1 rounded bg-[#FAF3E1]/10 hover:bg-[#FAF3E1]/20 text-[#FAF3E1] text-[11px] transition-colors"
-              title="Toggle curvature depth"
-            >
-              <Sliders className="w-3 h-3 text-[#FF6D1F]" />
-              <span>BEND: {bendFactor}x</span>
-            </button>
-          </div>
-        </div>
-
-        {/* 3D WebGL Canvas Container */}
-        <div className="relative w-full h-[520px] sm:h-[600px] md:h-[640px] bg-gradient-to-b from-[#F5E7C6]/60 via-[#F5E7C6]/30 to-[#FAF3E1] border-x border-b border-[#222222]/15 shadow-xl rounded-b-2xl overflow-hidden">
+        <div className="relative w-full h-[520px] sm:h-[600px] md:h-[640px] bg-gradient-to-b from-[#F5E7C6]/60 via-[#F5E7C6]/30 to-[#FAF3E1] border border-[#222222]/15 shadow-xl rounded-2xl overflow-hidden">
           <CircularGallery
             items={GALLERY_ITEMS}
-            bend={bendFactor}
+            bend={2.6}
             textColor="#222222"
             borderRadius={0.045}
             font="bold 26px Outfit, sans-serif"
@@ -226,77 +128,27 @@ export const DesignProjectsPage: React.FC = () => {
             fadeEdges={0.14}
             shadow={0.32}
             snap={true}
-            autoScroll={isAutoScrolling ? 0.12 : 0}
+            autoScroll={0.12}
             openOnClick={true}
-            onActiveChange={(idx) => setActiveGalleryIndex(idx)}
             className="w-full h-full"
           />
-
-          {/* Interactive Floating Quick-Tag at bottom right */}
-          <div className="absolute bottom-5 right-6 pointer-events-none hidden sm:flex items-center gap-2 font-mono text-[11px] bg-[#FAF3E1]/90 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-[#222222]/15 text-[#222222]">
-            <Sparkles className="w-3 h-3 text-[#FF6D1F]" />
-            <span>CLICK CARD TO EXPAND FULL VIEW</span>
-          </div>
-
-          {/* Active Card Indicator at bottom left */}
-          <div className="absolute bottom-5 left-6 pointer-events-none hidden sm:flex items-center gap-3 font-mono text-[11px] bg-[#222222]/90 backdrop-blur-md text-[#FAF3E1] px-4 py-1.5 rounded-full border border-[#FAF3E1]/15">
-            <span className="text-[#FF6D1F] font-bold">
-              0{activeGalleryIndex + 1} / 0{GALLERY_ITEMS.length}
-            </span>
-            <span className="opacity-40">|</span>
-            <span className="font-semibold">{activeItem.text}</span>
-          </div>
-        </div>
-
-        {/* Action ribbon for currently focused gallery work */}
-        <div className="mt-4 px-4 py-3 bg-[#FAF3E1] border border-[#222222]/15 rounded-xl flex flex-wrap items-center justify-between gap-4">
-          <div className="flex items-center gap-3">
-            <span className="px-2.5 py-0.5 rounded-full bg-[#FF6D1F] text-[#FAF3E1] font-mono text-[10px] font-bold uppercase tracking-wider">
-              {activeItem.category || 'FEATURED'}
-            </span>
-            <span className="font-display font-bold text-base sm:text-lg text-[#222222]">
-              {activeItem.text}
-            </span>
-            <span className="text-xs font-editorial italic text-[#222222]/70 hidden md:inline">
-              — {activeItem.description}
-            </span>
-          </div>
-
-          {activeItem.slug && (
-            <Link
-              to={`/projects/design/${activeItem.slug}`}
-              className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-[#222222] text-[#FAF3E1] font-mono text-xs font-bold uppercase tracking-wider hover:bg-[#FF6D1F] transition-colors"
-            >
-              <span>View Case Study</span>
-              <ArrowUpRight className="w-3.5 h-3.5" />
-            </Link>
-          )}
         </div>
       </section>
 
       {/* EDITORIAL ARCHIVE / ASYMMETRICAL GALLERY SECTION */}
       <div ref={archiveRef} className="pt-8 border-t border-[#222222]/15">
-        <div className="flex flex-wrap items-baseline justify-between gap-4 mb-8">
-          <div>
-            <div className="flex items-center gap-2 font-mono text-xs text-[#FF6D1F] uppercase tracking-widest mb-1">
-              <Layers className="w-3.5 h-3.5" />
-              <span>CATALOG // COMPREHENSIVE ARCHIVE</span>
-            </div>
-            <h2 className="font-display text-3xl sm:text-4xl font-black text-[#222222] tracking-tight">
-              EDITORIAL CASE STUDIES<span className="text-[#FF6D1F]">.</span>
-            </h2>
-          </div>
+        <div className="flex flex-wrap items-baseline justify-between gap-6 mb-10">
+          <h2 className="font-display text-3xl sm:text-4xl font-black text-[#222222] tracking-tight">
+            EDITORIAL CASE STUDIES<span className="text-[#FF6D1F]">.</span>
+          </h2>
 
           {/* Category Filter Pills */}
           <div className="flex flex-wrap items-center gap-2">
-            <span className="font-mono text-[10px] uppercase tracking-widest text-[#222222]/50 mr-1 flex items-center gap-1">
-              <Filter className="w-3 h-3 text-[#FF6D1F]" /> FILTER:
-            </span>
             {CATEGORIES.map((cat) => (
               <button
                 key={cat}
                 onClick={() => setSelectedCategory(cat)}
-                className={`px-3.5 py-1.5 rounded-full font-mono text-xs uppercase tracking-wider transition-all ${
+                className={`px-4 py-1.5 rounded-full font-mono text-xs uppercase tracking-wider transition-all ${
                   selectedCategory === cat
                     ? 'bg-[#222222] text-[#FAF3E1] font-bold shadow-sm'
                     : 'bg-[#F5E7C6] text-[#222222] hover:bg-[#222222] hover:text-[#FAF3E1]'
@@ -311,7 +163,6 @@ export const DesignProjectsPage: React.FC = () => {
         {/* Asymmetrical Editorial Grid */}
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
           {filteredProjects.map((project, idx) => {
-            // Asymmetrical layout: item 0 spans 8, item 1 spans 4, others span 6
             const colSpan = idx === 0 ? 'md:col-span-8' : idx === 1 ? 'md:col-span-4' : 'md:col-span-6';
 
             return (
@@ -335,8 +186,8 @@ export const DesignProjectsPage: React.FC = () => {
                   <div className="p-6 flex flex-col justify-between flex-1">
                     <div>
                       <div className="flex items-center justify-between font-mono text-xs text-[#222222]/60 mb-2">
-                        <span className="text-[#FF6D1F] font-bold">
-                          № {project.number} // {project.subcategory.toUpperCase()}
+                        <span className="text-[#FF6D1F] font-bold uppercase tracking-wider">
+                          {project.subcategory}
                         </span>
                         <span>{project.year}</span>
                       </div>
@@ -377,10 +228,6 @@ export const DesignProjectsPage: React.FC = () => {
       <div className="mt-24 p-8 sm:p-12 bg-[#222222] text-[#FAF3E1] rounded-2xl relative overflow-hidden">
         <div className="absolute top-0 right-0 w-96 h-96 bg-[#FF6D1F]/10 rounded-full blur-3xl pointer-events-none" />
         <div className="relative z-10 max-w-3xl">
-          <div className="flex items-center gap-2 font-mono text-xs text-[#FF6D1F] uppercase tracking-widest mb-3">
-            <Compass className="w-4 h-4" />
-            <span>DESIGN PHILOSOPHY // "A MIND IN MOTION"</span>
-          </div>
           <h3 className="font-display text-3xl sm:text-4xl md:text-5xl font-black tracking-tight leading-tight">
             FORM FOLLOWS INTENTION<span className="text-[#FF6D1F]">.</span>
           </h3>

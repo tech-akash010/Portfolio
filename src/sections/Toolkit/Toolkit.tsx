@@ -25,9 +25,6 @@ export const Toolkit: React.FC = () => {
       {/* Section Header */}
       <div className="flex flex-col sm:flex-row sm:items-end justify-between border-b border-[#222222]/15 pb-6 mb-12 gap-4">
         <div>
-          <span className="font-mono text-xs tracking-widest text-[#FF6D1F] uppercase block mb-1">
-            06 // PROVEN CAPABILITIES
-          </span>
           <h2 className="font-display text-4xl sm:text-5xl font-black tracking-tight text-[#222222]">
             MY TOOLKIT<span className="text-[#FF6D1F]">.</span>
           </h2>
@@ -48,7 +45,6 @@ export const Toolkit: React.FC = () => {
             <div className="lg:col-span-3">
               <div className="flex items-center gap-2 mb-1">
                 {getCategoryIcon(category.id)}
-                <span className="font-mono text-xs text-[#222222]/50">0{index + 1} //</span>
                 <h3 className="font-display text-xl font-bold tracking-tight text-[#222222]">
                   {category.title}
                 </h3>

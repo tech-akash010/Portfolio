@@ -19,9 +19,6 @@ export const SelectedWork: React.FC = () => {
       {/* Section Header */}
       <div className="flex flex-col sm:flex-row sm:items-end justify-between border-b border-[#222222]/15 pb-6 mb-12 gap-4">
         <div>
-          <span className="font-mono text-xs tracking-widest text-[#FF6D1F] uppercase block mb-1">
-            04 // SELECTED WORK
-          </span>
           <h2 className="font-display text-4xl sm:text-5xl md:text-6xl font-black tracking-tight text-[#222222]">
             FEATURED BUILDS<span className="text-[#FF6D1F]">.</span>
           </h2>
@@ -56,7 +53,7 @@ export const SelectedWork: React.FC = () => {
             <div className="p-6 sm:p-8 flex flex-col justify-between">
               <div>
                 <div className="flex items-center justify-between font-mono text-xs text-[#222222]/60 mb-2">
-                  <span className="text-[#FF6D1F] font-bold">№ {openlearn.number} // {openlearn.subcategory.toUpperCase()}</span>
+                  <span className="text-[#FF6D1F] font-bold uppercase tracking-wider">{openlearn.subcategory}</span>
                   <span>{openlearn.year}</span>
                 </div>
                 <h3 className="font-display text-3xl sm:text-4xl font-bold tracking-tight text-[#222222] group-hover:text-[#FF6D1F] transition-colors">
@@ -103,7 +100,7 @@ export const SelectedWork: React.FC = () => {
             <div className="p-6 flex flex-col justify-between flex-1">
               <div>
                 <div className="flex items-center justify-between font-mono text-xs text-[#FAF3E1]/50 mb-2">
-                  <span className="text-[#FF6D1F] font-bold">№ {structo.number} // DEV TOOLS</span>
+                  <span className="text-[#FF6D1F] font-bold uppercase tracking-wider">DEV TOOLS</span>
                   <span>{structo.year}</span>
                 </div>
                 <h3 className="font-display text-2xl sm:text-3xl font-bold tracking-tight text-[#FAF3E1] group-hover:text-[#FF6D1F] transition-colors">
@@ -139,7 +136,7 @@ export const SelectedWork: React.FC = () => {
             </div>
             <div className="p-6">
               <div className="flex items-center justify-between font-mono text-xs text-[#222222]/60 mb-2">
-                <span className="text-[#FF6D1F] font-bold">№ {sankalp.number} // WEB PLATFORM</span>
+                <span className="text-[#FF6D1F] font-bold uppercase tracking-wider">WEB PLATFORM</span>
                 <span>{sankalp.year}</span>
               </div>
               <h3 className="font-display text-2xl font-bold tracking-tight text-[#222222] group-hover:text-[#FF6D1F] transition-colors">
@@ -149,7 +146,7 @@ export const SelectedWork: React.FC = () => {
                 {sankalp.description}
               </p>
               <div className="mt-4 flex items-center justify-between pt-3 border-t border-[#222222]/10 font-mono text-xs">
-                <span className="text-[10px] text-[#222222]/60">REACT / EXPRESS / MONGO</span>
+                <span className="text-[11px] text-[#222222]/60">Full-Stack Platform</span>
                 <span className="text-[#FF6D1F] font-bold flex items-center gap-1">
                   Read Case Study <ArrowUpRight className="w-3 h-3" />
                 </span>
@@ -171,7 +168,7 @@ export const SelectedWork: React.FC = () => {
             </div>
             <div className="p-6">
               <div className="flex items-center justify-between font-mono text-xs text-[#222222]/60 mb-2">
-                <span className="text-[#FF6D1F] font-bold">№ {rayofroads.number} // CARTOGRAPHY</span>
+                <span className="text-[#FF6D1F] font-bold uppercase tracking-wider">CARTOGRAPHY</span>
                 <span>{rayofroads.year}</span>
               </div>
               <h3 className="font-display text-2xl font-bold tracking-tight text-[#222222] group-hover:text-[#FF6D1F] transition-colors">
@@ -181,7 +178,7 @@ export const SelectedWork: React.FC = () => {
                 {rayofroads.description}
               </p>
               <div className="mt-4 flex items-center justify-between pt-3 border-t border-[#222222]/10 font-mono text-xs">
-                <span className="text-[10px] text-[#222222]/60">MAPBOX / TURF.JS / WEATHER</span>
+                <span className="text-[11px] text-[#222222]/60">Interactive Routing</span>
                 <span className="text-[#FF6D1F] font-bold flex items-center gap-1">
                   Read Case Study <ArrowUpRight className="w-3 h-3" />
                 </span>

@@ -42,9 +42,6 @@ export const Footer: React.FC = () => {
         {/* Massive Brand Watermark */}
         <div className="flex flex-col md:flex-row md:items-end justify-between border-b border-[#FAF3E1]/15 pb-12 gap-8">
           <div>
-            <span className="font-mono text-xs tracking-widest text-[#FF6D1F] uppercase block mb-2">
-              PORTFOLIO ARCHIVE // 2026
-            </span>
             <h2 className="font-display text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-black tracking-tighter text-[#FAF3E1] leading-none">
               AK<span className="text-[#FF6D1F]">.</span>
             </h2>

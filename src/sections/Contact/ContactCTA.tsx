@@ -20,12 +20,6 @@ export const ContactCTA: React.FC = () => {
       />
 
       <div className="relative max-w-7xl mx-auto flex flex-col items-center text-center">
-        {/* Top Tag */}
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[#FAF3E1]/20 font-mono text-[10px] tracking-widest text-[#FF6D1F] uppercase mb-6 bg-[#FAF3E1]/5">
-          <Sparkles className="w-3 h-3 text-[#FF6D1F]" />
-          <span>COLLABORATION &amp; INQUIRIES</span>
-        </div>
-
         {/* Massive Headline */}
         <h2 className="font-display text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black tracking-tighter text-[#FAF3E1] leading-none max-w-4xl">
           LET'S MAKE SOMETHING<span className="text-[#FF6D1F]">.</span>

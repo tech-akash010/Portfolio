@@ -149,9 +149,6 @@ export const ProjectDetailPage: React.FC = () => {
         <div className="space-y-16">
           {/* 1. Project Overview */}
           <section className="border-t border-[#222222]/15 pt-8">
-            <span className="font-mono text-xs text-[#FF6D1F] uppercase tracking-widest block mb-2">
-              01 // PROJECT OVERVIEW
-            </span>
             <h2 className="font-display text-2xl sm:text-3xl font-bold text-[#222222] mb-4">
               The Context &amp; Purpose
             </h2>
@@ -162,9 +159,6 @@ export const ProjectDetailPage: React.FC = () => {
 
           {/* 2. Brief and Objectives */}
           <section className="border-t border-[#222222]/15 pt-8">
-            <span className="font-mono text-xs text-[#FF6D1F] uppercase tracking-widest block mb-2">
-              02 // BRIEF &amp; OBJECTIVES
-            </span>
             <h2 className="font-display text-2xl sm:text-3xl font-bold text-[#222222] mb-4">
               Project Brief
             </h2>
@@ -187,9 +181,6 @@ export const ProjectDetailPage: React.FC = () => {
 
           {/* 3. Research & Inspiration */}
           <section className="border-t border-[#222222]/15 pt-8">
-            <span className="font-mono text-xs text-[#FF6D1F] uppercase tracking-widest block mb-2">
-              03 // RESEARCH &amp; INSPIRATION
-            </span>
             <h2 className="font-display text-2xl sm:text-3xl font-bold text-[#222222] mb-4">
               Theoretical Foundation
             </h2>
@@ -200,9 +191,6 @@ export const ProjectDetailPage: React.FC = () => {
 
           {/* 4. Creative Direction */}
           <section className="border-t border-[#222222]/15 pt-8">
-            <span className="font-mono text-xs text-[#FF6D1F] uppercase tracking-widest block mb-2">
-              04 // CREATIVE DIRECTION
-            </span>
             <h2 className="font-display text-2xl sm:text-3xl font-bold text-[#222222] mb-4">
               Design System &amp; Aesthetics
             </h2>
@@ -253,9 +241,6 @@ export const ProjectDetailPage: React.FC = () => {
 
           {/* 5. Design Process */}
           <section className="border-t border-[#222222]/15 pt-8">
-            <span className="font-mono text-xs text-[#FF6D1F] uppercase tracking-widest block mb-2">
-              05 // DESIGN PROCESS
-            </span>
             <h2 className="font-display text-2xl sm:text-3xl font-bold text-[#222222] mb-6">
               Iterative Execution
             </h2>
@@ -280,9 +265,6 @@ export const ProjectDetailPage: React.FC = () => {
 
           {/* 6. Final Outcome & Tools */}
           <section className="border-t border-[#222222]/15 pt-8">
-            <span className="font-mono text-xs text-[#FF6D1F] uppercase tracking-widest block mb-2">
-              06 // FINAL OUTCOME &amp; SPECIFICATION
-            </span>
             <h2 className="font-display text-2xl sm:text-3xl font-bold text-[#222222] mb-4">
               Deliverables &amp; Impact
             </h2>
@@ -323,9 +305,6 @@ export const ProjectDetailPage: React.FC = () => {
 
           {/* 1. Problem Statement */}
           <section className="border-t border-[#222222]/15 pt-8">
-            <span className="font-mono text-xs text-[#FF6D1F] uppercase tracking-widest block mb-2">
-              01 // THE PROBLEM STATEMENT
-            </span>
             <h2 className="font-display text-2xl sm:text-3xl font-bold text-[#222222] mb-4">
               Why This Needed To Be Built
             </h2>
@@ -336,9 +315,6 @@ export const ProjectDetailPage: React.FC = () => {
 
           {/* 2. Solution */}
           <section className="border-t border-[#222222]/15 pt-8">
-            <span className="font-mono text-xs text-[#FF6D1F] uppercase tracking-widest block mb-2">
-              02 // THE SOLUTION &amp; ARCHITECTURE
-            </span>
             <h2 className="font-display text-2xl sm:text-3xl font-bold text-[#222222] mb-4">
               Engineered Solution
             </h2>
@@ -352,7 +328,7 @@ export const ProjectDetailPage: React.FC = () => {
                 <div key={idx} className="p-5 bg-[#222222] text-[#FAF3E1] rounded-lg">
                   <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 mb-2 font-mono">
                     <span className="text-xs font-bold text-[#FF6D1F]">
-                      LAYER 0{idx + 1} // {layer.title.toUpperCase()}
+                      {layer.title.toUpperCase()}
                     </span>
                     <span className="text-[10px] px-2 py-0.5 rounded bg-[#FAF3E1]/10 text-[#FAF3E1]/70">
                       {layer.tech}
@@ -368,9 +344,6 @@ export const ProjectDetailPage: React.FC = () => {
 
           {/* 3. Tech Stack Breakdown */}
           <section className="border-t border-[#222222]/15 pt-8">
-            <span className="font-mono text-xs text-[#FF6D1F] uppercase tracking-widest block mb-2">
-              03 // TECHNOLOGY STACK
-            </span>
             <h2 className="font-display text-2xl sm:text-3xl font-bold text-[#222222] mb-4">
               Libraries &amp; Runtime Environment
             </h2>
@@ -389,9 +362,6 @@ export const ProjectDetailPage: React.FC = () => {
           {/* 4. Code Sample / Key Implementation Details */}
           {(project as TechProject).codeSnippet && (
             <section className="border-t border-[#222222]/15 pt-8">
-              <span className="font-mono text-xs text-[#FF6D1F] uppercase tracking-widest block mb-2">
-                04 // SOURCE HIGHLIGHT
-              </span>
               <div className="flex items-center justify-between mb-3 font-mono text-xs text-[#222222]/70">
                 <span className="flex items-center gap-1.5">
                   <FileCode2 className="w-4 h-4 text-[#FF6D1F]" />
@@ -407,9 +377,6 @@ export const ProjectDetailPage: React.FC = () => {
 
           {/* 5. Key Implementation Details List */}
           <section className="border-t border-[#222222]/15 pt-8">
-            <span className="font-mono text-xs text-[#FF6D1F] uppercase tracking-widest block mb-2">
-              05 // KEY IMPLEMENTATION DETAILS
-            </span>
             <h2 className="font-display text-2xl sm:text-3xl font-bold text-[#222222] mb-4">
               Engineering Feats
             </h2>
@@ -425,9 +392,6 @@ export const ProjectDetailPage: React.FC = () => {
 
           {/* 6. Challenges & Learnings */}
           <section className="border-t border-[#222222]/15 pt-8">
-            <span className="font-mono text-xs text-[#FF6D1F] uppercase tracking-widest block mb-2">
-              06 // CHALLENGES &amp; LEARNINGS
-            </span>
             <h2 className="font-display text-2xl sm:text-3xl font-bold text-[#222222] mb-4">
               Overcoming Engineering Roadblocks
             </h2>

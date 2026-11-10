@@ -42,9 +42,6 @@ export const AboutPage: React.FC = () => {
     <div className="pt-36 sm:pt-40 md:pt-44 pb-24 px-6 sm:px-8 md:px-12 max-w-5xl mx-auto min-h-screen">
       {/* 1. Page Header & Introduction */}
       <header className="border-b border-[#222222]/15 pb-12 mb-16">
-        <span className="font-mono text-xs tracking-widest text-[#FF6D1F] uppercase block mb-2">
-          BIOGRAPHY // PROFILE DOSSIER
-        </span>
         <h1 className="font-display text-4xl sm:text-6xl md:text-7xl font-black tracking-tight text-[#222222] leading-[1.05]">
           A CURIOUS MIND<span className="text-[#FF6D1F]">.</span><br />
           A CREATIVE APPROACH<span className="text-[#FF6D1F]">.</span>
@@ -64,11 +61,7 @@ export const AboutPage: React.FC = () => {
           </div>
 
           {/* Quick Stat / ID Card */}
-          <div className="md:col-span-4 p-5 bg-[#F5E7C6] border border-[#222222]/20 rounded-lg space-y-3 font-mono text-xs">
-            <div className="flex items-center justify-between border-b border-[#222222]/15 pb-2">
-              <span className="text-[#FF6D1F] font-bold">STATUS</span>
-              <span>UNDERGRADUATE</span>
-            </div>
+          <div className="md:col-span-4 p-5 bg-[#F5E7C6] border border-[#222222]/20 rounded-xl space-y-3 font-mono text-xs">
             <div>
               <span className="text-[10px] text-[#222222]/60 block uppercase">DEGREE</span>
               <span className="font-bold text-[#222222]">B.Tech in CSE</span>
@@ -78,7 +71,7 @@ export const AboutPage: React.FC = () => {
               <span className="font-bold text-[#222222]">Academy of Technology</span>
             </div>
             <div>
-              <span className="text-[10px] text-[#222222]/60 block uppercase">EXPECTED COMPLETION</span>
+              <span className="text-[10px] text-[#222222]/60 block uppercase">GRADUATION</span>
               <span className="text-[#FF6D1F] font-bold">2028</span>
             </div>
           </div>
@@ -87,18 +80,10 @@ export const AboutPage: React.FC = () => {
 
       {/* 2. My Journey: Interactive Vertical Timeline */}
       <section className="mb-20">
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between border-b border-[#222222]/15 pb-4 mb-10 gap-2">
-          <div>
-            <span className="font-mono text-xs text-[#FF6D1F] uppercase tracking-widest block mb-1">
-              CHRONOLOGY // 2024 — 2028
-            </span>
-            <h2 className="font-display text-3xl sm:text-4xl font-black text-[#222222]">
-              MY JOURNEY<span className="text-[#FF6D1F]">.</span>
-            </h2>
-          </div>
-          <span className="font-mono text-xs text-[#222222]/60">
-            Interactive progression timeline
-          </span>
+        <div className="border-b border-[#222222]/15 pb-4 mb-10">
+          <h2 className="font-display text-3xl sm:text-4xl font-black text-[#222222]">
+            MY JOURNEY<span className="text-[#FF6D1F]">.</span>
+          </h2>
         </div>
 
         <div className="relative pl-6 sm:pl-8 border-l-2 border-[#222222]/20 space-y-12">
@@ -192,9 +177,6 @@ export const AboutPage: React.FC = () => {
       {/* 3. Experience and Leadership */}
       <section className="mb-20">
         <div className="border-b border-[#222222]/15 pb-4 mb-8">
-          <span className="font-mono text-xs text-[#FF6D1F] uppercase tracking-widest block mb-1">
-            LEADERSHIP // COMMUNITY &amp; INITIATIVE
-          </span>
           <h2 className="font-display text-3xl sm:text-4xl font-black text-[#222222]">
             EXPERIENCE &amp; IMPACT<span className="text-[#FF6D1F]">.</span>
           </h2>
@@ -253,9 +235,6 @@ export const AboutPage: React.FC = () => {
       {/* 4. Education Deep-Dive */}
       <section className="mb-20">
         <div className="border-b border-[#222222]/15 pb-4 mb-8">
-          <span className="font-mono text-xs text-[#FF6D1F] uppercase tracking-widest block mb-1">
-            ACADEMIC QUALIFICATIONS
-          </span>
           <h2 className="font-display text-3xl sm:text-4xl font-black text-[#222222]">
             EDUCATION<span className="text-[#FF6D1F]">.</span>
           </h2>
@@ -327,9 +306,6 @@ export const AboutPage: React.FC = () => {
       {/* 6. Beyond the Screen: Personal Interests */}
       <section className="mb-12">
         <div className="border-b border-[#222222]/15 pb-4 mb-8">
-          <span className="font-mono text-xs text-[#FF6D1F] uppercase tracking-widest block mb-1">
-            LIFESTYLE &amp; EXPLORATION
-          </span>
           <h2 className="font-display text-3xl sm:text-4xl font-black text-[#222222]">
             BEYOND THE SCREEN<span className="text-[#FF6D1F]">.</span>
           </h2>

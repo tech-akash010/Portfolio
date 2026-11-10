@@ -65,52 +65,6 @@ export const DynamicBackground: React.FC<DynamicBackgroundProps> = ({
         />
       )}
 
-      {/* Swiss Editorial Registration Marks & Coordinates */}
-      {showRegistrationMarks && (
-        <>
-          {/* Top-Left Coordinate */}
-          <div className="absolute top-6 left-6 flex items-center gap-2 select-none opacity-40">
-            <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
-              <path d="M6 0V12M0 6H12" stroke={markColor} strokeWidth="1" />
-            </svg>
-            <span className="font-mono text-[9px] tracking-widest uppercase">
-              GRID: 48PX / LAT: 22.5726° N
-            </span>
-          </div>
-
-          {/* Top-Right Registration */}
-          <div className="absolute top-6 right-6 hidden md:flex items-center gap-2 select-none opacity-40">
-            <span className="font-mono text-[9px] tracking-widest uppercase">
-              SYS // AK.2026
-            </span>
-            <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
-              <circle cx="6" cy="6" r="4.5" stroke={markColor} strokeWidth="1" />
-              <path d="M6 0V12M0 6H12" stroke={markColor} strokeWidth="0.8" />
-            </svg>
-          </div>
-
-          {/* Bottom-Left Micro Scale */}
-          <div className="absolute bottom-6 left-6 hidden md:flex items-center gap-3 select-none opacity-40">
-            <div className="flex gap-1">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#FF6D1F]" />
-              <span className="w-1.5 h-1.5 rounded-full bg-[#222222]/30" />
-              <span className="w-1.5 h-1.5 rounded-full bg-[#222222]/30" />
-            </div>
-            <span className="font-mono text-[9px] tracking-widest uppercase">
-              AXIS: 0.00.1
-            </span>
-          </div>
-
-          {/* Bottom-Right Crosshair */}
-          <div className="absolute bottom-6 right-6 select-none opacity-40">
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-              <path d="M7 0V14M0 7H14" stroke={markColor} strokeWidth="1" />
-              <circle cx="7" cy="7" r="2" fill={markColor} />
-            </svg>
-          </div>
-        </>
-      )}
-
       {/* Creative Theme Geometric Accents */}
       {theme === 'creative' && (
         <div className="absolute inset-0 overflow-hidden pointer-events-none">

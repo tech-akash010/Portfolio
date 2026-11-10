@@ -35,10 +35,6 @@ export const TechProjectsPage: React.FC = () => {
     <div className="pt-36 sm:pt-40 md:pt-44 pb-24 px-6 sm:px-8 md:px-12 max-w-7xl mx-auto min-h-screen">
       {/* Header */}
       <div className="border-b border-[#222222]/15 pb-8 mb-10">
-        <div className="flex items-center gap-2 font-mono text-xs text-[#FF6D1F] uppercase tracking-widest mb-2">
-          <Code2 className="w-4 h-4" />
-          <span>DISCIPLINE 02 // SOFTWARE ENGINEERING</span>
-        </div>
         <h1 className="font-display text-5xl sm:text-6xl md:text-7xl font-black tracking-tight text-[#222222]">
           TECHNOLOGY PROJECTS<span className="text-[#FF6D1F]">.</span>
         </h1>
@@ -49,9 +45,6 @@ export const TechProjectsPage: React.FC = () => {
 
       {/* Category Filter Pills */}
       <div className="flex flex-wrap items-center gap-2 mb-12">
-        <span className="font-mono text-[10px] uppercase tracking-widest text-[#222222]/50 mr-2 flex items-center gap-1">
-          <Filter className="w-3 h-3 text-[#FF6D1F]" /> FILTER:
-        </span>
         {CATEGORIES.map((cat) => (
           <button
             key={cat}
@@ -88,7 +81,7 @@ export const TechProjectsPage: React.FC = () => {
             <div className="p-6 flex flex-col justify-between flex-1">
               <div>
                 <div className="flex items-center justify-between font-mono text-xs text-[#222222]/60 mb-2">
-                  <span className="text-[#FF6D1F] font-bold">№ {project.number} // {project.subcategory.toUpperCase()}</span>
+                  <span className="text-[#FF6D1F] font-bold uppercase tracking-wider">{project.subcategory}</span>
                   <span>{project.year}</span>
                 </div>
 
