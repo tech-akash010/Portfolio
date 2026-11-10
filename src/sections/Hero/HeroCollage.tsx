@@ -2,14 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'motion/react';
 import { useCursor } from '../../components/CustomCursor/CursorContext';
-import { ArrowDown, ArrowUpRight, Sparkles, Wand2 } from 'lucide-react';
-import Ribbons, { RibbonShape } from '../../components/Ribbons';
+import { ArrowDown, ArrowUpRight, Sparkles } from 'lucide-react';
 
 export const HeroCollage: React.FC = () => {
   const { setCursorType, resetCursor } = useCursor();
   const [mouseOffset, setMouseOffset] = useState({ x: 0, y: 0 });
-  const [ribbonShape, setRibbonShape] = useState<RibbonShape>('lens');
-  const [ribbonWave, setRibbonWave] = useState<number>(0);
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
@@ -33,23 +30,6 @@ export const HeroCollage: React.FC = () => {
 
   return (
     <section className="relative min-h-[90svh] lg:min-h-[96svh] flex flex-col justify-between pt-28 pb-10 px-6 sm:px-8 md:px-12 max-w-7xl mx-auto overflow-hidden">
-      {/* WebGL Springy Ribbons that Trail Cursor */}
-      <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden" aria-hidden="true">
-        <Ribbons
-          colors={['#ff6d1f', '#f5e7c6', '#222222']}
-          thickness={36}
-          length={2.4}
-          shape={ribbonShape}
-          spread={18}
-          stiffness={0.5}
-          bounce={0.5}
-          wave={ribbonWave}
-          softness={0.8}
-          opacity={1}
-          fade
-        />
-      </div>
-
       {/* Top Editorial Metadata Strip */}
       <motion.div
         initial={{ opacity: 0, y: -10 }}
@@ -61,44 +41,11 @@ export const HeroCollage: React.FC = () => {
           <span className="w-2 h-2 rounded-full bg-[#FF6D1F]" />
           <span className="font-bold text-[#222222]">AK / INDEPENDENT CREATIVE</span>
         </div>
-
-        {/* Interactive Ribbon Shape & Wave Mode Switcher */}
-        <div className="flex items-center gap-1.5 bg-[#FAF3E1]/90 backdrop-blur-xs px-2.5 py-1 rounded-full border border-[#222222]/20 shadow-xs">
-          <span className="text-[9px] text-[#222222]/60 hidden sm:inline flex items-center gap-1">
-            <Wand2 className="w-2.5 h-2.5 text-[#FF6D1F]" /> RIBBON:
-          </span>
-          {(['lens', 'comet', 'even'] as RibbonShape[]).map((shape) => (
-            <button
-              key={shape}
-              type="button"
-              onClick={() => setRibbonShape(shape)}
-              className={`px-2 py-0.5 rounded-full text-[9px] font-mono uppercase tracking-wider transition-all cursor-pointer ${
-                ribbonShape === shape
-                  ? 'bg-[#FF6D1F] text-[#FAF3E1] font-bold shadow-xs'
-                  : 'text-[#222222]/70 hover:text-[#222222]'
-              }`}
-            >
-              {shape}
-            </button>
-          ))}
-          <span className="text-[#222222]/20">|</span>
-          <button
-            type="button"
-            onClick={() => setRibbonWave(ribbonWave > 0 ? 0 : 0.6)}
-            className={`px-2 py-0.5 rounded-full text-[9px] font-mono uppercase tracking-wider transition-all cursor-pointer ${
-              ribbonWave > 0
-                ? 'bg-[#222222] text-[#FAF3E1] font-bold'
-                : 'text-[#222222]/60 hover:text-[#222222]'
-            }`}
-          >
-            Wave: {ribbonWave > 0 ? 'ON' : 'OFF'}
-          </button>
-        </div>
-
-        <div className="hidden sm:block">PORTFOLIO / 2026</div>
+        <div className="hidden sm:block">DESIGNER × DEVELOPER</div>
+        <div>PORTFOLIO / 2026</div>
         <div className="hidden md:flex items-center gap-1.5">
           <span className="text-[#FF6D1F]">LOC:</span>
-          <span>INDIA</span>
+          <span>BASED IN INDIA</span>
         </div>
       </motion.div>
 
@@ -333,7 +280,7 @@ export const HeroCollage: React.FC = () => {
         <div className="hidden sm:flex items-center gap-4">
           <span>CURATED SELECTION</span>
           <span className="text-[#FF6D1F]">•</span>
-          <span>SPRINGY RIBBONS // WEBGL</span>
+          <span>4 FEATURED WORKS</span>
         </div>
       </motion.div>
     </section>

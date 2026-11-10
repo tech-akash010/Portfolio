@@ -1,11 +1,11 @@
 import React, { useEffect } from 'react';
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import { CursorProvider } from './components/CustomCursor/CursorContext';
-import { CustomCursor } from './components/CustomCursor/CustomCursor';
 import { DynamicBackground, BackgroundTheme } from './components/Background/DynamicBackground';
 import { Preloader } from './components/Preloader/Preloader';
 import { Navbar } from './components/Navigation/Navbar';
 import { Footer } from './components/Footer/Footer';
+import Ribbons from './components/Ribbons';
 
 // Pages
 import { HomePage } from './pages/Home/HomePage';
@@ -48,8 +48,24 @@ export default function App() {
       <CursorProvider>
         <ScrollToTop />
         <Preloader />
-        <CustomCursor />
         <BackgroundManager />
+
+        {/* Global Springy Ribbons that trail the cursor across every page */}
+        <div className="fixed inset-0 pointer-events-none z-20 overflow-hidden" aria-hidden="true">
+          <Ribbons
+            colors={['#ff6d1f', '#f5e7c6', '#222222']}
+            thickness={36}
+            length={2.4}
+            shape="lens"
+            spread={18}
+            stiffness={0.5}
+            bounce={0.5}
+            wave={0}
+            softness={0.8}
+            opacity={0.95}
+            fade
+          />
+        </div>
 
         <div className="min-h-screen flex flex-col justify-between selection:bg-[#FF6D1F] selection:text-[#FAF3E1]">
           <Navbar />
@@ -84,4 +100,3 @@ export default function App() {
     </BrowserRouter>
   );
 }
-
