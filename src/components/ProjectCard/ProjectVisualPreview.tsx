@@ -6,10 +6,59 @@ interface ProjectVisualPreviewProps {
   interactive?: boolean;
 }
 
+const DESIGN_ARTWORKS: Record<string, { image: string; alt: string }> = {
+  'kinetic-type-poster-lab': {
+    image: 'https://github.com/tech-akash010/portfolio-assets/blob/main/ART%20of%20not%20giving%20SHIT.png?raw=true',
+    alt: 'The Art of Not Giving a Shit',
+  },
+  'aether-identity-system': {
+    image: 'https://github.com/tech-akash010/portfolio-assets/blob/main/Algo%20final.png?raw=true',
+    alt: 'Algo Design System',
+  },
+  'neo-kolkata-illustrated': {
+    image: 'https://github.com/tech-akash010/portfolio-assets/blob/main/BMW%20poster.png?raw=true',
+    alt: 'BMW Poster',
+  },
+  'nexus-design-system': {
+    image: 'https://github.com/tech-akash010/portfolio-assets/blob/main/Dsgn.png?raw=true',
+    alt: 'Dsgn Poster',
+  },
+  'gdg-campus-brand-kit': {
+    image: 'https://github.com/tech-akash010/portfolio-assets/blob/main/Lewis%204.0.png?raw=true',
+    alt: 'Lewis 4.0',
+  },
+  'abstract-monolith-print': {
+    image: 'https://github.com/tech-akash010/portfolio-assets/blob/main/Money%20Heist_coloured.png?raw=true',
+    alt: 'Money Heist Coloured',
+  },
+};
+
 export const ProjectVisualPreview: React.FC<ProjectVisualPreviewProps> = ({
   slug,
   className = '',
 }) => {
+  if (DESIGN_ARTWORKS[slug]) {
+    const artwork = DESIGN_ARTWORKS[slug];
+    return (
+      <div className={`relative w-full h-full bg-[#F5E7C6] p-4 flex items-center justify-center overflow-hidden select-none border border-[#222222]/15 ${className}`}>
+        <img
+          src={artwork.image}
+          alt={artwork.alt}
+          loading="lazy"
+          onError={(e) => {
+            const target = e.currentTarget;
+            if (target.src.includes('github.com') && target.src.includes('/blob/')) {
+              target.src = target.src
+                .replace('github.com', 'raw.githubusercontent.com')
+                .replace('/blob/', '/');
+            }
+          }}
+          className="w-full h-full object-contain drop-shadow-md transition-transform duration-500 hover:scale-105 pointer-events-none"
+        />
+      </div>
+    );
+  }
+
   switch (slug) {
     case 'openlearn-hub':
       return (

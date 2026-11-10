@@ -11,7 +11,7 @@ export const designProjects: DesignProject[] = [
     subcategory: 'Event Posters',
     tagline: 'Experimental typography and Swiss poster explorations',
     description: 'A series of bold editorial posters blending mid-century Swiss graphic design principles with brutalist typography, dynamic grids, and high-contrast color theory.',
-    coverImage: '/posters/poster-lab.svg',
+    coverImage: 'https://github.com/tech-akash010/portfolio-assets/blob/main/ART%20of%20not%20giving%20SHIT.png?raw=true',
     featured: true,
     featuredOrder: 2,
     brief: 'To explore how classic International Typographic Style can be reinterpreted using contemporary digital constraints, variable typefaces, and hyper-structured geometric grid systems.',
@@ -80,7 +80,7 @@ export const designProjects: DesignProject[] = [
     subcategory: 'Branding and Identity',
     tagline: 'Comprehensive visual identity for a generative media studio',
     description: 'An architectural brand identity system designed around dynamic generative modules, tactile paper textures, and responsive logomarks that adapt to screen coordinates.',
-    coverImage: '/branding/aether-brand.svg',
+    coverImage: 'https://github.com/tech-akash010/portfolio-assets/blob/main/Algo%20final.png?raw=true',
     featured: false,
     brief: 'Develop an unconventional brand identity for Aether—a creative studio operating at the nexus of generative AI, algorithmic music, and physical installation design.',
     objectives: [
@@ -143,7 +143,7 @@ export const designProjects: DesignProject[] = [
     subcategory: 'Illustrations',
     tagline: 'Cyber-heritage vector series capturing architecture and transit',
     description: 'A speculative visual storytelling series exploring historic heritage trams, hand-pulled rickshaws, and British colonial arches reimagined in a neo-futuristic solar-punk world.',
-    coverImage: '/illustrations/neo-kolkata.svg',
+    coverImage: 'https://github.com/tech-akash010/portfolio-assets/blob/main/BMW%20poster.png?raw=true',
     featured: false,
     brief: 'A personal creative exploration celebrating the rich urban texture of Kolkata through an expressive, isometric, and vector-driven lens.',
     objectives: [
@@ -205,7 +205,7 @@ export const designProjects: DesignProject[] = [
     subcategory: 'UI/UX',
     tagline: 'Cross-platform design token architecture for student developers',
     description: 'A modular, high-density UI component library crafted for complex developer dashboards, code editors, and data visualizers with strict WCAG AAA accessibility.',
-    coverImage: '/ui/nexus-ds.svg',
+    coverImage: 'https://github.com/tech-akash010/portfolio-assets/blob/main/Dsgn.png?raw=true',
     featured: false,
     brief: 'Create a unified design system that solves visual fragmentation across 5 distinct campus engineering tools and student portals.',
     objectives: [
@@ -267,7 +267,7 @@ export const designProjects: DesignProject[] = [
     subcategory: 'Social Media Design',
     tagline: 'Brand assets, speaker decks, and social collateral for tech communities',
     description: 'A dynamic visual identity package and social media design system for campus tech events, developer workshops, and hackathons.',
-    coverImage: '/branding/gdg-campus.svg',
+    coverImage: 'https://github.com/tech-akash010/portfolio-assets/blob/main/Lewis%204.0.png?raw=true',
     featured: false,
     brief: 'Provide cohesive visual identity and promotional collateral for 12+ student developer workshops, speaker sessions, and coding competitions.',
     objectives: [
@@ -324,7 +324,7 @@ export const designProjects: DesignProject[] = [
     subcategory: 'Creative Experiments',
     tagline: 'Generative geometric compositions rendered in ink and paper',
     description: 'An experimental study investigating physical weight, digital grain, and pure geometric balance using custom algorithmic layout rules.',
-    coverImage: '/experiments/monolith.svg',
+    coverImage: 'https://github.com/tech-akash010/portfolio-assets/blob/main/Money%20Heist_coloured.png?raw=true',
     featured: false,
     brief: 'An independent creative retreat exploring the limits of non-representational form and physical paper interaction.',
     objectives: [

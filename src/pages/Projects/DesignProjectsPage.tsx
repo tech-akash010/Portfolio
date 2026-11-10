@@ -17,16 +17,66 @@ interface DesignExhibit {
 }
 
 const DESIGN_EXHIBITS: DesignExhibit[] = [
-  { id: '01', image: '/posters/poster-lab.png', slug: 'kinetic-type-poster-lab', alt: 'Kinetic Type Lab' },
-  { id: '02', image: '/branding/aether-brand.png', slug: 'aether-identity-system', alt: 'Aether Identity' },
-  { id: '03', image: '/illustrations/neo-kolkata.png', slug: 'neo-kolkata-illustrated', alt: 'Neo-Kolkata' },
-  { id: '04', image: '/ui/nexus-ds.png', slug: 'nexus-design-system', alt: 'Nexus Design System' },
-  { id: '05', image: '/branding/gdg-campus.png', slug: 'gdg-campus-brand-kit', alt: 'GDG Campus Brand' },
-  { id: '06', image: '/experiments/monolith.png', slug: 'abstract-monolith-print', alt: 'Abstract Monolith' },
-  { id: '07', image: '/posters/swiss-grid-74.png', slug: 'kinetic-type-poster-lab', alt: 'Swiss Grid 74' },
-  { id: '08', image: '/branding/solaris-spatial.png', slug: 'nexus-design-system', alt: 'Solaris Spatial UI' },
-  { id: '09', image: '/experiments/analog-glitch.png', slug: 'abstract-monolith-print', alt: 'Analog Disruption' },
-  { id: '10', image: '/posters/bauhaus-form.png', slug: 'kinetic-type-poster-lab', alt: 'Bauhaus 2026' },
+  {
+    id: '01',
+    image: 'https://github.com/tech-akash010/portfolio-assets/blob/main/ART%20of%20not%20giving%20SHIT.png?raw=true',
+    slug: 'kinetic-type-poster-lab',
+    alt: 'The Art of Not Giving a Shit',
+  },
+  {
+    id: '02',
+    image: 'https://github.com/tech-akash010/portfolio-assets/blob/main/Algo%20final.png?raw=true',
+    slug: 'aether-identity-system',
+    alt: 'Algo Design',
+  },
+  {
+    id: '03',
+    image: 'https://github.com/tech-akash010/portfolio-assets/blob/main/BMW%20poster.png?raw=true',
+    slug: 'neo-kolkata-illustrated',
+    alt: 'BMW Poster',
+  },
+  {
+    id: '04',
+    image: 'https://github.com/tech-akash010/portfolio-assets/blob/main/Dsgn.png?raw=true',
+    slug: 'nexus-design-system',
+    alt: 'Dsgn Poster',
+  },
+  {
+    id: '05',
+    image: 'https://github.com/tech-akash010/portfolio-assets/blob/main/Lewis%204.0.png?raw=true',
+    slug: 'gdg-campus-brand-kit',
+    alt: 'Lewis 4.0',
+  },
+  {
+    id: '06',
+    image: 'https://github.com/tech-akash010/portfolio-assets/blob/main/Money%20Heist_coloured.png?raw=true',
+    slug: 'abstract-monolith-print',
+    alt: 'Money Heist Coloured',
+  },
+  {
+    id: '07',
+    image: 'https://github.com/tech-akash010/portfolio-assets/blob/main/Overthink.png?raw=true',
+    slug: 'kinetic-type-poster-lab',
+    alt: 'Overthink',
+  },
+  {
+    id: '08',
+    image: 'https://github.com/tech-akash010/portfolio-assets/blob/main/Virat-kohli.png?raw=true',
+    slug: 'nexus-design-system',
+    alt: 'Virat Kohli',
+  },
+  {
+    id: '09',
+    image: 'https://github.com/tech-akash010/portfolio-assets/blob/main/crsl1.png?raw=true',
+    slug: 'abstract-monolith-print',
+    alt: 'Creative Carousel',
+  },
+  {
+    id: '10',
+    image: 'https://github.com/tech-akash010/portfolio-assets/blob/main/leonardo%20dicaprio.png?raw=true',
+    slug: 'kinetic-type-poster-lab',
+    alt: 'Leonardo DiCaprio',
+  },
 ];
 
 // Triplicated for seamless infinite wrapping in both scroll directions
@@ -311,6 +361,14 @@ export const DesignProjectsPage: React.FC = () => {
                   alt={design.alt}
                   loading="lazy"
                   draggable={false}
+                  onError={(e) => {
+                    const target = e.currentTarget;
+                    if (target.src.includes('github.com') && target.src.includes('/blob/')) {
+                      target.src = target.src
+                        .replace('github.com', 'raw.githubusercontent.com')
+                        .replace('/blob/', '/');
+                    }
+                  }}
                   className="w-full h-full object-contain drop-shadow-md transition-transform duration-700 ease-out group-hover:scale-105 pointer-events-none select-none"
                 />
               </Link>
