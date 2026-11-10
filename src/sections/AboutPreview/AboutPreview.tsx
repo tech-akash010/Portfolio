@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useCursor } from '../../components/CustomCursor/CursorContext';
-import { AkashPortrait } from '../../components/Portrait/AkashPortrait';
 import { ArrowUpRight, GraduationCap, Users2, Sparkles, Compass } from 'lucide-react';
 
 export const AboutPreview: React.FC = () => {
@@ -10,9 +9,69 @@ export const AboutPreview: React.FC = () => {
   return (
     <section className="py-24 px-6 sm:px-8 md:px-12 max-w-7xl mx-auto border-t border-[#222222]/15">
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-        {/* Left Column: Editorial Portrait with Swiss Frame */}
+        {/* Left Column: Editorial Portrait Placeholder with Swiss Frame */}
         <div className="lg:col-span-5 relative">
-          <AkashPortrait variant="about" showControls={true} />
+          <div className="relative mx-auto max-w-sm bg-[#F5E7C6] border border-[#222222]/20 p-5 rounded-lg shadow-lg">
+            {/* Top Frame Label */}
+            <div className="flex justify-between items-center border-b border-[#222222]/15 pb-2.5 mb-4 font-mono text-[9px] uppercase tracking-wider text-[#222222]/70">
+              <span className="flex items-center gap-1.5">
+                <Sparkles className="w-3 h-3 text-[#FF6D1F]" />
+                FIGURE 01 // PORTRAIT ARCHIVE
+              </span>
+              <span className="text-[#FF6D1F]">CALIBRATED 2026</span>
+            </div>
+
+            {/* Editorial Portrait Canvas */}
+            <div className="relative h-80 sm:h-96 w-full bg-[#222222] rounded overflow-hidden flex flex-col justify-between p-6 text-[#FAF3E1]">
+              {/* Background graphic motif */}
+              <div
+                className="absolute inset-0 opacity-10"
+                style={{
+                  backgroundImage:
+                    'radial-gradient(circle at 50% 50%, #FAF3E1 1px, transparent 1px)',
+                  backgroundSize: '16px 16px',
+                }}
+              />
+
+              {/* Monogram Stamp */}
+              <div className="relative z-10 flex justify-between items-start">
+                <div className="w-10 h-10 rounded border border-[#FAF3E1]/20 flex items-center justify-center font-display font-black text-sm text-[#FAF3E1]">
+                  AK<span className="text-[#FF6D1F]">.</span>
+                </div>
+                <div className="font-mono text-[9px] text-[#FAF3E1]/60 text-right">
+                  <div>CSE STUDENT</div>
+                  <div className="text-[#FF6D1F]">DESIGNER × DEV</div>
+                </div>
+              </div>
+
+              {/* Central Typographic Avatar Silhouette */}
+              <div className="relative z-10 text-center my-auto">
+                <div className="w-24 h-24 sm:w-28 sm:h-28 mx-auto rounded-full border-2 border-[#FF6D1F] flex items-center justify-center bg-[#FAF3E1]/5 p-2">
+                  <div className="w-full h-full rounded-full bg-[#FAF3E1] text-[#222222] flex items-center justify-center font-display font-black text-3xl tracking-tight shadow-inner">
+                    AK
+                  </div>
+                </div>
+                <div className="mt-3 font-display font-bold text-lg text-[#FAF3E1]">
+                  Akash Kundu
+                </div>
+                <div className="font-mono text-[10px] text-[#FAF3E1]/60">
+                  Kolkata, WB, India
+                </div>
+              </div>
+
+              {/* Bottom Spec Footer */}
+              <div className="relative z-10 flex justify-between items-center font-mono text-[8px] text-[#FAF3E1]/50 pt-3 border-t border-[#FAF3E1]/15">
+                <span>ACADEMY OF TECHNOLOGY</span>
+                <span className="text-[#FF6D1F]">2024 — 2028</span>
+              </div>
+            </div>
+
+            {/* Sub-caption */}
+            <div className="mt-3 flex items-center justify-between font-mono text-[9px] text-[#222222]/60 px-1">
+              <span>PHOTO CODE: #AK-PORTRAIT-01</span>
+              <span>INDEX: 05</span>
+            </div>
+          </div>
         </div>
 
         {/* Right Column: Narrative & Highlights */}
@@ -82,4 +141,3 @@ export const AboutPreview: React.FC = () => {
     </section>
   );
 };
-
