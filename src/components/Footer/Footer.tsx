@@ -8,30 +8,36 @@ export const Footer: React.FC = () => {
   const footerRef = useRef<HTMLElement>(null);
   const [isInView, setIsInView] = useState(false);
 
+  const [waveKey, setWaveKey] = useState(0);
+
   useEffect(() => {
-    // 1. Immediate check if footer is already visible on mount (e.g. page refreshed at bottom)
+    // 1. Immediate check if footer is already in view on mount
     if (footerRef.current) {
       const rect = footerRef.current.getBoundingClientRect();
-      if (rect.top <= window.innerHeight + 250) {
+      if (rect.top <= window.innerHeight + 150 && rect.bottom >= 0) {
         setIsInView(true);
       }
     }
 
-    // 2. IntersectionObserver with generous 250px advance bottom margin
+    // 2. IntersectionObserver to trigger wave whenever footer opens into view
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
           setIsInView(true);
+          setWaveKey((prev) => prev + 1);
+        } else {
+          // Reset when completely scrolled away so wave replays when footer is opened again
+          setIsInView(false);
         }
       },
-      { rootMargin: '0px 0px 250px 0px', threshold: 0 }
+      { rootMargin: '0px 0px 100px 0px', threshold: 0.05 }
     );
 
     if (footerRef.current) {
       observer.observe(footerRef.current);
     }
 
-    // 3. Fail-safe timer: guaranteed visibility even if observer events are delayed or blocked
+    // 3. Fail-safe timer: guaranteed visibility even if observer events are blocked
     const timer = setTimeout(() => {
       setIsInView(true);
     }, 600);
@@ -46,30 +52,36 @@ export const Footer: React.FC = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.08,
-        delayChildren: 0.05,
-      },
-    },
-  };
-
   const letterVariants = {
     hidden: {
-      y: 20,
+      y: 50,
       opacity: 0,
     },
-    visible: {
-      y: 0,
-      opacity: 1,
+    visible: (i: number) => ({
+      y: [50, -24, 8, -2, 0],
+      opacity: [0, 1, 1, 1, 1],
       transition: {
-        duration: 0.65,
-        ease: [0.16, 1, 0.3, 1] as const,
+        duration: 1.15,
+        delay: i * 0.1,
+        times: [0, 0.42, 0.72, 0.88, 1],
+        ease: [0.22, 1, 0.36, 1] as const,
       },
+    }),
+  };
+
+  const pathVariants = {
+    hidden: {
+      fill: '#FF6D1F',
     },
+    visible: (i: number) => ({
+      fill: ['#FF6D1F', '#FF6D1F', '#FAF3E1', '#FAF3E1', '#FAF3E1'],
+      transition: {
+        duration: 1.15,
+        delay: i * 0.1,
+        times: [0, 0.42, 0.72, 0.88, 1],
+        ease: [0.22, 1, 0.36, 1] as const,
+      },
+    }),
   };
 
   const letters = [
@@ -224,31 +236,39 @@ export const Footer: React.FC = () => {
 
       </div>
 
-      {/* Full-Bleed Name Stage: AKASH with Staggered Entrance & Interactive Hover Wave */}
-      <div className="relative w-full overflow-hidden select-none leading-none pt-6 pb-2">
+      {/* Full-Bleed Name Stage: AKASH with Wave Entrance & Interactive Wave Hover */}
+      <div className="relative w-full overflow-visible select-none leading-none pt-8 pb-4">
         <motion.svg
+          key={waveKey}
           viewBox="0.6 41.4 1033.8 140.8"
-          className="w-full h-auto block"
+          className="w-full h-auto block overflow-visible cursor-pointer"
           aria-label="AKASH"
           role="img"
-          initial="hidden"
-          animate={isInView ? 'visible' : 'hidden'}
-          variants={containerVariants}
+          onClick={() => setWaveKey((prev) => prev + 1)}
         >
-          {letters.map((letter) => (
+          {letters.map((letter, idx) => (
             <motion.g
               key={letter.id}
+              custom={idx}
+              initial="hidden"
+              animate={isInView ? 'visible' : 'hidden'}
               variants={letterVariants}
               whileHover={{
-                y: -10,
-                transition: { type: 'spring', stiffness: 450, damping: 14 },
+                y: -14,
+                transition: { type: 'spring', stiffness: 500, damping: 14 },
               }}
-              className="group cursor-pointer"
+              className="cursor-pointer"
             >
-              <path
+              <motion.path
                 d={letter.d}
-                fill="#FAF3E1"
-                className="group-hover:fill-[#FF6D1F] transition-colors duration-300"
+                custom={idx}
+                initial="hidden"
+                animate={isInView ? 'visible' : 'hidden'}
+                variants={pathVariants}
+                whileHover={{
+                  fill: '#FF6D1F',
+                  transition: { duration: 0.15 },
+                }}
               />
             </motion.g>
           ))}
