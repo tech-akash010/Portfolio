@@ -1,35 +1,107 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useRef } from 'react';
 import { useCursor } from '../CustomCursor/CursorContext';
-import { ArrowUp, ArrowUpRight } from 'lucide-react';
+import { ArrowUp, ArrowUpRight, MapPin } from 'lucide-react';
+import { motion, useInView } from 'motion/react';
 
 export const Footer: React.FC = () => {
   const { setCursorType, resetCursor } = useCursor();
+  const footerRef = useRef<HTMLElement>(null);
+  const isInView = useInView(footerRef, { amount: 0.05, margin: "100px 0px 0px 0px" });
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  const navLinks = [
-    { name: 'Home', path: '/' },
-    { name: 'Projects', path: '/projects' },
-    { name: 'Design Portfolio', path: '/projects/design' },
-    { name: 'Tech Projects', path: '/projects/technology' },
-    { name: 'About Me', path: '/about' },
-    { name: 'Connect', path: '/connect' },
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.08,
+        delayChildren: 0.1,
+      },
+    },
+  };
+
+  const letterVariants = {
+    hidden: {
+      y: 45,
+      opacity: 0,
+    },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        duration: 0.75,
+        ease: [0.16, 1, 0.3, 1] as const,
+      },
+    },
+  };
+
+  const letters = [
+    {
+      id: 'A1',
+      name: 'A',
+      d: 'M218.80 180L197 180L173.60 147L45.60 147L22.20 180L0.60 180L97.80 43.60L121.40 43.60L218.80 180M109.60 56.20L55 133.60L164.20 133.60L109.60 56.20',
+    },
+    {
+      id: 'K',
+      name: 'K',
+      d: 'M252.80 140L252.80 180L234.80 180L234.80 43.60L252.80 43.60L252.80 123.60L291.60 98.20L381.80 43.60L408 43.60L320.20 99L410.60 180L386.40 180L305.20 107.80L252.80 140',
+    },
+    {
+      id: 'A2',
+      name: 'A',
+      d: 'M636.80 180L615 180L591.60 147L463.60 147L440.20 180L418.60 180L515.80 43.60L539.40 43.60L636.80 180M527.60 56.20L473 133.60L582.20 133.60L527.60 56.20',
+    },
+    {
+      id: 'S',
+      name: 'S',
+      d: 'M824.60 144.80Q824.60 158.60 817.30 166.50Q810 174.40 791.80 178.30Q773.60 182.20 741.20 182.20Q719.20 182.20 693.60 179.50Q668 176.80 650 173L652.80 158Q671.80 162 697.60 164.70Q723.40 167.40 744.80 167.40Q770.80 167.40 784.40 164.90Q798 162.40 802.60 157.80Q807.20 153.20 807.20 144.40Q807.20 132.20 800.50 127.90Q793.80 123.60 777 121.60L698.40 114Q672.40 111.80 660.20 104.20Q648 96.60 648 78.80Q648 58.40 666.30 49.90Q684.60 41.40 730 41.40Q750 41.40 775.30 43.90Q800.60 46.40 818.60 50.20L815.60 64.60Q798.20 61.20 772.50 58.70Q746.80 56.20 726.80 56.20Q701.20 56.20 687.90 58.50Q674.60 60.80 669.90 65.30Q665.20 69.80 665.20 78.40Q665.20 89.20 672.60 93.20Q680 97.20 697.60 99L773.80 106.40Q786.60 107.60 795.10 109.60Q803.60 111.60 810.70 115.70Q817.80 119.80 821.20 127Q824.60 134.20 824.60 144.80',
+    },
+    {
+      id: 'H',
+      name: 'H',
+      d: 'M869.80 116.60L869.80 180L851.80 180L851.80 43.60L869.80 43.60L869.80 101L1016.40 101L1016.40 43.60L1034.40 43.60L1034.40 180L1016.40 180L1016.40 116.60',
+    },
   ];
 
   const socialLinks = [
-    { name: 'LinkedIn', url: 'https://www.linkedin.com/in/akashkundu010/', handle: 'in/akashkundu010' },
-    { name: 'Instagram', url: 'https://www.instagram.com/0x.akash/', handle: '@0x.akash' },
-    { name: 'GitHub', url: 'https://github.com/tech-akash010', handle: '@tech-akash010' },
-    { name: 'X (Twitter)', url: 'https://x.com/officialak_X', handle: '@officialak_X' },
-    { name: 'Email', url: 'mailto:contact@akashkundu.dev', handle: 'contact@akashkundu.dev' },
+    {
+      name: 'GitHub',
+      url: 'https://github.com/tech-akash010',
+      handle: '@tech-akash010',
+      category: 'CODE ARCHIVE',
+    },
+    {
+      name: 'LinkedIn',
+      url: 'https://www.linkedin.com/in/akashkundu010/',
+      handle: 'in/akashkundu010',
+      category: 'PROFESSIONAL',
+    },
+    {
+      name: 'X (Twitter)',
+      url: 'https://x.com/officialak_X',
+      handle: '@officialak_X',
+      category: 'LOGS & THOUGHTS',
+    },
+    {
+      name: 'Instagram',
+      url: 'https://www.instagram.com/0x.akash/',
+      handle: '@0x.akash',
+      category: 'VISUAL LAB',
+    },
+    {
+      name: 'Email',
+      url: 'mailto:contact@akashkundu.dev',
+      handle: 'contact@akashkundu.dev',
+      category: 'DIRECT INQUIRY',
+    },
   ];
 
   return (
-    <footer className="relative bg-[#222222] text-[#FAF3E1] border-t border-[#FAF3E1]/15 overflow-hidden">
-      {/* Subtle Swiss grid in footer */}
+    <footer ref={footerRef} className="relative bg-[#222222] text-[#FAF3E1] border-t border-[#FAF3E1]/15 overflow-hidden">
+      {/* Subtle Swiss grid in footer background */}
       <div
         className="absolute inset-0 opacity-5 pointer-events-none"
         style={{
@@ -39,24 +111,37 @@ export const Footer: React.FC = () => {
         }}
       />
 
-      <div className="relative max-w-7xl mx-auto px-6 sm:px-8 md:px-12 pt-16 pb-12">
-        {/* Massive Brand Watermark */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between border-b border-[#FAF3E1]/15 pb-12 gap-8">
-          <div>
-            <h2 className="font-display text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-black tracking-tighter text-[#FAF3E1] leading-none">
-              AK<span className="text-[#FF6D1F]">.</span>
-            </h2>
-            <p className="font-editorial italic text-xl md:text-2xl text-[#FAF3E1]/70 mt-3 max-w-md">
-              A Mind in Motion. Think. Create. Build.
+      <div className="relative max-w-7xl mx-auto px-6 sm:px-8 md:px-12 pt-16 pb-6">
+        {/* Top Info Strip: Perspective + Back to Top */}
+        <div className="flex flex-col md:flex-row md:items-start justify-between border-b border-[#FAF3E1]/15 pb-12 gap-8">
+          {/* Left Column: Author Mindset & Focus */}
+          <div className="max-w-xl space-y-3">
+            <h3 className="font-display text-2xl sm:text-3xl font-bold tracking-tight text-[#FAF3E1]">
+              A Mind in Motion<span className="text-[#FF6D1F]">.</span> Think. Create. Build.
+            </h3>
+            <p className="font-body text-sm text-[#FAF3E1]/70 leading-relaxed">
+              Engineering high-performance software systems and architecting art-directed visual identities at the intersection of aesthetic precision and computational logic.
             </p>
+            <div className="flex items-center gap-3 pt-2 font-mono text-xs text-[#FAF3E1]/60">
+              <span className="flex items-center gap-1.5">
+                <MapPin className="w-3.5 h-3.5 text-[#FF6D1F]" /> Kolkata, India
+              </span>
+              <span>•</span>
+              <span>IST (UTC+5:30)</span>
+              <span>•</span>
+              <span className="flex items-center gap-1 text-[#FF6D1F]">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#FF6D1F] animate-pulse" />
+                Available for Select Projects
+              </span>
+            </div>
           </div>
 
-          {/* Back to top button */}
+          {/* Right Column: Sleek Back to Top Action */}
           <button
             onClick={scrollToTop}
             onMouseEnter={() => setCursorType('hover')}
             onMouseLeave={resetCursor}
-            className="group self-start md:self-auto flex items-center gap-3 px-5 py-3 rounded-full border border-[#FAF3E1]/30 hover:border-[#FF6D1F] hover:bg-[#FF6D1F]/10 transition-all duration-300"
+            className="group self-start md:self-auto flex items-center gap-3 px-5 py-3 rounded-full border border-[#FAF3E1]/30 hover:border-[#FF6D1F] hover:bg-[#FF6D1F]/10 transition-all duration-300 cursor-pointer"
             aria-label="Back to top"
           >
             <span className="font-mono text-xs tracking-wider uppercase text-[#FAF3E1] group-hover:text-[#FF6D1F]">
@@ -68,84 +153,82 @@ export const Footer: React.FC = () => {
           </button>
         </div>
 
-        {/* Middle Navigation & Social Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-10 py-12 border-b border-[#FAF3E1]/15">
-          {/* Col 1: Navigation */}
-          <div className="md:col-span-5 space-y-3">
-            <span className="font-mono text-[11px] tracking-widest text-[#FF6D1F] uppercase block mb-4">
-              SITEMAP
-            </span>
-            <div className="grid grid-cols-2 gap-y-2.5 gap-x-6">
-              {navLinks.map((item) => (
-                <Link
-                  key={item.name}
-                  to={item.path}
-                  onMouseEnter={() => setCursorType('hover')}
-                  onMouseLeave={resetCursor}
-                  className="font-mono text-xs text-[#FAF3E1]/75 hover:text-[#FF6D1F] transition-colors flex items-center gap-1.5"
-                >
-                  <span className="text-[#FF6D1F]/50 text-[10px]">/</span>
-                  {item.name}
-                </Link>
-              ))}
-            </div>
-          </div>
+        {/* Middle Section: Clean Unboxed Social Links Directory */}
+        <div className="py-12 border-b border-[#FAF3E1]/15">
+          {/* 5-Column Open Typography Grid (No Boxes) */}
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-8 lg:gap-12">
+            {socialLinks.map((social, idx) => (
+              <a
+                key={social.name}
+                href={social.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                onMouseEnter={() => setCursorType('external')}
+                onMouseLeave={resetCursor}
+                className="group flex flex-col space-y-2 transition-all duration-200"
+              >
+                <div className="flex items-center justify-between">
+                  <span className="font-mono text-xs text-[#FF6D1F] font-bold">0{idx + 1}</span>
+                  <ArrowUpRight className="w-4 h-4 text-[#FAF3E1]/40 group-hover:text-[#FF6D1F] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
+                </div>
 
-          {/* Col 2: Social & Contact */}
-          <div className="md:col-span-4 space-y-3">
-            <span className="font-mono text-[11px] tracking-widest text-[#FF6D1F] uppercase block mb-4">
-              CHANNELS
-            </span>
-            <div className="space-y-2">
-              {socialLinks.map((social) => (
-                <a
-                  key={social.name}
-                  href={social.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onMouseEnter={() => setCursorType('external')}
-                  onMouseLeave={resetCursor}
-                  className="group flex items-center justify-between font-mono text-xs text-[#FAF3E1]/75 hover:text-[#FAF3E1] py-1 border-b border-[#FAF3E1]/5"
-                >
-                  <span className="group-hover:text-[#FF6D1F] transition-colors">
+                <div>
+                  <span className="font-mono text-[10px] uppercase tracking-wider text-[#FAF3E1]/40 block mb-1">
+                    {social.category}
+                  </span>
+                  <span className="font-display font-bold text-xl text-[#FAF3E1] group-hover:text-[#FF6D1F] transition-colors block">
                     {social.name}
                   </span>
-                  <span className="text-[11px] text-[#FAF3E1]/40 flex items-center gap-1 group-hover:text-[#FAF3E1]">
+                  <span className="font-mono text-xs text-[#FAF3E1]/60 group-hover:text-[#FAF3E1] transition-colors mt-0.5 block truncate">
                     {social.handle}
-                    <ArrowUpRight className="w-3 h-3 group-hover:text-[#FF6D1F] transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                   </span>
-                </a>
-              ))}
-            </div>
-          </div>
-
-          {/* Col 3: Colophon & Philosophy */}
-          <div className="md:col-span-3 space-y-3 font-mono text-xs text-[#FAF3E1]/60">
-            <span className="font-mono text-[11px] tracking-widest text-[#FF6D1F] uppercase block mb-4">
-              COLOPHON
-            </span>
-            <p className="leading-relaxed text-[11px]">
-              Art-directed digital experience. Engineered with React 19, TypeScript, Tailwind CSS, Motion & GSAP.
-            </p>
-            <div className="pt-2 text-[10px] space-y-1 text-[#FAF3E1]/40">
-              <div>TYPE: Outfit, Geist, Playfair Display, DM Mono</div>
-              <div>PALETTE: #FAF3E1 / #F5E7C6 / #FF6D1F / #222222</div>
-            </div>
+                </div>
+              </a>
+            ))}
           </div>
         </div>
 
-        {/* Bottom Legal / Copyright Bar */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between font-mono text-[11px] text-[#FAF3E1]/50 gap-4">
+      </div>
+
+      {/* Full-Bleed Name Stage: AKASH with Staggered Entrance & Interactive Hover Wave */}
+      <div className="relative w-full overflow-hidden select-none leading-none pt-6 pb-2">
+        <motion.svg
+          viewBox="0.6 41.4 1033.8 140.8"
+          className="w-full h-auto block"
+          aria-label="AKASH"
+          role="img"
+          initial="hidden"
+          animate={isInView ? 'visible' : 'hidden'}
+          variants={containerVariants}
+        >
+          {letters.map((letter) => (
+            <motion.g
+              key={letter.id}
+              variants={letterVariants}
+              whileHover={{
+                y: -10,
+                transition: { type: 'spring', stiffness: 450, damping: 14 },
+              }}
+              className="cursor-pointer text-[#FAF3E1] hover:text-[#FF6D1F] transition-colors duration-200"
+            >
+              <path d={letter.d} fill="currentColor" />
+            </motion.g>
+          ))}
+        </motion.svg>
+      </div>
+
+      {/* Bottommost Legal / Copyright Bar */}
+      <div className="relative w-full border-t border-[#FAF3E1]/10 bg-[#222222]">
+        <div className="max-w-7xl mx-auto px-6 sm:px-8 md:px-12 py-4 flex flex-col sm:flex-row items-center justify-between font-mono text-[11px] text-[#FAF3E1]/50 gap-3">
           <div>
-            © {new Date().getFullYear()} AKASH KUNDU (AK). ALL RIGHTS RESERVED.
+            © {new Date().getFullYear()} AKASH KUNDU. ALL RIGHTS RESERVED.
           </div>
-          <div className="flex items-center gap-3">
-            <span className="w-2 h-2 rounded-full bg-[#FF6D1F]" />
-            <span>DESIGNED & CODED WITH INTENT — INDIA</span>
+          <div className="flex items-center gap-2 text-[#FAF3E1]/60">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#FF6D1F]" />
+            <span>OPEN FOR COLLABORATION</span>
           </div>
         </div>
       </div>
     </footer>
   );
 };
-

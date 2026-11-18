@@ -17,9 +17,9 @@ export const SelectedWork: React.FC = () => {
   return (
     <section id="selected-work" className="py-24 px-6 sm:px-8 md:px-12 max-w-7xl mx-auto">
       {/* Section Header */}
-      <div className="flex flex-col sm:flex-row sm:items-end justify-between border-b border-[#222222]/15 pb-6 mb-12 gap-4">
+      <div className="flex flex-col sm:flex-row sm:items-end justify-between border-b border-[#FAF3E1]/15 pb-6 mb-12 gap-4">
         <div>
-          <h2 className="font-display text-4xl sm:text-5xl md:text-6xl font-black tracking-tight text-[#222222]">
+          <h2 className="font-display text-4xl sm:text-5xl md:text-6xl font-black tracking-tight text-[#FAF3E1]">
             FEATURED BUILDS<span className="text-[#FF6D1F]">.</span>
           </h2>
         </div>
@@ -27,7 +27,7 @@ export const SelectedWork: React.FC = () => {
           to="/projects"
           onMouseEnter={() => setCursorType('hover')}
           onMouseLeave={resetCursor}
-          className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-wider text-[#222222] hover:text-[#FF6D1F] transition-colors"
+          className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-wider text-[#FAF3E1]/80 hover:text-[#FF6D1F] transition-colors"
         >
           <span>View All 12 Projects</span>
           <ArrowUpRight className="w-4 h-4" />
@@ -42,40 +42,40 @@ export const SelectedWork: React.FC = () => {
             to={`/projects/technology/${openlearn.slug}`}
             onMouseEnter={() => setCursorType('project', 'VIEW PROJECT')}
             onMouseLeave={resetCursor}
-            className="group block bg-[#FAF3E1] border border-[#222222]/20 rounded-lg overflow-hidden transition-all duration-300 hover:border-[#FF6D1F] hover:shadow-xl hover:shadow-[#222222]/5"
+            className="group block bg-[#FAF3E1]/[0.03] border border-[#FAF3E1]/15 rounded-lg overflow-hidden transition-all duration-300 hover:border-[#FF6D1F] hover:shadow-xl hover:shadow-black/40"
           >
             {/* Visual Screen Container */}
-            <div className="h-72 sm:h-96 w-full border-b border-[#222222]/15 overflow-hidden transition-transform duration-500 group-hover:scale-[1.01]">
+            <div className="h-72 sm:h-96 w-full border-b border-[#FAF3E1]/15 overflow-hidden transition-transform duration-500 group-hover:scale-[1.01]">
               <ProjectVisualPreview slug={openlearn.slug} />
             </div>
 
             {/* Content Details */}
             <div className="p-6 sm:p-8 flex flex-col justify-between">
               <div>
-                <div className="flex items-center justify-between font-mono text-xs text-[#222222]/60 mb-2">
+                <div className="flex items-center justify-between font-mono text-xs text-[#FAF3E1]/60 mb-2">
                   <span className="text-[#FF6D1F] font-bold uppercase tracking-wider">{openlearn.subcategory}</span>
                   <span>{openlearn.year}</span>
                 </div>
-                <h3 className="font-display text-3xl sm:text-4xl font-bold tracking-tight text-[#222222] group-hover:text-[#FF6D1F] transition-colors">
+                <h3 className="font-display text-3xl sm:text-4xl font-bold tracking-tight text-[#FAF3E1] group-hover:text-[#FF6D1F] transition-colors">
                   {openlearn.title}
                 </h3>
-                <p className="font-body text-sm sm:text-base text-[#222222]/75 mt-2 max-w-2xl leading-relaxed">
+                <p className="font-body text-sm sm:text-base text-[#FAF3E1]/75 mt-2 max-w-2xl leading-relaxed">
                   {openlearn.description}
                 </p>
               </div>
 
-              <div className="flex flex-wrap items-center justify-between gap-4 mt-6 pt-4 border-t border-[#222222]/10">
+              <div className="flex flex-wrap items-center justify-between gap-4 mt-6 pt-4 border-t border-[#FAF3E1]/15">
                 <div className="flex flex-wrap gap-1.5">
                   {openlearn.techStack.slice(0, 4).map((tech) => (
                     <span
                       key={tech}
-                      className="px-2.5 py-0.5 rounded bg-[#F5E7C6] text-[#222222] font-mono text-[10px]"
+                      className="px-2.5 py-0.5 rounded bg-[#FAF3E1]/10 text-[#FAF3E1]/80 font-mono text-[10px]"
                     >
                       {tech}
                     </span>
                   ))}
                 </div>
-                <span className="font-mono text-xs uppercase tracking-wider text-[#222222] group-hover:text-[#FF6D1F] flex items-center gap-1 transition-colors">
+                <span className="font-mono text-xs uppercase tracking-wider text-[#FAF3E1] group-hover:text-[#FF6D1F] flex items-center gap-1 transition-colors">
                   Case Study <ArrowUpRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                 </span>
               </div>
@@ -89,7 +89,7 @@ export const SelectedWork: React.FC = () => {
             to={`/projects/technology/${structo.slug}`}
             onMouseEnter={() => setCursorType('project', 'VIEW PROJECT')}
             onMouseLeave={resetCursor}
-            className="group w-full flex flex-col justify-between bg-[#222222] text-[#FAF3E1] border border-[#222222] rounded-lg overflow-hidden transition-all duration-300 hover:border-[#FF6D1F] hover:shadow-xl hover:shadow-[#222222]/15"
+            className="group w-full flex flex-col justify-between bg-[#FAF3E1]/[0.03] text-[#FAF3E1] border border-[#FAF3E1]/15 rounded-lg overflow-hidden transition-all duration-300 hover:border-[#FF6D1F] hover:shadow-xl hover:shadow-black/40"
           >
             {/* Visual Container */}
             <div className="h-64 lg:h-72 w-full border-b border-[#FAF3E1]/15 overflow-hidden transition-transform duration-500 group-hover:scale-[1.01]">
@@ -129,24 +129,24 @@ export const SelectedWork: React.FC = () => {
             to={`/projects/technology/${sankalp.slug}`}
             onMouseEnter={() => setCursorType('project', 'VIEW PROJECT')}
             onMouseLeave={resetCursor}
-            className="group block bg-[#FAF3E1] border border-[#222222]/20 rounded-lg overflow-hidden transition-all duration-300 hover:border-[#FF6D1F] hover:shadow-lg"
+            className="group block bg-[#FAF3E1]/[0.03] border border-[#FAF3E1]/15 rounded-lg overflow-hidden transition-all duration-300 hover:border-[#FF6D1F] hover:shadow-lg hover:shadow-black/30"
           >
-            <div className="h-56 sm:h-64 w-full border-b border-[#222222]/15 overflow-hidden transition-transform duration-500 group-hover:scale-[1.01]">
+            <div className="h-56 sm:h-64 w-full border-b border-[#FAF3E1]/15 overflow-hidden transition-transform duration-500 group-hover:scale-[1.01]">
               <ProjectVisualPreview slug={sankalp.slug} />
             </div>
             <div className="p-6">
-              <div className="flex items-center justify-between font-mono text-xs text-[#222222]/60 mb-2">
+              <div className="flex items-center justify-between font-mono text-xs text-[#FAF3E1]/60 mb-2">
                 <span className="text-[#FF6D1F] font-bold uppercase tracking-wider">WEB PLATFORM</span>
                 <span>{sankalp.year}</span>
               </div>
-              <h3 className="font-display text-2xl font-bold tracking-tight text-[#222222] group-hover:text-[#FF6D1F] transition-colors">
+              <h3 className="font-display text-2xl font-bold tracking-tight text-[#FAF3E1] group-hover:text-[#FF6D1F] transition-colors">
                 {sankalp.title}
               </h3>
-              <p className="font-body text-xs sm:text-sm text-[#222222]/75 mt-2 line-clamp-2">
+              <p className="font-body text-xs sm:text-sm text-[#FAF3E1]/75 mt-2 line-clamp-2">
                 {sankalp.description}
               </p>
-              <div className="mt-4 flex items-center justify-between pt-3 border-t border-[#222222]/10 font-mono text-xs">
-                <span className="text-[11px] text-[#222222]/60">Full-Stack Platform</span>
+              <div className="mt-4 flex items-center justify-between pt-3 border-t border-[#FAF3E1]/15 font-mono text-xs">
+                <span className="text-[11px] text-[#FAF3E1]/60">Full-Stack Platform</span>
                 <span className="text-[#FF6D1F] font-bold flex items-center gap-1">
                   Read Case Study <ArrowUpRight className="w-3 h-3" />
                 </span>
@@ -161,24 +161,24 @@ export const SelectedWork: React.FC = () => {
             to={`/projects/technology/${rayofroads.slug}`}
             onMouseEnter={() => setCursorType('project', 'VIEW PROJECT')}
             onMouseLeave={resetCursor}
-            className="group block bg-[#FAF3E1] border border-[#222222]/20 rounded-lg overflow-hidden transition-all duration-300 hover:border-[#FF6D1F] hover:shadow-lg"
+            className="group block bg-[#FAF3E1]/[0.03] border border-[#FAF3E1]/15 rounded-lg overflow-hidden transition-all duration-300 hover:border-[#FF6D1F] hover:shadow-lg hover:shadow-black/30"
           >
-            <div className="h-56 sm:h-64 w-full border-b border-[#222222]/15 overflow-hidden transition-transform duration-500 group-hover:scale-[1.01]">
+            <div className="h-56 sm:h-64 w-full border-b border-[#FAF3E1]/15 overflow-hidden transition-transform duration-500 group-hover:scale-[1.01]">
               <ProjectVisualPreview slug={rayofroads.slug} />
             </div>
             <div className="p-6">
-              <div className="flex items-center justify-between font-mono text-xs text-[#222222]/60 mb-2">
+              <div className="flex items-center justify-between font-mono text-xs text-[#FAF3E1]/60 mb-2">
                 <span className="text-[#FF6D1F] font-bold uppercase tracking-wider">CARTOGRAPHY</span>
                 <span>{rayofroads.year}</span>
               </div>
-              <h3 className="font-display text-2xl font-bold tracking-tight text-[#222222] group-hover:text-[#FF6D1F] transition-colors">
+              <h3 className="font-display text-2xl font-bold tracking-tight text-[#FAF3E1] group-hover:text-[#FF6D1F] transition-colors">
                 {rayofroads.title}
               </h3>
-              <p className="font-body text-xs sm:text-sm text-[#222222]/75 mt-2 line-clamp-2">
+              <p className="font-body text-xs sm:text-sm text-[#FAF3E1]/75 mt-2 line-clamp-2">
                 {rayofroads.description}
               </p>
-              <div className="mt-4 flex items-center justify-between pt-3 border-t border-[#222222]/10 font-mono text-xs">
-                <span className="text-[11px] text-[#222222]/60">Interactive Routing</span>
+              <div className="mt-4 flex items-center justify-between pt-3 border-t border-[#FAF3E1]/15 font-mono text-xs">
+                <span className="text-[11px] text-[#FAF3E1]/60">Interactive Routing</span>
                 <span className="text-[#FF6D1F] font-bold flex items-center gap-1">
                   Read Case Study <ArrowUpRight className="w-3 h-3" />
                 </span>

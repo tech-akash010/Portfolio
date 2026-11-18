@@ -30,16 +30,7 @@ const ScrollToTop: React.FC = () => {
 
 // Route-aware Background Theme selector
 const BackgroundManager: React.FC = () => {
-  const { pathname } = useLocation();
-
-  let theme: BackgroundTheme = 'paper';
-  if (pathname.includes('/projects/design')) {
-    theme = 'creative';
-  } else if (pathname === '/connect') {
-    theme = 'paper';
-  }
-
-  return <DynamicBackground theme={theme} />;
+  return <DynamicBackground theme="dark" />;
 };
 
 export default function App() {
@@ -53,7 +44,7 @@ export default function App() {
         {/* Global Springy Ribbons that trail the cursor across every page */}
         <div className="fixed inset-0 pointer-events-none z-20 overflow-hidden" aria-hidden="true">
           <Ribbons
-            colors={['#ff6d1f', '#f5e7c6', '#222222']}
+            colors={['#ff6d1f', '#f5e7c6', '#faf3e1']}
             thickness={36}
             length={2.4}
             shape="lens"

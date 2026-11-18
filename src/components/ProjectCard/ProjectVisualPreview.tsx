@@ -40,7 +40,7 @@ export const ProjectVisualPreview: React.FC<ProjectVisualPreviewProps> = ({
   if (DESIGN_ARTWORKS[slug]) {
     const artwork = DESIGN_ARTWORKS[slug];
     return (
-      <div className={`relative w-full h-full bg-[#F5E7C6] p-4 flex items-center justify-center overflow-hidden select-none border border-[#222222]/15 ${className}`}>
+      <div className={`relative w-full h-full bg-[#222222] p-4 flex items-center justify-center overflow-hidden select-none border border-[#FAF3E1]/15 ${className}`}>
         <img
           src={artwork.image}
           alt={artwork.alt}
@@ -116,9 +116,9 @@ export const ProjectVisualPreview: React.FC<ProjectVisualPreviewProps> = ({
 
     case 'sankalp':
       return (
-        <div className={`relative w-full h-full bg-[#F5E7C6] text-[#222222] p-6 flex flex-col justify-between overflow-hidden select-none ${className}`}>
-          <div className="flex items-center justify-between border-b border-[#222222]/15 pb-3">
-            <span className="font-mono text-[10px] uppercase tracking-widest text-[#222222]/70">
+        <div className={`relative w-full h-full bg-[#222222] text-[#FAF3E1] p-6 flex flex-col justify-between overflow-hidden select-none ${className}`}>
+          <div className="flex items-center justify-between border-b border-[#FAF3E1]/15 pb-3">
+            <span className="font-mono text-[10px] uppercase tracking-widest text-[#FAF3E1]/70">
               COMMUNITY DIRECTORY // SANKALP
             </span>
             <span className="font-mono text-[10px] text-[#FF6D1F] font-bold">
@@ -127,10 +127,10 @@ export const ProjectVisualPreview: React.FC<ProjectVisualPreviewProps> = ({
           </div>
 
           <div className="my-auto py-4 space-y-3">
-            <div className="p-3 bg-[#FAF3E1] rounded border border-[#222222]/10 flex items-center justify-between">
+            <div className="p-3 bg-[#FAF3E1]/10 rounded border border-[#FAF3E1]/15 flex items-center justify-between">
               <div>
                 <span className="text-[10px] font-mono text-[#FF6D1F] block">EMERGENCY APPEAL</span>
-                <span className="font-display font-bold text-sm">Blood Group O- Required</span>
+                <span className="font-display font-bold text-sm text-[#FAF3E1]">Blood Group O- Required</span>
               </div>
               <span className="px-2 py-1 rounded bg-[#FF6D1F] text-[#FAF3E1] font-mono text-[10px]">
                 URGENT
@@ -138,18 +138,18 @@ export const ProjectVisualPreview: React.FC<ProjectVisualPreviewProps> = ({
             </div>
 
             <div className="grid grid-cols-2 gap-2 text-xs font-mono">
-              <div className="p-2.5 bg-[#FAF3E1]/70 rounded border border-[#222222]/10">
-                <span className="text-[9px] text-[#222222]/60 block">VERIFIED DONORS</span>
-                <span className="font-display font-bold text-base text-[#222222]">314 Active</span>
+              <div className="p-2.5 bg-[#FAF3E1]/5 rounded border border-[#FAF3E1]/10">
+                <span className="text-[9px] text-[#FAF3E1]/60 block">VERIFIED DONORS</span>
+                <span className="font-display font-bold text-base text-[#FAF3E1]">314 Active</span>
               </div>
-              <div className="p-2.5 bg-[#FAF3E1]/70 rounded border border-[#222222]/10">
-                <span className="text-[9px] text-[#222222]/60 block">RESPONSE TIME</span>
+              <div className="p-2.5 bg-[#FAF3E1]/5 rounded border border-[#FAF3E1]/10">
+                <span className="text-[9px] text-[#FAF3E1]/60 block">RESPONSE TIME</span>
                 <span className="font-display font-bold text-base text-[#FF6D1F]">11.4 Mins</span>
               </div>
             </div>
           </div>
 
-          <div className="flex justify-between items-center text-[10px] font-mono border-t border-[#222222]/15 pt-3 text-[#222222]/60">
+          <div className="flex justify-between items-center text-[10px] font-mono border-t border-[#FAF3E1]/15 pt-3 text-[#FAF3E1]/60">
             <span>CAMPUS IMPACT INITIATIVE</span>
             <span>WB / 2025</span>
           </div>
@@ -203,9 +203,9 @@ export const ProjectVisualPreview: React.FC<ProjectVisualPreviewProps> = ({
 
     case 'rayofroads':
       return (
-        <div className={`relative w-full h-full bg-[#FAF3E1] text-[#222222] p-6 flex flex-col justify-between overflow-hidden select-none border border-[#222222]/10 ${className}`}>
-          <div className="flex items-center justify-between border-b border-[#222222]/15 pb-3">
-            <span className="font-mono text-[10px] uppercase tracking-widest text-[#222222]">
+        <div className={`relative w-full h-full bg-[#222222] text-[#FAF3E1] p-6 flex flex-col justify-between overflow-hidden select-none ${className}`}>
+          <div className="flex items-center justify-between border-b border-[#FAF3E1]/15 pb-3">
+            <span className="font-mono text-[10px] uppercase tracking-widest text-[#FAF3E1]/70">
               RAYOFROADS // CARTOGRAPHY
             </span>
             <span className="font-mono text-[10px] text-[#FF6D1F] font-bold">
@@ -219,9 +219,10 @@ export const ProjectVisualPreview: React.FC<ProjectVisualPreviewProps> = ({
               {/* Mountain Contour Curves */}
               <path
                 d="M 10 70 Q 50 10, 90 40 T 170 20 L 190 70 Z"
-                fill="#F5E7C6"
-                stroke="#222222"
+                fill="#2D2D2D"
+                stroke="#FAF3E1"
                 strokeWidth="1.2"
+                opacity="0.6"
               />
               <path
                 d="M 20 70 Q 70 30, 110 50 T 180 35"
@@ -232,13 +233,13 @@ export const ProjectVisualPreview: React.FC<ProjectVisualPreviewProps> = ({
               {/* Waypoint markers */}
               <circle cx="110" cy="50" r="4" fill="#FF6D1F" />
               <circle cx="110" cy="50" r="7" stroke="#FF6D1F" strokeWidth="1" fill="none" />
-              <text x="120" y="48" fill="#222222" fontSize="8" fontFamily="monospace" fontWeight="bold">
+              <text x="120" y="48" fill="#FAF3E1" fontSize="8" fontFamily="monospace" fontWeight="bold">
                 SCENIC VISTA #04
               </text>
             </svg>
           </div>
 
-          <div className="flex items-center justify-between font-mono text-[10px] border-t border-[#222222]/15 pt-3 text-[#222222]/70">
+          <div className="flex items-center justify-between font-mono text-[10px] border-t border-[#FAF3E1]/15 pt-3 text-[#FAF3E1]/70">
             <span>SCENIC SCORE: 9.6/10</span>
             <span className="text-[#FF6D1F]">ROUTE: CURVATURE 84%</span>
           </div>
@@ -247,26 +248,26 @@ export const ProjectVisualPreview: React.FC<ProjectVisualPreviewProps> = ({
 
     case 'kinetic-type-poster-lab':
       return (
-        <div className={`relative w-full h-full bg-[#FAF3E1] text-[#222222] p-6 flex flex-col justify-between overflow-hidden select-none border border-[#222222]/20 ${className}`}>
-          <div className="flex justify-between items-baseline border-b border-[#222222]/15 pb-2 font-mono text-[10px]">
+        <div className={`relative w-full h-full bg-[#222222] text-[#FAF3E1] p-6 flex flex-col justify-between overflow-hidden select-none ${className}`}>
+          <div className="flex justify-between items-baseline border-b border-[#FAF3E1]/15 pb-2 font-mono text-[10px]">
             <span>POSTER LAB // SWISS 12C</span>
             <span className="text-[#FF6D1F]">№ 01</span>
           </div>
 
           <div className="my-auto py-3">
-            <h4 className="font-display text-4xl sm:text-5xl font-black tracking-tighter leading-none text-[#222222] uppercase">
+            <h4 className="font-display text-4xl sm:text-5xl font-black tracking-tighter leading-none text-[#FAF3E1] uppercase">
               ENTROPY
             </h4>
             <div className="flex items-center gap-3 my-2">
               <span className="w-12 h-1 bg-[#FF6D1F]" />
-              <span className="font-editorial italic text-2xl text-[#222222]">in the Grid</span>
+              <span className="font-editorial italic text-2xl text-[#FAF3E1]">in the Grid</span>
             </div>
-            <p className="font-mono text-[9px] uppercase tracking-wider text-[#222222]/60">
+            <p className="font-mono text-[9px] uppercase tracking-wider text-[#FAF3E1]/60">
               JOSEF MÜLLER-BROCKMANN × CONTEMPORARY CODE
             </p>
           </div>
 
-          <div className="flex justify-between items-center text-[9px] font-mono border-t border-[#222222]/15 pt-2 text-[#222222]/60">
+          <div className="flex justify-between items-center text-[9px] font-mono border-t border-[#FAF3E1]/15 pt-2 text-[#FAF3E1]/60">
             <span>70 × 100 CM SILKSCREEN</span>
             <span className="text-[#FF6D1F]">#FAF3E1 // #222222 // #FF6D1F</span>
           </div>
@@ -300,8 +301,8 @@ export const ProjectVisualPreview: React.FC<ProjectVisualPreviewProps> = ({
 
     default:
       return (
-        <div className={`relative w-full h-full bg-[#F5E7C6] text-[#222222] p-6 flex flex-col justify-between overflow-hidden select-none border border-[#222222]/10 ${className}`}>
-          <div className="flex justify-between items-center border-b border-[#222222]/15 pb-2 font-mono text-[10px]">
+        <div className={`relative w-full h-full bg-[#222222] text-[#FAF3E1] p-6 flex flex-col justify-between overflow-hidden select-none ${className}`}>
+          <div className="flex justify-between items-center border-b border-[#FAF3E1]/15 pb-2 font-mono text-[10px]">
             <span className="uppercase text-[#FF6D1F]">CASE STUDY</span>
             <span className="opacity-50">{slug.toUpperCase()}</span>
           </div>
@@ -309,11 +310,11 @@ export const ProjectVisualPreview: React.FC<ProjectVisualPreviewProps> = ({
             <span className="font-display text-2xl font-bold tracking-tight block">
               Editorial Concept
             </span>
-            <span className="font-mono text-xs text-[#222222]/60 mt-1 block">
+            <span className="font-mono text-xs text-[#FAF3E1]/60 mt-1 block">
               Design &amp; Technology Investigation
             </span>
           </div>
-          <div className="flex justify-between items-center text-[9px] font-mono border-t border-[#222222]/15 pt-2 text-[#222222]/50">
+          <div className="flex justify-between items-center text-[9px] font-mono border-t border-[#FAF3E1]/15 pt-2 text-[#FAF3E1]/50">
             <span>EXPLORATION</span>
             <span className="text-[#FF6D1F]">AK.2026</span>
           </div>

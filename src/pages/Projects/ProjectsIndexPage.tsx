@@ -34,11 +34,11 @@ export const ProjectsIndexPage: React.FC = () => {
   return (
     <div className="pt-36 sm:pt-40 md:pt-44 pb-24 px-6 sm:px-8 md:px-12 max-w-7xl mx-auto min-h-screen">
       {/* Editorial Header */}
-      <div className="border-b border-[#222222]/15 pb-8 mb-10">
-        <h1 className="font-display text-5xl sm:text-6xl md:text-7xl font-black tracking-tight text-[#222222]">
+      <div className="border-b border-[#FAF3E1]/15 pb-8 mb-10">
+        <h1 className="font-display text-5xl sm:text-6xl md:text-7xl font-black tracking-tight text-[#FAF3E1]">
           THINGS I'VE MADE<span className="text-[#FF6D1F]">.</span>
         </h1>
-        <p className="font-editorial italic text-xl sm:text-2xl text-[#222222]/70 mt-3 max-w-2xl">
+        <p className="font-editorial italic text-xl sm:text-2xl text-[#FAF3E1]/70 mt-3 max-w-2xl">
           A collection of visual experiments, digital experiences and technology projects.
         </p>
 
@@ -48,29 +48,29 @@ export const ProjectsIndexPage: React.FC = () => {
             to="/projects/design"
             onMouseEnter={() => setCursorType('hover')}
             onMouseLeave={resetCursor}
-            className="p-5 bg-[#FAF3E1] border border-[#222222]/20 rounded-lg hover:border-[#FF6D1F] transition-all flex items-center justify-between group"
+            className="p-5 bg-[#FAF3E1]/[0.03] border border-[#FAF3E1]/15 rounded-lg hover:border-[#FF6D1F] transition-all flex items-center justify-between group"
           >
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-full bg-[#222222] text-[#FAF3E1] flex items-center justify-center">
+              <div className="w-10 h-10 rounded-full bg-[#FAF3E1]/10 text-[#FAF3E1] flex items-center justify-center border border-[#FAF3E1]/10">
                 <Palette className="w-5 h-5 text-[#FF6D1F]" />
               </div>
               <div>
-                <span className="font-display font-bold text-lg text-[#222222] group-hover:text-[#FF6D1F] transition-colors block">
+                <span className="font-display font-bold text-lg text-[#FAF3E1] group-hover:text-[#FF6D1F] transition-colors block">
                   Design Portfolio
                 </span>
-                <span className="font-mono text-xs text-[#222222]/60">
+                <span className="font-mono text-xs text-[#FAF3E1]/60">
                   Branding, Posters, UI/UX &amp; Illustrations
                 </span>
               </div>
             </div>
-            <ArrowUpRight className="w-5 h-5 text-[#222222] group-hover:text-[#FF6D1F] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+            <ArrowUpRight className="w-5 h-5 text-[#FAF3E1] group-hover:text-[#FF6D1F] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
           </Link>
 
           <Link
             to="/projects/technology"
             onMouseEnter={() => setCursorType('hover')}
             onMouseLeave={resetCursor}
-            className="p-5 bg-[#222222] text-[#FAF3E1] border border-[#222222] rounded-lg hover:border-[#FF6D1F] transition-all flex items-center justify-between group"
+            className="p-5 bg-[#FAF3E1]/[0.03] border border-[#FAF3E1]/15 rounded-lg hover:border-[#FF6D1F] transition-all flex items-center justify-between group"
           >
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 rounded-full bg-[#FF6D1F] text-[#FAF3E1] flex items-center justify-center">
@@ -91,15 +91,15 @@ export const ProjectsIndexPage: React.FC = () => {
       </div>
 
       {/* Filter and Search Controls */}
-      <div className="flex flex-col md:flex-row items-stretch md:items-center justify-between gap-4 mb-10 pb-6 border-b border-[#222222]/10">
+      <div className="flex flex-col md:flex-row items-stretch md:items-center justify-between gap-4 mb-10 pb-6 border-b border-[#FAF3E1]/15">
         {/* Discipline Tabs */}
-        <div className="flex items-center gap-2 bg-[#F5E7C6] p-1.5 rounded-full border border-[#222222]/15 self-start">
+        <div className="flex items-center gap-2 bg-[#FAF3E1]/[0.05] p-1.5 rounded-full border border-[#FAF3E1]/15 self-start">
           <button
             onClick={() => setActiveTab('all')}
             className={`px-4 py-1.5 rounded-full font-mono text-xs uppercase tracking-wider transition-colors ${
               activeTab === 'all'
-                ? 'bg-[#222222] text-[#FAF3E1] font-bold'
-                : 'text-[#222222]/70 hover:text-[#222222]'
+                ? 'bg-[#FF6D1F] text-[#FAF3E1] font-bold'
+                : 'text-[#FAF3E1]/70 hover:text-[#FAF3E1]'
             }`}
           >
             All Works ({designProjects.length + techProjects.length})
@@ -108,8 +108,8 @@ export const ProjectsIndexPage: React.FC = () => {
             onClick={() => setActiveTab('design')}
             className={`px-4 py-1.5 rounded-full font-mono text-xs uppercase tracking-wider transition-colors ${
               activeTab === 'design'
-                ? 'bg-[#222222] text-[#FAF3E1] font-bold'
-                : 'text-[#222222]/70 hover:text-[#222222]'
+                ? 'bg-[#FF6D1F] text-[#FAF3E1] font-bold'
+                : 'text-[#FAF3E1]/70 hover:text-[#FAF3E1]'
             }`}
           >
             Design ({designProjects.length})
@@ -118,8 +118,8 @@ export const ProjectsIndexPage: React.FC = () => {
             onClick={() => setActiveTab('technology')}
             className={`px-4 py-1.5 rounded-full font-mono text-xs uppercase tracking-wider transition-colors ${
               activeTab === 'technology'
-                ? 'bg-[#222222] text-[#FAF3E1] font-bold'
-                : 'text-[#222222]/70 hover:text-[#222222]'
+                ? 'bg-[#FF6D1F] text-[#FAF3E1] font-bold'
+                : 'text-[#FAF3E1]/70 hover:text-[#FAF3E1]'
             }`}
           >
             Tech ({techProjects.length})
@@ -128,13 +128,13 @@ export const ProjectsIndexPage: React.FC = () => {
 
         {/* Search Bar */}
         <div className="relative w-full md:w-72">
-          <Search className="w-4 h-4 absolute left-3.5 top-1/2 -translate-y-1/2 text-[#222222]/50" />
+          <Search className="w-4 h-4 absolute left-3.5 top-1/2 -translate-y-1/2 text-[#FAF3E1]/50" />
           <input
             type="text"
             placeholder="Search projects or stacks..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full pl-9 pr-4 py-2 bg-[#FAF3E1] border border-[#222222]/20 rounded-full font-mono text-xs text-[#222222] placeholder:text-[#222222]/40 focus:outline-none focus:border-[#FF6D1F]"
+            className="w-full pl-9 pr-4 py-2 bg-[#FAF3E1]/[0.05] border border-[#FAF3E1]/20 rounded-full font-mono text-xs text-[#FAF3E1] placeholder:text-[#FAF3E1]/40 focus:outline-none focus:border-[#FF6D1F]"
           />
         </div>
       </div>
@@ -144,8 +144,8 @@ export const ProjectsIndexPage: React.FC = () => {
         {/* Section: Technology Projects */}
         {filteredTech.length > 0 && (
           <div>
-            <div className="flex items-center justify-between border-b border-[#222222]/15 pb-3 mb-6 font-mono text-xs">
-              <span className="font-bold text-[#222222] flex items-center gap-2">
+            <div className="flex items-center justify-between border-b border-[#FAF3E1]/15 pb-3 mb-6 font-mono text-xs">
+              <span className="font-bold text-[#FAF3E1] flex items-center gap-2">
                 <span className="w-2 h-2 rounded-full bg-[#FF6D1F]" />
                 TECHNOLOGY &amp; SOFTWARE ARCHITECTURE ({filteredTech.length})
               </span>
@@ -161,29 +161,29 @@ export const ProjectsIndexPage: React.FC = () => {
                   to={`/projects/technology/${project.slug}`}
                   onMouseEnter={() => setCursorType('project', 'VIEW PROJECT')}
                   onMouseLeave={resetCursor}
-                  className="group bg-[#FAF3E1] border border-[#222222]/15 rounded-lg overflow-hidden flex flex-col justify-between hover:border-[#FF6D1F] hover:shadow-lg transition-all"
+                  className="group bg-[#FAF3E1]/[0.03] border border-[#FAF3E1]/15 rounded-lg overflow-hidden flex flex-col justify-between hover:border-[#FF6D1F] hover:shadow-lg transition-all"
                 >
-                  <div className="h-52 w-full border-b border-[#222222]/10 overflow-hidden">
+                  <div className="h-52 w-full border-b border-[#FAF3E1]/10 overflow-hidden">
                     <ProjectVisualPreview slug={project.slug} />
                   </div>
                   <div className="p-5 flex flex-col justify-between flex-1">
                     <div>
-                      <div className="flex justify-between items-center font-mono text-[10px] text-[#222222]/60 mb-1">
+                      <div className="flex justify-between items-center font-mono text-[10px] text-[#FAF3E1]/60 mb-1">
                         <span className="text-[#FF6D1F] font-bold">№ {project.number}</span>
                         <span>{project.subcategory}</span>
                         <span>{project.year}</span>
                       </div>
-                      <h3 className="font-display font-bold text-xl text-[#222222] group-hover:text-[#FF6D1F] transition-colors">
+                      <h3 className="font-display font-bold text-xl text-[#FAF3E1] group-hover:text-[#FF6D1F] transition-colors">
                         {project.title}
                       </h3>
-                      <p className="font-body text-xs text-[#222222]/75 mt-1.5 line-clamp-2">
+                      <p className="font-body text-xs text-[#FAF3E1]/75 mt-1.5 line-clamp-2">
                         {project.description}
                       </p>
                     </div>
 
-                    <div className="mt-4 pt-3 border-t border-[#222222]/10 flex flex-wrap gap-1">
+                    <div className="mt-4 pt-3 border-t border-[#FAF3E1]/10 flex flex-wrap gap-1">
                       {project.techStack.slice(0, 3).map((t) => (
-                        <span key={t} className="px-2 py-0.5 bg-[#F5E7C6] rounded font-mono text-[9px] text-[#222222]">
+                        <span key={t} className="px-2 py-0.5 bg-[#FAF3E1]/10 rounded font-mono text-[9px] text-[#FAF3E1]/80">
                           {t}
                         </span>
                       ))}
@@ -198,8 +198,8 @@ export const ProjectsIndexPage: React.FC = () => {
         {/* Section: Design Projects */}
         {filteredDesign.length > 0 && (
           <div>
-            <div className="flex items-center justify-between border-b border-[#222222]/15 pb-3 mb-6 font-mono text-xs">
-              <span className="font-bold text-[#222222] flex items-center gap-2">
+            <div className="flex items-center justify-between border-b border-[#FAF3E1]/15 pb-3 mb-6 font-mono text-xs">
+              <span className="font-bold text-[#FAF3E1] flex items-center gap-2">
                 <span className="w-2 h-2 rounded-full bg-[#FF6D1F]" />
                 DESIGN &amp; VISUAL COMMUNICATION ({filteredDesign.length})
               </span>
@@ -215,29 +215,29 @@ export const ProjectsIndexPage: React.FC = () => {
                   to={`/projects/design/${project.slug}`}
                   onMouseEnter={() => setCursorType('project', 'VIEW PROJECT')}
                   onMouseLeave={resetCursor}
-                  className="group bg-[#FAF3E1] border border-[#222222]/15 rounded-lg overflow-hidden flex flex-col justify-between hover:border-[#FF6D1F] hover:shadow-lg transition-all"
+                  className="group bg-[#FAF3E1]/[0.03] border border-[#FAF3E1]/15 rounded-lg overflow-hidden flex flex-col justify-between hover:border-[#FF6D1F] hover:shadow-lg transition-all"
                 >
-                  <div className="h-52 w-full border-b border-[#222222]/10 overflow-hidden">
+                  <div className="h-52 w-full border-b border-[#FAF3E1]/10 overflow-hidden">
                     <ProjectVisualPreview slug={project.slug} />
                   </div>
                   <div className="p-5 flex flex-col justify-between flex-1">
                     <div>
-                      <div className="flex justify-between items-center font-mono text-[10px] text-[#222222]/60 mb-1">
+                      <div className="flex justify-between items-center font-mono text-[10px] text-[#FAF3E1]/60 mb-1">
                         <span className="text-[#FF6D1F] font-bold">№ {project.number}</span>
                         <span>{project.subcategory}</span>
                         <span>{project.year}</span>
                       </div>
-                      <h3 className="font-display font-bold text-xl text-[#222222] group-hover:text-[#FF6D1F] transition-colors">
+                      <h3 className="font-display font-bold text-xl text-[#FAF3E1] group-hover:text-[#FF6D1F] transition-colors">
                         {project.title}
                       </h3>
-                      <p className="font-body text-xs text-[#222222]/75 mt-1.5 line-clamp-2">
+                      <p className="font-body text-xs text-[#FAF3E1]/75 mt-1.5 line-clamp-2">
                         {project.description}
                       </p>
                     </div>
 
-                    <div className="mt-4 pt-3 border-t border-[#222222]/10 flex flex-wrap gap-1">
+                    <div className="mt-4 pt-3 border-t border-[#FAF3E1]/10 flex flex-wrap gap-1">
                       {project.toolsUsed.map((t) => (
-                        <span key={t} className="px-2 py-0.5 bg-[#F5E7C6] rounded font-mono text-[9px] text-[#222222]">
+                        <span key={t} className="px-2 py-0.5 bg-[#FAF3E1]/10 rounded font-mono text-[9px] text-[#FAF3E1]/80">
                           {t}
                         </span>
                       ))}

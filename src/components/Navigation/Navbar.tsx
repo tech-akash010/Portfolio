@@ -28,6 +28,7 @@ export const Navbar: React.FC = () => {
     setMobileMenuOpen(false);
   }, [location.pathname]);
 
+  // All pages are now dark theme
   const navLinks = [
     { name: 'Home', path: '/' },
     { name: 'Projects', path: '/projects' },
@@ -39,7 +40,9 @@ export const Navbar: React.FC = () => {
     <>
       <header
         className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ease-in-out px-4 sm:px-8 md:px-12 ${
-          isScrolled ? 'pt-3 pb-3' : 'pt-6 pb-4'
+          isScrolled
+            ? 'py-3.5 bg-[#222222]/85 backdrop-blur-md border-b border-[#FAF3E1]/10'
+            : 'py-6 bg-transparent'
         }`}
       >
         <div className="max-w-7xl mx-auto flex items-center justify-between">
@@ -51,17 +54,15 @@ export const Navbar: React.FC = () => {
             onMouseLeave={resetCursor}
             aria-label="AK. Home"
           >
-            <span className="font-display text-2xl md:text-3xl font-black tracking-tight text-[#222222] transition-colors group-hover:text-[#FF6D1F]">
+            <span className="font-display text-2xl md:text-3xl font-black tracking-tight transition-colors group-hover:text-[#FF6D1F] text-[#FAF3E1]">
               AK<span className="text-[#FF6D1F]">.</span>
             </span>
           </Link>
 
-          {/* Floating Pill Navigation on Desktop */}
+          {/* Clean Unboxed Navigation on Desktop */}
           <nav
             aria-label="Main Navigation"
-            className={`hidden md:flex items-center gap-1 bg-[#222222] text-[#FAF3E1] px-2 py-1.5 rounded-full shadow-md border border-[#222222] transition-all duration-300 ${
-              isScrolled ? 'scale-95 shadow-lg shadow-[#222222]/15' : ''
-            }`}
+            className="hidden md:flex items-center gap-8 lg:gap-12 transition-all duration-300"
           >
             {navLinks.map((link) => {
               const isActive =
@@ -75,20 +76,20 @@ export const Navbar: React.FC = () => {
                   to={link.path}
                   onMouseEnter={() => setCursorType('hover')}
                   onMouseLeave={resetCursor}
-                  className={`relative px-4 py-1.5 rounded-full text-xs font-medium font-mono uppercase tracking-wider transition-colors duration-200 ${
+                  className={`relative font-mono text-xs uppercase tracking-widest py-1.5 transition-colors duration-200 ${
                     isActive
-                      ? 'text-[#FAF3E1] font-bold'
+                      ? 'text-[#FF6D1F] font-bold'
                       : 'text-[#FAF3E1]/70 hover:text-[#FAF3E1]'
                   }`}
                 >
+                  <span className="relative z-10">{link.name}</span>
                   {isActive && (
                     <motion.div
-                      layoutId="nav-pill-active"
-                      className="absolute inset-0 bg-[#FF6D1F] rounded-full -z-10"
-                      transition={{ type: 'spring', stiffness: 450, damping: 35 }}
+                      layoutId="nav-active-indicator"
+                      className="absolute -bottom-1 left-0 right-0 h-[2px] bg-[#FF6D1F] rounded-full"
+                      transition={{ type: 'spring', stiffness: 380, damping: 30 }}
                     />
                   )}
-                  <span className="relative z-10">{link.name}</span>
                 </NavLink>
               );
             })}
@@ -100,7 +101,7 @@ export const Navbar: React.FC = () => {
             <button
               type="button"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="md:hidden flex items-center justify-center w-10 h-10 rounded-full bg-[#222222] text-[#FAF3E1] focus:outline-none focus:ring-2 focus:ring-[#FF6D1F]"
+              className="md:hidden flex items-center justify-center w-10 h-10 rounded-full focus:outline-none focus:ring-2 focus:ring-[#FF6D1F] bg-[#FAF3E1]/10 text-[#FAF3E1] border border-[#FAF3E1]/20 hover:bg-[#FAF3E1]/20 transition-colors"
               aria-label={mobileMenuOpen ? 'Close Menu' : 'Open Menu'}
               aria-expanded={mobileMenuOpen}
             >

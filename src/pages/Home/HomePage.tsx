@@ -4,7 +4,6 @@ import { Marquee } from '../../components/Marquee/Marquee';
 import { CreativeIdentities } from '../../sections/Identity/CreativeIdentities';
 import { SelectedWork } from '../../sections/SelectedWork/SelectedWork';
 import { AboutPreview } from '../../sections/AboutPreview/AboutPreview';
-import { Toolkit } from '../../sections/Toolkit/Toolkit';
 import { ContactCTA } from '../../sections/Contact/ContactCTA';
 
 export const HomePage: React.FC = () => {
@@ -29,10 +28,7 @@ export const HomePage: React.FC = () => {
       {/* Section 05: About Preview */}
       <AboutPreview />
 
-      {/* Section 06: My Toolkit */}
-      <Toolkit />
-
-      {/* Section 07: Connect CTA */}
+      {/* Section 06: Connect CTA */}
       <ContactCTA />
     </div>
   );

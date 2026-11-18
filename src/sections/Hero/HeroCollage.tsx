@@ -16,7 +16,7 @@ export const HeroCollage: React.FC = () => {
             initial={{ y: '100%' }}
             animate={{ y: 0 }}
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.05 }}
-            className="font-display text-7xl sm:text-8xl md:text-9xl lg:text-[10rem] xl:text-[11.5rem] font-black tracking-tighter text-[#222222] leading-[0.84]"
+            className="font-display text-7xl sm:text-8xl md:text-9xl lg:text-[10rem] xl:text-[11.5rem] font-black tracking-tighter text-[#FAF3E1] leading-[0.84]"
           >
             THINK<span className="text-[#FF6D1F]">.</span>
           </motion.h1>
@@ -27,7 +27,7 @@ export const HeroCollage: React.FC = () => {
             initial={{ y: '100%' }}
             animate={{ y: 0 }}
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.15 }}
-            className="font-display text-7xl sm:text-8xl md:text-9xl lg:text-[10rem] xl:text-[11.5rem] font-black tracking-tighter text-[#222222] leading-[0.84]"
+            className="font-display text-7xl sm:text-8xl md:text-9xl lg:text-[10rem] xl:text-[11.5rem] font-black tracking-tighter text-[#FAF3E1] leading-[0.84]"
           >
             CREATE<span className="text-[#FF6D1F]">.</span>
           </motion.h1>
@@ -35,7 +35,7 @@ export const HeroCollage: React.FC = () => {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.7, delay: 0.35 }}
-            className="font-editorial italic text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-[#222222]/55 font-normal tracking-normal select-none"
+            className="font-editorial italic text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-[#FAF3E1]/55 font-normal tracking-normal select-none"
           >
             a mind in motion
           </motion.span>
@@ -46,7 +46,7 @@ export const HeroCollage: React.FC = () => {
             initial={{ y: '100%' }}
             animate={{ y: 0 }}
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.25 }}
-            className="font-display text-7xl sm:text-8xl md:text-9xl lg:text-[10rem] xl:text-[11.5rem] font-black tracking-tighter text-[#222222] leading-[0.84]"
+            className="font-display text-7xl sm:text-8xl md:text-9xl lg:text-[10rem] xl:text-[11.5rem] font-black tracking-tighter text-[#FAF3E1] leading-[0.84]"
           >
             BUILD<span className="text-[#FF6D1F]">.</span>
           </motion.h1>
@@ -54,23 +54,23 @@ export const HeroCollage: React.FC = () => {
       </div>
 
       {/* Editorial Hairline Divider & Balanced Split Row */}
-      <div className="border-t border-[#222222]/15 pt-8 grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+      <div className="border-t border-[#FAF3E1]/15 pt-8 grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
         {/* Left Column: Author Narrative & Focus Areas */}
         <div className="lg:col-span-7 space-y-4">
           <motion.p
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.35 }}
-            className="font-body text-lg sm:text-xl md:text-2xl text-[#222222]/90 leading-relaxed font-normal max-w-2xl"
+            className="font-body text-lg sm:text-xl md:text-2xl text-[#FAF3E1]/90 leading-relaxed font-normal max-w-2xl"
           >
-            I'm <strong className="text-[#222222] font-semibold">Akash Kundu (AK)</strong> — an engineering student, software developer, and graphic designer based in India. I engineer high-performance systems and architect art-directed visual identities.
+            I'm <strong className="text-[#FAF3E1] font-semibold">Akash Kundu (AK)</strong> — an engineering student, software developer, and graphic designer based in India. I engineer high-performance systems and architect art-directed visual identities.
           </motion.p>
 
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.45 }}
-            className="flex flex-wrap items-center gap-x-6 gap-y-2 pt-1 font-mono text-xs text-[#222222]/65"
+            className="flex flex-wrap items-center gap-x-6 gap-y-2 pt-1 font-mono text-xs text-[#FAF3E1]/65"
           >
             <span className="flex items-center gap-1.5">
               <span className="text-[#FF6D1F] font-bold">/</span> Full-Stack Systems
@@ -96,7 +96,7 @@ export const HeroCollage: React.FC = () => {
               to="/projects"
               onMouseEnter={() => setCursorType('hover')}
               onMouseLeave={resetCursor}
-              className="group inline-flex items-center gap-3 px-8 py-4 bg-[#222222] text-[#FAF3E1] font-mono text-xs uppercase tracking-wider rounded-full hover:bg-[#FF6D1F] transition-all duration-300 shadow-sm"
+              className="group inline-flex items-center gap-3 px-8 py-4 bg-[#FF6D1F] text-[#FAF3E1] font-mono text-xs uppercase tracking-wider font-semibold rounded-full hover:bg-[#FAF3E1] hover:text-[#222222] transition-all duration-300 shadow-sm shadow-[#FF6D1F]/20"
             >
               <span>Explore Projects Archive</span>
               <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
@@ -106,7 +106,7 @@ export const HeroCollage: React.FC = () => {
               to="/about"
               onMouseEnter={() => setCursorType('hover')}
               onMouseLeave={resetCursor}
-              className="inline-flex items-center gap-2 px-6 py-4 border border-[#222222]/25 text-[#222222] font-mono text-xs uppercase tracking-wider rounded-full hover:border-[#FF6D1F] hover:text-[#FF6D1F] transition-colors"
+              className="inline-flex items-center gap-2 px-6 py-4 border border-[#FAF3E1]/25 text-[#FAF3E1] font-mono text-xs uppercase tracking-wider rounded-full hover:border-[#FF6D1F] hover:text-[#FF6D1F] transition-colors"
             >
               <span>Studio Dossier / Bio</span>
             </Link>
@@ -117,7 +117,7 @@ export const HeroCollage: React.FC = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.55 }}
-            className="font-mono text-xs text-[#222222]/50 hover:text-[#FF6D1F] transition-colors flex items-center gap-1.5 group pt-1"
+            className="font-mono text-xs text-[#FAF3E1]/50 hover:text-[#FF6D1F] transition-colors flex items-center gap-1.5 group pt-1"
           >
             <span>Scroll to explore disciplines</span>
             <ArrowDown className="w-3.5 h-3.5 group-hover:translate-y-0.5 transition-transform text-[#FF6D1F]" />

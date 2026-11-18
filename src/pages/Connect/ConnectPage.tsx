@@ -133,12 +133,12 @@ export const ConnectPage: React.FC = () => {
   return (
     <div className="pt-36 sm:pt-40 md:pt-44 pb-24 px-6 sm:px-8 md:px-12 max-w-6xl mx-auto min-h-screen">
       {/* Editorial Header */}
-      <header className="border-b border-[#222222]/15 pb-10 mb-12">
-        <h1 className="font-display text-4xl sm:text-6xl md:text-7xl font-black tracking-tight text-[#222222] leading-[1.05]">
+      <header className="border-b border-[#FAF3E1]/15 pb-10 mb-12">
+        <h1 className="font-display text-4xl sm:text-6xl md:text-7xl font-black tracking-tight text-[#FAF3E1] leading-[1.05]">
           GOOD IDEAS START<br />
           WITH A CONVERSATION<span className="text-[#FF6D1F]">.</span>
         </h1>
-        <p className="font-editorial italic text-xl sm:text-2xl text-[#222222]/70 mt-4 max-w-2xl leading-relaxed">
+        <p className="font-editorial italic text-xl sm:text-2xl text-[#FAF3E1]/70 mt-4 max-w-2xl leading-relaxed">
           Whether you want to build a software tool, collaborate on a visual identity, or simply chat about technology—drop a message below.
         </p>
       </header>
@@ -146,9 +146,9 @@ export const ConnectPage: React.FC = () => {
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
         {/* Left Column: Direct Inquiries Dossier & Info */}
         <div className="lg:col-span-5 space-y-8">
-          <div className="p-6 bg-[#F5E7C6] border border-[#222222]/20 rounded-lg space-y-6">
-            <div className="flex items-center justify-between border-b border-[#222222]/15 pb-3">
-              <span className="font-mono text-xs uppercase font-bold text-[#222222] flex items-center gap-2">
+          <div className="p-6 bg-[#FAF3E1]/[0.03] border border-[#FAF3E1]/15 rounded-lg space-y-6">
+            <div className="flex items-center justify-between border-b border-[#FAF3E1]/15 pb-3">
+              <span className="font-mono text-xs uppercase font-bold text-[#FAF3E1] flex items-center gap-2">
                 <Sparkles className="w-3.5 h-3.5 text-[#FF6D1F]" /> DIRECT CHANNELS
               </span>
               <span className="w-2 h-2 rounded-full bg-[#FF6D1F] animate-pulse" />
@@ -156,20 +156,20 @@ export const ConnectPage: React.FC = () => {
 
             {/* Email item */}
             <div className="space-y-1">
-              <span className="font-mono text-[10px] text-[#222222]/60 uppercase tracking-widest block">
+              <span className="font-mono text-[10px] text-[#FAF3E1]/60 uppercase tracking-widest block">
                 PRIMARY INBOX
               </span>
               <div className="flex items-center justify-between">
                 <a
                   href="mailto:contact@akashkundu.dev"
-                  className="font-mono text-sm font-bold text-[#222222] hover:text-[#FF6D1F] transition-colors"
+                  className="font-mono text-sm font-bold text-[#FAF3E1] hover:text-[#FF6D1F] transition-colors"
                 >
                   contact@akashkundu.dev
                 </a>
                 <button
                   type="button"
                   onClick={copyEmailToClipboard}
-                  className="p-1.5 rounded hover:bg-[#FAF3E1] text-[#222222]/70 hover:text-[#222222] transition-colors"
+                  className="p-1.5 rounded hover:bg-[#FAF3E1]/10 text-[#FAF3E1]/70 hover:text-[#FAF3E1] transition-colors"
                   title="Copy email"
                 >
                   <Copy className="w-4 h-4" />
@@ -183,34 +183,34 @@ export const ConnectPage: React.FC = () => {
             </div>
 
             {/* Location & Time */}
-            <div className="grid grid-cols-2 gap-4 pt-3 border-t border-[#222222]/10 font-mono text-xs">
+            <div className="grid grid-cols-2 gap-4 pt-3 border-t border-[#FAF3E1]/10 font-mono text-xs">
               <div>
-                <span className="text-[10px] text-[#222222]/60 uppercase block">LOCATION</span>
-                <span className="text-[#222222] font-semibold flex items-center gap-1 mt-0.5">
+                <span className="text-[10px] text-[#FAF3E1]/60 uppercase block">LOCATION</span>
+                <span className="text-[#FAF3E1] font-semibold flex items-center gap-1 mt-0.5">
                   <MapPin className="w-3.5 h-3.5 text-[#FF6D1F]" /> Kolkata, India
                 </span>
               </div>
               <div>
-                <span className="text-[10px] text-[#222222]/60 uppercase block">TIMEZONE</span>
-                <span className="text-[#222222] font-semibold flex items-center gap-1 mt-0.5">
+                <span className="text-[10px] text-[#FAF3E1]/60 uppercase block">TIMEZONE</span>
+                <span className="text-[#FAF3E1] font-semibold flex items-center gap-1 mt-0.5">
                   <Clock className="w-3.5 h-3.5 text-[#FF6D1F]" /> IST (UTC+5:30)
                 </span>
               </div>
             </div>
 
             {/* Availability Badge */}
-            <div className="pt-3 border-t border-[#222222]/10">
-              <span className="text-[10px] text-[#222222]/60 uppercase block mb-1">
+            <div className="pt-3 border-t border-[#FAF3E1]/10">
+              <span className="text-[10px] text-[#FAF3E1]/60 uppercase block mb-1">
                 CURRENT AVAILABILITY
               </span>
-              <p className="font-body text-xs text-[#222222]/85 leading-relaxed">
+              <p className="font-body text-xs text-[#FAF3E1]/85 leading-relaxed">
                 Accepting selected design &amp; full-stack engineering collaborations for Q1–Q2 2026.
               </p>
             </div>
           </div>
 
           {/* Social Links List */}
-          <div className="p-6 bg-[#FAF3E1] border border-[#222222]/15 rounded-lg space-y-3 font-mono text-xs">
+          <div className="p-6 bg-[#FAF3E1]/[0.03] border border-[#FAF3E1]/15 rounded-lg space-y-3 font-mono text-xs">
             <span className="font-mono text-[10px] text-[#FF6D1F] uppercase tracking-widest block mb-2 font-bold">
               DIGITAL PROFILES
             </span>
@@ -228,12 +228,12 @@ export const ConnectPage: React.FC = () => {
                 rel="noopener noreferrer"
                 onMouseEnter={() => setCursorType('external')}
                 onMouseLeave={resetCursor}
-                className="flex items-center justify-between p-2 rounded hover:bg-[#F5E7C6] transition-colors group"
+                className="flex items-center justify-between p-2 rounded hover:bg-[#FAF3E1]/5 transition-colors group"
               >
-                <span className="font-bold text-[#222222] group-hover:text-[#FF6D1F] transition-colors">
+                <span className="font-bold text-[#FAF3E1] group-hover:text-[#FF6D1F] transition-colors">
                   {profile.label}
                 </span>
-                <span className="text-[#222222]/60 flex items-center gap-1 text-[11px]">
+                <span className="text-[#FAF3E1]/60 flex items-center gap-1 text-[11px]">
                   {profile.handle} <ArrowUpRight className="w-3 h-3 group-hover:text-[#FF6D1F]" />
                 </span>
               </a>
@@ -242,17 +242,17 @@ export const ConnectPage: React.FC = () => {
         </div>
 
         {/* Right Column: Validated Interactive Editorial Contact Form */}
-        <div className="lg:col-span-7 bg-[#FAF3E1] border border-[#222222]/20 rounded-lg p-6 sm:p-10 shadow-lg">
+        <div className="lg:col-span-7 bg-[#FAF3E1]/[0.03] border border-[#FAF3E1]/15 rounded-lg p-6 sm:p-10 shadow-lg">
           {status === 'success' ? (
             <div className="py-12 text-center space-y-4">
               <div className="w-16 h-16 rounded-full bg-[#FF6D1F]/15 text-[#FF6D1F] flex items-center justify-center mx-auto mb-2">
                 <CheckCircle2 className="w-8 h-8" />
               </div>
-              <h2 className="font-display text-3xl font-black text-[#222222]">
+              <h2 className="font-display text-3xl font-black text-[#FAF3E1]">
                 Message Transmitted!
               </h2>
-              <p className="font-body text-sm sm:text-base text-[#222222]/80 max-w-md mx-auto leading-relaxed">
-                Thank you for reaching out, <strong className="text-[#222222]">{formData.name}</strong>. Your inquiry has been dispatched to AK's inbox. Expect a response within 24–48 hours.
+              <p className="font-body text-sm sm:text-base text-[#FAF3E1]/80 max-w-md mx-auto leading-relaxed">
+                Thank you for reaching out, <strong className="text-[#FAF3E1]">{formData.name}</strong>. Your inquiry has been dispatched to AK's inbox. Expect a response within 24–48 hours.
               </p>
 
               <div className="pt-6 flex flex-col sm:flex-row justify-center gap-3">
@@ -262,7 +262,7 @@ export const ConnectPage: React.FC = () => {
                   )}&body=${encodeURIComponent(
                     `From: ${formData.name} (${formData.email})\n\n${formData.message}`
                   )}`}
-                  className="px-5 py-2.5 rounded-full bg-[#222222] text-[#FAF3E1] font-mono text-xs uppercase hover:bg-[#FF6D1F] transition-colors"
+                  className="px-5 py-2.5 rounded-full bg-[#FF6D1F] text-[#FAF3E1] font-mono text-xs uppercase hover:bg-[#FAF3E1] hover:text-[#222222] transition-colors"
                 >
                   Send direct backup email
                 </a>
@@ -272,7 +272,7 @@ export const ConnectPage: React.FC = () => {
                     setStatus('idle');
                     setFormData({ name: '', email: '', subject: '', message: '' });
                   }}
-                  className="px-5 py-2.5 rounded-full border border-[#222222]/20 font-mono text-xs uppercase text-[#222222] hover:bg-[#F5E7C6] transition-colors"
+                  className="px-5 py-2.5 rounded-full border border-[#FAF3E1]/20 font-mono text-xs uppercase text-[#FAF3E1] hover:bg-[#FAF3E1]/10 transition-colors"
                 >
                   Submit Another Note
                 </button>
@@ -280,8 +280,8 @@ export const ConnectPage: React.FC = () => {
             </div>
           ) : (
             <form onSubmit={handleSubmit} noValidate className="space-y-6">
-              <div className="flex items-center justify-between border-b border-[#222222]/15 pb-3">
-                <span className="font-mono text-xs uppercase font-bold text-[#222222]">
+              <div className="flex items-center justify-between border-b border-[#FAF3E1]/15 pb-3">
+                <span className="font-mono text-xs uppercase font-bold text-[#FAF3E1]">
                   TRANSMISSION FORM
                 </span>
                 <span className="font-mono text-[10px] text-[#FF6D1F]">
@@ -293,7 +293,7 @@ export const ConnectPage: React.FC = () => {
               <div className="space-y-1.5">
                 <label
                   htmlFor="name"
-                  className="block font-mono text-xs uppercase tracking-wider text-[#222222]"
+                  className="block font-mono text-xs uppercase tracking-wider text-[#FAF3E1]"
                 >
                   Your Name / Organization <span className="text-[#FF6D1F]">*</span>
                 </label>
@@ -303,8 +303,8 @@ export const ConnectPage: React.FC = () => {
                   placeholder="e.g. Elena Vance or Studio Alpha"
                   value={formData.name}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                  className={`w-full px-4 py-3 bg-[#FAF3E1] border rounded font-body text-sm text-[#222222] placeholder:text-[#222222]/40 focus:outline-none transition-colors ${
-                    errors.name ? 'border-[#FF6D1F] bg-[#FF6D1F]/5' : 'border-[#222222]/25 focus:border-[#FF6D1F]'
+                  className={`w-full px-4 py-3 bg-[#FAF3E1]/[0.05] border rounded font-body text-sm text-[#FAF3E1] placeholder:text-[#FAF3E1]/40 focus:outline-none transition-colors ${
+                    errors.name ? 'border-[#FF6D1F] bg-[#FF6D1F]/5' : 'border-[#FAF3E1]/20 focus:border-[#FF6D1F]'
                   }`}
                 />
                 {errors.name && (
@@ -318,7 +318,7 @@ export const ConnectPage: React.FC = () => {
               <div className="space-y-1.5">
                 <label
                   htmlFor="email"
-                  className="block font-mono text-xs uppercase tracking-wider text-[#222222]"
+                  className="block font-mono text-xs uppercase tracking-wider text-[#FAF3E1]"
                 >
                   Your Email Address <span className="text-[#FF6D1F]">*</span>
                 </label>
@@ -328,8 +328,8 @@ export const ConnectPage: React.FC = () => {
                   placeholder="name@company.com"
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                  className={`w-full px-4 py-3 bg-[#FAF3E1] border rounded font-body text-sm text-[#222222] placeholder:text-[#222222]/40 focus:outline-none transition-colors ${
-                    errors.email ? 'border-[#FF6D1F] bg-[#FF6D1F]/5' : 'border-[#222222]/25 focus:border-[#FF6D1F]'
+                  className={`w-full px-4 py-3 bg-[#FAF3E1]/[0.05] border rounded font-body text-sm text-[#FAF3E1] placeholder:text-[#FAF3E1]/40 focus:outline-none transition-colors ${
+                    errors.email ? 'border-[#FF6D1F] bg-[#FF6D1F]/5' : 'border-[#FAF3E1]/20 focus:border-[#FF6D1F]'
                   }`}
                 />
                 {errors.email && (
@@ -343,7 +343,7 @@ export const ConnectPage: React.FC = () => {
               <div className="space-y-1.5">
                 <label
                   htmlFor="subject"
-                  className="block font-mono text-xs uppercase tracking-wider text-[#222222]"
+                  className="block font-mono text-xs uppercase tracking-wider text-[#FAF3E1]"
                 >
                   Subject / Topic <span className="text-[#FF6D1F]">*</span>
                 </label>
@@ -353,8 +353,8 @@ export const ConnectPage: React.FC = () => {
                   placeholder="e.g. Full-Stack Web Collaboration or Design Identity Project"
                   value={formData.subject}
                   onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
-                  className={`w-full px-4 py-3 bg-[#FAF3E1] border rounded font-body text-sm text-[#222222] placeholder:text-[#222222]/40 focus:outline-none transition-colors ${
-                    errors.subject ? 'border-[#FF6D1F] bg-[#FF6D1F]/5' : 'border-[#222222]/25 focus:border-[#FF6D1F]'
+                  className={`w-full px-4 py-3 bg-[#FAF3E1]/[0.05] border rounded font-body text-sm text-[#FAF3E1] placeholder:text-[#FAF3E1]/40 focus:outline-none transition-colors ${
+                    errors.subject ? 'border-[#FF6D1F] bg-[#FF6D1F]/5' : 'border-[#FAF3E1]/20 focus:border-[#FF6D1F]'
                   }`}
                 />
                 {errors.subject && (
@@ -369,11 +369,11 @@ export const ConnectPage: React.FC = () => {
                 <div className="flex justify-between items-center">
                   <label
                     htmlFor="message"
-                    className="block font-mono text-xs uppercase tracking-wider text-[#222222]"
+                    className="block font-mono text-xs uppercase tracking-wider text-[#FAF3E1]"
                   >
                     Your Message <span className="text-[#FF6D1F]">*</span>
                   </label>
-                  <span className="font-mono text-[10px] text-[#222222]/50">
+                  <span className="font-mono text-[10px] text-[#FAF3E1]/50">
                     {formData.message.length} chars
                   </span>
                 </div>
@@ -383,8 +383,8 @@ export const ConnectPage: React.FC = () => {
                   placeholder="Tell me about the goals, timeline, or idea you're exploring..."
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                  className={`w-full px-4 py-3 bg-[#FAF3E1] border rounded font-body text-sm text-[#222222] placeholder:text-[#222222]/40 focus:outline-none transition-colors resize-y ${
-                    errors.message ? 'border-[#FF6D1F] bg-[#FF6D1F]/5' : 'border-[#222222]/25 focus:border-[#FF6D1F]'
+                  className={`w-full px-4 py-3 bg-[#FAF3E1]/[0.05] border rounded font-body text-sm text-[#FAF3E1] placeholder:text-[#FAF3E1]/40 focus:outline-none transition-colors resize-y ${
+                    errors.message ? 'border-[#FF6D1F] bg-[#FF6D1F]/5' : 'border-[#FAF3E1]/20 focus:border-[#FF6D1F]'
                   }`}
                 />
                 {errors.message && (
@@ -401,7 +401,7 @@ export const ConnectPage: React.FC = () => {
                   disabled={status === 'loading'}
                   onMouseEnter={() => setCursorType('hover')}
                   onMouseLeave={resetCursor}
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 bg-[#FF6D1F] text-[#FAF3E1] font-mono text-xs uppercase tracking-wider font-bold rounded-full hover:bg-[#222222] transition-colors shadow-md disabled:opacity-50 cursor-pointer"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 bg-[#FF6D1F] text-[#FAF3E1] font-mono text-xs uppercase tracking-wider font-bold rounded-full hover:bg-[#FAF3E1] hover:text-[#222222] transition-colors shadow-md disabled:opacity-50 cursor-pointer"
                 >
                   {status === 'loading' ? (
                     <span>Transmitting Payload...</span>
