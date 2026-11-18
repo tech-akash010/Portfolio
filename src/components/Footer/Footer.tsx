@@ -1,12 +1,46 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import { useCursor } from '../CustomCursor/CursorContext';
 import { ArrowUp, ArrowUpRight, MapPin } from 'lucide-react';
-import { motion, useInView } from 'motion/react';
+import { motion } from 'motion/react';
 
 export const Footer: React.FC = () => {
   const { setCursorType, resetCursor } = useCursor();
   const footerRef = useRef<HTMLElement>(null);
-  const isInView = useInView(footerRef, { amount: 0.05, margin: "100px 0px 0px 0px" });
+  const [isInView, setIsInView] = useState(false);
+
+  useEffect(() => {
+    // 1. Immediate check if footer is already visible on mount (e.g. page refreshed at bottom)
+    if (footerRef.current) {
+      const rect = footerRef.current.getBoundingClientRect();
+      if (rect.top <= window.innerHeight + 250) {
+        setIsInView(true);
+      }
+    }
+
+    // 2. IntersectionObserver with generous 250px advance bottom margin
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsInView(true);
+        }
+      },
+      { rootMargin: '0px 0px 250px 0px', threshold: 0 }
+    );
+
+    if (footerRef.current) {
+      observer.observe(footerRef.current);
+    }
+
+    // 3. Fail-safe timer: guaranteed visibility even if observer events are delayed or blocked
+    const timer = setTimeout(() => {
+      setIsInView(true);
+    }, 600);
+
+    return () => {
+      observer.disconnect();
+      clearTimeout(timer);
+    };
+  }, []);
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -18,21 +52,21 @@ export const Footer: React.FC = () => {
       opacity: 1,
       transition: {
         staggerChildren: 0.08,
-        delayChildren: 0.1,
+        delayChildren: 0.05,
       },
     },
   };
 
   const letterVariants = {
     hidden: {
-      y: 45,
+      y: 20,
       opacity: 0,
     },
     visible: {
       y: 0,
       opacity: 1,
       transition: {
-        duration: 0.75,
+        duration: 0.65,
         ease: [0.16, 1, 0.3, 1] as const,
       },
     },
@@ -209,9 +243,13 @@ export const Footer: React.FC = () => {
                 y: -10,
                 transition: { type: 'spring', stiffness: 450, damping: 14 },
               }}
-              className="cursor-pointer text-[#FAF3E1] hover:text-[#FF6D1F] transition-colors duration-200"
+              className="group cursor-pointer"
             >
-              <path d={letter.d} fill="currentColor" />
+              <path
+                d={letter.d}
+                fill="#FAF3E1"
+                className="group-hover:fill-[#FF6D1F] transition-colors duration-300"
+              />
             </motion.g>
           ))}
         </motion.svg>
