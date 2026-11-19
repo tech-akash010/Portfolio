@@ -114,44 +114,89 @@ export const ProjectVisualPreview: React.FC<ProjectVisualPreviewProps> = ({
         </div>
       );
 
-    case 'sankalp':
+    case 'concept-mirror':
       return (
         <div className={`relative w-full h-full bg-[#14213d] text-[#ffffff] p-6 flex flex-col justify-between overflow-hidden select-none ${className}`}>
           <div className="flex items-center justify-between border-b border-[#ffffff]/15 pb-3">
-            <span className="font-mono text-[10px] uppercase tracking-widest text-[#e5e5e5]/70">
-              COMMUNITY DIRECTORY // SANKALP
+            <span className="font-mono text-[10px] text-[#fca311] uppercase tracking-wider">
+              CONCEPT MIRROR // SEMANTIC GRAPH
             </span>
-            <span className="font-mono text-[10px] text-[#fca311] font-bold">
-              ● REAL-TIME DISPATCH
+            <span className="font-mono text-[9px] text-[#e5e5e5]/50">
+              COGNITIVE REFLECTION
             </span>
           </div>
 
-          <div className="my-auto py-4 space-y-3">
-            <div className="p-3 bg-[#ffffff]/10 rounded border border-[#ffffff]/15 flex items-center justify-between">
-              <div>
-                <span className="text-[10px] font-mono text-[#fca311] block">EMERGENCY APPEAL</span>
-                <span className="font-display font-bold text-sm text-[#ffffff]">Blood Group O- Required</span>
-              </div>
-              <span className="px-2 py-1 rounded bg-[#fca311] text-[#000000] font-mono text-[10px] font-bold">
-                URGENT
-              </span>
-            </div>
+          {/* Interactive Semantic Graph & Reflection Plane */}
+          <div className="my-auto py-2 relative flex items-center justify-center">
+            <svg viewBox="0 0 200 90" className="w-full h-24">
+              {/* Central Mirror Plane (dashed) */}
+              <line x1="100" y1="5" x2="100" y2="85" stroke="#fca311" strokeWidth="1" strokeDasharray="3 3" opacity="0.7" />
+              
+              {/* Left Domain (Abstract Concept Nodes) */}
+              <circle cx="35" cy="45" r="14" fill="#14213d" stroke="#ffffff" strokeWidth="1.2" />
+              <text x="35" y="48" fill="#ffffff" fontSize="7" fontFamily="monospace" textAnchor="middle">ABSTRACT</text>
 
-            <div className="grid grid-cols-2 gap-2 text-xs font-mono">
-              <div className="p-2.5 bg-[#ffffff]/5 rounded border border-[#ffffff]/10">
-                <span className="text-[9px] text-[#e5e5e5]/60 block">VERIFIED DONORS</span>
-                <span className="font-display font-bold text-base text-[#ffffff]">314 Active</span>
+              <circle cx="70" cy="25" r="8" fill="#000000" stroke="#fca311" strokeWidth="1" />
+              <circle cx="70" cy="65" r="9" fill="#000000" stroke="#ffffff" strokeWidth="0.8" opacity="0.6" />
+
+              <line x1="48" y1="40" x2="63" y2="28" stroke="#ffffff" strokeWidth="0.8" opacity="0.5" />
+              <line x1="48" y1="50" x2="62" y2="62" stroke="#ffffff" strokeWidth="0.8" opacity="0.5" />
+
+              {/* Reflection Rays across center */}
+              <line x1="78" y1="25" x2="122" y2="25" stroke="#fca311" strokeWidth="1.2" strokeDasharray="2 2" />
+              <line x1="79" y1="65" x2="121" y2="65" stroke="#fca311" strokeWidth="1.2" strokeDasharray="2 2" />
+
+              {/* Right Domain (Reflected Mental Model Nodes) */}
+              <circle cx="165" cy="45" r="14" fill="#fca311" />
+              <text x="165" y="48" fill="#000000" fontSize="7" fontFamily="monospace" fontWeight="bold" textAnchor="middle">INTUITION</text>
+
+              <circle cx="130" cy="25" r="8" fill="#ffffff" />
+              <circle cx="130" cy="65" r="9" fill="#fca311" opacity="0.7" />
+
+              <line x1="152" y1="40" x2="137" y2="28" stroke="#fca311" strokeWidth="1.2" />
+              <line x1="152" y1="50" x2="138" y2="62" stroke="#fca311" strokeWidth="1.2" />
+            </svg>
+          </div>
+
+          <div className="flex items-center justify-between font-mono text-[10px] text-[#e5e5e5]/60 border-t border-[#ffffff]/15 pt-3">
+            <span>SEMANTIC PRCS: 500+</span>
+            <span className="text-[#fca311]">LATENCY: &lt;12MS</span>
+          </div>
+        </div>
+      );
+
+    case 'flashcards':
+      return (
+        <div className={`relative w-full h-full bg-[#14213d] text-[#ffffff] p-6 flex flex-col justify-between overflow-hidden select-none ${className}`}>
+          <div className="flex items-center justify-between border-b border-[#ffffff]/15 pb-3">
+            <span className="font-mono text-[10px] uppercase tracking-widest text-[#fca311] font-semibold">
+              FLASHCARDS // SM-2 STUDIO
+            </span>
+            <span className="font-mono text-[10px] text-[#e5e5e5]/50">
+              ACTIVE RECALL
+            </span>
+          </div>
+
+          {/* Minimalist Flashcard Surface */}
+          <div className="my-auto py-2 flex flex-col items-center">
+            <div className="w-full max-w-[220px] p-3 rounded-lg bg-[#000000]/80 border border-[#ffffff]/20 shadow-xl space-y-2">
+              <div className="flex justify-between items-center text-[9px] font-mono text-[#e5e5e5]/50">
+                <span>CARD #042 // SYSTEM_DESIGN</span>
+                <span className="text-[#fca311] font-bold">INTERVAL: 6D</span>
               </div>
-              <div className="p-2.5 bg-[#ffffff]/5 rounded border border-[#ffffff]/10">
-                <span className="text-[9px] text-[#e5e5e5]/60 block">RESPONSE TIME</span>
-                <span className="font-display font-bold text-base text-[#fca311]">11.4 Mins</span>
+              <p className="font-mono text-xs text-[#ffffff] font-semibold">
+                What guarantees Raft linearizability?
+              </p>
+              <div className="flex items-center justify-between pt-1 border-t border-[#ffffff]/10 text-[9px] font-mono text-[#e5e5e5]/40">
+                <span>[SPACE] FLIP</span>
+                <span className="text-[#fca311]">[1-4] GRADE</span>
               </div>
             </div>
           </div>
 
-          <div className="flex justify-between items-center text-[10px] font-mono border-t border-[#ffffff]/15 pt-3 text-[#e5e5e5]/60">
-            <span>CAMPUS IMPACT INITIATIVE</span>
-            <span>WB / 2025</span>
+          <div className="flex items-center justify-between font-mono text-[10px] border-t border-[#ffffff]/15 pt-3 text-[#e5e5e5]/70">
+            <span>STREAK: 34 DAYS</span>
+            <span className="text-[#fca311]">RETENTION: 94.2%</span>
           </div>
         </div>
       );

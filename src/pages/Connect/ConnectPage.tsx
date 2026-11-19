@@ -2,17 +2,37 @@ import React, { useState } from 'react';
 import { useCursor } from '../../components/CustomCursor/CursorContext';
 import confetti from 'canvas-confetti';
 import {
-  Mail,
   Send,
   CheckCircle2,
   AlertCircle,
-  Copy,
   ArrowUpRight,
-  Sparkles,
-  MapPin,
-  Clock,
-  PhoneCall,
 } from 'lucide-react';
+
+const LinkedinIcon: React.FC<{ className?: string }> = ({ className = 'w-4 h-4' }) => (
+  <svg className={className} viewBox="0 0 24 24" fill="currentColor">
+    <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.64a1.64 1.64 0 1 0 0 3.28 1.64 1.64 0 0 0 0-3.28z" />
+  </svg>
+);
+
+const GithubIcon: React.FC<{ className?: string }> = ({ className = 'w-4 h-4' }) => (
+  <svg className={className} viewBox="0 0 24 24" fill="currentColor">
+    <path fillRule="evenodd" clipRule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0 0 22 12.017C22 6.484 17.522 2 12 2z" />
+  </svg>
+);
+
+const InstagramIcon: React.FC<{ className?: string }> = ({ className = 'w-4 h-4' }) => (
+  <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+    <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
+  </svg>
+);
+
+const XIcon: React.FC<{ className?: string }> = ({ className = 'w-4 h-4' }) => (
+  <svg className={className} viewBox="0 0 24 24" fill="currentColor">
+    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+  </svg>
+);
 
 interface FormData {
   name: string;
@@ -40,7 +60,6 @@ export const ConnectPage: React.FC = () => {
 
   const [errors, setErrors] = useState<FormErrors>({});
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
-  const [copiedEmail, setCopiedEmail] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
 
   const validate = (): boolean => {
@@ -124,147 +143,120 @@ export const ConnectPage: React.FC = () => {
     }
   };
 
-  const copyEmailToClipboard = () => {
-    navigator.clipboard.writeText('contact@akashkundu.dev');
-    setCopiedEmail(true);
-    setTimeout(() => setCopiedEmail(false), 2000);
-  };
+  const SOCIAL_PROFILES = [
+    {
+      label: 'LinkedIn',
+      url: 'https://www.linkedin.com/in/akashkundu010/',
+      handle: 'in/akashkundu010',
+      icon: LinkedinIcon,
+    },
+    {
+      label: 'GitHub',
+      url: 'https://github.com/tech-akash010',
+      handle: '@tech-akash010',
+      icon: GithubIcon,
+    },
+    {
+      label: 'Instagram',
+      url: 'https://www.instagram.com/0x.akash/',
+      handle: '@0x.akash',
+      icon: InstagramIcon,
+    },
+    {
+      label: 'X (Twitter)',
+      url: 'https://x.com/officialak_X',
+      handle: '@officialak_X',
+      icon: XIcon,
+    },
+  ];
 
   return (
-    <div className="pt-36 sm:pt-40 md:pt-44 pb-24 px-6 sm:px-8 md:px-12 max-w-6xl mx-auto min-h-screen">
+    <div className="pt-36 sm:pt-40 md:pt-44 pb-24 px-6 sm:px-8 md:px-12 max-w-6xl mx-auto min-h-screen text-[#ffffff]">
       {/* Editorial Header */}
-      <header className="border-b border-[#ffffff]/15 pb-10 mb-12">
-        <h1 className="font-display text-4xl sm:text-6xl md:text-7xl font-black tracking-tight text-[#ffffff] leading-[1.05]">
-          GOOD IDEAS START<br />
-          WITH A CONVERSATION<span className="text-[#fca311]">.</span>
-        </h1>
-        <p className="font-editorial italic text-xl sm:text-2xl text-[#e5e5e5]/70 mt-4 max-w-2xl leading-relaxed">
-          Whether you want to build a software tool, collaborate on a visual identity, or simply chat about technology—drop a message below.
-        </p>
+      <header className="border-b border-[#ffffff]/15 pb-8 mb-12 sm:mb-16">
+        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6">
+          <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black tracking-tight text-[#ffffff] uppercase leading-[0.95]">
+            START A CONVERSATION<span className="text-[#fca311]">.</span>
+          </h1>
+          <p className="font-body text-sm sm:text-base text-[#e5e5e5]/80 max-w-md leading-relaxed font-normal">
+            Whether you want to build a software tool, collaborate on a visual identity, or simply chat about technology—drop a message below.
+          </p>
+        </div>
       </header>
 
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
-        {/* Left Column: Direct Inquiries Dossier & Info */}
-        <div className="lg:col-span-5 space-y-8">
-          <div className="p-6 sm:p-8 bg-[#14213d]/75 backdrop-blur-md border border-[#ffffff]/20 rounded-2xl space-y-6 shadow-2xl">
-            <div className="flex items-center justify-between border-b border-[#ffffff]/15 pb-3">
-              <span className="font-mono text-xs uppercase font-bold text-[#ffffff] flex items-center gap-2">
-                <Sparkles className="w-3.5 h-3.5 text-[#fca311]" /> DIRECT CHANNELS
-              </span>
-              <span className="w-2 h-2 rounded-full bg-[#fca311] animate-pulse" />
-            </div>
-
-            {/* Email item */}
-            <div className="space-y-1">
-              <span className="font-mono text-[10px] text-[#e5e5e5]/60 uppercase tracking-widest block">
-                PRIMARY INBOX
-              </span>
-              <div className="flex items-center justify-between">
-                <a
-                  href="mailto:contact@akashkundu.dev"
-                  className="font-mono text-sm font-bold text-[#ffffff] hover:text-[#fca311] transition-colors"
-                >
-                  contact@akashkundu.dev
-                </a>
-                <button
-                  type="button"
-                  onClick={copyEmailToClipboard}
-                  className="p-1.5 rounded hover:bg-[#ffffff]/10 text-[#e5e5e5]/70 hover:text-[#ffffff] transition-colors"
-                  title="Copy email"
-                >
-                  <Copy className="w-4 h-4" />
-                </button>
-              </div>
-              {copiedEmail && (
-                <span className="font-mono text-[10px] text-[#fca311] block">
-                  ✓ Copied to clipboard!
-                </span>
-              )}
-            </div>
-
-            {/* Location & Time */}
-            <div className="grid grid-cols-2 gap-4 pt-3 border-t border-[#ffffff]/10 font-mono text-xs">
-              <div>
-                <span className="text-[10px] text-[#e5e5e5]/60 uppercase block">LOCATION</span>
-                <span className="text-[#ffffff] font-semibold flex items-center gap-1 mt-0.5">
-                  <MapPin className="w-3.5 h-3.5 text-[#fca311]" /> Kolkata, India
-                </span>
-              </div>
-              <div>
-                <span className="text-[10px] text-[#e5e5e5]/60 uppercase block">TIMEZONE</span>
-                <span className="text-[#ffffff] font-semibold flex items-center gap-1 mt-0.5">
-                  <Clock className="w-3.5 h-3.5 text-[#fca311]" /> IST (UTC+5:30)
-                </span>
-              </div>
-            </div>
-
-            {/* Availability Badge */}
-            <div className="pt-3 border-t border-[#ffffff]/10">
-              <span className="text-[10px] text-[#e5e5e5]/60 uppercase block mb-1">
-                CURRENT AVAILABILITY
-              </span>
-              <p className="font-body text-xs text-[#e5e5e5]/85 leading-relaxed">
-                Accepting selected design &amp; full-stack engineering collaborations for Q1–Q2 2026.
-              </p>
-            </div>
+      {/* Unboxed Editorial Grid */}
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+        {/* Left Column: Social Presence with Official Logos */}
+        <div className="lg:col-span-5 space-y-6">
+          <div>
+            <h2 className="font-display text-2xl sm:text-3xl font-black text-[#ffffff] tracking-tight uppercase">
+              CONNECT &amp; FOLLOW<span className="text-[#fca311]">.</span>
+            </h2>
           </div>
 
-          {/* Social Links List */}
-          <div className="p-6 bg-[#14213d]/30 border border-[#ffffff]/15 rounded-lg space-y-3 font-mono text-xs">
-            <span className="font-mono text-[10px] text-[#fca311] uppercase tracking-widest block mb-2 font-bold">
-              DIGITAL PROFILES
-            </span>
-
-            {[
-              { label: 'LinkedIn', url: 'https://www.linkedin.com/in/akashkundu010/', handle: 'in/akashkundu010' },
-              { label: 'Instagram', url: 'https://www.instagram.com/0x.akash/', handle: '@0x.akash' },
-              { label: 'GitHub', url: 'https://github.com/tech-akash010', handle: '@tech-akash010' },
-              { label: 'X (Twitter)', url: 'https://x.com/officialak_X', handle: '@officialak_X' },
-            ].map((profile) => (
-              <a
-                key={profile.label}
-                href={profile.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                onMouseEnter={() => setCursorType('external')}
-                onMouseLeave={resetCursor}
-                className="flex items-center justify-between p-2 rounded hover:bg-[#ffffff]/5 transition-colors group"
-              >
-                <span className="font-bold text-[#ffffff] group-hover:text-[#fca311] transition-colors">
-                  {profile.label}
-                </span>
-                <span className="text-[#e5e5e5]/60 flex items-center gap-1 text-[11px]">
-                  {profile.handle} <ArrowUpRight className="w-3 h-3 group-hover:text-[#fca311]" />
-                </span>
-              </a>
-            ))}
+          <div className="divide-y divide-[#ffffff]/10 font-mono text-xs">
+            {SOCIAL_PROFILES.map((profile) => {
+              const Icon = profile.icon;
+              return (
+                <a
+                  key={profile.label}
+                  href={profile.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onMouseEnter={() => setCursorType('external')}
+                  onMouseLeave={resetCursor}
+                  className="flex items-center justify-between py-4 group hover:text-[#fca311] transition-colors cursor-pointer"
+                >
+                  <div className="flex items-center gap-3.5">
+                    <div className="w-9 h-9 rounded-full bg-[#ffffff]/5 border border-[#ffffff]/10 flex items-center justify-center text-[#e5e5e5] group-hover:text-[#fca311] group-hover:border-[#fca311]/40 group-hover:bg-[#fca311]/10 transition-all">
+                      <Icon className="w-4 h-4" />
+                    </div>
+                    <div>
+                      <span className="font-display font-bold text-[#ffffff] group-hover:text-[#fca311] transition-colors block text-sm sm:text-base">
+                        {profile.label}
+                      </span>
+                      <span className="text-[#e5e5e5]/50 text-xs font-mono">
+                        {profile.handle}
+                      </span>
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-1.5 text-xs text-[#e5e5e5]/60 group-hover:text-[#fca311] transition-colors">
+                    <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                  </div>
+                </a>
+              );
+            })}
           </div>
         </div>
 
-        {/* Right Column: Validated Interactive Editorial Contact Form */}
-        <div className="lg:col-span-7 bg-[#14213d]/75 backdrop-blur-md border border-[#ffffff]/20 rounded-2xl p-6 sm:p-10 shadow-2xl">
+        {/* Right Column: Transmission Form */}
+        <div className="lg:col-span-7">
           {status === 'success' ? (
-            <div className="py-12 text-center space-y-4">
-              <div className="w-16 h-16 rounded-full bg-[#fca311]/15 text-[#fca311] flex items-center justify-center mx-auto mb-2">
-                <CheckCircle2 className="w-8 h-8" />
+            <div className="py-12 space-y-6">
+              <div className="flex items-center gap-3 text-[#fca311]">
+                <CheckCircle2 className="w-6 h-6" />
+                <span className="font-mono text-xs uppercase tracking-wider font-bold">
+                  TRANSMISSION CONFIRMED
+                </span>
               </div>
-              <h2 className="font-display text-3xl font-black text-[#ffffff]">
-                Message Transmitted!
+              <h2 className="font-display text-3xl sm:text-4xl font-black text-[#ffffff] tracking-tight uppercase leading-tight">
+                Message Transmitted<span className="text-[#fca311]">.</span>
               </h2>
-              <p className="font-body text-sm sm:text-base text-[#e5e5e5]/80 max-w-md mx-auto leading-relaxed">
-                Thank you for reaching out, <strong className="text-[#ffffff]">{formData.name}</strong>. Your inquiry has been dispatched to AK's inbox. Expect a response within 24–48 hours.
+              <p className="font-body text-base sm:text-lg text-[#e5e5e5]/80 max-w-lg leading-relaxed font-normal">
+                Thank you for reaching out, <strong className="text-[#ffffff]">{formData.name}</strong>. Your inquiry has been routed directly to AK's inbox. Expect a response within 24–48 hours.
               </p>
 
-              <div className="pt-6 flex flex-col sm:flex-row justify-center gap-3">
+              <div className="pt-6 flex flex-wrap gap-4 font-mono text-xs">
                 <a
                   href={`mailto:contact@akashkundu.dev?subject=${encodeURIComponent(
                     formData.subject
                   )}&body=${encodeURIComponent(
                     `From: ${formData.name} (${formData.email})\n\n${formData.message}`
                   )}`}
-                  className="px-5 py-2.5 rounded-full bg-[#fca311] text-[#000000] font-mono text-xs uppercase hover:bg-[#ffffff] hover:text-[#000000] transition-colors font-bold"
+                  className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#fca311] text-[#000000] font-bold uppercase tracking-wider hover:bg-[#ffffff] hover:text-[#000000] transition-colors"
                 >
-                  Send direct backup email
+                  <span>SEND DIRECT BACKUP EMAIL</span>
+                  <ArrowUpRight className="w-3.5 h-3.5" />
                 </a>
                 <button
                   type="button"
@@ -272,136 +264,128 @@ export const ConnectPage: React.FC = () => {
                     setStatus('idle');
                     setFormData({ name: '', email: '', subject: '', message: '' });
                   }}
-                  className="px-5 py-2.5 rounded-full border border-[#ffffff]/20 font-mono text-xs uppercase text-[#ffffff] hover:bg-[#ffffff]/10 transition-colors"
+                  className="px-6 py-3 rounded-full border border-[#ffffff]/20 font-bold uppercase tracking-wider text-[#ffffff] hover:bg-[#ffffff]/10 transition-colors"
                 >
-                  Submit Another Note
+                  SUBMIT ANOTHER NOTE
                 </button>
               </div>
             </div>
           ) : (
             <form onSubmit={handleSubmit} noValidate className="space-y-6">
-              <div className="flex items-center justify-between border-b border-[#ffffff]/15 pb-3">
-                <span className="font-mono text-xs uppercase font-bold text-[#ffffff]">
-                  TRANSMISSION FORM
-                </span>
-                <span className="font-mono text-[10px] text-[#fca311]">
-                  * ALL FIELDS VALIDATED
-                </span>
+              <div className="border-b border-[#ffffff]/15 pb-4">
+                <h3 className="font-display text-xl sm:text-2xl font-black text-[#ffffff] tracking-tight uppercase">
+                  SEND A MESSAGE<span className="text-[#fca311]">.</span>
+                </h3>
               </div>
 
-              {/* Name Input */}
-              <div className="space-y-1.5">
-                <label
-                  htmlFor="name"
-                  className="block font-mono text-xs uppercase tracking-wider text-[#ffffff]"
-                >
-                  Your Name / Organization <span className="text-[#fca311]">*</span>
-                </label>
-                <input
-                  id="name"
-                  type="text"
-                  placeholder="e.g. Elena Vance or Studio Alpha"
-                  value={formData.name}
-                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                  className={`w-full px-4 py-3 bg-[#000000]/40 border rounded font-body text-sm text-[#ffffff] placeholder:text-[#e5e5e5]/40 focus:outline-none transition-colors ${
-                    errors.name ? 'border-[#fca311] bg-[#fca311]/5' : 'border-[#ffffff]/20 focus:border-[#fca311]'
-                  }`}
-                />
-                {errors.name && (
-                  <p className="font-mono text-[11px] text-[#fca311] flex items-center gap-1 mt-1">
-                    <AlertCircle className="w-3.5 h-3.5" /> {errors.name}
-                  </p>
-                )}
+              {/* Row 1: Name and Email side-by-side on sm+ */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                {/* Name Input */}
+                <div className="group relative border-b border-[#ffffff]/20 pb-2.5 focus-within:border-[#fca311] transition-colors">
+                  <label
+                    htmlFor="name"
+                    className="block font-mono text-[11px] uppercase tracking-wider text-[#e5e5e5]/70 mb-2"
+                  >
+                    Your Name / Org <span className="text-[#fca311]">*</span>
+                  </label>
+                  <input
+                    id="name"
+                    type="text"
+                    placeholder="Elena Vance"
+                    value={formData.name}
+                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                    className="w-full bg-transparent font-body text-base text-[#ffffff] placeholder:text-[#e5e5e5]/30 focus:outline-none"
+                  />
+                  {errors.name && (
+                    <p className="font-mono text-[11px] text-[#fca311] flex items-center gap-1 mt-1.5">
+                      <AlertCircle className="w-3.5 h-3.5" /> {errors.name}
+                    </p>
+                  )}
+                </div>
+
+                {/* Email Input */}
+                <div className="group relative border-b border-[#ffffff]/20 pb-2.5 focus-within:border-[#fca311] transition-colors">
+                  <label
+                    htmlFor="email"
+                    className="block font-mono text-[11px] uppercase tracking-wider text-[#e5e5e5]/70 mb-2"
+                  >
+                    Your Email Address <span className="text-[#fca311]">*</span>
+                  </label>
+                  <input
+                    id="email"
+                    type="email"
+                    placeholder="elena@studio.com"
+                    value={formData.email}
+                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                    className="w-full bg-transparent font-body text-base text-[#ffffff] placeholder:text-[#e5e5e5]/30 focus:outline-none"
+                  />
+                  {errors.email && (
+                    <p className="font-mono text-[11px] text-[#fca311] flex items-center gap-1 mt-1.5">
+                      <AlertCircle className="w-3.5 h-3.5" /> {errors.email}
+                    </p>
+                  )}
+                </div>
               </div>
 
-              {/* Email Input */}
-              <div className="space-y-1.5">
-                <label
-                  htmlFor="email"
-                  className="block font-mono text-xs uppercase tracking-wider text-[#ffffff]"
-                >
-                  Your Email Address <span className="text-[#fca311]">*</span>
-                </label>
-                <input
-                  id="email"
-                  type="email"
-                  placeholder="name@company.com"
-                  value={formData.email}
-                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                  className={`w-full px-4 py-3 bg-[#000000]/40 border rounded font-body text-sm text-[#ffffff] placeholder:text-[#e5e5e5]/40 focus:outline-none transition-colors ${
-                    errors.email ? 'border-[#fca311] bg-[#fca311]/5' : 'border-[#ffffff]/20 focus:border-[#fca311]'
-                  }`}
-                />
-                {errors.email && (
-                  <p className="font-mono text-[11px] text-[#fca311] flex items-center gap-1 mt-1">
-                    <AlertCircle className="w-3.5 h-3.5" /> {errors.email}
-                  </p>
-                )}
-              </div>
-
-              {/* Subject Input */}
-              <div className="space-y-1.5">
+              {/* Row 2: Subject Input */}
+              <div className="group relative border-b border-[#ffffff]/20 pb-2.5 focus-within:border-[#fca311] transition-colors">
                 <label
                   htmlFor="subject"
-                  className="block font-mono text-xs uppercase tracking-wider text-[#ffffff]"
+                  className="block font-mono text-[11px] uppercase tracking-wider text-[#e5e5e5]/70 mb-2"
                 >
                   Subject / Topic <span className="text-[#fca311]">*</span>
                 </label>
                 <input
                   id="subject"
                   type="text"
-                  placeholder="e.g. Full-Stack Web Collaboration or Design Identity Project"
+                  placeholder="Full-Stack Web App or Visual System"
                   value={formData.subject}
                   onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
-                  className={`w-full px-4 py-3 bg-[#000000]/40 border rounded font-body text-sm text-[#ffffff] placeholder:text-[#e5e5e5]/40 focus:outline-none transition-colors ${
-                    errors.subject ? 'border-[#fca311] bg-[#fca311]/5' : 'border-[#ffffff]/20 focus:border-[#fca311]'
-                  }`}
+                  className="w-full bg-transparent font-body text-base text-[#ffffff] placeholder:text-[#e5e5e5]/30 focus:outline-none"
                 />
                 {errors.subject && (
-                  <p className="font-mono text-[11px] text-[#fca311] flex items-center gap-1 mt-1">
+                  <p className="font-mono text-[11px] text-[#fca311] flex items-center gap-1 mt-1.5">
                     <AlertCircle className="w-3.5 h-3.5" /> {errors.subject}
                   </p>
                 )}
               </div>
 
-              {/* Message Textarea */}
-              <div className="space-y-1.5">
-                <div className="flex justify-between items-center">
+              {/* Row 3: Message Textarea */}
+              <div className="group relative border-b border-[#ffffff]/20 pb-2.5 focus-within:border-[#fca311] transition-colors">
+                <div className="flex justify-between items-center mb-2">
                   <label
                     htmlFor="message"
-                    className="block font-mono text-xs uppercase tracking-wider text-[#ffffff]"
+                    className="block font-mono text-[11px] uppercase tracking-wider text-[#e5e5e5]/70"
                   >
                     Your Message <span className="text-[#fca311]">*</span>
                   </label>
-                  <span className="font-mono text-[10px] text-[#e5e5e5]/50">
+                  <span className="font-mono text-[10px] text-[#e5e5e5]/40">
                     {formData.message.length} chars
                   </span>
                 </div>
                 <textarea
                   id="message"
-                  rows={5}
-                  placeholder="Tell me about the goals, timeline, or idea you're exploring..."
+                  rows={4}
+                  placeholder="Tell me about the goals, scope, timeline, or idea you're exploring..."
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                  className={`w-full px-4 py-3 bg-[#000000]/40 border rounded font-body text-sm text-[#ffffff] placeholder:text-[#e5e5e5]/40 focus:outline-none transition-colors resize-y ${
-                    errors.message ? 'border-[#fca311] bg-[#fca311]/5' : 'border-[#ffffff]/20 focus:border-[#fca311]'
-                  }`}
+                  className="w-full bg-transparent font-body text-base text-[#ffffff] placeholder:text-[#e5e5e5]/30 focus:outline-none resize-none leading-relaxed"
                 />
                 {errors.message && (
-                  <p className="font-mono text-[11px] text-[#fca311] flex items-center gap-1 mt-1">
+                  <p className="font-mono text-[11px] text-[#fca311] flex items-center gap-1 mt-1.5">
                     <AlertCircle className="w-3.5 h-3.5" /> {errors.message}
                   </p>
                 )}
               </div>
 
-              {/* Submit Button */}
-              <div className="pt-2">
+              {/* Submit Action */}
+              <div className="pt-3">
                 <button
                   type="submit"
                   disabled={status === 'loading'}
                   onMouseEnter={() => setCursorType('hover')}
                   onMouseLeave={resetCursor}
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 bg-[#fca311] text-[#000000] font-mono text-xs uppercase tracking-wider font-bold rounded-full hover:bg-[#ffffff] hover:text-[#000000] transition-colors shadow-md disabled:opacity-50 cursor-pointer"
+                  className="inline-flex items-center justify-center gap-3 px-8 py-3.5 bg-[#fca311] text-[#000000] font-mono text-xs uppercase tracking-wider font-bold rounded-full hover:bg-[#ffffff] hover:text-[#000000] transition-colors cursor-pointer disabled:opacity-50"
                 >
                   {status === 'loading' ? (
                     <span>Transmitting Payload...</span>

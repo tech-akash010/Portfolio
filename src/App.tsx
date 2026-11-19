@@ -1,10 +1,12 @@
 import React, { useEffect } from 'react';
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
+import { AnimatePresence } from 'motion/react';
 import { CursorProvider } from './components/CustomCursor/CursorContext';
 import { DynamicBackground, BackgroundTheme } from './components/Background/DynamicBackground';
 import { Preloader } from './components/Preloader/Preloader';
 import { Navbar } from './components/Navigation/Navbar';
 import { Footer } from './components/Footer/Footer';
+import { PageTransition } from './components/Transitions/PageTransition';
 import Ribbons from './components/Ribbons';
 
 // Pages
@@ -48,6 +50,93 @@ const BackgroundManager: React.FC = () => {
   return <DynamicBackground theme={theme} />;
 };
 
+// Animated Routes Wrapper for Smooth Page Changes
+const AnimatedRoutes: React.FC = () => {
+  const location = useLocation();
+
+  return (
+    <AnimatePresence mode="wait">
+      <Routes location={location} key={location.pathname}>
+        {/* Homepage */}
+        <Route
+          path="/"
+          element={
+            <PageTransition>
+              <HomePage />
+            </PageTransition>
+          }
+        />
+
+        {/* Projects Index & Category Archives */}
+        <Route
+          path="/projects"
+          element={
+            <PageTransition>
+              <ProjectsIndexPage />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/projects/design"
+          element={
+            <PageTransition>
+              <DesignProjectsPage />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/projects/technology"
+          element={
+            <PageTransition>
+              <TechProjectsPage />
+            </PageTransition>
+          }
+        />
+
+        {/* Individual Case Studies */}
+        <Route
+          path="/projects/:category/:slug"
+          element={
+            <PageTransition>
+              <ProjectDetailPage />
+            </PageTransition>
+          }
+        />
+
+        {/* About Me */}
+        <Route
+          path="/about"
+          element={
+            <PageTransition>
+              <AboutPage />
+            </PageTransition>
+          }
+        />
+
+        {/* Connect / Contact */}
+        <Route
+          path="/connect"
+          element={
+            <PageTransition>
+              <ConnectPage />
+            </PageTransition>
+          }
+        />
+
+        {/* 404 Catch-All */}
+        <Route
+          path="*"
+          element={
+            <PageTransition>
+              <NotFoundPage />
+            </PageTransition>
+          }
+        />
+      </Routes>
+    </AnimatePresence>
+  );
+};
+
 export default function App() {
   return (
     <BrowserRouter>
@@ -76,28 +165,8 @@ export default function App() {
         <div className="min-h-screen flex flex-col justify-between selection:bg-[#fca311] selection:text-[#000000]">
           <Navbar />
 
-          <main className="flex-1">
-            <Routes>
-              {/* Homepage */}
-              <Route path="/" element={<HomePage />} />
-
-              {/* Projects Index & Category Archives */}
-              <Route path="/projects" element={<ProjectsIndexPage />} />
-              <Route path="/projects/design" element={<DesignProjectsPage />} />
-              <Route path="/projects/technology" element={<TechProjectsPage />} />
-
-              {/* Individual Case Studies */}
-              <Route path="/projects/:category/:slug" element={<ProjectDetailPage />} />
-
-              {/* About Me */}
-              <Route path="/about" element={<AboutPage />} />
-
-              {/* Connect / Contact */}
-              <Route path="/connect" element={<ConnectPage />} />
-
-              {/* 404 Catch-All */}
-              <Route path="*" element={<NotFoundPage />} />
-            </Routes>
+          <main className="flex-1 flex flex-col">
+            <AnimatedRoutes />
           </main>
 
           <Footer />

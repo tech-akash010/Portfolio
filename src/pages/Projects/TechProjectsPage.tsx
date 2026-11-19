@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { motion } from 'motion/react';
 import { techProjects } from '../../data/projectsData';
-import { SwissProjectIndex } from '../../components/ProjectCard/SwissProjectIndex';
-import { ProjectVisualPreview } from '../../components/ProjectCard/ProjectVisualPreview';
+import { TechSubcategory } from '../../types/project';
 import { useCursor } from '../../components/CustomCursor/CursorContext';
-import { ArrowUpRight, Code2, ExternalLink, TableProperties, LayoutGrid, Sparkles } from 'lucide-react';
+import { ArrowUpRight, Code2, ExternalLink, Sparkles } from 'lucide-react';
 
 const GithubIcon: React.FC<{ className?: string }> = ({ className = 'w-3.5 h-3.5' }) => (
   <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -13,173 +13,196 @@ const GithubIcon: React.FC<{ className?: string }> = ({ className = 'w-3.5 h-3.5
   </svg>
 );
 
+const CATEGORIES: ('All' | TechSubcategory)[] = [
+  'All',
+  'Developer Tools',
+  'Open Source',
+  'Web Applications',
+  'AI Applications',
+];
+
 export const TechProjectsPage: React.FC = () => {
   const { setCursorType, resetCursor } = useCursor();
-  const [viewMode, setViewMode] = useState<'ledger' | 'grid'>('ledger');
+  const [selectedCategory, setSelectedCategory] = useState<'All' | TechSubcategory>('All');
+
+  const filteredProjects = techProjects.filter((p) => {
+    if (selectedCategory === 'All') return true;
+    return p.subcategory === selectedCategory;
+  });
 
   return (
-    <div className="pt-36 sm:pt-40 md:pt-44 pb-24 px-6 sm:px-8 md:px-12 max-w-7xl mx-auto min-h-screen">
-      {/* Header */}
-      <div className="border-b border-[#ffffff]/15 pb-8 mb-10 flex flex-col md:flex-row md:items-end justify-between gap-6">
-        <div>
-          <div className="flex items-center gap-2 font-mono text-xs uppercase tracking-wider text-[#fca311] mb-3 font-semibold">
-            <span className="w-2 h-2 rounded-full bg-[#fca311]" />
-            <span>SYSTEMS &amp; COMPUTATION // 06 ENTRIES</span>
-          </div>
-          <h1 className="font-display text-5xl sm:text-6xl md:text-7xl font-black tracking-tight text-[#ffffff]">
-            TECH SYSTEMS<span className="text-[#fca311]">.</span>
-          </h1>
-          <p className="font-editorial italic text-xl sm:text-2xl text-[#e5e5e5]/70 mt-3 max-w-2xl leading-relaxed">
-            Software engineering, web architectures, developer tools, algorithms, and technical prototypes.
-          </p>
+    <div className="pt-36 sm:pt-40 md:pt-44 pb-24 px-6 sm:px-8 md:px-12 max-w-7xl mx-auto min-h-screen text-[#ffffff]">
+      {/* Editorial Header */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+        className="border-b border-[#ffffff]/15 pb-8 mb-10"
+      >
+        <div className="flex items-center gap-2 font-mono text-xs uppercase tracking-wider text-[#fca311] mb-3 font-semibold">
+          <Code2 className="w-3.5 h-3.5 text-[#fca311]" />
+          <span>PRODUCTION ARCHIVES // COMPUTATIONAL SYSTEMS</span>
         </div>
+        <h1 className="font-display text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black tracking-tight text-[#ffffff]">
+          TECHNOLOGY PROJECTS<span className="text-[#fca311]">.</span>
+        </h1>
+        <p className="font-editorial italic text-xl sm:text-2xl text-[#e5e5e5]/80 mt-3 max-w-2xl leading-relaxed">
+          Open-source software systems, developer platforms, AST compilers, and cognitive learning engines.
+        </p>
+      </motion.div>
 
-        {/* View Switcher */}
-        <div className="flex items-center gap-2 p-1 rounded-full bg-[#000000]/80 border border-[#ffffff]/15 self-start md:self-auto">
-          <button
-            onClick={() => setViewMode('ledger')}
-            aria-label="Ledger Index View"
-            className={`px-4 py-1.5 rounded-full font-mono text-xs uppercase tracking-wider transition-all flex items-center gap-1.5 cursor-pointer ${
-              viewMode === 'ledger'
-                ? 'bg-[#fca311] text-[#000000] font-bold shadow-sm'
-                : 'text-[#e5e5e5]/70 hover:text-[#ffffff]'
-            }`}
-          >
-            <TableProperties className="w-3.5 h-3.5" />
-            <span>Ledger</span>
-          </button>
-          <button
-            onClick={() => setViewMode('grid')}
-            aria-label="Grid Tiles View"
-            className={`px-4 py-1.5 rounded-full font-mono text-xs uppercase tracking-wider transition-all flex items-center gap-1.5 cursor-pointer ${
-              viewMode === 'grid'
-                ? 'bg-[#fca311] text-[#000000] font-bold shadow-sm'
-                : 'text-[#e5e5e5]/70 hover:text-[#ffffff]'
-            }`}
-          >
-            <LayoutGrid className="w-3.5 h-3.5" />
-            <span>Tiles</span>
-          </button>
-        </div>
+      {/* Category Filter Pills (Minimal Unboxed Line) */}
+      <div className="flex flex-wrap items-center gap-2 mb-12">
+        {CATEGORIES.map((cat) => {
+          const count = cat === 'All' ? techProjects.length : techProjects.filter(p => p.subcategory === cat).length;
+          if (cat !== 'All' && count === 0) return null;
+          const isActive = selectedCategory === cat;
+          return (
+            <button
+              key={cat}
+              onClick={() => setSelectedCategory(cat)}
+              className={`relative px-4 py-1.5 rounded-full font-mono text-xs uppercase tracking-wider transition-colors cursor-pointer z-10 ${
+                isActive ? 'text-[#000000] font-bold' : 'text-[#e5e5e5]/70 hover:text-[#ffffff] bg-[#14213d]/40 border border-[#ffffff]/10'
+              }`}
+            >
+              {isActive && (
+                <motion.span
+                  layoutId="activeTechFilter"
+                  transition={{ type: 'spring', stiffness: 450, damping: 30 }}
+                  className="absolute inset-0 bg-[#fca311] rounded-full z-[-1] shadow-md shadow-[#fca311]/25"
+                />
+              )}
+              <span>{cat} [{count}]</span>
+            </button>
+          );
+        })}
       </div>
 
-      {/* Main Content: Swiss Index Ledger OR Visual Grid */}
-      {viewMode === 'ledger' ? (
-        <div className="space-y-4">
-          <SwissProjectIndex
-            projects={techProjects}
-            variant="midnight"
-            showCategoryTag={true}
-          />
-          <div className="flex items-center justify-between pt-4 font-mono text-xs text-[#e5e5e5]/50 border-t border-[#ffffff]/10">
-            <div className="flex items-center gap-2">
-              <Sparkles className="w-3.5 h-3.5 text-[#fca311]" />
-              <span>HOVER OVER ANY ROW TO REVEAL CODE SANDBOX &amp; ARCHITECTURE PREVIEW</span>
-            </div>
-            <span>6 TECHNICAL REPOSITORIES</span>
-          </div>
-        </div>
-      ) : (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {techProjects.map((project) => (
-            <div
-              key={project.id}
-              className="group bg-[#14213d]/30 border border-[#ffffff]/15 rounded-lg overflow-hidden flex flex-col justify-between hover:border-[#fca311] hover:shadow-xl transition-all duration-300"
-            >
-              {/* Visual Container */}
-              <Link
-                to={`/projects/technology/${project.slug}`}
-                onMouseEnter={() => setCursorType('project', 'VIEW PROJECT')}
-                onMouseLeave={resetCursor}
-                className="h-60 w-full border-b border-[#ffffff]/15 block overflow-hidden bg-[#14213d]"
-              >
-                <ProjectVisualPreview slug={project.slug} />
-              </Link>
-
-              {/* Content Details */}
-              <div className="p-6 flex flex-col justify-between flex-1">
-                <div>
-                  <div className="flex items-center justify-between font-mono text-xs text-[#e5e5e5]/60 mb-2">
-                    <span className="text-[#fca311] font-bold uppercase tracking-wider">{project.subcategory}</span>
-                    <span>{project.year}</span>
-                  </div>
-
-                  <Link
-                    to={`/projects/technology/${project.slug}`}
-                    onMouseEnter={() => setCursorType('hover')}
-                    onMouseLeave={resetCursor}
-                  >
-                    <h2 className="font-display text-2xl font-bold tracking-tight text-[#ffffff] group-hover:text-[#fca311] transition-colors">
-                      {project.title}
-                    </h2>
-                  </Link>
-
-                  <p className="font-body text-xs sm:text-sm text-[#e5e5e5]/75 mt-2 line-clamp-3 leading-relaxed">
-                    {project.description}
-                  </p>
+      {/* Unboxed Editorial Ledger Stream (No Cards, Pure Swiss Rows) */}
+      <div className="divide-y divide-[#ffffff]/15 border-t border-b border-[#ffffff]/15">
+        {filteredProjects.map((project, idx) => (
+          <motion.div
+            key={project.id}
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-40px' }}
+            transition={{ duration: 0.5, delay: idx * 0.06, ease: [0.22, 1, 0.36, 1] }}
+            className="py-10 sm:py-12 group transition-colors duration-300"
+          >
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-start">
+              {/* Left Column: Index Number & Metadata */}
+              <div className="lg:col-span-3 space-y-2">
+                <div className="flex items-center gap-3">
+                  <span className="font-mono text-sm sm:text-base text-[#fca311] font-bold tracking-wider">
+                    № {project.number}
+                  </span>
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#ffffff]/30" />
+                  <span className="font-mono text-xs text-[#e5e5e5]/60">
+                    {project.year}
+                  </span>
                 </div>
+                <div className="font-mono text-xs uppercase tracking-wider text-[#fca311] font-semibold">
+                  {project.subcategory}
+                </div>
+              </div>
 
-                <div>
-                  {/* Tech Stack Chips */}
-                  <div className="mt-4 pt-3 border-t border-[#ffffff]/10 flex flex-wrap gap-1.5">
-                    {project.techStack.map((tech) => (
-                      <span
-                        key={tech}
-                        className="px-2 py-0.5 rounded bg-[#ffffff]/10 text-[#ffffff]/80 font-mono text-[9px]"
-                      >
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
+              {/* Center Column: Core Typographic Identity & Details */}
+              <div className="lg:col-span-6 space-y-3">
+                <Link
+                  to={`/projects/technology/${project.slug}`}
+                  onMouseEnter={() => setCursorType('hover')}
+                  onMouseLeave={resetCursor}
+                  className="block group/title"
+                >
+                  <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-black tracking-tight text-[#ffffff] group-hover/title:text-[#fca311] transition-colors duration-300">
+                    {project.title}<span className="text-[#fca311]">.</span>
+                  </h2>
+                </Link>
 
-                  {/* External Action Links (GitHub, Live Demo & Case Study) */}
-                  <div className="mt-4 pt-3 border-t border-[#ffffff]/10 flex items-center justify-between font-mono text-xs">
-                    <div className="flex items-center gap-3">
-                      <a
-                        href={project.githubUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        onMouseEnter={() => setCursorType('external')}
-                        onMouseLeave={resetCursor}
-                        className="text-[#e5e5e5]/70 hover:text-[#ffffff] flex items-center gap-1"
-                        title="GitHub Repository"
-                      >
-                        <GithubIcon className="w-3.5 h-3.5" />
-                        <span className="text-[11px]">Code</span>
-                      </a>
+                <p className="font-body text-sm sm:text-base text-[#e5e5e5]/80 leading-relaxed font-normal">
+                  {project.description}
+                </p>
 
-                      {project.liveUrl && (
-                        <a
-                          href={project.liveUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          onMouseEnter={() => setCursorType('external')}
-                          onMouseLeave={resetCursor}
-                          className="text-[#e5e5e5]/70 hover:text-[#ffffff] flex items-center gap-1"
-                          title="Live Application"
-                        >
-                          <ExternalLink className="w-3.5 h-3.5" />
-                          <span className="text-[11px]">Live</span>
-                        </a>
+                {/* Tech Stack - Clean Dot-Separated Inline List */}
+                <div className="pt-2 flex flex-wrap items-center gap-x-2.5 gap-y-1 font-mono text-xs text-[#e5e5e5]/60">
+                  {project.techStack.map((tech, i) => (
+                    <React.Fragment key={tech}>
+                      <span className="hover:text-[#ffffff] transition-colors">{tech}</span>
+                      {i < project.techStack.length - 1 && (
+                        <span className="text-[#fca311]/40">•</span>
                       )}
-                    </div>
+                    </React.Fragment>
+                  ))}
+                </div>
+              </div>
 
-                    <Link
-                      to={`/projects/technology/${project.slug}`}
-                      onMouseEnter={() => setCursorType('hover')}
+              {/* Right Column: Actions */}
+              <div className="lg:col-span-3 flex flex-row lg:flex-col lg:items-end justify-between lg:justify-start gap-4 pt-2 lg:pt-0">
+                <Link
+                  to={`/projects/technology/${project.slug}`}
+                  onMouseEnter={() => setCursorType('hover')}
+                  onMouseLeave={resetCursor}
+                  className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-wider text-[#fca311] font-bold hover:text-[#ffffff] transition-colors group/link"
+                >
+                  <span>Read Case Study</span>
+                  <ArrowUpRight className="w-4 h-4 group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5 transition-transform" />
+                </Link>
+
+                <div className="flex items-center gap-4 font-mono text-xs text-[#e5e5e5]/70">
+                  <a
+                    href={project.githubUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onMouseEnter={() => setCursorType('external')}
+                    onMouseLeave={resetCursor}
+                    className="inline-flex items-center gap-1.5 hover:text-[#fca311] transition-colors"
+                  >
+                    <GithubIcon className="w-3.5 h-3.5" />
+                    <span>Code</span>
+                  </a>
+
+                  {project.liveUrl && (
+                    <a
+                      href={project.liveUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onMouseEnter={() => setCursorType('external')}
                       onMouseLeave={resetCursor}
-                      className="text-[#fca311] font-semibold hover:underline flex items-center gap-1"
+                      className="inline-flex items-center gap-1.5 hover:text-[#fca311] transition-colors"
                     >
-                      <span>Case Study</span>
-                      <ArrowUpRight className="w-3.5 h-3.5" />
-                    </Link>
-                  </div>
+                      <ExternalLink className="w-3.5 h-3.5" />
+                      <span>Live App</span>
+                    </a>
+                  )}
                 </div>
               </div>
             </div>
-          ))}
+          </motion.div>
+        ))}
+      </div>
+
+      {/* Footnote Bar */}
+      <div className="flex flex-col sm:flex-row items-center justify-between pt-8 mt-12 text-xs font-mono text-[#e5e5e5]/50 gap-4">
+        <div className="flex items-center gap-2">
+          <Sparkles className="w-3.5 h-3.5 text-[#fca311]" />
+          <span>PRODUCTION SYSTEMS ARCHIVE • 5 VERIFIED PROJECTS</span>
         </div>
-      )}
+        <div className="flex items-center gap-4">
+          <Link to="/projects/design" className="hover:text-[#fca311] transition-colors flex items-center gap-1">
+            <span>Explore Design Dossier</span>
+            <ArrowUpRight className="w-3.5 h-3.5" />
+          </Link>
+          <a
+            href="https://github.com/tech-akash010"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-[#fca311] transition-colors flex items-center gap-1 font-semibold"
+          >
+            <span>GitHub Profile</span>
+            <ArrowUpRight className="w-3.5 h-3.5" />
+          </a>
+        </div>
+      </div>
     </div>
   );
 };

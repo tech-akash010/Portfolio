@@ -445,12 +445,6 @@ export const techProjects: TechProject[] = [
     ],
     githubUrl: 'https://github.com/tech-akash010/openlearn-hub',
     liveUrl: 'https://openlearn-hub.vercel.app',
-    stats: [
-      { label: 'Active Learners', value: '450+' },
-      { label: 'Study Modules', value: '120+' },
-      { label: 'Lighthouse Score', value: '98/100' },
-      { label: 'Open Source Stars', value: '80+' }
-    ],
     codeSnippet: {
       filename: 'useCodeExecution.ts',
       language: 'typescript',
@@ -481,77 +475,8 @@ export const techProjects: TechProject[] = [
   },
   {
     id: 'tech-02',
-    slug: 'sankalp',
-    number: '02',
-    title: 'Sankalp',
-    year: '2025',
-    category: 'technology',
-    subcategory: 'Web Applications',
-    tagline: 'Community initiative & resource mobilization portal',
-    description: 'A community engagement platform designed to connect student volunteers, campus sustainability initiatives, blood donation drives, and local social impact missions.',
-    coverImage: '/tech/sankalp.svg',
-    featured: true,
-    featuredOrder: 3,
-    problemStatement: 'Student-led community service initiatives often struggle with disorganized signups, lost contact records, missed donor alerts, and poor transparency in volunteer hour tracking.',
-    solution: 'Designed and deployed an intuitive web portal providing volunteer dispatch, real-time emergency need broadcasts (e.g. rare blood group requests), and verified impact certificates.',
-    techStack: ['React', 'TypeScript', 'Tailwind CSS', 'Node.js', 'Express', 'MongoDB', 'Vite'],
-    architecture: {
-      overview: 'Role-based full-stack web application built for high reliability and zero downtime during urgent community appeals.',
-      layers: [
-        {
-          title: 'Frontend Portal',
-          description: 'High-contrast mobile-friendly interface built with clean Tailwind utility classes and accessible form elements.',
-          tech: 'React 19, Lucide Icons, Tailwind CSS'
-        },
-        {
-          title: 'API Gateway & Services',
-          description: 'RESTful API with JWT authentication, rate limiting, and volunteer registration workflows.',
-          tech: 'Node.js, Express, Zod schema validation'
-        },
-        {
-          title: 'Data & Notification Store',
-          description: 'Document database with indexed geospatial queries for local drive discovery.',
-          tech: 'MongoDB Atlas, Webhook push alerts'
-        }
-      ]
-    },
-    keyFeatures: [
-      {
-        title: 'Emergency Donor Dispatch',
-        description: 'Instant filtering of verified student donors by blood type and campus residence proximity.'
-      },
-      {
-        title: 'Volunteer Milestone Ledger',
-        description: 'Tamper-proof digital tracking of hours served, events attended, and community badges earned.'
-      },
-      {
-        title: 'Campaign Media Gallery',
-        description: 'Editorial showcase highlighting event photographs, participant testimonials, and transparency reports.'
-      }
-    ],
-    keyImplementationDetails: [
-      'Designed responsive donor registration forms with rigorous client-side phone and blood group validation',
-      'Configured role-based access control (Admin, Volunteer, Organizer, Visitor)',
-      'Optimized load times to under 1.1s on 3G cellular connections for field volunteers'
-    ],
-    challengesAndLearnings: [
-      {
-        challenge: 'Ensuring privacy while retaining rapid contact functionality for urgent medical calls.',
-        learning: 'Implemented one-time masked call relays and opt-in location radius limits to safeguard student personal numbers.'
-      }
-    ],
-    githubUrl: 'https://github.com/tech-akash010/sankalp-portal',
-    liveUrl: 'https://sankalp-impact.web.app',
-    stats: [
-      { label: 'Volunteers Registered', value: '300+' },
-      { label: 'Drives Conducted', value: '18' },
-      { label: 'Response Time', value: '< 15 mins' }
-    ]
-  },
-  {
-    id: 'tech-03',
     slug: 'structo',
-    number: '03',
+    number: '02',
     title: 'Structo',
     year: '2026',
     category: 'technology',
@@ -560,10 +485,10 @@ export const techProjects: TechProject[] = [
     description: 'A developer tool that parses source directories, extracts abstract syntax trees, and renders interactive 2D node graphs visualizing circular dependencies, bundle weight, and file couplings.',
     coverImage: '/tech/structo.svg',
     featured: true,
-    featuredOrder: 4,
+    featuredOrder: 2,
     problemStatement: 'As software projects grow, mental models of how components and modules interconnect deteriorate, leading to unintentional cyclic imports, hidden bottlenecks, and bloated bundles.',
     solution: 'Built a lightweight CLI and companion web visualizer that scans repositories, builds an in-memory dependency DAG (Directed Acyclic Graph), and renders high-density interactive graph topologies.',
-    techStack: ['TypeScript', 'React', 'Canvas API', 'Node.js', 'D3.js Force', 'Vite'],
+    techStack: ['TypeScript', 'React 19', 'Canvas API', 'Node.js', 'D3.js Force', 'Vite'],
     architecture: {
       overview: 'Two-part architecture: a high-speed CLI parsing module and an interactive WebGL/Canvas visualization front-end.',
       layers: [
@@ -609,18 +534,13 @@ export const techProjects: TechProject[] = [
         learning: 'Offloaded layout computation to a background Web Worker, keeping the main UI thread completely responsive at 60fps.'
       }
     ],
-    githubUrl: 'https://github.com/tech-akash010/structo-analyzer',
-    liveUrl: 'https://structo-graph.vercel.app',
-    stats: [
-      { label: 'Max Nodes Handled', value: '10k+' },
-      { label: 'Render FPS', value: '60 fps' },
-      { label: 'Parse Speed', value: '450 files/sec' }
-    ]
+    githubUrl: 'https://github.com/tech-akash010/structo',
+    liveUrl: 'https://structo-graph.vercel.app'
   },
   {
-    id: 'tech-04',
+    id: 'tech-03',
     slug: 'rayofroads',
-    number: '04',
+    number: '03',
     title: 'RayOfRoads',
     year: '2025',
     category: 'technology',
@@ -629,16 +549,16 @@ export const techProjects: TechProject[] = [
     description: 'A modern web platform for driving enthusiasts and road trippers to map, curate, review, and experience scenic highway routes with real-time weather and road-surface metrics.',
     coverImage: '/tech/rayofroads.svg',
     featured: true,
-    featuredOrder: 5,
+    featuredOrder: 3,
     problemStatement: 'Conventional GPS tools optimize strictly for the shortest commute time, leading travelers through congested bypasses while completely missing breathtaking scenic highways and traveler-friendly rest stops.',
     solution: 'Constructed an exploration-first navigation platform that calculates "Scenic Index" scores based on elevation variance, tree cover, curvature density, and verified road-condition community notes.',
-    techStack: ['React', 'TypeScript', 'Mapbox GL / Leaflet', 'Tailwind CSS', 'Open-Meteo API', 'Node.js'],
+    techStack: ['React 19', 'TypeScript', 'Mapbox GL', 'Tailwind CSS', 'Open-Meteo API', 'Node.js'],
     architecture: {
       overview: 'Interactive geospatial web app combining tile mapping, elevation profile computation, and dynamic waypoints.',
       layers: [
         {
           title: 'Geospatial Canvas',
-          description: 'Vector tile map rendering customized with the signature warm ivory and charcoal styling.',
+          description: 'Vector tile map rendering customized with the signature Swiss dark and golden styling.',
           tech: 'Mapbox GL JS, GeoJSON'
         },
         {
@@ -664,7 +584,7 @@ export const techProjects: TechProject[] = [
       },
       {
         title: 'Bespoke Cartographic Theme',
-        description: 'Custom-designed Swiss map palette matching the portfolio’s monochrome (#ffffff) and amber (#fca311) accents.'
+        description: 'Custom-designed Swiss map palette matching the portfolio’s dark (#000000) and amber gold (#fca311) accents.'
       }
     ],
     keyImplementationDetails: [
@@ -679,128 +599,135 @@ export const techProjects: TechProject[] = [
       }
     ],
     githubUrl: 'https://github.com/tech-akash010/rayofroads',
-    liveUrl: 'https://rayofroads.vercel.app',
-    stats: [
-      { label: 'Scenic Routes Indexed', value: '85+' },
-      { label: 'Total Kilometers', value: '24,000+' },
-      { label: 'Active Drivers', value: '1.2k' }
-    ]
+    liveUrl: 'https://rayofroads.vercel.app'
   },
   {
-    id: 'tech-05',
-    slug: 'synapse-ai-studio',
-    number: '05',
-    title: 'Synapse AI Studio',
+    id: 'tech-04',
+    slug: 'concept-mirror',
+    number: '04',
+    title: 'Concept Mirror',
     year: '2026',
     category: 'technology',
     subcategory: 'AI Applications',
-    tagline: 'Prompt orchestration & multimodal pipeline playground',
-    description: 'A developer environment for prototyping, evaluating, and fine-tuning prompt chains with structured output schema enforcement and latency comparison metrics.',
-    coverImage: '/tech/synapse.svg',
-    featured: false,
-    problemStatement: 'Developers experimenting with LLM APIs lack a visual, reproducible testing harness to compare output accuracy, token consumption, and response drift across multiple model versions.',
-    solution: 'Built a multi-model orchestration workbench supporting JSON schema validation, parallel side-by-side prompt diffing, and cost tracking.',
-    techStack: ['React 19', 'TypeScript', 'Tailwind CSS', 'Gemini API', 'Vite', 'Zod'],
+    tagline: 'Cognitive semantic reflection and mental model decomposition engine',
+    description: 'An interactive cognitive mirror that analyzes complex technical concepts, maps prerequisite knowledge trees, and reflects back intuitive mental models with interactive multi-angle visual explanations.',
+    coverImage: '/tech/concept-mirror.svg',
+    featured: true,
+    featuredOrder: 4,
+    problemStatement: 'Engineers and students often encounter conceptual dead-ends and circular definitions when learning complex distributed systems, mathematical abstractions, and algorithmic paradigms.',
+    solution: 'Constructed an intelligent conceptual analysis workbench that breaks down multifaceted topics into bidirectional semantic graphs, analogical reasoning trees, and self-assessment reflection prompts.',
+    techStack: ['React 19', 'TypeScript', 'Tailwind CSS', 'D3.js', 'FastAPI', 'Web Audio API'],
     architecture: {
-      overview: 'Client-driven LLM playground with local API key encryption and streaming token pipelines.',
+      overview: 'Interactive cognitive projection canvas communicating with an AST-driven semantic reasoning service.',
       layers: [
         {
-          title: 'Pipeline Canvas',
-          description: 'Visual chain constructor linking system prompts, contextual memory, and output validators.',
-          tech: 'React 19, Motion'
+          title: 'Cognitive Projection Canvas',
+          description: 'Interactive graph interface visualizing core tenets, prerequisites, and analogical models.',
+          tech: 'React 19, D3.js Force, SVG Shaders'
         },
         {
-          title: 'Streaming Engine',
-          description: 'SSE (Server-Sent Events) and web stream consumer rendering markdown in real-time.',
-          tech: 'Fetch Streams API, Markdown parser'
+          title: 'Semantic Inference Core',
+          description: 'Decomposition algorithms breaking dense technical definitions into atomic mental primitives.',
+          tech: 'Python, FastAPI, NetworkX'
+        },
+        {
+          title: 'Reflection & Synthesis Layer',
+          description: 'Real-time interactive feedback loops testing user comprehension through generative counter-examples.',
+          tech: 'Zustand, Web Speech API'
         }
       ]
     },
     keyFeatures: [
       {
-        title: 'Side-by-Side Model Diff',
-        description: 'Simultaneously query models with the same seed prompt to compare reasoning latency and stylistic tone.'
+        title: 'Bidirectional Concept Mapping',
+        description: 'Dynamic graph nodes reflecting how concepts relate upstream to fundamentals and downstream to applications.'
       },
       {
-        title: 'Strict JSON Schema Enforcement',
-        description: 'Automatic Zod schema validation ensuring responses match required structured application formats.'
+        title: 'Analogical Reasoning Lens',
+        description: 'Translates abstract computing mechanisms into concrete physical intuition models.'
+      },
+      {
+        title: 'Prerequisite Tree Validation',
+        description: 'Detects gaps in foundational understanding before advancing to higher-order systems.'
       }
     ],
     keyImplementationDetails: [
-      'Implemented token counting heuristics and real-time cost estimation ticker',
-      'Configured local encrypted storage for developer API credentials'
+      'Engineered sub-16ms force layout simulation with zoomable SVG matrix viewport',
+      'Implemented local indexed vector caching for instant offline semantic lookup',
+      'Built custom glassmorphic canvas HUD with keyboard-first navigation'
     ],
     challengesAndLearnings: [
       {
-        challenge: 'Parsing streaming JSON tokens that are syntactically incomplete during generation.',
-        learning: 'Developed an incremental JSON parser that tolerates unclosed brackets and streaming partials.'
+        challenge: 'Avoiding cognitive overload when rendering high-density multi-layered dependency graphs.',
+        learning: 'Implemented progressive disclosure rings that reveal deeper conceptual depth only as the user focuses on specific node clusters.'
       }
     ],
-    githubUrl: 'https://github.com/tech-akash010/synapse-ai-studio',
-    liveUrl: 'https://synapse-studio.vercel.app',
-    stats: [
-      { label: 'Supported Models', value: '8+' },
-      { label: 'Execution Speed', value: 'Real-time' },
-      { label: 'Token Accuracy', value: '100%' }
-    ]
+    githubUrl: 'https://github.com/tech-akash010/concept-mirror',
+    liveUrl: 'https://concept-mirror.vercel.app'
   },
   {
-    id: 'tech-06',
-    slug: 'omnigraph-playground',
-    number: '06',
-    title: 'OmniGraph Playground',
+    id: 'tech-05',
+    slug: 'flashcards',
+    number: '05',
+    title: 'Flashcards',
     year: '2025',
     category: 'technology',
     subcategory: 'Developer Tools',
-    tagline: 'Interactive graph algorithms and pathfinding visualizer',
-    description: 'An educational algorithmic tool demonstrating BFS, DFS, Dijkstra, A*, and Minimum Spanning Trees with step-by-step state playback and custom weighted node drawing.',
-    coverImage: '/tech/omnigraph.svg',
-    featured: false,
-    problemStatement: 'Computer Science students learning graph theory struggle to conceptualize queue states, visited sets, and edge relaxation steps from static textbook diagrams.',
-    solution: 'Designed an interactive tactile sandbox where students place vertices, connect weighted bidirectional edges, and scrub through algorithm execution steps at variable speeds.',
-    techStack: ['TypeScript', 'React', 'HTML5 Canvas', 'Tailwind CSS'],
+    tagline: 'High-throughput algorithmic flashcard & active recall studio',
+    description: 'A keyboard-first, distraction-free flashcard learning platform built with modified SuperMemo SM-2 spaced repetition algorithms, syntax-highlighted code cards, and millisecond keyboard interaction.',
+    coverImage: '/tech/flashcards.svg',
+    featured: true,
+    featuredOrder: 5,
+    problemStatement: 'Most flashcard applications are bloated, mouse-centric, or poorly adapted for software engineering syntax, mathematical equations, and rapid-fire active recall cycles.',
+    solution: 'Engineered a minimalist, lightning-fast active recall studio with instant keyboard shortcuts (Space/1-4), offline IndexedDB persistence, tag-based deck filtering, and retention heatmaps.',
+    techStack: ['React 19', 'TypeScript', 'Tailwind CSS', 'IndexedDB', 'KaTeX', 'Vite'],
     architecture: {
-      overview: 'Pure client-side state machine modeling algorithmic step generators with time-travel scrubbing.',
+      overview: 'Offline-first, client-side active recall engine engineered for zero-latency card evaluation and review cycles.',
       layers: [
         {
-          title: 'Visual Graph Canvas',
-          description: 'Smooth vector rendering of nodes, weights, and animated frontier wavefronts.',
-          tech: 'HTML5 Canvas API'
+          title: 'Active Recall Viewport',
+          description: 'Card flip presentation surface with zero latency keyboard triggers and KaTeX/Prism syntax rendering.',
+          tech: 'React 19, Motion for React, KaTeX'
         },
         {
-          title: 'Algorithm Generator Engine',
-          description: 'JavaScript ES6 generator functions yielding snapshot states on each queue pop.',
-          tech: 'TypeScript, ES6 Generators'
+          title: 'SM-2 Spaced Repetition Engine',
+          description: 'Calculates optimal review intervals based on difficulty factor, repetition counts, and response grading (1-4).',
+          tech: 'TypeScript, Pure Math Core'
+        },
+        {
+          title: 'Offline Persistence Layer',
+          description: 'IndexedDB local storage engine ensuring zero data loss and instant boot without network dependency.',
+          tech: 'IndexedDB, Dexie.js'
         }
       ]
     },
     keyFeatures: [
       {
-        title: 'Interactive Time Scrubbing',
-        description: 'Step forward, backward, or pause search execution to observe exact data structure states.'
+        title: '100% Keyboard-Driven UX',
+        description: 'Space to flip, 1-4 to grade, J/K to skip, Z to undo, / to search.'
       },
       {
-        title: 'Maze & Terrain Generators',
-        description: 'Generate recursive backtracker mazes and Perlin noise elevation heatmaps with one click.'
+        title: 'First-Class Code & Math Rendering',
+        description: 'Clean syntax highlighting for 20+ programming languages with LaTeX KaTeX support.'
+      },
+      {
+        title: 'Retention Heatmap & Mastery Analytics',
+        description: 'Visual calendar tracking daily review streaks, card ease distribution, and retention forecasting.'
       }
     ],
     keyImplementationDetails: [
-      'Built a custom undo/redo graph history stack supporting 100+ revision checkpoints',
-      'Implemented accessible color-blind friendly node highlighting'
+      'Implemented custom Web Worker for offline deck import/export parsing of Anki (.apkg) and CSV formats',
+      'Achieved 0ms perceived latency using optimistic state transitions with transactional IndexedDB commit queues',
+      'Designed high-contrast Swiss typography theme optimized for long study sessions without eye fatigue'
     ],
     challengesAndLearnings: [
       {
-        challenge: 'Translating asynchronous step intervals into reversible state transitions.',
-        learning: 'Utilized generator functions that yield pure immutable graph snapshots at every decision point.'
+        challenge: 'Maintaining smooth 60fps 3D card flip transitions while rendering heavy code blocks and KaTeX formulas.',
+        learning: 'Used CSS transform-style: preserve-3d with backface-visibility: hidden and pre-rendered formula trees to avoid layout reflows during flips.'
       }
     ],
-    githubUrl: 'https://github.com/tech-akash010/omnigraph',
-    liveUrl: 'https://omnigraph.vercel.app',
-    stats: [
-      { label: 'Algorithms Visualized', value: '7' },
-      { label: 'Max Graph Nodes', value: '2,500' },
-      { label: 'Step Latency', value: '< 2ms' }
-    ]
+    githubUrl: 'https://github.com/tech-akash010/flashcards',
+    liveUrl: 'https://flashcards-ak.vercel.app'
   }
 ];
 
@@ -815,8 +742,8 @@ export function getProjectBySlug(category: 'design' | 'technology', slug: string
 
 export const featuredProjects: Project[] = [
   techProjects.find(p => p.slug === 'openlearn-hub')!,
-  techProjects.find(p => p.slug === 'sankalp')!,
   techProjects.find(p => p.slug === 'structo')!,
   techProjects.find(p => p.slug === 'rayofroads')!,
+  techProjects.find(p => p.slug === 'concept-mirror')!,
+  techProjects.find(p => p.slug === 'flashcards')!,
 ].filter(Boolean);
-

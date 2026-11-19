@@ -1,40 +1,30 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
-import { designProjects, techProjects } from '../../data/projectsData';
+import { motion } from 'motion/react';
+import { techProjects } from '../../data/projectsData';
 import { SwissProjectIndex } from '../../components/ProjectCard/SwissProjectIndex';
-import { ProjectVisualPreview } from '../../components/ProjectCard/ProjectVisualPreview';
 import { useCursor } from '../../components/CustomCursor/CursorContext';
-import { ArrowUpRight, Palette, Code2, Search, TableProperties, LayoutGrid, Sparkles } from 'lucide-react';
+import { ArrowUpRight, Code2, Palette, Sparkles } from 'lucide-react';
+
+const GithubIcon: React.FC<{ className?: string }> = ({ className = 'w-4 h-4' }) => (
+  <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" />
+    <path d="M9 18c-4.51 2-5-2-7-2" />
+  </svg>
+);
 
 export const ProjectsIndexPage: React.FC = () => {
   const { setCursorType, resetCursor } = useCursor();
-  const [activeTab, setActiveTab] = useState<'all' | 'technology' | 'design'>('all');
-  const [viewMode, setViewMode] = useState<'ledger' | 'grid'>('ledger');
-  const [searchQuery, setSearchQuery] = useState('');
-
-  const allProjects = [...techProjects, ...designProjects];
-
-  const filteredProjects = allProjects.filter((p) => {
-    if (activeTab === 'technology' && p.category !== 'technology') return false;
-    if (activeTab === 'design' && p.category !== 'design') return false;
-    if (!searchQuery) return true;
-
-    const query = searchQuery.toLowerCase();
-    const titleMatch = p.title.toLowerCase().includes(query);
-    const subMatch = (p as any).subcategory?.toLowerCase().includes(query);
-    const tagMatch = (p as any).tagline?.toLowerCase().includes(query);
-    const stackMatch =
-      p.category === 'technology'
-        ? (p as any).techStack?.some((t: string) => t.toLowerCase().includes(query))
-        : false;
-
-    return titleMatch || subMatch || tagMatch || stackMatch;
-  });
 
   return (
-    <div className="pt-36 sm:pt-40 md:pt-44 pb-24 px-6 sm:px-8 md:px-12 max-w-7xl mx-auto min-h-screen">
+    <div className="pt-36 sm:pt-40 md:pt-44 pb-24 px-6 sm:px-8 md:px-12 max-w-7xl mx-auto min-h-screen text-[#ffffff]">
       {/* Editorial Header */}
-      <div className="border-b border-[#ffffff]/15 pb-8 mb-10">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+        className="border-b border-[#ffffff]/15 pb-8 mb-10"
+      >
         <div className="flex items-center gap-2 font-mono text-xs uppercase tracking-wider text-[#fca311] mb-3 font-semibold">
           <span className="w-2 h-2 rounded-full bg-[#fca311]" />
           <span>PORTFOLIO LEDGER // ARCHIVE 2026</span>
@@ -42,28 +32,28 @@ export const ProjectsIndexPage: React.FC = () => {
         <h1 className="font-display text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black tracking-tight text-[#ffffff]">
           WORKS ARCHIVE<span className="text-[#fca311]">.</span>
         </h1>
-        <p className="font-editorial italic text-xl sm:text-2xl text-[#e5e5e5]/70 mt-3 max-w-2xl leading-relaxed">
-          A cataloged index of computational software systems, developer platforms, and Swiss visual identities.
+        <p className="font-editorial italic text-xl sm:text-2xl text-[#e5e5e5]/80 mt-3 max-w-2xl leading-relaxed">
+          Cataloged software engineering platforms, developer tools, algorithms, and Swiss visual identities.
         </p>
 
-        {/* Category Jump Cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-8">
+        {/* Dual Discipline Gateway Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-8">
           <Link
             to="/projects/technology"
             onMouseEnter={() => setCursorType('hover')}
             onMouseLeave={resetCursor}
-            className="p-5 bg-[#14213d]/60 border border-[#ffffff]/15 rounded-xl hover:border-[#fca311] transition-all flex items-center justify-between group shadow-lg"
+            className="p-6 bg-[#14213d]/50 border border-[#ffffff]/15 rounded-xl hover:border-[#fca311] transition-all flex items-center justify-between group shadow-lg"
           >
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-full bg-[#fca311] text-[#000000] flex items-center justify-center font-bold">
+            <div className="flex items-center gap-4">
+              <div className="w-11 h-11 rounded-full bg-[#fca311] text-[#000000] flex items-center justify-center font-bold">
                 <Code2 className="w-5 h-5" />
               </div>
               <div>
-                <span className="font-display font-bold text-lg text-[#ffffff] group-hover:text-[#fca311] transition-colors block">
-                  Technology Systems [06]
+                <span className="font-display font-bold text-lg sm:text-xl text-[#ffffff] group-hover:text-[#fca311] transition-colors block">
+                  Technology Systems [05]
                 </span>
                 <span className="font-mono text-xs text-[#e5e5e5]/60">
-                  Compilers, Open Source, React &amp; AI
+                  OpenLearn Hub, Structo, RayOfRoads, Concept Mirror, Flashcards
                 </span>
               </div>
             </div>
@@ -74,167 +64,88 @@ export const ProjectsIndexPage: React.FC = () => {
             to="/projects/design"
             onMouseEnter={() => setCursorType('hover')}
             onMouseLeave={resetCursor}
-            className="p-5 bg-[#14213d]/60 border border-[#ffffff]/15 rounded-xl hover:border-[#fca311] transition-all flex items-center justify-between group shadow-lg"
+            className="p-6 bg-[#14213d]/50 border border-[#ffffff]/15 rounded-xl hover:border-[#fca311] transition-all flex items-center justify-between group shadow-lg"
           >
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-full bg-[#ffffff]/10 text-[#ffffff] flex items-center justify-center border border-[#ffffff]/20">
+            <div className="flex items-center gap-4">
+              <div className="w-11 h-11 rounded-full bg-[#ffffff]/10 text-[#ffffff] flex items-center justify-center border border-[#ffffff]/20">
                 <Palette className="w-5 h-5 text-[#fca311]" />
               </div>
               <div>
-                <span className="font-display font-bold text-lg text-[#ffffff] group-hover:text-[#fca311] transition-colors block">
-                  Design Dossier [06]
+                <span className="font-display font-bold text-lg sm:text-xl text-[#ffffff] group-hover:text-[#fca311] transition-colors block">
+                  Design Dossier [10]
                 </span>
                 <span className="font-mono text-xs text-[#e5e5e5]/60">
-                  Swiss Posters, Brand Systems &amp; Type
+                  Liquid Glass WebGL Carousel, Swiss Posters, Brand Identity
                 </span>
               </div>
             </div>
             <ArrowUpRight className="w-5 h-5 text-[#ffffff] group-hover:text-[#fca311] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
           </Link>
         </div>
+      </motion.div>
+
+      {/* Technology Projects Section Header */}
+      <div className="mb-8">
+        <h2 className="font-display text-2xl sm:text-3xl font-black text-[#ffffff] tracking-tight">
+          ENGINEERING INDEX<span className="text-[#fca311]">.</span>
+        </h2>
+        <span className="font-mono text-xs text-[#e5e5e5]/60">
+          5 Verified Production Repositories &amp; Developer Tools
+        </span>
       </div>
 
-      {/* Filter, Search & View Controls */}
-      <div className="flex flex-col md:flex-row items-stretch md:items-center justify-between gap-4 mb-8 pb-6 border-b border-[#ffffff]/15">
-        {/* Discipline Tabs */}
-        <div className="flex items-center gap-2 bg-[#14213d]/80 p-1.5 rounded-full border border-[#ffffff]/15 self-start shadow-md">
-          <button
-            onClick={() => setActiveTab('all')}
-            className={`px-4 py-1.5 rounded-full font-mono text-xs uppercase tracking-wider transition-colors cursor-pointer ${
-              activeTab === 'all'
-                ? 'bg-[#fca311] text-[#000000] font-bold'
-                : 'text-[#e5e5e5]/70 hover:text-[#ffffff]'
-            }`}
-          >
-            All Works ({allProjects.length})
-          </button>
-          <button
-            onClick={() => setActiveTab('technology')}
-            className={`px-4 py-1.5 rounded-full font-mono text-xs uppercase tracking-wider transition-colors cursor-pointer ${
-              activeTab === 'technology'
-                ? 'bg-[#fca311] text-[#000000] font-bold'
-                : 'text-[#e5e5e5]/70 hover:text-[#ffffff]'
-            }`}
-          >
-            Tech ({techProjects.length})
-          </button>
-          <button
-            onClick={() => setActiveTab('design')}
-            className={`px-4 py-1.5 rounded-full font-mono text-xs uppercase tracking-wider transition-colors cursor-pointer ${
-              activeTab === 'design'
-                ? 'bg-[#fca311] text-[#000000] font-bold'
-                : 'text-[#e5e5e5]/70 hover:text-[#ffffff]'
-            }`}
-          >
-            Design ({designProjects.length})
-          </button>
-        </div>
-
-        {/* Search Bar + View Toggle */}
-        <div className="flex items-center gap-3">
-          <div className="relative w-full md:w-64">
-            <Search className="w-4 h-4 absolute left-3.5 top-1/2 -translate-y-1/2 text-[#e5e5e5]/50" />
-            <input
-              type="text"
-              placeholder="Search projects or stacks..."
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full pl-9 pr-4 py-2 bg-[#14213d]/60 border border-[#ffffff]/20 rounded-full font-mono text-xs text-[#ffffff] placeholder:text-[#e5e5e5]/40 focus:outline-none focus:border-[#fca311]"
-            />
+      {/* Main Content: Pure Swiss Hover-Reveal Ledger (Zero Cards) */}
+      <div>
+        <SwissProjectIndex
+          projects={techProjects}
+          variant="midnight"
+          showCategoryTag={true}
+        />
+        <div className="flex items-center justify-between pt-4 font-mono text-xs text-[#e5e5e5]/50">
+          <div className="flex items-center gap-2">
+            <Sparkles className="w-3.5 h-3.5 text-[#fca311]" />
+            <span>HOVER OVER ANY ROW TO SUMMON THE CURSOR MEDIA PREVIEW</span>
           </div>
-
-          {/* View Mode Toggle */}
-          <div className="hidden sm:flex items-center p-1 rounded-full bg-[#14213d]/80 border border-[#ffffff]/15">
-            <button
-              onClick={() => setViewMode('ledger')}
-              aria-label="Ledger Index View"
-              className={`p-2 rounded-full transition-colors cursor-pointer ${
-                viewMode === 'ledger'
-                  ? 'bg-[#fca311] text-[#000000]'
-                  : 'text-[#e5e5e5]/60 hover:text-[#ffffff]'
-              }`}
-            >
-              <TableProperties className="w-4 h-4" />
-            </button>
-            <button
-              onClick={() => setViewMode('grid')}
-              aria-label="Grid View"
-              className={`p-2 rounded-full transition-colors cursor-pointer ${
-                viewMode === 'grid'
-                  ? 'bg-[#fca311] text-[#000000]'
-                  : 'text-[#e5e5e5]/60 hover:text-[#ffffff]'
-              }`}
-            >
-              <LayoutGrid className="w-4 h-4" />
-            </button>
-          </div>
+          <span>TOTAL 5 RECORDS INDEXED</span>
         </div>
       </div>
 
-      {/* Main Content: Swiss Index Ledger OR Visual Grid */}
-      {viewMode === 'ledger' ? (
-        <div className="space-y-4">
-          <SwissProjectIndex
-            projects={filteredProjects}
-            variant="lapis"
-            showCategoryTag={true}
-          />
-          <div className="flex items-center justify-between pt-4 font-mono text-xs text-[#e5e5e5]/50">
-            <div className="flex items-center gap-2">
-              <Sparkles className="w-3.5 h-3.5 text-[#fca311]" />
-              <span>HOVER OVER ANY ROW TO SUMMON THE CURSOR MEDIA PREVIEW</span>
-            </div>
-            <span>TOTAL {filteredProjects.length} RECORDS INDEXED</span>
-          </div>
+      {/* Alternative Live Channels Action Bar */}
+      <div className="border-t border-[#ffffff]/15 pt-8 mt-12 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+        <div>
+          <h4 className="font-display font-bold text-xl text-[#ffffff]">
+            Follow live code on GitHub
+          </h4>
+          <p className="font-body text-xs sm:text-sm text-[#e5e5e5]/70 mt-1">
+            All active commits, PRs, and repositories remain open and inspectable.
+          </p>
         </div>
-      ) : (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filteredProjects.map((project) => {
-            const projectUrl =
-              project.category === 'design'
-                ? `/projects/design/${project.slug}`
-                : `/projects/technology/${project.slug}`;
 
-            return (
-              <Link
-                key={project.id}
-                to={projectUrl}
-                onMouseEnter={() => setCursorType('project', 'VIEW PROJECT')}
-                onMouseLeave={resetCursor}
-                className="group bg-[#14213d]/70 border border-[#ffffff]/20 rounded-xl overflow-hidden flex flex-col justify-between hover:border-[#fca311] hover:shadow-2xl transition-all"
-              >
-                <div className="h-56 w-full border-b border-[#ffffff]/10 overflow-hidden bg-[#000000]">
-                  <ProjectVisualPreview slug={project.slug} />
-                </div>
-                <div className="p-5 flex flex-col justify-between flex-1">
-                  <div>
-                    <div className="flex justify-between items-center font-mono text-[10px] text-[#e5e5e5]/60 mb-1">
-                      <span className="text-[#fca311] font-bold">№ {project.number}</span>
-                      <span>{(project as any).subcategory}</span>
-                      <span>{project.year}</span>
-                    </div>
-                    <h3 className="font-display font-bold text-xl text-[#ffffff] group-hover:text-[#fca311] transition-colors truncate">
-                      {project.title}
-                    </h3>
-                    <p className="font-body text-xs text-[#e5e5e5]/75 mt-1.5 line-clamp-2">
-                      {project.description}
-                    </p>
-                  </div>
+        <div className="flex flex-wrap items-center gap-3">
+          <a
+            href="https://github.com/tech-akash010"
+            target="_blank"
+            rel="noopener noreferrer"
+            onMouseEnter={() => setCursorType('external')}
+            onMouseLeave={resetCursor}
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#fca311] text-[#000000] font-mono text-xs uppercase tracking-wider font-bold hover:bg-[#ffffff] transition-colors"
+          >
+            <GithubIcon className="w-4 h-4" />
+            <span>Open GitHub Profile</span>
+            <ArrowUpRight className="w-4 h-4" />
+          </a>
 
-                  <div className="mt-4 pt-3 border-t border-[#ffffff]/10 flex items-center justify-between">
-                    <span className="font-mono text-[10px] uppercase text-[#fca311] font-semibold">
-                      {project.category}
-                    </span>
-                    <span className="font-mono text-xs flex items-center gap-1 text-[#ffffff] group-hover:text-[#fca311]">
-                      Details <ArrowUpRight className="w-3.5 h-3.5" />
-                    </span>
-                  </div>
-                </div>
-              </Link>
-            );
-          })}
+          <Link
+            to="/projects/design"
+            onMouseEnter={() => setCursorType('hover')}
+            onMouseLeave={resetCursor}
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-[#ffffff]/25 text-[#ffffff] font-mono text-xs uppercase tracking-wider hover:border-[#fca311] hover:text-[#fca311] transition-colors"
+          >
+            <Palette className="w-4 h-4 text-[#fca311]" />
+            <span>Explore Design Dossier</span>
+          </Link>
         </div>
-      )}
+      </div>
     </div>
   );
 };

@@ -26,21 +26,21 @@ export const DynamicBackground: React.FC<DynamicBackgroundProps> = ({
     midnight: 'bg-[#000000] text-[#ffffff]',
     lapis: 'bg-[#14213d] text-[#ffffff]',
     ocean: 'bg-[#000000] text-[#ffffff]',
-    editorial: 'bg-[#ffffff] text-[#000000]',
+    editorial: 'bg-[#000000] text-[#ffffff]',
   };
 
   const gridLineColor: Record<BackgroundTheme, string> = {
     midnight: 'rgba(255, 255, 255, 0.05)',
     lapis: 'rgba(255, 255, 255, 0.05)',
     ocean: 'rgba(255, 255, 255, 0.05)',
-    editorial: 'rgba(0, 0, 0, 0.06)',
+    editorial: 'rgba(255, 255, 255, 0.05)',
   };
 
   const markColor: Record<BackgroundTheme, string> = {
     midnight: '#fca311',
     lapis: '#fca311',
     ocean: '#fca311',
-    editorial: '#14213d',
+    editorial: '#fca311',
   };
 
   return (

@@ -34,7 +34,8 @@ export const ProjectDetailPage: React.FC = () => {
   }, [slug]);
 
   const isDesign = category === 'design';
-  const projectsList = isDesign ? designProjects : techProjects;
+
+  const projectsList: (DesignProject | TechProject)[] = isDesign ? designProjects : techProjects;
 
   const currentIndex = projectsList.findIndex((p) => p.slug === slug);
   const project = projectsList[currentIndex];
@@ -137,10 +138,12 @@ export const ProjectDetailPage: React.FC = () => {
         )}
       </header>
 
-      {/* Main Visual Display Stage */}
-      <div className="relative w-full h-80 sm:h-[420px] rounded-lg border border-[#ffffff]/15 overflow-hidden shadow-xl mb-16">
-        <ProjectVisualPreview slug={project.slug} />
-      </div>
+      {/* Main Visual Display Stage (Real Artwork for Design Projects Only) */}
+      {isDesign && (
+        <div className="relative w-full h-80 sm:h-[480px] md:h-[560px] overflow-hidden mb-16 flex items-center justify-center">
+          <ProjectVisualPreview slug={project.slug} />
+        </div>
+      )}
 
       {/* ========================================================== */}
       {/* CASE STUDY SECTION: DESIGN PROJECT TEMPLATE                */}
@@ -287,54 +290,44 @@ export const ProjectDetailPage: React.FC = () => {
       )}
 
       {/* ========================================================== */}
-      {/* CASE STUDY SECTION: TECHNOLOGY PROJECT TEMPLATE           */}
+      {/* CASE STUDY SECTION: TECHNOLOGY PROJECT TEMPLATE (UNBOXED)  */}
       {/* ========================================================== */}
       {!isDesign && (
         <div className="space-y-16">
-          {/* Key Metrics Strip if available */}
-          {(project as TechProject).stats && (
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 p-5 bg-[#ffffff]/[0.03] border border-[#ffffff]/15 rounded-lg">
-              {(project as TechProject).stats!.map((st) => (
-                <div key={st.label} className="font-mono">
-                  <span className="block text-[10px] text-[#e5e5e5]/60 uppercase">{st.label}</span>
-                  <span className="font-display text-2xl font-bold text-[#fca311]">{st.value}</span>
-                </div>
-              ))}
-            </div>
-          )}
-
           {/* 1. Problem Statement */}
           <section className="border-t border-[#ffffff]/15 pt-8">
             <h2 className="font-display text-2xl sm:text-3xl font-bold text-[#ffffff] mb-4">
-              Why This Needed To Be Built
+              Why This Needed To Be Built<span className="text-[#fca311]">.</span>
             </h2>
-            <div className="p-5 bg-[#ffffff]/[0.03] border-l-4 border-[#fca311] border-y border-r border-[#ffffff]/15 rounded-r-lg font-body text-base text-[#e5e5e5]/85 leading-relaxed">
+            <p className="font-body text-base sm:text-lg text-[#e5e5e5]/85 leading-relaxed max-w-3xl font-normal">
               {(project as TechProject).problemStatement}
-            </div>
+            </p>
           </section>
 
-          {/* 2. Solution */}
+          {/* 2. Solution & Architecture */}
           <section className="border-t border-[#ffffff]/15 pt-8">
             <h2 className="font-display text-2xl sm:text-3xl font-bold text-[#ffffff] mb-4">
-              Engineered Solution
+              Engineered Solution<span className="text-[#fca311]">.</span>
             </h2>
-            <p className="font-body text-base text-[#e5e5e5]/85 leading-relaxed mb-6">
+            <p className="font-body text-base sm:text-lg text-[#e5e5e5]/85 leading-relaxed max-w-3xl mb-8 font-normal">
               {(project as TechProject).solution}
             </p>
 
-            {/* Architecture Layers */}
-            <div className="space-y-3">
+            <h3 className="font-mono text-xs font-bold uppercase tracking-wider text-[#fca311] mb-4">
+              System Architecture:
+            </h3>
+            <div className="divide-y divide-[#ffffff]/10 border-t border-b border-[#ffffff]/10">
               {(project as TechProject).architecture.layers.map((layer, idx) => (
-                <div key={idx} className="p-5 bg-[#ffffff]/[0.03] border border-[#ffffff]/15 rounded-lg">
-                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 mb-2 font-mono">
-                    <span className="text-xs font-bold text-[#fca311]">
-                      {layer.title.toUpperCase()}
+                <div key={idx} className="py-5 flex flex-col sm:flex-row sm:items-baseline justify-between gap-3">
+                  <div className="sm:w-1/3">
+                    <span className="font-mono text-xs font-bold text-[#ffffff] block">
+                      {layer.title}
                     </span>
-                    <span className="text-[10px] px-2 py-0.5 rounded bg-[#ffffff]/10 text-[#e5e5e5]/70">
+                    <span className="font-mono text-[11px] text-[#fca311] mt-0.5 block">
                       {layer.tech}
                     </span>
                   </div>
-                  <p className="font-body text-xs sm:text-sm text-[#e5e5e5]/80 leading-relaxed">
+                  <p className="sm:w-2/3 font-body text-sm text-[#e5e5e5]/80 leading-relaxed font-normal">
                     {layer.description}
                   </p>
                 </div>
@@ -345,16 +338,16 @@ export const ProjectDetailPage: React.FC = () => {
           {/* 3. Tech Stack Breakdown */}
           <section className="border-t border-[#ffffff]/15 pt-8">
             <h2 className="font-display text-2xl sm:text-3xl font-bold text-[#ffffff] mb-4">
-              Libraries &amp; Runtime Environment
+              Libraries &amp; Runtime Environment<span className="text-[#fca311]">.</span>
             </h2>
-            <div className="flex flex-wrap gap-2">
-              {(project as TechProject).techStack.map((tech) => (
-                <span
-                  key={tech}
-                  className="px-3.5 py-1.5 rounded-full bg-[#ffffff]/10 border border-[#ffffff]/20 text-[#ffffff] font-mono text-xs font-bold"
-                >
-                  {tech}
-                </span>
+            <div className="flex flex-wrap items-center gap-x-3 gap-y-1.5 font-mono text-xs text-[#e5e5e5]/80">
+              {(project as TechProject).techStack.map((tech, i) => (
+                <React.Fragment key={tech}>
+                  <span className="hover:text-[#fca311] transition-colors">{tech}</span>
+                  {i < (project as TechProject).techStack.length - 1 && (
+                    <span className="text-[#fca311]/40">•</span>
+                  )}
+                </React.Fragment>
               ))}
             </div>
           </section>
@@ -363,13 +356,13 @@ export const ProjectDetailPage: React.FC = () => {
           {(project as TechProject).codeSnippet && (
             <section className="border-t border-[#ffffff]/15 pt-8">
               <div className="flex items-center justify-between mb-3 font-mono text-xs text-[#e5e5e5]/70">
-                <span className="flex items-center gap-1.5">
-                  <FileCode2 className="w-4 h-4 text-[#fca311]" />
+                <span className="flex items-center gap-1.5 text-[#fca311]">
+                  <FileCode2 className="w-4 h-4" />
                   {(project as TechProject).codeSnippet!.filename}
                 </span>
                 <span className="uppercase text-[10px]">TypeScript</span>
               </div>
-              <pre className="p-5 bg-black/50 text-[#ffffff] rounded-lg overflow-x-auto font-mono text-xs leading-relaxed border border-[#ffffff]/15">
+              <pre className="p-6 bg-[#000000]/60 text-[#ffffff] font-mono text-xs leading-relaxed border border-[#ffffff]/15 overflow-x-auto">
                 <code>{(project as TechProject).codeSnippet!.code}</code>
               </pre>
             </section>
@@ -378,13 +371,17 @@ export const ProjectDetailPage: React.FC = () => {
           {/* 5. Key Implementation Details List */}
           <section className="border-t border-[#ffffff]/15 pt-8">
             <h2 className="font-display text-2xl sm:text-3xl font-bold text-[#ffffff] mb-4">
-              Engineering Feats
+              Engineering Feats<span className="text-[#fca311]">.</span>
             </h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <div className="divide-y divide-[#ffffff]/10 border-t border-b border-[#ffffff]/10">
               {(project as TechProject).keyImplementationDetails.map((detail, idx) => (
-                <div key={idx} className="flex items-start gap-2.5 p-3.5 bg-[#ffffff]/[0.03] border border-[#ffffff]/15 rounded">
-                  <CheckCircle2 className="w-4 h-4 text-[#fca311] shrink-0 mt-0.5" />
-                  <span className="font-body text-xs sm:text-sm text-[#e5e5e5]/80">{detail}</span>
+                <div key={idx} className="py-4 flex items-start gap-3">
+                  <span className="font-mono text-xs text-[#fca311] font-bold mt-0.5">
+                    {String(idx + 1).padStart(2, '0')}.
+                  </span>
+                  <span className="font-body text-sm sm:text-base text-[#e5e5e5]/85 leading-relaxed font-normal">
+                    {detail}
+                  </span>
                 </div>
               ))}
             </div>
@@ -393,19 +390,18 @@ export const ProjectDetailPage: React.FC = () => {
           {/* 6. Challenges & Learnings */}
           <section className="border-t border-[#ffffff]/15 pt-8">
             <h2 className="font-display text-2xl sm:text-3xl font-bold text-[#ffffff] mb-4">
-              Overcoming Engineering Roadblocks
+              Overcoming Engineering Roadblocks<span className="text-[#fca311]">.</span>
             </h2>
-            <div className="space-y-4">
+            <div className="space-y-6">
               {(project as TechProject).challengesAndLearnings.map((item, idx) => (
-                <div key={idx} className="p-5 bg-[#ffffff]/[0.03] border border-[#ffffff]/15 rounded-lg space-y-2">
-                  <div className="font-mono text-xs font-bold text-[#ffffff] flex items-center gap-2">
-                    <span className="text-[#fca311]">CHALLENGE:</span>
-                    <span>{item.challenge}</span>
+                <div key={idx} className="space-y-2 border-b border-[#ffffff]/10 pb-6">
+                  <div className="font-mono text-xs uppercase tracking-wider text-[#fca311] font-semibold">
+                    CHALLENGE // {item.challenge}
                   </div>
-                  <div className="font-body text-xs sm:text-sm text-[#e5e5e5]/80 pl-4 border-l-2 border-[#fca311]">
-                    <strong className="text-[#ffffff]">Learning &amp; Solution: </strong>
+                  <p className="font-body text-sm sm:text-base text-[#e5e5e5]/80 pl-4 border-l-2 border-[#ffffff]/30 leading-relaxed font-normal">
+                    <strong className="text-[#ffffff]">Solution: </strong>
                     {item.learning}
-                  </div>
+                  </p>
                 </div>
               ))}
             </div>
@@ -420,12 +416,12 @@ export const ProjectDetailPage: React.FC = () => {
             to={`/projects/${category}/${prevProject.slug}`}
             onMouseEnter={() => setCursorType('hover')}
             onMouseLeave={resetCursor}
-            className="flex items-center gap-2 text-[#ffffff] hover:text-[#fca311] transition-colors p-3 rounded border border-[#ffffff]/15 hover:border-[#fca311]"
+            className="flex items-center gap-2 text-[#ffffff] hover:text-[#fca311] transition-colors py-2"
           >
             <ArrowLeft className="w-4 h-4" />
             <div>
               <span className="text-[10px] text-[#e5e5e5]/60 block uppercase">PREVIOUS PROJECT</span>
-              <span className="font-bold">{prevProject.title}</span>
+              <span className="font-bold text-sm">{prevProject.title}</span>
             </div>
           </Link>
         ) : (
@@ -437,11 +433,11 @@ export const ProjectDetailPage: React.FC = () => {
             to={`/projects/${category}/${nextProject.slug}`}
             onMouseEnter={() => setCursorType('hover')}
             onMouseLeave={resetCursor}
-            className="flex items-center gap-2 text-[#ffffff] hover:text-[#fca311] transition-colors p-3 rounded border border-[#ffffff]/15 hover:border-[#fca311] text-right"
+            className="flex items-center gap-2 text-[#ffffff] hover:text-[#fca311] transition-colors py-2 text-right"
           >
             <div>
               <span className="text-[10px] text-[#e5e5e5]/60 block uppercase">NEXT PROJECT</span>
-              <span className="font-bold">{nextProject.title}</span>
+              <span className="font-bold text-sm">{nextProject.title}</span>
             </div>
             <ArrowRight className="w-4 h-4" />
           </Link>

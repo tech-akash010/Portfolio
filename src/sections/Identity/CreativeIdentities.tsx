@@ -1,135 +1,181 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { motion } from 'motion/react';
 import { useCursor } from '../../components/CustomCursor/CursorContext';
 import { ArrowUpRight, Palette, Code2 } from 'lucide-react';
 
 export const CreativeIdentities: React.FC = () => {
   const { setCursorType, resetCursor } = useCursor();
+  const [hoveredDiscipline, setHoveredDiscipline] = useState<'design' | 'technology' | null>(null);
 
   return (
-    <section id="studio-disciplines" className="py-24 px-6 sm:px-8 md:px-12 max-w-7xl mx-auto border-t border-[#ffffff]/15">
-      {/* Studio Header */}
-      <div className="border-b border-[#ffffff]/15 pb-6 mb-12">
-        <h2 className="font-display text-4xl sm:text-5xl font-black tracking-tight text-[#ffffff]">
+    <section id="studio-disciplines" className="scroll-mt-28 py-20 sm:py-28 px-6 sm:px-8 md:px-12 max-w-7xl mx-auto">
+      {/* Studio Headline */}
+      <motion.div
+        initial={{ opacity: 0, y: 24 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: '-60px' }}
+        transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+        className="border-b border-[#ffffff]/15 pb-8 mb-0"
+      >
+        <h2 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black tracking-tight text-[#ffffff] leading-[1.05]">
           TWO DISCIPLINES<span className="text-[#fca311]">.</span> ONE VISION<span className="text-[#fca311]">.</span>
         </h2>
-      </div>
+        <p className="font-editorial italic text-lg sm:text-xl md:text-2xl text-[#e5e5e5]/80 mt-3 max-w-2xl leading-relaxed">
+          Where aesthetic Swiss precision informs computational logic, and systems architecture empowers visual craft.
+        </p>
+      </motion.div>
 
-      {/* Split-Screen Architectural Studio Panels */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-        {/* LEFT PANEL: DESIGN */}
-        <Link
-          to="/projects/design"
-          onMouseEnter={() => setCursorType('hover')}
-          onMouseLeave={resetCursor}
-          className="group relative bg-[#14213d]/30 text-[#ffffff] p-8 sm:p-12 rounded-lg overflow-hidden border border-[#ffffff]/15 transition-all duration-500 hover:border-[#fca311]/60 hover:shadow-2xl hover:shadow-black/40 flex flex-col justify-between min-h-[480px]"
-        >
-          {/* Subtle background Swiss grid */}
+      {/* 2-Column Split Stage (Symmetric, Bordered, No Overlapping Axis Badge) */}
+      <div className="relative border-b border-[#ffffff]/15">
+        <div className="grid grid-cols-1 lg:grid-cols-2 divide-y lg:divide-y-0 lg:divide-x divide-[#ffffff]/15">
+          {/* ======================================================== */}
+          {/* LEFT COLUMN: DESIGN */}
+          {/* ======================================================== */}
           <div
-            className="absolute inset-0 opacity-10 pointer-events-none group-hover:opacity-20 transition-opacity"
-            style={{
-              backgroundImage:
-                'linear-gradient(to right, rgba(255, 255, 255, 0.15) 1px, transparent 1px), linear-gradient(to bottom, rgba(255, 255, 255, 0.15) 1px, transparent 1px)',
-              backgroundSize: '36px 36px',
+            onMouseEnter={() => {
+              setHoveredDiscipline('design');
+              setCursorType('hover');
             }}
-          />
+            onMouseLeave={() => {
+              setHoveredDiscipline(null);
+              resetCursor();
+            }}
+            className="group relative flex flex-col justify-between py-12 lg:py-16 lg:pr-12 transition-colors duration-300 overflow-hidden"
+          >
+            {/* Subtle Golden Sheen on Hover */}
+            <div
+              className={`absolute inset-0 bg-gradient-to-br from-[#fca311]/10 via-transparent to-transparent pointer-events-none transition-opacity duration-500 ${
+                hoveredDiscipline === 'design' ? 'opacity-100' : 'opacity-0'
+              }`}
+            />
 
-          {/* Top Panel Icon */}
-          <div className="relative z-10 flex items-center justify-between">
-            <div className="w-10 h-10 rounded-full bg-[#fca311] text-[#000000] flex items-center justify-center shadow-xs">
-              <Palette className="w-5 h-5" />
-            </div>
-          </div>
-
-          {/* Center Graphic & Huge Typography */}
-          <div className="relative z-10 my-8">
-            <h3 className="font-display text-5xl sm:text-6xl md:text-7xl font-black tracking-tighter text-[#ffffff] group-hover:text-[#fca311] transition-colors duration-300">
-              DESIGN<span className="text-[#fca311]">.</span>
-            </h3>
-            <p className="font-editorial italic text-xl sm:text-2xl text-[#e5e5e5]/75 mt-3 max-w-md font-normal leading-relaxed">
-              Visual communication, editorial branding, Swiss typography, UI/UX systems &amp; art direction.
-            </p>
-
-            {/* Micro Tags Preview */}
-            <div className="flex flex-wrap gap-2 mt-6">
-              {['Branding', 'Poster Lab', 'Illustrations', 'Design Systems', 'UI/UX'].map((tag) => (
-                <span
-                  key={tag}
-                  className="px-2.5 py-1 rounded bg-[#ffffff]/10 text-[#ffffff]/80 font-mono text-[10px] tracking-wide border border-[#ffffff]/15"
-                >
-                  {tag}
+            {/* Top Telemetry Strip */}
+            <div className="relative z-10 flex items-center justify-between pb-6">
+              <div className="flex items-center gap-3">
+                <div className="w-8 h-8 rounded-full bg-[#fca311] text-[#000000] flex items-center justify-center font-bold">
+                  <Palette className="w-4 h-4" />
+                </div>
+                <span className="font-mono text-xs uppercase tracking-widest text-[#fca311] font-semibold">
+                  DISCIPLINE // 01
                 </span>
-              ))}
+              </div>
+              <span className="font-mono text-[10px] text-[#e5e5e5]/40 tracking-wider uppercase">
+                SWISS VISUAL SYSTEMS
+              </span>
+            </div>
+
+            {/* Core Typographic Stage */}
+            <div className="relative z-10 py-6 space-y-4">
+              <Link to="/projects/design" className="block group/title">
+                <h3 className="font-display text-5xl sm:text-6xl md:text-7xl font-black tracking-tight text-[#ffffff] group-hover/title:text-[#fca311] transition-colors duration-300">
+                  DESIGN<span className="text-[#fca311]">.</span>
+                </h3>
+              </Link>
+
+              <p className="font-editorial italic text-xl sm:text-2xl text-[#e5e5e5]/80 max-w-lg leading-relaxed">
+                Visual communication, editorial posters, Swiss typography, brand identities &amp; art direction.
+              </p>
+
+              {/* Focus List */}
+              <div className="pt-2 font-mono text-xs text-[#e5e5e5]/60 flex flex-wrap gap-x-4 gap-y-1.5">
+                <span>• Poster Lab</span>
+                <span>• Swiss Grid Typography</span>
+                <span>• Brand Dossier</span>
+                <span>• Art Direction</span>
+              </div>
+            </div>
+
+            {/* Bottom Runway Action Link */}
+            <div className="relative z-10 pt-8 border-t border-[#ffffff]/10 flex items-center justify-between">
+              <Link
+                to="/projects/design"
+                onMouseEnter={() => setCursorType('hover')}
+                onMouseLeave={resetCursor}
+                className="inline-flex items-center gap-3 font-mono text-xs uppercase tracking-wider text-[#ffffff] group-hover:text-[#fca311] transition-colors font-semibold"
+              >
+                <span>Explore Design Dossier</span>
+                <div className="w-8 h-8 rounded-full border border-[#ffffff]/25 flex items-center justify-center group-hover:border-[#fca311] group-hover:bg-[#fca311] group-hover:text-[#000000] transition-all duration-300">
+                  <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                </div>
+              </Link>
             </div>
           </div>
 
-          {/* Bottom Action Strip */}
-          <div className="relative z-10 flex items-center justify-between border-t border-[#ffffff]/15 pt-6">
-            <span className="font-mono text-xs uppercase tracking-wider text-[#ffffff] group-hover:text-[#fca311] transition-colors">
-              Explore Design Portfolio Archive
-            </span>
-            <div className="w-10 h-10 rounded-full border border-[#ffffff]/30 flex items-center justify-center group-hover:border-[#fca311] group-hover:bg-[#fca311] group-hover:text-[#000000] transition-all duration-300">
-              <ArrowUpRight className="w-5 h-5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-            </div>
-          </div>
-        </Link>
-
-        {/* RIGHT PANEL: TECHNOLOGY */}
-        <Link
-          to="/projects/technology"
-          onMouseEnter={() => setCursorType('hover')}
-          onMouseLeave={resetCursor}
-          className="group relative bg-[#14213d]/30 text-[#ffffff] p-8 sm:p-12 rounded-lg overflow-hidden border border-[#ffffff]/15 transition-all duration-500 hover:border-[#fca311]/60 hover:shadow-2xl hover:shadow-black/40 flex flex-col justify-between min-h-[480px]"
-        >
-          {/* Subtle background technical grid */}
+          {/* ======================================================== */}
+          {/* RIGHT COLUMN: TECHNOLOGY */}
+          {/* ======================================================== */}
           <div
-            className="absolute inset-0 opacity-10 pointer-events-none group-hover:opacity-20 transition-opacity"
-            style={{
-              backgroundImage:
-                'linear-gradient(to right, rgba(255, 255, 255, 0.15) 1px, transparent 1px), linear-gradient(to bottom, rgba(255, 255, 255, 0.15) 1px, transparent 1px)',
-              backgroundSize: '36px 36px',
+            onMouseEnter={() => {
+              setHoveredDiscipline('technology');
+              setCursorType('hover');
             }}
-          />
+            onMouseLeave={() => {
+              setHoveredDiscipline(null);
+              resetCursor();
+            }}
+            className="group relative flex flex-col justify-between py-12 lg:py-16 lg:pl-12 transition-colors duration-300 overflow-hidden"
+          >
+            {/* Subtle Blue/Slate Sheen on Hover */}
+            <div
+              className={`absolute inset-0 bg-gradient-to-bl from-[#14213d]/40 via-transparent to-transparent pointer-events-none transition-opacity duration-500 ${
+                hoveredDiscipline === 'technology' ? 'opacity-100' : 'opacity-0'
+              }`}
+            />
 
-          {/* Top Panel Icon */}
-          <div className="relative z-10 flex items-center justify-between">
-            <div className="w-10 h-10 rounded-full bg-[#ffffff]/10 text-[#ffffff] flex items-center justify-center border border-[#ffffff]/20">
-              <Code2 className="w-5 h-5 text-[#fca311]" />
-            </div>
-          </div>
-
-          {/* Center Graphic & Huge Typography */}
-          <div className="relative z-10 my-8">
-            <h3 className="font-display text-5xl sm:text-6xl md:text-7xl font-black tracking-tighter text-[#ffffff] group-hover:text-[#fca311] transition-colors duration-300">
-              TECHNOLOGY<span className="text-[#fca311]">.</span>
-            </h3>
-            <p className="font-editorial italic text-xl sm:text-2xl text-[#e5e5e5]/75 mt-3 max-w-md font-normal leading-relaxed">
-              Full-stack software systems, developer tools, algorithms, graph analyzers &amp; experiments.
-            </p>
-
-            {/* Micro Tags Preview */}
-            <div className="flex flex-wrap gap-2 mt-6">
-              {['React 19', 'TypeScript', 'Node.js', 'Developer Tools', 'Open Source'].map((tag) => (
-                <span
-                  key={tag}
-                  className="px-2.5 py-1 rounded bg-[#ffffff]/10 text-[#ffffff]/80 font-mono text-[10px] tracking-wide border border-[#ffffff]/15"
-                >
-                  {tag}
+            {/* Top Telemetry Strip */}
+            <div className="relative z-10 flex items-center justify-between pb-6">
+              <div className="flex items-center gap-3">
+                <div className="w-8 h-8 rounded-full bg-[#ffffff]/10 text-[#ffffff] flex items-center justify-center border border-[#ffffff]/20 font-bold">
+                  <Code2 className="w-4 h-4 text-[#fca311]" />
+                </div>
+                <span className="font-mono text-xs uppercase tracking-widest text-[#fca311] font-semibold">
+                  DISCIPLINE // 02
                 </span>
-              ))}
+              </div>
+              <span className="font-mono text-[10px] text-[#fca311] tracking-wider uppercase font-semibold">
+                SOFTWARE &amp; COMPUTATIONAL SYSTEMS
+              </span>
             </div>
-          </div>
 
-          {/* Bottom Action Strip */}
-          <div className="relative z-10 flex items-center justify-between border-t border-[#ffffff]/15 pt-6">
-            <span className="font-mono text-xs uppercase tracking-wider text-[#ffffff] group-hover:text-[#fca311] transition-colors">
-              Explore Tech Projects Archive
-            </span>
-            <div className="w-10 h-10 rounded-full border border-[#ffffff]/30 flex items-center justify-center group-hover:border-[#fca311] group-hover:bg-[#fca311] group-hover:text-[#000000] transition-all duration-300">
-              <ArrowUpRight className="w-5 h-5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+            {/* Core Typographic Stage */}
+            <div className="relative z-10 py-6 space-y-4">
+              <Link to="/projects/technology" className="block group/title">
+                <h3 className="font-display text-5xl sm:text-6xl md:text-7xl font-black tracking-tight text-[#ffffff] group-hover/title:text-[#fca311] transition-colors duration-300">
+                  TECHNOLOGY<span className="text-[#fca311]">.</span>
+                </h3>
+              </Link>
+
+              <p className="font-editorial italic text-xl sm:text-2xl text-[#e5e5e5]/80 max-w-lg leading-relaxed">
+                Full-stack software engineering, developer tools, algorithms, compilers &amp; computational systems.
+              </p>
+
+              {/* Focus List */}
+              <div className="pt-2 font-mono text-xs text-[#e5e5e5]/60 flex flex-wrap gap-x-4 gap-y-1.5">
+                <span>• OpenLearn Hub</span>
+                <span>• Structo</span>
+                <span>• RayOfRoads</span>
+                <span>• Concept Mirror</span>
+                <span>• Flashcards</span>
+              </div>
+            </div>
+
+            {/* Bottom Runway Action Link */}
+            <div className="relative z-10 pt-8 border-t border-[#ffffff]/10 flex items-center justify-between">
+              <Link
+                to="/projects/technology"
+                onMouseEnter={() => setCursorType('hover')}
+                onMouseLeave={resetCursor}
+                className="inline-flex items-center gap-3 font-mono text-xs uppercase tracking-wider text-[#ffffff] group-hover:text-[#fca311] transition-colors font-semibold"
+              >
+                <span>Explore Tech Systems</span>
+                <div className="w-8 h-8 rounded-full border border-[#ffffff]/25 flex items-center justify-center group-hover:border-[#fca311] group-hover:bg-[#fca311] group-hover:text-[#000000] transition-all duration-300">
+                  <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                </div>
+              </Link>
             </div>
           </div>
-        </Link>
+        </div>
       </div>
     </section>
   );

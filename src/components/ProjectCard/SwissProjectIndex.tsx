@@ -139,7 +139,14 @@ export const SwissProjectIndex: React.FC<SwissProjectIndexProps> = ({
           const isMobileExpanded = expandedMobileSlug === project.slug;
 
           return (
-            <div key={project.slug} className="group relative">
+            <motion.div
+              key={project.slug}
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-30px' }}
+              transition={{ duration: 0.5, delay: idx * 0.05, ease: [0.22, 1, 0.36, 1] }}
+              className="group relative"
+            >
               <Link
                 to={projectUrl}
                 onMouseEnter={() => {
@@ -233,7 +240,7 @@ export const SwissProjectIndex: React.FC<SwissProjectIndexProps> = ({
                   </div>
                 </div>
               )}
-            </div>
+            </motion.div>
           );
         })}
       </div>

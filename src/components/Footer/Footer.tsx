@@ -1,30 +1,26 @@
 import React, { useRef, useState, useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useCursor } from '../CustomCursor/CursorContext';
-import { ArrowUp, ArrowUpRight, MapPin } from 'lucide-react';
+import { ArrowUp, ArrowUpRight } from 'lucide-react';
 import { motion } from 'motion/react';
 
 export const Footer: React.FC = () => {
   const { setCursorType, resetCursor } = useCursor();
-  const { pathname } = useLocation();
   const footerRef = useRef<HTMLElement>(null);
   const [isWaving, setIsWaving] = useState(false);
   const hasTriggeredInitialWave = useRef(false);
 
-  // Footer is pure white background with black text across the site
+  // Pure white background with black Swiss typography
   const footerBg = 'bg-[#ffffff] text-[#000000] border-t border-[#000000]/15';
   const bottomBarBg = 'bg-[#ffffff] border-t border-[#000000]/10 text-[#000000]/60';
   const letterFill = '#000000';
   const dividerColor = 'border-[#000000]/15';
-  const textColor = 'text-[#000000]';
-  const textMutedColor = 'text-[#000000]/70';
-  const textSubtleColor = 'text-[#000000]/50';
 
   const triggerWave = () => {
     setIsWaving(true);
     setTimeout(() => {
       setIsWaving(false);
-    }, 1200);
+    }, 1500);
   };
 
   useEffect(() => {
@@ -60,18 +56,21 @@ export const Footer: React.FC = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
+  // Kinetic wave animation with motion blur on SVG letterforms
   const letterVariants = {
     idle: {
       y: 0,
+      filter: 'blur(0px)',
       opacity: 1,
     },
     wave: (i: number) => ({
-      y: [0, -26, 8, -3, 0],
-      opacity: 1,
+      y: [0, -32, 10, -4, 0],
+      filter: ['blur(0px)', 'blur(10px)', 'blur(2.5px)', 'blur(0.5px)', 'blur(0px)'],
+      opacity: [1, 0.78, 0.95, 1, 1],
       transition: {
-        duration: 0.95,
-        delay: i * 0.08,
-        times: [0, 0.38, 0.72, 0.88, 1],
+        duration: 1.05,
+        delay: i * 0.09,
+        times: [0, 0.36, 0.7, 0.86, 1],
         ease: [0.22, 1, 0.36, 1] as const,
       },
     }),
@@ -105,40 +104,14 @@ export const Footer: React.FC = () => {
     },
   ];
 
-  const socialLinks = [
-    {
-      name: 'GitHub',
-      url: 'https://github.com/tech-akash010',
-      handle: '@tech-akash010',
-      category: 'CODE ARCHIVE',
-    },
-    {
-      name: 'LinkedIn',
-      url: 'https://www.linkedin.com/in/akashkundu010/',
-      handle: 'in/akashkundu010',
-      category: 'PROFESSIONAL',
-    },
-    {
-      name: 'X (Twitter)',
-      url: 'https://x.com/officialak_X',
-      handle: '@officialak_X',
-      category: 'LOGS & THOUGHTS',
-    },
-    {
-      name: 'Instagram',
-      url: 'https://www.instagram.com/0x.akash/',
-      handle: '@0x.akash',
-      category: 'VISUAL LAB',
-    },
-    {
-      name: 'Email',
-      url: 'mailto:contact@akashkundu.dev',
-      handle: 'contact@akashkundu.dev',
-      category: 'DIRECT INQUIRY',
-    },
+  const navLinks = [
+    { name: 'HOME', path: '/' },
+    { name: 'WORKS', path: '/projects' },
+    { name: 'TECHNOLOGY', path: '/projects/tech' },
+    { name: 'DESIGN', path: '/projects/design' },
+    { name: 'ABOUT', path: '/about' },
+    { name: 'CONNECT', path: '/connect' },
   ];
-
-
 
   return (
     <footer ref={footerRef} className={`relative ${footerBg} overflow-hidden transition-colors duration-500`}>
@@ -152,86 +125,68 @@ export const Footer: React.FC = () => {
         }}
       />
 
-      <div className="relative max-w-7xl mx-auto px-6 sm:px-8 md:px-12 pt-16 pb-6">
+      <div className="relative max-w-7xl mx-auto px-6 sm:px-8 md:px-12 pt-16 pb-8">
         {/* Top Info Strip: Perspective + Back to Top */}
-        <div className={`flex flex-col md:flex-row md:items-start justify-between border-b ${dividerColor} pb-12 gap-8`}>
-          {/* Left Column: Author Mindset & Focus */}
-          <div className="max-w-xl space-y-3">
-            <h3 className={`font-display text-2xl sm:text-3xl font-bold tracking-tight ${textColor}`}>
-              A Mind in Motion<span className="text-[#fca311]">.</span> Think. Create. Build.
+        <div className={`flex flex-col md:flex-row md:items-end justify-between border-b ${dividerColor} pb-10 gap-6`}>
+          <div className="max-w-2xl space-y-2">
+            <h3 className="font-display text-4xl sm:text-5xl md:text-6xl font-black tracking-tight text-[#000000] uppercase leading-[0.92]">
+              THINK. CREATE. BUILD<span className="text-[#fca311]">.</span>
             </h3>
-            <p className={`font-body text-sm ${textMutedColor} leading-relaxed`}>
-              Engineering high-performance software systems and architecting art-directed visual identities at the intersection of aesthetic precision and computational logic.
+            <p className="font-body text-sm sm:text-base text-[#000000]/70 max-w-xl leading-relaxed pt-1 font-normal">
+              Akash Kundu — Engineering high-performance software systems and art-directed visual identities at the intersection of aesthetic precision and computational logic.
             </p>
-            <div className={`flex items-center gap-3 pt-2 font-mono text-xs ${textSubtleColor}`}>
-              <span className="flex items-center gap-1.5">
-                <MapPin className="w-3.5 h-3.5 text-[#fca311]" /> Kolkata, India
-              </span>
-              <span>•</span>
-              <span>IST (UTC+5:30)</span>
-              <span>•</span>
-              <span className="flex items-center gap-1 text-[#000000] font-medium">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#fca311] animate-pulse" />
-                Available for Select Projects
-              </span>
-            </div>
           </div>
 
-          {/* Right Column: Sleek Back to Top Action */}
           <button
             onClick={scrollToTop}
             onMouseEnter={() => setCursorType('hover')}
             onMouseLeave={resetCursor}
-            className="group self-start md:self-auto flex items-center gap-3 px-5 py-3 rounded-full border border-[#000000]/25 hover:border-[#fca311] hover:bg-[#fca311]/10 transition-all duration-300 cursor-pointer"
+            className="group self-start md:self-auto flex items-center gap-3 px-6 py-3.5 rounded-full border border-[#000000]/20 hover:border-[#fca311] hover:bg-[#fca311]/10 transition-all duration-300 cursor-pointer"
             aria-label="Back to top"
           >
-            <span className="font-mono text-xs tracking-wider uppercase text-[#000000] group-hover:text-[#fca311]">
+            <span className="font-mono text-xs tracking-wider uppercase text-[#000000] font-bold group-hover:text-[#fca311]">
               BACK TO TOP
             </span>
-            <div className="w-8 h-8 rounded-full flex items-center justify-center transition-transform group-hover:-translate-y-1 bg-[#000000] text-[#ffffff] group-hover:bg-[#fca311] group-hover:text-[#000000]">
-              <ArrowUp className="w-4 h-4" />
+            <div className="w-7 h-7 rounded-full flex items-center justify-center transition-transform group-hover:-translate-y-0.5 bg-[#000000] text-[#ffffff] group-hover:bg-[#fca311] group-hover:text-[#000000]">
+              <ArrowUp className="w-3.5 h-3.5" />
             </div>
           </button>
         </div>
 
-        {/* Middle Section: Clean Unboxed Social Links Directory */}
-        <div className={`py-12 border-b ${dividerColor}`}>
-          {/* 5-Column Open Typography Grid (No Boxes) */}
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-8 lg:gap-12">
-            {socialLinks.map((social, idx) => (
-              <a
-                key={social.name}
-                href={social.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                onMouseEnter={() => setCursorType('external')}
+        {/* Clean Minimalist Directory Strip: Navigation + Direct Contact */}
+        <div className={`py-8 border-b ${dividerColor} flex flex-col md:flex-row md:items-center justify-between gap-6`}>
+          {/* Navigation Links */}
+          <nav aria-label="Footer Navigation" className="flex flex-wrap items-center gap-x-6 sm:gap-x-8 gap-y-3 font-mono text-xs uppercase tracking-wider font-medium">
+            {navLinks.map((link) => (
+              <Link
+                key={link.path}
+                to={link.path}
+                onMouseEnter={() => setCursorType('hover')}
                 onMouseLeave={resetCursor}
-                className="group flex flex-col space-y-2 transition-all duration-200"
+                className="text-[#000000]/70 hover:text-[#000000] transition-colors flex items-center gap-1 group py-1"
               >
-                <div className="flex items-center justify-between">
-                  <span className="font-mono text-xs text-[#fca311] font-bold">0{idx + 1}</span>
-                  <ArrowUpRight className="w-4 h-4 transition-all group-hover:translate-x-0.5 group-hover:-translate-y-0.5 text-[#000000]/40 group-hover:text-[#fca311]" />
-                </div>
-
-                <div>
-                  <span className="font-mono text-[10px] uppercase tracking-wider block mb-1 text-[#000000]/50">
-                    {social.category}
-                  </span>
-                  <span className="font-display font-bold text-xl block transition-colors text-[#000000] group-hover:text-[#fca311]">
-                    {social.name}
-                  </span>
-                  <span className="font-mono text-xs mt-0.5 block truncate transition-colors text-[#000000]/60">
-                    {social.handle}
-                  </span>
-                </div>
-              </a>
+                <span className="text-[#fca311] font-bold group-hover:translate-x-0.5 transition-transform">/</span>
+                <span className="group-hover:font-bold">{link.name}</span>
+              </Link>
             ))}
+          </nav>
+
+          {/* Direct Email Action */}
+          <div className="flex items-center gap-4 font-mono text-xs">
+            <a
+              href="mailto:contact@akashkundu.dev"
+              onMouseEnter={() => setCursorType('hover')}
+              onMouseLeave={resetCursor}
+              className="font-display font-bold text-base sm:text-lg text-[#000000] hover:text-[#fca311] transition-colors flex items-center gap-1.5 group"
+            >
+              <span>contact@akashkundu.dev</span>
+              <ArrowUpRight className="w-3.5 h-3.5 opacity-50 group-hover:opacity-100 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
+            </a>
           </div>
         </div>
-
       </div>
 
-      {/* Full-Bleed Name Stage: AKASH in black on white with Wave Entrance & Interactive Wave Hover */}
+      {/* Full-Bleed Name Stage: AKASH with Motion Blur & Kinetic Wave */}
       <div className="relative w-full overflow-visible select-none leading-none pt-8 pb-4">
         <svg
           viewBox="0.6 41.4 1033.8 140.8"
@@ -249,9 +204,11 @@ export const Footer: React.FC = () => {
               animate={isWaving ? 'wave' : 'idle'}
               variants={letterVariants}
               whileHover={{
-                y: -16,
+                y: -18,
+                filter: 'blur(0px)',
                 transition: { type: 'spring', stiffness: 500, damping: 14 },
               }}
+              style={{ willChange: 'transform, filter' }}
               className="cursor-pointer"
             >
               <motion.path
@@ -275,8 +232,8 @@ export const Footer: React.FC = () => {
             © {new Date().getFullYear()} AKASH KUNDU. ALL RIGHTS RESERVED.
           </div>
           <div className="flex items-center gap-2">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#fca311]" />
-            <span>OPEN FOR COLLABORATION</span>
+            <span className="w-1.5 h-1.5 rounded-full bg-[#fca311] animate-pulse" />
+            <span>KOLKATA, INDIA • OPEN FOR SELECT COMMISSIONS</span>
           </div>
         </div>
       </div>

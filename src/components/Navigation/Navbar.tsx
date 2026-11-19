@@ -8,7 +8,6 @@ export const Navbar: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [copiedEmail, setCopiedEmail] = useState(false);
-  const [timeStr, setTimeStr] = useState('');
   const { setCursorType, resetCursor } = useCursor();
   const location = useLocation();
 
@@ -19,25 +18,6 @@ export const Navbar: React.FC = () => {
     };
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  // Live IST Clock (UTC+5:30)
-  useEffect(() => {
-    const updateTime = () => {
-      const now = new Date();
-      // Format to IST
-      const options: Intl.DateTimeFormatOptions = {
-        timeZone: 'Asia/Kolkata',
-        hour: '2-digit',
-        minute: '2-digit',
-        second: '2-digit',
-        hour12: false,
-      };
-      setTimeStr(new Intl.DateTimeFormat('en-GB', options).format(now));
-    };
-    updateTime();
-    const interval = setInterval(updateTime, 1000);
-    return () => clearInterval(interval);
   }, []);
 
   // Close menu on route change
@@ -76,7 +56,7 @@ export const Navbar: React.FC = () => {
 
   const navLinks = [
     { number: '01', name: 'HOME', path: '/', label: 'Overview & Selected Work' },
-    { number: '02', name: 'WORKS', path: '/projects', label: 'Index & Case Studies [12]' },
+    { number: '02', name: 'WORKS', path: '/projects', label: 'Index & Case Studies' },
     { number: '03', name: 'ABOUT', path: '/about', label: 'Monograph & Tech Capabilities' },
     { number: '04', name: 'CONNECT', path: '/connect', label: 'Direct Inquiries & Transmissions' },
   ];
@@ -89,16 +69,11 @@ export const Navbar: React.FC = () => {
   ];
 
   // Theme awareness based on current route
-  const isEditorial = location.pathname.startsWith('/projects/design');
   const isLapis = location.pathname === '/projects' || location.pathname === '/about';
 
-  const scrolledBg = isEditorial
-    ? 'bg-[#ffffff]/90 border-b border-[#000000]/15 backdrop-blur-md'
-    : isLapis
+  const scrolledBg = isLapis
     ? 'bg-[#14213d]/90 border-b border-[#ffffff]/15 backdrop-blur-md'
     : 'bg-[#000000]/90 border-b border-[#ffffff]/10 backdrop-blur-md';
-
-  const textColor = isEditorial ? 'text-[#000000]' : 'text-[#ffffff]';
 
   return (
     <>
@@ -117,35 +92,13 @@ export const Navbar: React.FC = () => {
             onMouseLeave={resetCursor}
             aria-label="AK. Home"
           >
-            <span
-              className={`font-display text-2xl md:text-3xl font-black tracking-tight transition-colors ${
-                isEditorial
-                  ? 'text-[#000000] group-hover:text-[#14213d]'
-                  : 'text-[#ffffff] group-hover:text-[#fca311]'
-              }`}
-            >
+            <span className="font-display text-2xl md:text-3xl font-black tracking-tight text-[#ffffff] group-hover:text-[#fca311] transition-colors">
               AK<span className="text-[#fca311]">.</span>
             </span>
           </Link>
 
-          {/* Center Architectural Telemetry Strip (Desktop) */}
-          <div className="hidden lg:flex items-center gap-6 font-mono text-[11px] tracking-wider">
-            <span className={isEditorial ? 'text-[#000000]/70' : 'text-[#e5e5e5]/70'}>
-              KOLKATA, IN <span className="text-[#fca311]">22.57°N 88.36°E</span>
-            </span>
-            <span className={isEditorial ? 'text-[#000000]/30' : 'text-[#ffffff]/30'}>//</span>
-            <span className={isEditorial ? 'text-[#000000]/80' : 'text-[#ffffff]/80'}>
-              {timeStr || '12:00:00'} IST
-            </span>
-            <span className={isEditorial ? 'text-[#000000]/30' : 'text-[#ffffff]/30'}>//</span>
-            <div className="flex items-center gap-1.5 text-[#fca311]">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#fca311] animate-pulse" />
-              <span className="uppercase text-[10px] font-semibold">Available for Work</span>
-            </div>
-          </div>
-
-          {/* Right Action: Quick Nav Links + Fullscreen Menu Pill */}
-          <div className="flex items-center gap-3 sm:gap-4">
+          {/* Right Action: Quick Nav Links + Fullscreen Menu Icon */}
+          <div className="flex items-center gap-4 sm:gap-6">
             <nav className="hidden md:flex items-center gap-6 font-mono text-xs uppercase tracking-wider">
               <NavLink
                 to="/projects"
@@ -153,13 +106,11 @@ export const Navbar: React.FC = () => {
                   `transition-colors ${
                     isActive
                       ? 'text-[#fca311] font-bold'
-                      : isEditorial
-                      ? 'text-[#000000]/70 hover:text-[#000000]'
                       : 'text-[#e5e5e5]/70 hover:text-[#ffffff]'
                   }`
                 }
               >
-                Works [12]
+                Works
               </NavLink>
               <NavLink
                 to="/about"
@@ -167,8 +118,6 @@ export const Navbar: React.FC = () => {
                   `transition-colors ${
                     isActive
                       ? 'text-[#fca311] font-bold'
-                      : isEditorial
-                      ? 'text-[#000000]/70 hover:text-[#000000]'
                       : 'text-[#e5e5e5]/70 hover:text-[#ffffff]'
                   }`
                 }
@@ -181,8 +130,6 @@ export const Navbar: React.FC = () => {
                   `transition-colors ${
                     isActive
                       ? 'text-[#fca311] font-bold'
-                      : isEditorial
-                      ? 'text-[#000000]/70 hover:text-[#000000]'
                       : 'text-[#e5e5e5]/70 hover:text-[#ffffff]'
                   }`
                 }
@@ -191,22 +138,19 @@ export const Navbar: React.FC = () => {
               </NavLink>
             </nav>
 
-            {/* Menu Toggle Pill Button */}
+            {/* Menu Toggle Button (Icon Only) */}
             <button
               onClick={() => setMenuOpen(!menuOpen)}
               onMouseEnter={() => setCursorType('hover')}
               onMouseLeave={resetCursor}
               aria-label={menuOpen ? 'Close Menu' : 'Open Menu'}
-              className={`flex items-center gap-2.5 px-4 py-2 rounded-full border transition-all duration-300 font-mono text-xs uppercase tracking-wider font-semibold cursor-pointer ${
+              className={`w-10 h-10 rounded-full border flex items-center justify-center transition-all duration-300 cursor-pointer ${
                 menuOpen
                   ? 'bg-[#fca311] text-[#000000] border-[#fca311]'
-                  : isEditorial
-                  ? 'border-[#000000]/25 text-[#000000] hover:bg-[#000000] hover:text-[#ffffff]'
                   : 'border-[#ffffff]/25 text-[#ffffff] hover:bg-[#fca311] hover:text-[#000000] hover:border-[#fca311]'
               }`}
             >
-              <span>{menuOpen ? 'CLOSE // ESC' : 'MENU // 04'}</span>
-              {menuOpen ? <X className="w-3.5 h-3.5" /> : <Menu className="w-3.5 h-3.5" />}
+              {menuOpen ? <X className="w-4 h-4" /> : <Menu className="w-4 h-4" />}
             </button>
           </div>
         </div>
@@ -298,7 +242,7 @@ export const Navbar: React.FC = () => {
                           Technology &amp; Systems
                         </span>
                         <span className="font-mono text-[10px] text-[#e5e5e5]/60">
-                          Web Apps, Dev Tools &amp; Compilers [06]
+                          Web Apps, Dev Tools &amp; Compilers
                         </span>
                       </div>
                       <ArrowUpRight className="w-4 h-4 text-[#fca311]" />
@@ -314,7 +258,7 @@ export const Navbar: React.FC = () => {
                           Design &amp; Art Direction
                         </span>
                         <span className="font-mono text-[10px] text-[#e5e5e5]/60">
-                          Posters, Brand Systems &amp; Type [06]
+                          Posters, Brand Systems &amp; Type
                         </span>
                       </div>
                       <ArrowUpRight className="w-4 h-4 text-[#fca311]" />

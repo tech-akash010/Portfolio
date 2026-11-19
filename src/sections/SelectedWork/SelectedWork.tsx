@@ -1,48 +1,28 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
+import { motion } from 'motion/react';
 import { useCursor } from '../../components/CustomCursor/CursorContext';
 import { SwissProjectIndex } from '../../components/ProjectCard/SwissProjectIndex';
-import { techProjects, designProjects } from '../../data/projectsData';
-import { ArrowUpRight, Sparkles, Layers } from 'lucide-react';
+import { techProjects } from '../../data/projectsData';
+import { ArrowUpRight, Sparkles } from 'lucide-react';
 
 export const SelectedWork: React.FC = () => {
   const { setCursorType, resetCursor } = useCursor();
-  const [filter, setFilter] = useState<'all' | 'technology' | 'design'>('all');
 
-  // Curate top selected builds across both domains
-  const selectedTech = techProjects.filter((p) =>
-    ['openlearn-hub', 'structo', 'sankalp', 'rayofroads'].includes(p.slug)
-  );
-
-  const selectedDesign = designProjects.filter((p) =>
-    ['kinetic-type-poster-lab', 'aether-identity-system', 'neo-kolkata-illustrated'].includes(p.slug)
-  );
-
-  const combinedProjects = [
-    selectedTech[0], // OpenLearn Hub
-    selectedDesign[0], // Kinetic Type Poster Lab
-    selectedTech[1], // Structo
-    selectedDesign[1], // Aether Identity System
-    selectedTech[2], // Sankalp
-    selectedDesign[2], // Neo-Kolkata Illustrated
-  ].filter(Boolean);
-
-  const displayedProjects =
-    filter === 'technology'
-      ? selectedTech
-      : filter === 'design'
-      ? selectedDesign
-      : combinedProjects;
+  // Curate engineering and software systems (designs are showcased exclusively in the design dossier)
+  const displayedProjects = techProjects;
 
   return (
-    <section id="selected-work" className="py-24 sm:py-32 px-6 sm:px-8 md:px-12 max-w-7xl mx-auto">
+    <section id="selected-work" className="scroll-mt-28 py-20 sm:py-28 px-6 sm:px-8 md:px-12 max-w-7xl mx-auto">
       {/* Section Header: Swiss Monograph Header */}
-      <div className="flex flex-col lg:flex-row lg:items-end justify-between border-b border-[#ffffff]/15 pb-8 mb-10 gap-6">
+      <motion.div
+        initial={{ opacity: 0, y: 24 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: '-60px' }}
+        transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+        className="flex flex-col sm:flex-row sm:items-end justify-between border-b border-[#ffffff]/15 pb-8 mb-10 gap-6"
+      >
         <div>
-          <div className="flex items-center gap-2 font-mono text-xs uppercase tracking-wider text-[#fca311] mb-3 font-semibold">
-            <span className="w-2 h-2 rounded-full bg-[#fca311]" />
-            <span>SELECTED WORK // CURATED INDEX</span>
-          </div>
           <h2 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black tracking-tight text-[#ffffff]">
             WORK INDEX<span className="text-[#fca311]">.</span>
           </h2>
@@ -51,54 +31,25 @@ export const SelectedWork: React.FC = () => {
           </p>
         </div>
 
-        {/* Filter Pills + Archive Link */}
-        <div className="flex flex-wrap items-center gap-3">
-          <div className="flex items-center gap-1.5 p-1 rounded-full bg-[#14213d]/60 border border-[#ffffff]/15">
-            <button
-              onClick={() => setFilter('all')}
-              className={`px-4 py-1.5 rounded-full font-mono text-xs uppercase tracking-wider transition-all cursor-pointer ${
-                filter === 'all'
-                  ? 'bg-[#fca311] text-[#000000] font-bold shadow-sm'
-                  : 'text-[#e5e5e5]/70 hover:text-[#ffffff]'
-              }`}
-            >
-              All [{combinedProjects.length}]
-            </button>
-            <button
-              onClick={() => setFilter('technology')}
-              className={`px-4 py-1.5 rounded-full font-mono text-xs uppercase tracking-wider transition-all cursor-pointer ${
-                filter === 'technology'
-                  ? 'bg-[#fca311] text-[#000000] font-bold shadow-sm'
-                  : 'text-[#e5e5e5]/70 hover:text-[#ffffff]'
-              }`}
-            >
-              Tech [{selectedTech.length}]
-            </button>
-            <button
-              onClick={() => setFilter('design')}
-              className={`px-4 py-1.5 rounded-full font-mono text-xs uppercase tracking-wider transition-all cursor-pointer ${
-                filter === 'design'
-                  ? 'bg-[#fca311] text-[#000000] font-bold shadow-sm'
-                  : 'text-[#e5e5e5]/70 hover:text-[#ffffff]'
-              }`}
-            >
-              Design [{selectedDesign.length}]
-            </button>
-          </div>
-
+        {/* View Full Archive Action */}
+        <motion.div
+          whileHover={{ scale: 1.04, y: -1 }}
+          whileTap={{ scale: 0.98 }}
+          transition={{ type: 'spring', stiffness: 400, damping: 15 }}
+        >
           <Link
             to="/projects"
             onMouseEnter={() => setCursorType('hover')}
             onMouseLeave={resetCursor}
-            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-[#ffffff]/25 text-[#ffffff] hover:border-[#fca311] hover:text-[#fca311] font-mono text-xs uppercase tracking-wider transition-colors ml-auto sm:ml-0"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-[#ffffff]/25 text-[#ffffff] hover:border-[#fca311] hover:text-[#fca311] font-mono text-xs uppercase tracking-wider transition-colors cursor-pointer"
           >
-            <span>Full Archive [12]</span>
+            <span>View Full Archive</span>
             <ArrowUpRight className="w-3.5 h-3.5" />
           </Link>
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
 
-      {/* Swiss Hover-Reveal Interactive Ledger */}
+      {/* Swiss Hover-Reveal Interactive Ledger for Engineering & Technology Projects */}
       <SwissProjectIndex
         projects={displayedProjects}
         variant="midnight"
@@ -106,19 +57,25 @@ export const SelectedWork: React.FC = () => {
       />
 
       {/* Footnote Strip */}
-      <div className="flex flex-col sm:flex-row items-center justify-between pt-6 text-xs font-mono text-[#e5e5e5]/50 border-t border-[#ffffff]/10 gap-2">
+      <motion.div
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6, delay: 0.2 }}
+        className="flex flex-col sm:flex-row items-center justify-between pt-6 text-xs font-mono text-[#e5e5e5]/50 border-t border-[#ffffff]/10 gap-2 mt-6"
+      >
         <div className="flex items-center gap-2">
           <Sparkles className="w-3.5 h-3.5 text-[#fca311]" />
-          <span>REAL-TIME CURSOR PREVIEW POWERED BY MOTION PHYSICS</span>
+          <span>ENGINEERING SYSTEMS ARCHIVE</span>
         </div>
         <Link
           to="/projects"
-          className="text-[#fca311] hover:underline flex items-center gap-1 font-semibold"
+          className="text-[#fca311] hover:underline flex items-center gap-1 font-semibold cursor-pointer"
         >
-          <span>BROWSE COMPLETE ARCHIVE WITH FILTERING</span>
+          <span>VIEW ACTIVE REPOSITORY STATUS</span>
           <ArrowUpRight className="w-3.5 h-3.5" />
         </Link>
-      </div>
+      </motion.div>
     </section>
   );
 };
