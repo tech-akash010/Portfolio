@@ -33,7 +33,7 @@ export function KineticText({
           aria-hidden="true"
           className={cn(
             "inline-block [will-change:font-weight,-webkit-text-stroke-width,padding] [-webkit-text-stroke-color:transparent] [-webkit-text-stroke-width:var(--text-stroke-width)] [transition:font-weight_0.35s,_-webkit-text-stroke-color_0.35s,_padding_0.35s] hover:[padding-inline:var(--hover-padding)] hover:font-[800] hover:[-webkit-text-stroke-color:currentcolor] hover:[-webkit-text-stroke-width:calc(var(--text-stroke-width)*2)] has-[+span+span:hover]:font-[500] has-[+span:hover]:[padding-inline:var(--hover-padding)] has-[+span:hover]:font-[700] [:hover+&]:[padding-inline:var(--hover-padding)] [:hover+&]:font-[700] [:hover+span+&]:font-[500]",
-            letter === "." ? "text-[#FF6D1F]" : ""
+            letter === "." ? "text-[#eca400]" : ""
           )}
         >
           {letter === " " ? "\u00A0" : letter}

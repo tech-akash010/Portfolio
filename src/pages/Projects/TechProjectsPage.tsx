@@ -18,11 +18,11 @@ export const TechProjectsPage: React.FC = () => {
   return (
     <div className="pt-36 sm:pt-40 md:pt-44 pb-24 px-6 sm:px-8 md:px-12 max-w-7xl mx-auto min-h-screen">
       {/* Header */}
-      <div className="border-b border-[#FAF3E1]/15 pb-8 mb-12">
-        <h1 className="font-display text-5xl sm:text-6xl md:text-7xl font-black tracking-tight text-[#FAF3E1]">
-          TECHNOLOGY PROJECTS<span className="text-[#FF6D1F]">.</span>
+      <div className="border-b border-[#eaf8bf]/15 pb-8 mb-12">
+        <h1 className="font-display text-5xl sm:text-6xl md:text-7xl font-black tracking-tight text-[#eaf8bf]">
+          TECHNOLOGY PROJECTS<span className="text-[#eca400]">.</span>
         </h1>
-        <p className="font-editorial italic text-xl sm:text-2xl text-[#FAF3E1]/70 mt-3 max-w-2xl">
+        <p className="font-editorial italic text-xl sm:text-2xl text-[#eaf8bf]/70 mt-3 max-w-2xl">
           Software development, web applications, AI-powered products, programming and technical experiments.
         </p>
       </div>
@@ -32,14 +32,14 @@ export const TechProjectsPage: React.FC = () => {
         {techProjects.map((project) => (
           <div
             key={project.id}
-            className="group bg-[#FAF3E1]/[0.03] border border-[#FAF3E1]/15 rounded-lg overflow-hidden flex flex-col justify-between hover:border-[#FF6D1F] hover:shadow-xl transition-all duration-300"
+            className="group bg-[#eaf8bf]/[0.03] border border-[#eaf8bf]/15 rounded-lg overflow-hidden flex flex-col justify-between hover:border-[#eca400] hover:shadow-xl transition-all duration-300"
           >
             {/* Visual Container */}
             <Link
               to={`/projects/technology/${project.slug}`}
               onMouseEnter={() => setCursorType('project', 'VIEW PROJECT')}
               onMouseLeave={resetCursor}
-              className="h-60 w-full border-b border-[#FAF3E1]/15 block overflow-hidden"
+              className="h-60 w-full border-b border-[#eaf8bf]/15 block overflow-hidden"
             >
               <ProjectVisualPreview slug={project.slug} />
             </Link>
@@ -47,8 +47,8 @@ export const TechProjectsPage: React.FC = () => {
             {/* Content Details */}
             <div className="p-6 flex flex-col justify-between flex-1">
               <div>
-                <div className="flex items-center justify-between font-mono text-xs text-[#FAF3E1]/60 mb-2">
-                  <span className="text-[#FF6D1F] font-bold uppercase tracking-wider">{project.subcategory}</span>
+                <div className="flex items-center justify-between font-mono text-xs text-[#eaf8bf]/60 mb-2">
+                  <span className="text-[#eca400] font-bold uppercase tracking-wider">{project.subcategory}</span>
                   <span>{project.year}</span>
                 </div>
 
@@ -57,23 +57,23 @@ export const TechProjectsPage: React.FC = () => {
                   onMouseEnter={() => setCursorType('hover')}
                   onMouseLeave={resetCursor}
                 >
-                  <h2 className="font-display text-2xl font-bold tracking-tight text-[#FAF3E1] group-hover:text-[#FF6D1F] transition-colors">
+                  <h2 className="font-display text-2xl font-bold tracking-tight text-[#eaf8bf] group-hover:text-[#eca400] transition-colors">
                     {project.title}
                   </h2>
                 </Link>
 
-                <p className="font-body text-xs sm:text-sm text-[#FAF3E1]/75 mt-2 line-clamp-3 leading-relaxed">
+                <p className="font-body text-xs sm:text-sm text-[#eaf8bf]/75 mt-2 line-clamp-3 leading-relaxed">
                   {project.description}
                 </p>
               </div>
 
               <div>
                 {/* Tech Stack Chips */}
-                <div className="mt-4 pt-3 border-t border-[#FAF3E1]/10 flex flex-wrap gap-1.5">
+                <div className="mt-4 pt-3 border-t border-[#eaf8bf]/10 flex flex-wrap gap-1.5">
                   {project.techStack.map((tech) => (
                     <span
                       key={tech}
-                      className="px-2 py-0.5 rounded bg-[#FAF3E1]/10 text-[#FAF3E1]/80 font-mono text-[9px]"
+                      className="px-2 py-0.5 rounded bg-[#eaf8bf]/10 text-[#eaf8bf]/80 font-mono text-[9px]"
                     >
                       {tech}
                     </span>
@@ -81,7 +81,7 @@ export const TechProjectsPage: React.FC = () => {
                 </div>
 
                 {/* External Action Links (GitHub, Live Demo & Case Study) */}
-                <div className="mt-4 pt-3 border-t border-[#FAF3E1]/10 flex items-center justify-between font-mono text-xs">
+                <div className="mt-4 pt-3 border-t border-[#eaf8bf]/10 flex items-center justify-between font-mono text-xs">
                   <div className="flex items-center gap-3">
                     <a
                       href={project.githubUrl}
@@ -89,7 +89,7 @@ export const TechProjectsPage: React.FC = () => {
                       rel="noopener noreferrer"
                       onMouseEnter={() => setCursorType('external')}
                       onMouseLeave={resetCursor}
-                      className="text-[#FAF3E1]/70 hover:text-[#FAF3E1] flex items-center gap-1"
+                      className="text-[#eaf8bf]/70 hover:text-[#eaf8bf] flex items-center gap-1"
                       title="GitHub Repository"
                     >
                       <GithubIcon className="w-3.5 h-3.5" />
@@ -103,7 +103,7 @@ export const TechProjectsPage: React.FC = () => {
                         rel="noopener noreferrer"
                         onMouseEnter={() => setCursorType('external')}
                         onMouseLeave={resetCursor}
-                        className="text-[#FAF3E1]/70 hover:text-[#FF6D1F] flex items-center gap-1"
+                        className="text-[#eaf8bf]/70 hover:text-[#eca400] flex items-center gap-1"
                         title="Live Application Demo"
                       >
                         <ExternalLink className="w-3.5 h-3.5" />
@@ -116,7 +116,7 @@ export const TechProjectsPage: React.FC = () => {
                     to={`/projects/technology/${project.slug}`}
                     onMouseEnter={() => setCursorType('hover')}
                     onMouseLeave={resetCursor}
-                    className="font-bold text-[#FF6D1F] hover:underline flex items-center gap-1 text-[11px]"
+                    className="font-bold text-[#eca400] hover:underline flex items-center gap-1 text-[11px]"
                   >
                     <span>Read Study</span>
                     <ArrowUpRight className="w-3 h-3" />

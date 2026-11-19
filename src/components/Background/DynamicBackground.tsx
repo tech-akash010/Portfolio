@@ -19,21 +19,21 @@ export const DynamicBackground: React.FC<DynamicBackgroundProps> = ({
 }) => {
   // Theme-specific styles
   const themeClasses = {
-    paper: 'bg-[#222222] text-[#FAF3E1]',
-    creative: 'bg-[#222222] text-[#FAF3E1]',
-    dark: 'bg-[#222222] text-[#FAF3E1]',
+    paper: 'bg-[#001d4a] text-[#eaf8bf]',
+    creative: 'bg-[#001d4a] text-[#eaf8bf]',
+    dark: 'bg-[#001d4a] text-[#eaf8bf]',
   }[theme];
 
   const gridLineColor = {
-    paper: 'rgba(250, 243, 225, 0.04)',
-    creative: 'rgba(250, 243, 225, 0.04)',
-    dark: 'rgba(250, 243, 225, 0.04)',
+    paper: 'rgba(234, 248, 191, 0.04)',
+    creative: 'rgba(234, 248, 191, 0.04)',
+    dark: 'rgba(234, 248, 191, 0.04)',
   }[theme];
 
   const markColor = {
-    paper: 'rgba(250, 243, 225, 0.2)',
-    creative: '#FF6D1F',
-    dark: 'rgba(255, 109, 31, 0.6)',
+    paper: 'rgba(234, 248, 191, 0.2)',
+    creative: '#eca400',
+    dark: 'rgba(236, 164, 0, 0.6)',
   }[theme];
 
   return (
@@ -68,9 +68,9 @@ export const DynamicBackground: React.FC<DynamicBackgroundProps> = ({
       {/* Creative Theme Geometric Accents */}
       {theme === 'creative' && (
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute -top-32 -right-32 w-96 h-96 rounded-full border border-[#FF6D1F]/20 opacity-40" />
-          <div className="absolute top-1/3 -left-20 w-60 h-60 border border-[#FAF3E1]/10 rotate-12 opacity-30" />
-          <div className="absolute bottom-10 right-1/4 w-32 h-32 border-l-2 border-t-2 border-[#FF6D1F]/40" />
+          <div className="absolute -top-32 -right-32 w-96 h-96 rounded-full border border-[#eca400]/20 opacity-40" />
+          <div className="absolute top-1/3 -left-20 w-60 h-60 border border-[#eaf8bf]/10 rotate-12 opacity-30" />
+          <div className="absolute bottom-10 right-1/4 w-32 h-32 border-l-2 border-t-2 border-[#eca400]/40" />
         </div>
       )}
     </div>

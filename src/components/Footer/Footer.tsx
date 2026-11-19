@@ -71,10 +71,10 @@ export const Footer: React.FC = () => {
 
   const pathVariants = {
     hidden: {
-      fill: '#FF6D1F',
+      fill: '#eca400',
     },
     visible: (i: number) => ({
-      fill: ['#FF6D1F', '#FF6D1F', '#FAF3E1', '#FAF3E1', '#FAF3E1'],
+      fill: ['#eca400', '#eca400', '#eaf8bf', '#eaf8bf', '#eaf8bf'],
       transition: {
         duration: 1.15,
         delay: i * 0.1,
@@ -146,37 +146,37 @@ export const Footer: React.FC = () => {
   ];
 
   return (
-    <footer ref={footerRef} className="relative bg-[#222222] text-[#FAF3E1] border-t border-[#FAF3E1]/15 overflow-hidden">
+    <footer ref={footerRef} className="relative bg-[#001d4a] text-[#eaf8bf] border-t border-[#eaf8bf]/15 overflow-hidden">
       {/* Subtle Swiss grid in footer background */}
       <div
         className="absolute inset-0 opacity-5 pointer-events-none"
         style={{
           backgroundImage:
-            'linear-gradient(to right, rgba(250, 243, 225, 0.15) 1px, transparent 1px), linear-gradient(to bottom, rgba(250, 243, 225, 0.15) 1px, transparent 1px)',
+            'linear-gradient(to right, rgba(234, 248, 191, 0.15) 1px, transparent 1px), linear-gradient(to bottom, rgba(234, 248, 191, 0.15) 1px, transparent 1px)',
           backgroundSize: '40px 40px',
         }}
       />
 
       <div className="relative max-w-7xl mx-auto px-6 sm:px-8 md:px-12 pt-16 pb-6">
         {/* Top Info Strip: Perspective + Back to Top */}
-        <div className="flex flex-col md:flex-row md:items-start justify-between border-b border-[#FAF3E1]/15 pb-12 gap-8">
+        <div className="flex flex-col md:flex-row md:items-start justify-between border-b border-[#eaf8bf]/15 pb-12 gap-8">
           {/* Left Column: Author Mindset & Focus */}
           <div className="max-w-xl space-y-3">
-            <h3 className="font-display text-2xl sm:text-3xl font-bold tracking-tight text-[#FAF3E1]">
-              A Mind in Motion<span className="text-[#FF6D1F]">.</span> Think. Create. Build.
+            <h3 className="font-display text-2xl sm:text-3xl font-bold tracking-tight text-[#eaf8bf]">
+              A Mind in Motion<span className="text-[#eca400]">.</span> Think. Create. Build.
             </h3>
-            <p className="font-body text-sm text-[#FAF3E1]/70 leading-relaxed">
+            <p className="font-body text-sm text-[#eaf8bf]/70 leading-relaxed">
               Engineering high-performance software systems and architecting art-directed visual identities at the intersection of aesthetic precision and computational logic.
             </p>
-            <div className="flex items-center gap-3 pt-2 font-mono text-xs text-[#FAF3E1]/60">
+            <div className="flex items-center gap-3 pt-2 font-mono text-xs text-[#eaf8bf]/60">
               <span className="flex items-center gap-1.5">
-                <MapPin className="w-3.5 h-3.5 text-[#FF6D1F]" /> Kolkata, India
+                <MapPin className="w-3.5 h-3.5 text-[#eca400]" /> Kolkata, India
               </span>
               <span>•</span>
               <span>IST (UTC+5:30)</span>
               <span>•</span>
-              <span className="flex items-center gap-1 text-[#FF6D1F]">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#FF6D1F] animate-pulse" />
+              <span className="flex items-center gap-1 text-[#eca400]">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#eca400] animate-pulse" />
                 Available for Select Projects
               </span>
             </div>
@@ -187,20 +187,20 @@ export const Footer: React.FC = () => {
             onClick={scrollToTop}
             onMouseEnter={() => setCursorType('hover')}
             onMouseLeave={resetCursor}
-            className="group self-start md:self-auto flex items-center gap-3 px-5 py-3 rounded-full border border-[#FAF3E1]/30 hover:border-[#FF6D1F] hover:bg-[#FF6D1F]/10 transition-all duration-300 cursor-pointer"
+            className="group self-start md:self-auto flex items-center gap-3 px-5 py-3 rounded-full border border-[#eaf8bf]/30 hover:border-[#eca400] hover:bg-[#eca400]/10 transition-all duration-300 cursor-pointer"
             aria-label="Back to top"
           >
-            <span className="font-mono text-xs tracking-wider uppercase text-[#FAF3E1] group-hover:text-[#FF6D1F]">
+            <span className="font-mono text-xs tracking-wider uppercase text-[#eaf8bf] group-hover:text-[#eca400]">
               BACK TO TOP
             </span>
-            <div className="w-8 h-8 rounded-full bg-[#FAF3E1] text-[#222222] flex items-center justify-center transition-transform group-hover:-translate-y-1 group-hover:bg-[#FF6D1F] group-hover:text-[#FAF3E1]">
+            <div className="w-8 h-8 rounded-full bg-[#eaf8bf] text-[#001d4a] flex items-center justify-center transition-transform group-hover:-translate-y-1 group-hover:bg-[#eca400] group-hover:text-[#001d4a]">
               <ArrowUp className="w-4 h-4" />
             </div>
           </button>
         </div>
 
         {/* Middle Section: Clean Unboxed Social Links Directory */}
-        <div className="py-12 border-b border-[#FAF3E1]/15">
+        <div className="py-12 border-b border-[#eaf8bf]/15">
           {/* 5-Column Open Typography Grid (No Boxes) */}
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-8 lg:gap-12">
             {socialLinks.map((social, idx) => (
@@ -214,18 +214,18 @@ export const Footer: React.FC = () => {
                 className="group flex flex-col space-y-2 transition-all duration-200"
               >
                 <div className="flex items-center justify-between">
-                  <span className="font-mono text-xs text-[#FF6D1F] font-bold">0{idx + 1}</span>
-                  <ArrowUpRight className="w-4 h-4 text-[#FAF3E1]/40 group-hover:text-[#FF6D1F] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
+                  <span className="font-mono text-xs text-[#eca400] font-bold">0{idx + 1}</span>
+                  <ArrowUpRight className="w-4 h-4 text-[#eaf8bf]/40 group-hover:text-[#eca400] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
                 </div>
 
                 <div>
-                  <span className="font-mono text-[10px] uppercase tracking-wider text-[#FAF3E1]/40 block mb-1">
+                  <span className="font-mono text-[10px] uppercase tracking-wider text-[#eaf8bf]/40 block mb-1">
                     {social.category}
                   </span>
-                  <span className="font-display font-bold text-xl text-[#FAF3E1] group-hover:text-[#FF6D1F] transition-colors block">
+                  <span className="font-display font-bold text-xl text-[#eaf8bf] group-hover:text-[#eca400] transition-colors block">
                     {social.name}
                   </span>
-                  <span className="font-mono text-xs text-[#FAF3E1]/60 group-hover:text-[#FAF3E1] transition-colors mt-0.5 block truncate">
+                  <span className="font-mono text-xs text-[#eaf8bf]/60 group-hover:text-[#eaf8bf] transition-colors mt-0.5 block truncate">
                     {social.handle}
                   </span>
                 </div>
@@ -266,7 +266,7 @@ export const Footer: React.FC = () => {
                 animate={isInView ? 'visible' : 'hidden'}
                 variants={pathVariants}
                 whileHover={{
-                  fill: '#FF6D1F',
+                  fill: '#eca400',
                   transition: { duration: 0.15 },
                 }}
               />
@@ -276,13 +276,13 @@ export const Footer: React.FC = () => {
       </div>
 
       {/* Bottommost Legal / Copyright Bar */}
-      <div className="relative w-full border-t border-[#FAF3E1]/10 bg-[#222222]">
-        <div className="max-w-7xl mx-auto px-6 sm:px-8 md:px-12 py-4 flex flex-col sm:flex-row items-center justify-between font-mono text-[11px] text-[#FAF3E1]/50 gap-3">
+      <div className="relative w-full border-t border-[#eaf8bf]/10 bg-[#001d4a]">
+        <div className="max-w-7xl mx-auto px-6 sm:px-8 md:px-12 py-4 flex flex-col sm:flex-row items-center justify-between font-mono text-[11px] text-[#eaf8bf]/50 gap-3">
           <div>
             © {new Date().getFullYear()} AKASH KUNDU. ALL RIGHTS RESERVED.
           </div>
-          <div className="flex items-center gap-2 text-[#FAF3E1]/60">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#FF6D1F]" />
+          <div className="flex items-center gap-2 text-[#eaf8bf]/60">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#eca400]" />
             <span>OPEN FOR COLLABORATION</span>
           </div>
         </div>

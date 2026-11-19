@@ -26,10 +26,10 @@ export const designProjects: DesignProject[] = [
       concept: 'Rhythm, Tension & Pure Geometry',
       typography: ['Space Grotesk (700)', 'Space Mono (400)', 'Inter (500)'],
       colorPalette: [
-        { name: 'Warm Canvas', hex: '#FAF3E1' },
-        { name: 'Paper Beige', hex: '#F5E7C6' },
-        { name: 'Pure Ink', hex: '#222222' },
-        { name: 'Signal Orange', hex: '#FF6D1F' }
+        { name: 'Warm Canvas', hex: '#eaf8bf' },
+        { name: 'Paper Beige', hex: '#eaf8bf' },
+        { name: 'Pure Ink', hex: '#001d4a' },
+        { name: 'Signal Orange', hex: '#eca400' }
       ],
       visualElements: ['Asymmetrical coordinates', '45° sheared text blocks', 'Micro-perforations', 'Overprinted halftone patterns']
     },
@@ -94,10 +94,10 @@ export const designProjects: DesignProject[] = [
       concept: 'The Architecture of Thought',
       typography: ['Space Grotesk', 'Playfair Display', 'Space Mono'],
       colorPalette: [
-        { name: 'Canvas White', hex: '#FAF3E1' },
-        { name: 'Deep Carbon', hex: '#222222' },
-        { name: 'Electric Tangerine', hex: '#FF6D1F' },
-        { name: 'Oatmeal Tone', hex: '#F5E7C6' }
+        { name: 'Canvas White', hex: '#eaf8bf' },
+        { name: 'Deep Carbon', hex: '#001d4a' },
+        { name: 'Electric Tangerine', hex: '#eca400' },
+        { name: 'Oatmeal Tone', hex: '#eaf8bf' }
       ],
       visualElements: ['Variable line-weight logos', 'Embossed blind letterpress', 'Monochrome technical callouts']
     },
@@ -156,10 +156,10 @@ export const designProjects: DesignProject[] = [
       concept: 'Memory Meets Speculation',
       typography: ['Playfair Display', 'Space Mono'],
       colorPalette: [
-        { name: 'Parchment', hex: '#FAF3E1' },
-        { name: 'Amber Clay', hex: '#F5E7C6' },
-        { name: 'Tram Iron', hex: '#222222' },
-        { name: 'Sunrise Flame', hex: '#FF6D1F' }
+        { name: 'Parchment', hex: '#eaf8bf' },
+        { name: 'Amber Clay', hex: '#eaf8bf' },
+        { name: 'Tram Iron', hex: '#001d4a' },
+        { name: 'Sunrise Flame', hex: '#eca400' }
       ],
       visualElements: ['Isometric projection lines', 'Stipple grain textures', 'Monoline architectural outlines']
     },
@@ -218,10 +218,10 @@ export const designProjects: DesignProject[] = [
       concept: 'Instrumental Precision',
       typography: ['Space Grotesk', 'Inter', 'Space Mono'],
       colorPalette: [
-        { name: 'Paper Shell', hex: '#FAF3E1' },
-        { name: 'Panel Beige', hex: '#F5E7C6' },
-        { name: 'Dark Carbon', hex: '#222222' },
-        { name: 'Safety Orange', hex: '#FF6D1F' }
+        { name: 'Paper Shell', hex: '#eaf8bf' },
+        { name: 'Panel Beige', hex: '#eaf8bf' },
+        { name: 'Dark Carbon', hex: '#001d4a' },
+        { name: 'Safety Orange', hex: '#eca400' }
       ],
       visualElements: ['Micro-borders', 'Tabbed code docks', 'High-contrast status pills', 'Subtle hover states']
     },
@@ -280,10 +280,10 @@ export const designProjects: DesignProject[] = [
       concept: 'Open Community, Unbound Code',
       typography: ['Space Grotesk', 'Inter', 'Space Mono'],
       colorPalette: [
-        { name: 'Ivory Base', hex: '#FAF3E1' },
-        { name: 'Parchment Card', hex: '#F5E7C6' },
-        { name: 'Deep Slate', hex: '#222222' },
-        { name: 'Beacon Orange', hex: '#FF6D1F' }
+        { name: 'Ivory Base', hex: '#eaf8bf' },
+        { name: 'Parchment Card', hex: '#eaf8bf' },
+        { name: 'Deep Slate', hex: '#001d4a' },
+        { name: 'Beacon Orange', hex: '#eca400' }
       ],
       visualElements: ['Terminal prompts', 'Halftone portraits', 'Brutalist registration banners']
     },
@@ -337,9 +337,9 @@ export const designProjects: DesignProject[] = [
       concept: 'Monolithic Balance',
       typography: ['Space Mono'],
       colorPalette: [
-        { name: 'Heavy Ink', hex: '#222222' },
-        { name: 'Warm Cream', hex: '#FAF3E1' },
-        { name: 'Burnt Orange', hex: '#FF6D1F' }
+        { name: 'Heavy Ink', hex: '#001d4a' },
+        { name: 'Warm Cream', hex: '#eaf8bf' },
+        { name: 'Burnt Orange', hex: '#eca400' }
       ],
       visualElements: ['Overlapping planar volumes', 'Negative space incisions', 'Fine technical scale metrics']
     },
@@ -664,7 +664,7 @@ export const techProjects: TechProject[] = [
       },
       {
         title: 'Bespoke Cartographic Theme',
-        description: 'Custom-designed Swiss map palette matching the portfolio’s ivory (#FAF3E1) and orange (#FF6D1F) accents.'
+        description: 'Custom-designed Swiss map palette matching the portfolio’s ivory (#eaf8bf) and orange (#eca400) accents.'
       }
     ],
     keyImplementationDetails: [

@@ -55,14 +55,14 @@ export const Preloader: React.FC<PreloaderProps> = ({ onComplete, forceShow = fa
           key="preloader-overlay"
           initial={{ opacity: 1 }}
           exit={{ opacity: 0, y: -20, transition: { duration: 0.45, ease: [0.22, 1, 0.36, 1] } }}
-          className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-[#222222] text-[#FAF3E1] select-none cursor-wait overflow-hidden"
+          className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-[#001d4a] text-[#eaf8bf] select-none cursor-wait overflow-hidden"
         >
           {/* Subtle grid background */}
           <div
             className="absolute inset-0 opacity-20 pointer-events-none"
             style={{
               backgroundImage:
-                'linear-gradient(to right, rgba(250, 243, 225, 0.08) 1px, transparent 1px), linear-gradient(to bottom, rgba(250, 243, 225, 0.08) 1px, transparent 1px)',
+                'linear-gradient(to right, rgba(234, 248, 191, 0.08) 1px, transparent 1px), linear-gradient(to bottom, rgba(234, 248, 191, 0.08) 1px, transparent 1px)',
               backgroundSize: '40px 40px',
             }}
           />
@@ -75,20 +75,20 @@ export const Preloader: React.FC<PreloaderProps> = ({ onComplete, forceShow = fa
               transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
               className="relative text-center"
             >
-              <h1 className="font-display text-8xl md:text-9xl font-black tracking-tighter leading-none text-[#FAF3E1]">
-                AK<span className="text-[#FF6D1F]">.</span>
+              <h1 className="font-display text-8xl md:text-9xl font-black tracking-tighter leading-none text-[#eaf8bf]">
+                AK<span className="text-[#eca400]">.</span>
               </h1>
             </motion.div>
 
             {/* Step 3: Thin Orange Line Drawing Across */}
-            <div className="w-full h-0.5 bg-[#FAF3E1]/10 my-6 relative overflow-hidden">
+            <div className="w-full h-0.5 bg-[#eaf8bf]/10 my-6 relative overflow-hidden">
               <motion.div
                 initial={{ scaleX: 0, originX: 0 }}
                 animate={{
                   scaleX: phase !== 'mask' ? 1 : 0,
                   transition: { duration: 0.4, ease: [0.22, 1, 0.36, 1] },
                 }}
-                className="absolute inset-0 bg-[#FF6D1F] origin-left"
+                className="absolute inset-0 bg-[#eca400] origin-left"
               />
             </div>
 
@@ -100,10 +100,10 @@ export const Preloader: React.FC<PreloaderProps> = ({ onComplete, forceShow = fa
                 y: phase === 'meta' || phase === 'exit' ? 0 : 10,
               }}
               transition={{ duration: 0.35, ease: 'easeOut' }}
-              className="w-full flex justify-between items-center font-mono text-[10px] md:text-xs tracking-wider uppercase text-[#FAF3E1]/70"
+              className="w-full flex justify-between items-center font-mono text-[10px] md:text-xs tracking-wider uppercase text-[#eaf8bf]/70"
             >
               <div>AK // CREATIVE</div>
-              <div className="text-[#FF6D1F] font-bold">2026</div>
+              <div className="text-[#eca400] font-bold">2026</div>
               <div>THINK. CREATE. BUILD.</div>
             </motion.div>
           </div>

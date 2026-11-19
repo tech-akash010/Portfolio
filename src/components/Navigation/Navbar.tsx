@@ -41,7 +41,7 @@ export const Navbar: React.FC = () => {
       <header
         className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ease-in-out px-4 sm:px-8 md:px-12 ${
           isScrolled
-            ? 'py-3.5 bg-[#222222]/85 backdrop-blur-md border-b border-[#FAF3E1]/10'
+            ? 'py-3.5 bg-[#001d4a]/85 backdrop-blur-md border-b border-[#eaf8bf]/10'
             : 'py-6 bg-transparent'
         }`}
       >
@@ -54,8 +54,8 @@ export const Navbar: React.FC = () => {
             onMouseLeave={resetCursor}
             aria-label="AK. Home"
           >
-            <span className="font-display text-2xl md:text-3xl font-black tracking-tight transition-colors group-hover:text-[#FF6D1F] text-[#FAF3E1]">
-              AK<span className="text-[#FF6D1F]">.</span>
+            <span className="font-display text-2xl md:text-3xl font-black tracking-tight transition-colors group-hover:text-[#eca400] text-[#eaf8bf]">
+              AK<span className="text-[#eca400]">.</span>
             </span>
           </Link>
 
@@ -78,15 +78,15 @@ export const Navbar: React.FC = () => {
                   onMouseLeave={resetCursor}
                   className={`relative font-mono text-xs uppercase tracking-widest py-1.5 transition-colors duration-200 ${
                     isActive
-                      ? 'text-[#FF6D1F] font-bold'
-                      : 'text-[#FAF3E1]/70 hover:text-[#FAF3E1]'
+                      ? 'text-[#eca400] font-bold'
+                      : 'text-[#eaf8bf]/70 hover:text-[#eaf8bf]'
                   }`}
                 >
                   <span className="relative z-10">{link.name}</span>
                   {isActive && (
                     <motion.div
                       layoutId="nav-active-indicator"
-                      className="absolute -bottom-1 left-0 right-0 h-[2px] bg-[#FF6D1F] rounded-full"
+                      className="absolute -bottom-1 left-0 right-0 h-[2px] bg-[#eca400] rounded-full"
                       transition={{ type: 'spring', stiffness: 380, damping: 30 }}
                     />
                   )}
@@ -101,7 +101,7 @@ export const Navbar: React.FC = () => {
             <button
               type="button"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="md:hidden flex items-center justify-center w-10 h-10 rounded-full focus:outline-none focus:ring-2 focus:ring-[#FF6D1F] bg-[#FAF3E1]/10 text-[#FAF3E1] border border-[#FAF3E1]/20 hover:bg-[#FAF3E1]/20 transition-colors"
+              className="md:hidden flex items-center justify-center w-10 h-10 rounded-full focus:outline-none focus:ring-2 focus:ring-[#eca400] bg-[#eaf8bf]/10 text-[#eaf8bf] border border-[#eaf8bf]/20 hover:bg-[#eaf8bf]/20 transition-colors"
               aria-label={mobileMenuOpen ? 'Close Menu' : 'Open Menu'}
               aria-expanded={mobileMenuOpen}
             >
@@ -119,20 +119,20 @@ export const Navbar: React.FC = () => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.25, ease: 'easeInOut' }}
-            className="fixed inset-0 z-30 bg-[#222222] text-[#FAF3E1] flex flex-col justify-between pt-24 pb-8 px-6 md:hidden overflow-y-auto"
+            className="fixed inset-0 z-30 bg-[#001d4a] text-[#eaf8bf] flex flex-col justify-between pt-24 pb-8 px-6 md:hidden overflow-y-auto"
           >
             {/* Grid background texture */}
             <div
               className="absolute inset-0 opacity-10 pointer-events-none"
               style={{
                 backgroundImage:
-                  'linear-gradient(to right, rgba(250, 243, 225, 0.1) 1px, transparent 1px), linear-gradient(to bottom, rgba(250, 243, 225, 0.1) 1px, transparent 1px)',
+                  'linear-gradient(to right, rgba(234, 248, 191, 0.1) 1px, transparent 1px), linear-gradient(to bottom, rgba(234, 248, 191, 0.1) 1px, transparent 1px)',
                 backgroundSize: '36px 36px',
               }}
             />
 
             <div className="relative z-10 flex flex-col space-y-6 mt-4">
-              <span className="font-mono text-[10px] tracking-widest text-[#FF6D1F] uppercase">
+              <span className="font-mono text-[10px] tracking-widest text-[#eca400] uppercase">
                 INDEX NAVIGATION
               </span>
 
@@ -143,7 +143,7 @@ export const Navbar: React.FC = () => {
                   onClick={() => setMobileMenuOpen(false)}
                   className={({ isActive }) =>
                     `group flex items-baseline justify-between text-3xl font-display font-bold transition-colors ${
-                      isActive ? 'text-[#FF6D1F]' : 'text-[#FAF3E1] hover:text-[#FF6D1F]'
+                      isActive ? 'text-[#eca400]' : 'text-[#eaf8bf] hover:text-[#eca400]'
                     }`
                   }
                 >
@@ -152,22 +152,22 @@ export const Navbar: React.FC = () => {
                 </NavLink>
               ))}
 
-              <div className="pt-6 border-t border-[#FAF3E1]/15">
-                <span className="font-mono text-[10px] tracking-widest text-[#FAF3E1]/50 uppercase block mb-3">
+              <div className="pt-6 border-t border-[#eaf8bf]/15">
+                <span className="font-mono text-[10px] tracking-widest text-[#eaf8bf]/50 uppercase block mb-3">
                   DISCIPLINES
                 </span>
                 <div className="grid grid-cols-2 gap-3">
                   <Link
                     to="/projects/design"
                     onClick={() => setMobileMenuOpen(false)}
-                    className="p-3 bg-[#FAF3E1]/5 rounded border border-[#FAF3E1]/10 text-xs font-mono hover:border-[#FF6D1F]"
+                    className="p-3 bg-[#eaf8bf]/5 rounded border border-[#eaf8bf]/10 text-xs font-mono hover:border-[#eca400]"
                   >
                     Design Portfolio
                   </Link>
                   <Link
                     to="/projects/technology"
                     onClick={() => setMobileMenuOpen(false)}
-                    className="p-3 bg-[#FAF3E1]/5 rounded border border-[#FAF3E1]/10 text-xs font-mono hover:border-[#FF6D1F]"
+                    className="p-3 bg-[#eaf8bf]/5 rounded border border-[#eaf8bf]/10 text-xs font-mono hover:border-[#eca400]"
                   >
                     Tech Projects
                   </Link>
@@ -175,9 +175,9 @@ export const Navbar: React.FC = () => {
               </div>
             </div>
 
-            <div className="relative z-10 pt-8 border-t border-[#FAF3E1]/15 space-y-3 font-mono text-xs text-[#FAF3E1]/70">
-              <div className="flex items-center gap-2 text-[#FF6D1F]">
-                <span className="w-2 h-2 rounded-full bg-[#FF6D1F] animate-pulse"></span>
+            <div className="relative z-10 pt-8 border-t border-[#eaf8bf]/15 space-y-3 font-mono text-xs text-[#eaf8bf]/70">
+              <div className="flex items-center gap-2 text-[#eca400]">
+                <span className="w-2 h-2 rounded-full bg-[#eca400] animate-pulse"></span>
                 <span>OPEN FOR COLLABORATION 2026</span>
               </div>
               <div className="flex flex-wrap justify-between items-center text-[11px] gap-2">
@@ -185,7 +185,7 @@ export const Navbar: React.FC = () => {
                   href="https://github.com/tech-akash010"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-[#FF6D1F] flex items-center gap-1"
+                  className="hover:text-[#eca400] flex items-center gap-1"
                 >
                   GitHub <ArrowUpRight className="w-3 h-3" />
                 </a>
@@ -193,7 +193,7 @@ export const Navbar: React.FC = () => {
                   href="https://www.linkedin.com/in/akashkundu010/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-[#FF6D1F] flex items-center gap-1"
+                  className="hover:text-[#eca400] flex items-center gap-1"
                 >
                   LinkedIn <ArrowUpRight className="w-3 h-3" />
                 </a>
@@ -201,7 +201,7 @@ export const Navbar: React.FC = () => {
                   href="https://x.com/officialak_X"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-[#FF6D1F] flex items-center gap-1"
+                  className="hover:text-[#eca400] flex items-center gap-1"
                 >
                   X <ArrowUpRight className="w-3 h-3" />
                 </a>
@@ -209,7 +209,7 @@ export const Navbar: React.FC = () => {
                   href="https://www.instagram.com/0x.akash/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-[#FF6D1F] flex items-center gap-1"
+                  className="hover:text-[#eca400] flex items-center gap-1"
                 >
                   Instagram <ArrowUpRight className="w-3 h-3" />
                 </a>

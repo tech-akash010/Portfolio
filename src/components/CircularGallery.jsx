@@ -405,26 +405,26 @@ const CircularGallery = ({
         c.height = 800;
         const ctx = c.getContext('2d');
         if (ctx) {
-          ctx.fillStyle = '#FAF3E1';
+          ctx.fillStyle = '#eaf8bf';
           ctx.fillRect(0, 0, 600, 800);
-          ctx.fillStyle = '#F5E7C6';
+          ctx.fillStyle = '#eaf8bf';
           ctx.fillRect(40, 40, 520, 720);
-          ctx.strokeStyle = '#222222';
+          ctx.strokeStyle = '#001d4a';
           ctx.lineWidth = 4;
           ctx.strokeRect(40, 40, 520, 720);
-          ctx.fillStyle = '#FF6D1F';
+          ctx.fillStyle = '#eca400';
           ctx.fillRect(60, 60, 480, 12);
           ctx.beginPath();
           ctx.arc(300, 360, 110, 0, Math.PI * 2);
-          ctx.fillStyle = '#FF6D1F';
+          ctx.fillStyle = '#eca400';
           ctx.fill();
-          ctx.fillStyle = '#222222';
+          ctx.fillStyle = '#001d4a';
           ctx.fillRect(240, 300, 120, 120);
-          ctx.fillStyle = '#222222';
+          ctx.fillStyle = '#001d4a';
           ctx.font = 'bold 32px sans-serif';
           ctx.textAlign = 'center';
           ctx.fillText(label || 'DESIGN WORK', 300, 560);
-          ctx.fillStyle = '#FF6D1F';
+          ctx.fillStyle = '#eca400';
           ctx.font = 'bold 18px monospace';
           ctx.fillText('SWISS EDITORIAL SYSTEM', 300, 600);
 
@@ -1146,8 +1146,8 @@ const CircularGallery = ({
                 display: 'inline-block',
                 padding: '3px 12px',
                 borderRadius: '9999px',
-                backgroundColor: '#FF6D1F',
-                color: '#FAF3E1',
+                backgroundColor: '#eca400',
+                color: '#eaf8bf',
                 fontFamily: 'monospace',
                 fontSize: '11px',
                 fontWeight: 'bold',
@@ -1171,8 +1171,8 @@ const CircularGallery = ({
                 gap: '8px',
                 padding: '8px 20px',
                 borderRadius: '9999px',
-                backgroundColor: '#222222',
-                color: '#FAF3E1',
+                backgroundColor: '#001d4a',
+                color: '#eaf8bf',
                 fontFamily: 'monospace',
                 fontSize: '12px',
                 fontWeight: 'bold',
