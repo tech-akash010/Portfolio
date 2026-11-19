@@ -119,11 +119,11 @@ export const SkillLogo: React.FC<SkillLogoProps> = ({ name, className = 'w-10 h-
     case 'Branding':
       return (
         <svg viewBox="0 0 128 128" className={className} fill="none" aria-hidden="true">
-          <rect width="128" height="128" rx="16" fill="#001d4a" />
-          <circle cx="64" cy="64" r="42" stroke="#eca400" strokeWidth="4" />
-          <path d="M64 22v84M22 64h84" stroke="#eaf8bf" strokeWidth="2" strokeDasharray="4 4" opacity="0.4" />
-          <polygon points="64,34 94,64 64,94 34,64" stroke="#eca400" strokeWidth="3" fill="#eca400" fillOpacity="0.15" />
-          <circle cx="64" cy="64" r="8" fill="#eca400" />
+          <rect width="128" height="128" rx="16" fill="#14213d" />
+          <circle cx="64" cy="64" r="42" stroke="#fca311" strokeWidth="4" />
+          <path d="M64 22v84M22 64h84" stroke="#ffffff" strokeWidth="2" strokeDasharray="4 4" opacity="0.4" />
+          <polygon points="64,34 94,64 64,94 34,64" stroke="#fca311" strokeWidth="3" fill="#fca311" fillOpacity="0.15" />
+          <circle cx="64" cy="64" r="8" fill="#fca311" />
         </svg>
       );
 
@@ -154,15 +154,15 @@ export const SkillLogo: React.FC<SkillLogoProps> = ({ name, className = 'w-10 h-
     case 'UI/UX':
       return (
         <svg viewBox="0 0 128 128" className={className} fill="none" aria-hidden="true">
-          <rect width="128" height="128" rx="16" fill="#001d4a" />
-          <rect x="20" y="24" width="88" height="80" rx="8" stroke="#eaf8bf" strokeWidth="4" />
-          <line x1="20" y1="44" x2="108" y2="44" stroke="#eaf8bf" strokeWidth="3" />
-          <circle cx="32" cy="34" r="3" fill="#eca400" />
-          <circle cx="42" cy="34" r="3" fill="#eaf8bf" opacity="0.5" />
-          <circle cx="52" cy="34" r="3" fill="#eaf8bf" opacity="0.5" />
-          <rect x="28" y="52" width="28" height="44" rx="4" fill="#eca400" fillOpacity="0.25" stroke="#eca400" strokeWidth="2" />
-          <rect x="64" y="52" width="36" height="18" rx="4" fill="#eaf8bf" fillOpacity="0.2" />
-          <rect x="64" y="76" width="36" height="20" rx="4" fill="#eaf8bf" fillOpacity="0.1" />
+          <rect width="128" height="128" rx="16" fill="#14213d" />
+          <rect x="20" y="24" width="88" height="80" rx="8" stroke="#ffffff" strokeWidth="4" />
+          <line x1="20" y1="44" x2="108" y2="44" stroke="#ffffff" strokeWidth="3" />
+          <circle cx="32" cy="34" r="3" fill="#fca311" />
+          <circle cx="42" cy="34" r="3" fill="#ffffff" opacity="0.5" />
+          <circle cx="52" cy="34" r="3" fill="#ffffff" opacity="0.5" />
+          <rect x="28" y="52" width="28" height="44" rx="4" fill="#fca311" fillOpacity="0.25" stroke="#fca311" strokeWidth="2" />
+          <rect x="64" y="52" width="36" height="18" rx="4" fill="#ffffff" fillOpacity="0.2" />
+          <rect x="64" y="76" width="36" height="20" rx="4" fill="#ffffff" fillOpacity="0.1" />
         </svg>
       );
 
@@ -179,9 +179,9 @@ export const SkillLogo: React.FC<SkillLogoProps> = ({ name, className = 'w-10 h-
     case 'GitHub':
       return (
         <svg viewBox="0 0 128 128" className={className} fill="none" aria-hidden="true">
-          <rect width="128" height="128" rx="16" fill="#001d4a" />
+          <rect width="128" height="128" rx="16" fill="#14213d" />
           <path
-            fill="#eaf8bf"
+            fill="#ffffff"
             fillRule="evenodd"
             clipRule="evenodd"
             d="M64 18C38.6 18 18 38.6 18 64c0 20.3 13.2 37.5 31.5 43.6 2.3.4 3.2-1 3.2-2.2 0-1.1-.1-4.9-.1-8.9-12.8 2.8-15.5-5.5-15.5-5.5-2.1-5.3-5.1-6.8-5.1-6.8-4.2-2.9.3-2.8.3-2.8 4.6.3 7 4.7 7 4.7 4.1 7 10.8 5 13.4 3.8.4-3 1.6-5 2.9-6.1-10.2-1.1-20.9-5.1-20.9-22.8 0-5.1 1.8-9.2 4.7-12.4-.5-1.2-2-5.9.5-12.2 0 0 3.9-1.2 12.7 4.7 3.7-1 7.7-1.5 11.7-1.5 4 0 8 .5 11.7 1.5 8.8-6 12.7-4.7 12.7-4.7 2.5 6.4 1 11.1.5 12.2 3 3.3 4.7 7.4 4.7 12.4 0 17.8-10.8 21.6-21 22.8 1.7 1.4 3.2 4.3 3.2 8.6 0 6.2-.1 11.2-.1 12.7 0 1.2.9 2.7 3.2 2.2 18.3-6.1 31.5-23.3 31.5-43.6C110 38.6 89.4 18 64 18z"
@@ -233,8 +233,8 @@ export const SkillLogo: React.FC<SkillLogoProps> = ({ name, className = 'w-10 h-
     default:
       return (
         <svg viewBox="0 0 128 128" className={className} fill="none" aria-hidden="true">
-          <rect width="128" height="128" rx="16" fill="#001d4a" />
-          <circle cx="64" cy="64" r="32" stroke="#eca400" strokeWidth="6" />
+          <rect width="128" height="128" rx="16" fill="#14213d" />
+          <circle cx="64" cy="64" r="32" stroke="#fca311" strokeWidth="6" />
         </svg>
       );
   }

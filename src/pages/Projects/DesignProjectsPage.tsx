@@ -127,23 +127,23 @@ export const DesignProjectsPage: React.FC = () => {
   }, [isLightboxOpen]);
 
   return (
-    <div className="pt-32 sm:pt-36 md:pt-40 pb-24 min-h-screen text-[#001d4a]">
+    <div className="pt-32 sm:pt-36 md:pt-40 pb-24 min-h-screen text-[#000000]">
       {/* Top Editorial Header */}
       <div className="max-w-7xl mx-auto px-6 sm:px-8 md:px-12 mb-10 sm:mb-12">
-        <div className="border-b border-[#001d4a]/15 pb-8 sm:pb-10 flex flex-col md:flex-row md:items-end justify-between gap-6">
+        <div className="border-b border-[#000000]/15 pb-8 sm:pb-10 flex flex-col md:flex-row md:items-end justify-between gap-6">
           <div>
-            <h1 className="font-display text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-black tracking-tighter text-[#001d4a] leading-[0.88]">
-              DESIGN DOSSIER<span className="text-[#eca400]">.</span>
+            <h1 className="font-display text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-black tracking-tighter text-[#000000] leading-[0.88]">
+              DESIGN DOSSIER<span className="text-[#fca311]">.</span>
             </h1>
-            <p className="font-editorial italic text-2xl sm:text-3xl text-[#001d4a]/75 mt-4 max-w-2xl font-normal leading-relaxed">
+            <p className="font-editorial italic text-2xl sm:text-3xl text-[#000000]/75 mt-4 max-w-2xl font-normal leading-relaxed">
               A curated collection of poster design, typography, and visual art direction.
             </p>
           </div>
 
           {/* Stepper Controls */}
           <div className="flex items-center gap-4 font-mono text-xs">
-            <span className="text-[#001d4a]/60 tracking-wider">
-              <strong className="text-[#006992] font-bold">{activeExhibit.id}</strong> / {DESIGN_EXHIBITS.length}
+            <span className="text-[#000000]/60 tracking-wider">
+              <strong className="text-[#14213d] font-bold">{activeExhibit.id}</strong> / {DESIGN_EXHIBITS.length}
             </span>
             <div className="flex items-center gap-1.5">
               <button
@@ -151,7 +151,7 @@ export const DesignProjectsPage: React.FC = () => {
                 onClick={handlePrev}
                 onMouseEnter={() => setCursorType('hover')}
                 onMouseLeave={resetCursor}
-                className="p-2.5 rounded-full bg-[#001d4a]/10 border border-[#001d4a]/15 text-[#001d4a] hover:bg-[#006992] hover:text-[#eaf8bf] transition-colors"
+                className="p-2.5 rounded-full bg-[#000000]/10 border border-[#000000]/15 text-[#000000] hover:bg-[#14213d] hover:text-[#ffffff] transition-colors"
                 title="Previous (←)"
                 aria-label="Previous artwork"
               >
@@ -162,7 +162,7 @@ export const DesignProjectsPage: React.FC = () => {
                 onClick={handleNext}
                 onMouseEnter={() => setCursorType('hover')}
                 onMouseLeave={resetCursor}
-                className="p-2.5 rounded-full bg-[#001d4a]/10 border border-[#001d4a]/15 text-[#001d4a] hover:bg-[#006992] hover:text-[#eaf8bf] transition-colors"
+                className="p-2.5 rounded-full bg-[#000000]/10 border border-[#000000]/15 text-[#000000] hover:bg-[#14213d] hover:text-[#ffffff] transition-colors"
                 title="Next (→)"
                 aria-label="Next artwork"
               >
@@ -175,13 +175,13 @@ export const DesignProjectsPage: React.FC = () => {
 
       {/* Main Spotlight Stage */}
       <div className="max-w-7xl mx-auto px-6 sm:px-8 md:px-12 mb-10 sm:mb-12">
-        <div className="relative w-full h-[520px] sm:h-[640px] md:h-[740px] bg-[#001d4a]/[0.03] rounded-3xl border border-[#001d4a]/15 overflow-hidden flex items-center justify-center p-6 sm:p-12 shadow-2xl">
+        <div className="relative w-full h-[520px] sm:h-[640px] md:h-[740px] bg-[#000000]/[0.03] rounded-3xl border border-[#000000]/15 overflow-hidden flex items-center justify-center p-6 sm:p-12 shadow-2xl">
           {/* Subtle Graphic Grid Lines */}
           <div
             className="absolute inset-0 opacity-10 pointer-events-none"
             style={{
               backgroundImage:
-                'linear-gradient(to right, rgba(0, 29, 74, 0.08) 1px, transparent 1px), linear-gradient(to bottom, rgba(0, 29, 74, 0.08) 1px, transparent 1px)',
+                'linear-gradient(to right, rgba(0, 0, 0, 0.08) 1px, transparent 1px), linear-gradient(to bottom, rgba(0, 0, 0, 0.08) 1px, transparent 1px)',
               backgroundSize: '36px 36px',
             }}
           />
@@ -192,7 +192,7 @@ export const DesignProjectsPage: React.FC = () => {
             onClick={handlePrev}
             onMouseEnter={() => setCursorType('hover')}
             onMouseLeave={resetCursor}
-            className="absolute left-3 sm:left-6 z-20 p-3 sm:p-4 rounded-full bg-[#001d4a] border border-[#001d4a] text-[#eaf8bf] hover:bg-[#006992] hover:border-[#006992] transition-all duration-300 shadow-xl"
+            className="absolute left-3 sm:left-6 z-20 p-3 sm:p-4 rounded-full bg-[#000000] border border-[#000000] text-[#ffffff] hover:bg-[#14213d] hover:border-[#14213d] transition-all duration-300 shadow-xl"
             title="Previous (←)"
             aria-label="Previous exhibit"
           >
@@ -204,7 +204,7 @@ export const DesignProjectsPage: React.FC = () => {
             onClick={handleNext}
             onMouseEnter={() => setCursorType('hover')}
             onMouseLeave={resetCursor}
-            className="absolute right-3 sm:right-6 z-20 p-3 sm:p-4 rounded-full bg-[#001d4a] border border-[#001d4a] text-[#eaf8bf] hover:bg-[#006992] hover:border-[#006992] transition-all duration-300 shadow-xl"
+            className="absolute right-3 sm:right-6 z-20 p-3 sm:p-4 rounded-full bg-[#000000] border border-[#000000] text-[#ffffff] hover:bg-[#14213d] hover:border-[#14213d] transition-all duration-300 shadow-xl"
             title="Next (→)"
             aria-label="Next exhibit"
           >
@@ -247,7 +247,7 @@ export const DesignProjectsPage: React.FC = () => {
               onClick={() => setIsLightboxOpen(true)}
               onMouseEnter={() => setCursorType('hover')}
               onMouseLeave={resetCursor}
-              className="inline-flex items-center gap-2 px-3.5 py-2 rounded-full bg-[#001d4a] border border-[#001d4a] text-[#eaf8bf] font-mono text-xs uppercase tracking-wider hover:bg-[#006992] transition-all duration-300 shadow-lg"
+              className="inline-flex items-center gap-2 px-3.5 py-2 rounded-full bg-[#000000] border border-[#000000] text-[#ffffff] font-mono text-xs uppercase tracking-wider hover:bg-[#14213d] transition-all duration-300 shadow-lg"
             >
               <Maximize2 className="w-3.5 h-3.5" />
               <span>Full Screen</span>
@@ -255,8 +255,8 @@ export const DesignProjectsPage: React.FC = () => {
           </div>
 
           <div className="absolute bottom-4 left-4 z-20">
-            <span className="font-mono text-xs text-[#001d4a]/80 px-3 py-1.5 rounded-full bg-[#eaf8bf]/90 border border-[#001d4a]/20 shadow-sm">
-              EXHIBIT <strong className="text-[#006992]">{activeExhibit.id}</strong> / {DESIGN_EXHIBITS.length}
+            <span className="font-mono text-xs text-[#000000]/80 px-3 py-1.5 rounded-full bg-[#ffffff]/90 border border-[#000000]/20 shadow-sm">
+              EXHIBIT <strong className="text-[#14213d]">{activeExhibit.id}</strong> / {DESIGN_EXHIBITS.length}
             </span>
           </div>
         </div>
@@ -265,9 +265,9 @@ export const DesignProjectsPage: React.FC = () => {
       {/* Filmstrip Runway Selector */}
       <div className="max-w-7xl mx-auto px-6 sm:px-8 md:px-12 mb-24">
         {/* Filmstrip Top Label */}
-        <div className="flex items-center justify-between font-mono text-xs text-[#001d4a]/60 uppercase tracking-widest pb-3 mb-2 border-b border-[#001d4a]/15">
+        <div className="flex items-center justify-between font-mono text-xs text-[#000000]/60 uppercase tracking-widest pb-3 mb-2 border-b border-[#000000]/15">
           <span>FILMSTRIP SELECTOR</span>
-          <span className="hidden sm:inline text-[11px] text-[#001d4a]/50">Use keyboard ← / → to switch</span>
+          <span className="hidden sm:inline text-[11px] text-[#000000]/50">Use keyboard ← / → to switch</span>
         </div>
 
         {/* Horizontal Filmstrip Cards */}
@@ -286,10 +286,10 @@ export const DesignProjectsPage: React.FC = () => {
                 onClick={() => setCurrentIndex(index)}
                 onMouseEnter={() => setCursorType('hover')}
                 onMouseLeave={resetCursor}
-                className={`group relative shrink-0 w-24 sm:w-28 md:w-32 h-32 sm:h-36 md:h-40 rounded-xl overflow-hidden border-2 transition-all duration-300 p-2 bg-[#001d4a]/[0.04] cursor-pointer ${
+                className={`group relative shrink-0 w-24 sm:w-28 md:w-32 h-32 sm:h-36 md:h-40 rounded-xl overflow-hidden border-2 transition-all duration-300 p-2 bg-[#000000]/[0.04] cursor-pointer ${
                   isSelected
-                    ? 'border-[#006992] scale-105 shadow-xl shadow-[#006992]/20'
-                    : 'border-[#001d4a]/15 opacity-60 hover:opacity-100 hover:border-[#001d4a]/40'
+                    ? 'border-[#14213d] scale-105 shadow-xl shadow-[#14213d]/20'
+                    : 'border-[#000000]/15 opacity-60 hover:opacity-100 hover:border-[#000000]/40'
                 }`}
                 title={exhibit.alt}
                 aria-label={`Select exhibit ${exhibit.id}`}
@@ -312,8 +312,8 @@ export const DesignProjectsPage: React.FC = () => {
                 <div
                   className={`absolute bottom-1.5 right-1.5 font-mono text-[9px] px-1.5 py-0.5 rounded ${
                     isSelected
-                      ? 'bg-[#006992] text-[#eaf8bf] font-bold'
-                      : 'bg-[#001d4a]/80 text-[#eaf8bf]/70'
+                      ? 'bg-[#14213d] text-[#ffffff] font-bold'
+                      : 'bg-[#000000]/80 text-[#ffffff]/70'
                   }`}
                 >
                   {exhibit.id}
@@ -326,16 +326,16 @@ export const DesignProjectsPage: React.FC = () => {
 
       {/* Creative Perspective Manifest Callout - Deep Anchor Card */}
       <div className="max-w-7xl mx-auto px-6 sm:px-8 md:px-12">
-        <div className="p-8 sm:p-14 bg-[#001d4a] text-[#eaf8bf] rounded-3xl relative overflow-hidden border border-[#001d4a] shadow-2xl">
-          <div className="absolute top-0 right-0 w-96 h-96 bg-[#eca400]/10 rounded-full blur-3xl pointer-events-none" />
+        <div className="p-8 sm:p-14 bg-[#000000] text-[#ffffff] rounded-3xl relative overflow-hidden border border-[#000000] shadow-2xl">
+          <div className="absolute top-0 right-0 w-96 h-96 bg-[#fca311]/10 rounded-full blur-3xl pointer-events-none" />
           <div className="relative z-10 max-w-3xl">
-            <span className="font-mono text-xs uppercase tracking-widest text-[#eca400] block mb-3">
+            <span className="font-mono text-xs uppercase tracking-widest text-[#fca311] block mb-3">
               CREATIVE PERSPECTIVE
             </span>
             <h3 className="font-display text-3xl sm:text-4xl md:text-5xl font-black tracking-tight leading-tight">
-              FORM FOLLOWS INTENTION<span className="text-[#eca400]">.</span>
+              FORM FOLLOWS INTENTION<span className="text-[#fca311]">.</span>
             </h3>
-            <p className="font-editorial italic text-xl sm:text-2xl text-[#eaf8bf]/80 mt-4 leading-relaxed font-normal">
+            <p className="font-editorial italic text-xl sm:text-2xl text-[#e5e5e5]/80 mt-4 leading-relaxed font-normal">
               "Design is not decoration applied onto engineering; it is the cognitive architecture through which humans interface with thought, data, and technology."
             </p>
             <div className="mt-8 flex flex-wrap gap-4 font-mono text-xs">
@@ -343,7 +343,7 @@ export const DesignProjectsPage: React.FC = () => {
                 to="/connect"
                 onMouseEnter={() => setCursorType('hover')}
                 onMouseLeave={resetCursor}
-                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-[#eca400] text-[#001d4a] font-bold uppercase tracking-wider hover:bg-[#eaf8bf] hover:text-[#001d4a] transition-colors"
+                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-[#fca311] text-[#000000] font-bold uppercase tracking-wider hover:bg-[#ffffff] hover:text-[#000000] transition-colors"
               >
                 <span>COMMISSION A DESIGN WORK</span>
                 <ArrowUpRight className="w-4 h-4" />
@@ -352,7 +352,7 @@ export const DesignProjectsPage: React.FC = () => {
                 to="/about"
                 onMouseEnter={() => setCursorType('hover')}
                 onMouseLeave={resetCursor}
-                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full border border-[#eaf8bf]/20 hover:border-[#eca400] hover:bg-[#eaf8bf]/10 text-[#eaf8bf] uppercase tracking-wider transition-colors"
+                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full border border-[#ffffff]/20 hover:border-[#fca311] hover:bg-[#ffffff]/10 text-[#ffffff] uppercase tracking-wider transition-colors"
               >
                 <span>STUDIO DOSSIER</span>
               </Link>
@@ -369,16 +369,16 @@ export const DesignProjectsPage: React.FC = () => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.25 }}
-            className="fixed inset-0 z-50 bg-[#001d4a]/95 backdrop-blur-md flex flex-col justify-between p-4 sm:p-8"
+            className="fixed inset-0 z-50 bg-[#000000]/95 backdrop-blur-md flex flex-col justify-between p-4 sm:p-8"
             onClick={() => setIsLightboxOpen(false)}
           >
             {/* Modal Top Bar */}
             <div
-              className="flex items-center justify-between text-[#eaf8bf] font-mono text-xs uppercase tracking-wider z-20"
+              className="flex items-center justify-between text-[#ffffff] font-mono text-xs uppercase tracking-wider z-20"
               onClick={(e) => e.stopPropagation()}
             >
               <div className="flex items-center gap-3">
-                <span className="w-2 h-2 rounded-full bg-[#eca400]" />
+                <span className="w-2 h-2 rounded-full bg-[#fca311]" />
                 <span>
                   EXHIBIT {activeExhibit.id} OF {DESIGN_EXHIBITS.length}
                 </span>
@@ -388,7 +388,7 @@ export const DesignProjectsPage: React.FC = () => {
               <button
                 type="button"
                 onClick={() => setIsLightboxOpen(false)}
-                className="p-2.5 rounded-full bg-[#eaf8bf]/10 hover:bg-[#eca400] text-[#001d4a] transition-colors"
+                className="p-2.5 rounded-full bg-[#ffffff]/10 hover:bg-[#fca311] text-[#000000] transition-colors"
                 title="Close (Esc)"
               >
                 <X className="w-5 h-5" />
@@ -404,7 +404,7 @@ export const DesignProjectsPage: React.FC = () => {
               <button
                 type="button"
                 onClick={handlePrev}
-                className="absolute left-2 sm:left-4 z-20 p-3 rounded-full bg-[#eaf8bf]/10 hover:bg-[#eca400] text-[#001d4a] transition-colors shadow-lg"
+                className="absolute left-2 sm:left-4 z-20 p-3 rounded-full bg-[#ffffff]/10 hover:bg-[#fca311] text-[#000000] transition-colors shadow-lg"
                 title="Previous (←)"
               >
                 <ChevronLeft className="w-6 h-6" />
@@ -433,7 +433,7 @@ export const DesignProjectsPage: React.FC = () => {
               <button
                 type="button"
                 onClick={handleNext}
-                className="absolute right-2 sm:right-4 z-20 p-3 rounded-full bg-[#eaf8bf]/10 hover:bg-[#eca400] text-[#001d4a] transition-colors shadow-lg"
+                className="absolute right-2 sm:right-4 z-20 p-3 rounded-full bg-[#ffffff]/10 hover:bg-[#fca311] text-[#000000] transition-colors shadow-lg"
                 title="Next (→)"
               >
                 <ChevronRight className="w-6 h-6" />
@@ -442,12 +442,12 @@ export const DesignProjectsPage: React.FC = () => {
 
             {/* Modal Bottom Keyboard Hint */}
             <div
-              className="text-center font-mono text-[11px] text-[#eaf8bf]/50 z-20"
+              className="text-center font-mono text-[11px] text-[#e5e5e5]/50 z-20"
               onClick={(e) => e.stopPropagation()}
             >
-              Use <kbd className="px-1.5 py-0.5 bg-[#eaf8bf]/10 rounded text-[#eaf8bf]/80">←</kbd> /{' '}
-              <kbd className="px-1.5 py-0.5 bg-[#eaf8bf]/10 rounded text-[#eaf8bf]/80">→</kbd> to navigate,{' '}
-              <kbd className="px-1.5 py-0.5 bg-[#eaf8bf]/10 rounded text-[#eaf8bf]/80">ESC</kbd> to close
+              Use <kbd className="px-1.5 py-0.5 bg-[#ffffff]/10 rounded text-[#ffffff]/80">←</kbd> /{' '}
+              <kbd className="px-1.5 py-0.5 bg-[#ffffff]/10 rounded text-[#ffffff]/80">→</kbd> to navigate,{' '}
+              <kbd className="px-1.5 py-0.5 bg-[#ffffff]/10 rounded text-[#ffffff]/80">ESC</kbd> to close
             </div>
           </motion.div>
         )}

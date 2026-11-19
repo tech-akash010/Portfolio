@@ -90,18 +90,15 @@ export const Navbar: React.FC = () => {
 
   // Theme awareness based on current route
   const isEditorial = location.pathname.startsWith('/projects/design');
-  const isOcean = location.pathname === '/connect';
   const isLapis = location.pathname === '/projects' || location.pathname === '/about';
 
   const scrolledBg = isEditorial
-    ? 'bg-[#eaf8bf]/90 border-b border-[#001d4a]/15 backdrop-blur-md'
-    : isOcean
-    ? 'bg-[#006992]/90 border-b border-[#eaf8bf]/15 backdrop-blur-md'
+    ? 'bg-[#ffffff]/90 border-b border-[#000000]/15 backdrop-blur-md'
     : isLapis
-    ? 'bg-[#27476e]/90 border-b border-[#eaf8bf]/15 backdrop-blur-md'
-    : 'bg-[#001d4a]/90 border-b border-[#eaf8bf]/10 backdrop-blur-md';
+    ? 'bg-[#14213d]/90 border-b border-[#ffffff]/15 backdrop-blur-md'
+    : 'bg-[#000000]/90 border-b border-[#ffffff]/10 backdrop-blur-md';
 
-  const textColor = isEditorial ? 'text-[#001d4a]' : 'text-[#eaf8bf]';
+  const textColor = isEditorial ? 'text-[#000000]' : 'text-[#ffffff]';
 
   return (
     <>
@@ -123,26 +120,26 @@ export const Navbar: React.FC = () => {
             <span
               className={`font-display text-2xl md:text-3xl font-black tracking-tight transition-colors ${
                 isEditorial
-                  ? 'text-[#001d4a] group-hover:text-[#006992]'
-                  : 'text-[#eaf8bf] group-hover:text-[#eca400]'
+                  ? 'text-[#000000] group-hover:text-[#14213d]'
+                  : 'text-[#ffffff] group-hover:text-[#fca311]'
               }`}
             >
-              AK<span className="text-[#eca400]">.</span>
+              AK<span className="text-[#fca311]">.</span>
             </span>
           </Link>
 
           {/* Center Architectural Telemetry Strip (Desktop) */}
           <div className="hidden lg:flex items-center gap-6 font-mono text-[11px] tracking-wider">
-            <span className={isEditorial ? 'text-[#001d4a]/70' : 'text-[#eaf8bf]/70'}>
-              KOLKATA, IN <span className="text-[#eca400]">22.57°N 88.36°E</span>
+            <span className={isEditorial ? 'text-[#000000]/70' : 'text-[#e5e5e5]/70'}>
+              KOLKATA, IN <span className="text-[#fca311]">22.57°N 88.36°E</span>
             </span>
-            <span className={isEditorial ? 'text-[#001d4a]/30' : 'text-[#eaf8bf]/30'}>//</span>
-            <span className={isEditorial ? 'text-[#001d4a]/80' : 'text-[#eaf8bf]/80'}>
+            <span className={isEditorial ? 'text-[#000000]/30' : 'text-[#ffffff]/30'}>//</span>
+            <span className={isEditorial ? 'text-[#000000]/80' : 'text-[#ffffff]/80'}>
               {timeStr || '12:00:00'} IST
             </span>
-            <span className={isEditorial ? 'text-[#001d4a]/30' : 'text-[#eaf8bf]/30'}>//</span>
-            <div className="flex items-center gap-1.5 text-[#eca400]">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#eca400] animate-pulse" />
+            <span className={isEditorial ? 'text-[#000000]/30' : 'text-[#ffffff]/30'}>//</span>
+            <div className="flex items-center gap-1.5 text-[#fca311]">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#fca311] animate-pulse" />
               <span className="uppercase text-[10px] font-semibold">Available for Work</span>
             </div>
           </div>
@@ -155,10 +152,10 @@ export const Navbar: React.FC = () => {
                 className={({ isActive }) =>
                   `transition-colors ${
                     isActive
-                      ? 'text-[#eca400] font-bold'
+                      ? 'text-[#fca311] font-bold'
                       : isEditorial
-                      ? 'text-[#001d4a]/70 hover:text-[#001d4a]'
-                      : 'text-[#eaf8bf]/70 hover:text-[#eaf8bf]'
+                      ? 'text-[#000000]/70 hover:text-[#000000]'
+                      : 'text-[#e5e5e5]/70 hover:text-[#ffffff]'
                   }`
                 }
               >
@@ -169,10 +166,10 @@ export const Navbar: React.FC = () => {
                 className={({ isActive }) =>
                   `transition-colors ${
                     isActive
-                      ? 'text-[#eca400] font-bold'
+                      ? 'text-[#fca311] font-bold'
                       : isEditorial
-                      ? 'text-[#001d4a]/70 hover:text-[#001d4a]'
-                      : 'text-[#eaf8bf]/70 hover:text-[#eaf8bf]'
+                      ? 'text-[#000000]/70 hover:text-[#000000]'
+                      : 'text-[#e5e5e5]/70 hover:text-[#ffffff]'
                   }`
                 }
               >
@@ -183,10 +180,10 @@ export const Navbar: React.FC = () => {
                 className={({ isActive }) =>
                   `transition-colors ${
                     isActive
-                      ? 'text-[#eca400] font-bold'
+                      ? 'text-[#fca311] font-bold'
                       : isEditorial
-                      ? 'text-[#001d4a]/70 hover:text-[#001d4a]'
-                      : 'text-[#eaf8bf]/70 hover:text-[#eaf8bf]'
+                      ? 'text-[#000000]/70 hover:text-[#000000]'
+                      : 'text-[#e5e5e5]/70 hover:text-[#ffffff]'
                   }`
                 }
               >
@@ -202,10 +199,10 @@ export const Navbar: React.FC = () => {
               aria-label={menuOpen ? 'Close Menu' : 'Open Menu'}
               className={`flex items-center gap-2.5 px-4 py-2 rounded-full border transition-all duration-300 font-mono text-xs uppercase tracking-wider font-semibold cursor-pointer ${
                 menuOpen
-                  ? 'bg-[#eca400] text-[#001d4a] border-[#eca400]'
+                  ? 'bg-[#fca311] text-[#000000] border-[#fca311]'
                   : isEditorial
-                  ? 'border-[#001d4a]/25 text-[#001d4a] hover:bg-[#001d4a] hover:text-[#eaf8bf]'
-                  : 'border-[#eaf8bf]/25 text-[#eaf8bf] hover:bg-[#eca400] hover:text-[#001d4a] hover:border-[#eca400]'
+                  ? 'border-[#000000]/25 text-[#000000] hover:bg-[#000000] hover:text-[#ffffff]'
+                  : 'border-[#ffffff]/25 text-[#ffffff] hover:bg-[#fca311] hover:text-[#000000] hover:border-[#fca311]'
               }`}
             >
               <span>{menuOpen ? 'CLOSE // ESC' : 'MENU // 04'}</span>
@@ -223,14 +220,14 @@ export const Navbar: React.FC = () => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
-            className="fixed inset-0 z-30 bg-[#001d4a]/98 text-[#eaf8bf] backdrop-blur-2xl flex flex-col justify-between pt-28 pb-10 px-6 sm:px-12 md:px-16 overflow-y-auto"
+            className="fixed inset-0 z-30 bg-[#000000]/98 text-[#ffffff] backdrop-blur-2xl flex flex-col justify-between pt-28 pb-10 px-6 sm:px-12 md:px-16 overflow-y-auto"
           >
             {/* Background Swiss Grid Lines */}
             <div
               className="absolute inset-0 opacity-5 pointer-events-none"
               style={{
                 backgroundImage:
-                  'linear-gradient(to right, rgba(234, 248, 191, 0.2) 1px, transparent 1px), linear-gradient(to bottom, rgba(234, 248, 191, 0.2) 1px, transparent 1px)',
+                  'linear-gradient(to right, rgba(255, 255, 255, 0.2) 1px, transparent 1px), linear-gradient(to bottom, rgba(255, 255, 255, 0.2) 1px, transparent 1px)',
                 backgroundSize: '48px 48px',
               }}
             />
@@ -238,7 +235,7 @@ export const Navbar: React.FC = () => {
             {/* Overlay Body: Typographic Index Navigation + Telemetry Rail */}
             <div className="relative max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-12 my-auto">
               {/* Left Column: Huge Swiss Index Links */}
-              <div className="lg:col-span-8 flex flex-col justify-center divide-y divide-[#eaf8bf]/10">
+              <div className="lg:col-span-8 flex flex-col justify-center divide-y divide-[#ffffff]/10">
                 {navLinks.map((link, idx) => {
                   const isActive =
                     link.path === '/'
@@ -260,22 +257,22 @@ export const Navbar: React.FC = () => {
                         className="group flex flex-col sm:flex-row sm:items-baseline justify-between py-5 sm:py-7 transition-all"
                       >
                         <div className="flex items-baseline gap-4 sm:gap-6">
-                          <span className="font-mono text-sm sm:text-base text-[#eca400] font-bold">
+                          <span className="font-mono text-sm sm:text-base text-[#fca311] font-bold">
                             {link.number}
                           </span>
                           <span
                             className={`font-display text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black tracking-tight transition-transform duration-300 group-hover:translate-x-3 ${
                               isActive
-                                ? 'text-[#eca400]'
-                                : 'text-[#eaf8bf] group-hover:text-[#eca400]'
+                                ? 'text-[#fca311]'
+                                : 'text-[#ffffff] group-hover:text-[#fca311]'
                             }`}
                           >
                             {link.name}
                           </span>
                         </div>
-                        <div className="flex items-center gap-3 mt-2 sm:mt-0 font-mono text-xs text-[#eaf8bf]/60 group-hover:text-[#eaf8bf]">
+                        <div className="flex items-center gap-3 mt-2 sm:mt-0 font-mono text-xs text-[#e5e5e5]/60 group-hover:text-[#ffffff]">
                           <span>{link.label}</span>
-                          <ArrowUpRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity text-[#eca400]" />
+                          <ArrowUpRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity text-[#fca311]" />
                         </div>
                       </Link>
                     </motion.div>
@@ -284,50 +281,50 @@ export const Navbar: React.FC = () => {
               </div>
 
               {/* Right Column: Sub-disciplines & Transmissions Rail */}
-              <div className="lg:col-span-4 flex flex-col justify-between space-y-8 border-t lg:border-t-0 lg:border-l border-[#eaf8bf]/15 pt-8 lg:pt-0 lg:pl-10">
+              <div className="lg:col-span-4 flex flex-col justify-between space-y-8 border-t lg:border-t-0 lg:border-l border-[#ffffff]/15 pt-8 lg:pt-0 lg:pl-10">
                 {/* Discipline Quick Jump */}
                 <div className="space-y-4">
-                  <span className="font-mono text-[11px] uppercase tracking-wider text-[#eca400] font-bold block">
+                  <span className="font-mono text-[11px] uppercase tracking-wider text-[#fca311] font-bold block">
                     // JUMP BY DISCIPLINE
                   </span>
                   <div className="space-y-2">
                     <Link
                       to="/projects/technology"
                       onClick={() => setMenuOpen(false)}
-                      className="group flex items-center justify-between p-3 rounded-lg border border-[#eaf8bf]/15 hover:border-[#eca400] hover:bg-[#eaf8bf]/5 transition-all"
+                      className="group flex items-center justify-between p-3 rounded-lg border border-[#ffffff]/15 hover:border-[#fca311] hover:bg-[#ffffff]/5 transition-all"
                     >
                       <div>
-                        <span className="font-display font-bold text-sm block group-hover:text-[#eca400] transition-colors">
+                        <span className="font-display font-bold text-sm block group-hover:text-[#fca311] transition-colors text-[#ffffff]">
                           Technology &amp; Systems
                         </span>
-                        <span className="font-mono text-[10px] text-[#eaf8bf]/60">
+                        <span className="font-mono text-[10px] text-[#e5e5e5]/60">
                           Web Apps, Dev Tools &amp; Compilers [06]
                         </span>
                       </div>
-                      <ArrowUpRight className="w-4 h-4 text-[#eca400]" />
+                      <ArrowUpRight className="w-4 h-4 text-[#fca311]" />
                     </Link>
 
                     <Link
                       to="/projects/design"
                       onClick={() => setMenuOpen(false)}
-                      className="group flex items-center justify-between p-3 rounded-lg border border-[#eaf8bf]/15 hover:border-[#eca400] hover:bg-[#eaf8bf]/5 transition-all"
+                      className="group flex items-center justify-between p-3 rounded-lg border border-[#ffffff]/15 hover:border-[#fca311] hover:bg-[#ffffff]/5 transition-all"
                     >
                       <div>
-                        <span className="font-display font-bold text-sm block group-hover:text-[#eca400] transition-colors">
+                        <span className="font-display font-bold text-sm block group-hover:text-[#fca311] transition-colors text-[#ffffff]">
                           Design &amp; Art Direction
                         </span>
-                        <span className="font-mono text-[10px] text-[#eaf8bf]/60">
+                        <span className="font-mono text-[10px] text-[#e5e5e5]/60">
                           Posters, Brand Systems &amp; Type [06]
                         </span>
                       </div>
-                      <ArrowUpRight className="w-4 h-4 text-[#eca400]" />
+                      <ArrowUpRight className="w-4 h-4 text-[#fca311]" />
                     </Link>
                   </div>
                 </div>
 
                 {/* Direct Transmission Socials */}
                 <div className="space-y-3">
-                  <span className="font-mono text-[11px] uppercase tracking-wider text-[#eca400] font-bold block">
+                  <span className="font-mono text-[11px] uppercase tracking-wider text-[#fca311] font-bold block">
                     // TRANSMISSIONS &amp; NETWORKS
                   </span>
                   <div className="grid grid-cols-2 gap-3">
@@ -337,23 +334,23 @@ export const Navbar: React.FC = () => {
                         href={s.url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="font-mono text-xs text-[#eaf8bf]/80 hover:text-[#eca400] transition-colors flex items-center gap-1.5"
+                        className="font-mono text-xs text-[#e5e5e5]/80 hover:text-[#fca311] transition-colors flex items-center gap-1.5"
                       >
                         <span>{s.name}</span>
-                        <ArrowUpRight className="w-3 h-3 text-[#eca400]" />
+                        <ArrowUpRight className="w-3 h-3 text-[#fca311]" />
                       </a>
                     ))}
                   </div>
                 </div>
 
                 {/* Instant Copy Email Action */}
-                <div className="pt-4 border-t border-[#eaf8bf]/15">
-                  <span className="font-mono text-[11px] text-[#eaf8bf]/60 block mb-2">
+                <div className="pt-4 border-t border-[#ffffff]/15">
+                  <span className="font-mono text-[11px] text-[#e5e5e5]/60 block mb-2">
                     DIRECT INQUIRY
                   </span>
                   <button
                     onClick={copyEmail}
-                    className="w-full py-3 px-4 bg-[#eca400] text-[#001d4a] font-mono text-xs uppercase tracking-wider font-bold rounded-lg flex items-center justify-center gap-2 hover:bg-[#eaf8bf] transition-colors cursor-pointer"
+                    className="w-full py-3 px-4 bg-[#fca311] text-[#000000] font-mono text-xs uppercase tracking-wider font-bold rounded-lg flex items-center justify-center gap-2 hover:bg-[#ffffff] transition-colors cursor-pointer"
                   >
                     {copiedEmail ? (
                       <>
@@ -372,12 +369,12 @@ export const Navbar: React.FC = () => {
             </div>
 
             {/* Overlay Footer Coordinates */}
-            <div className="relative max-w-7xl mx-auto w-full flex flex-col sm:flex-row items-center justify-between pt-6 border-t border-[#eaf8bf]/15 font-mono text-[11px] text-[#eaf8bf]/50 gap-2">
+            <div className="relative max-w-7xl mx-auto w-full flex flex-col sm:flex-row items-center justify-between pt-6 border-t border-[#ffffff]/15 font-mono text-[11px] text-[#e5e5e5]/50 gap-2">
               <div>
                 AKASH KUNDU ARCHIVE • SYSTEM PROTOCOL 2026
               </div>
               <div>
-                PRESS <span className="text-[#eca400] font-bold">ESC</span> TO EXIT
+                PRESS <span className="text-[#fca311] font-bold">ESC</span> TO EXIT
               </div>
             </div>
           </motion.div>

@@ -8,17 +8,17 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme {
-  --color-canvas: #001d4a;
-  --color-canvas-subtle: #27476e;
-  --color-accent: #eca400;
-  --color-accent-blue: #006992;
-  --color-ocean: #006992;
-  --color-ink: #eaf8bf;
+  --color-canvas: #000000;
+  --color-canvas-subtle: #14213d;
+  --color-accent: #fca311;
+  --color-accent-blue: #14213d;
+  --color-ocean: #14213d;
+  --color-ink: #ffffff;
 
-  --color-bg-primary: #001d4a;
-  --color-bg-secondary: #27476e;
-  --color-accent-orange: #eca400;
-  --color-dark-charcoal: #eaf8bf;
+  --color-bg-primary: #000000;
+  --color-bg-secondary: #14213d;
+  --color-accent-orange: #fca311;
+  --color-dark-charcoal: #e5e5e5;
 
   --font-display: 'Outfit', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   --font-body: 'Geist', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
@@ -30,13 +30,13 @@
 
 @layer base {
   * {
-    border-color: rgba(234, 248, 191, 0.12);
+    border-color: rgba(255, 255, 255, 0.12);
     @apply border-border outline-ring/50;
   }
 
   html {
-    background-color: #001d4a;
-    color: #eaf8bf;
+    background-color: #000000;
+    color: #ffffff;
     font-family: var(--font-body);
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
@@ -53,12 +53,12 @@
   }
 
   ::selection {
-    background-color: #eca400;
-    color: #001d4a;
+    background-color: #fca311;
+    color: #000000;
   }
   body {
     background-color: transparent;
-    color: #eaf8bf;
+    color: #ffffff;
     @apply bg-transparent text-foreground;
   }
 }
@@ -93,15 +93,15 @@
 .swiss-grid-lines {
   background-size: 40px 40px;
   background-image: 
-    linear-gradient(to right, rgba(234, 248, 191, 0.05) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(234, 248, 191, 0.05) 1px, transparent 1px);
+    linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
 }
 
 .swiss-grid-lines-dark {
   background-size: 40px 40px;
   background-image: 
-    linear-gradient(to right, rgba(234, 248, 191, 0.05) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(234, 248, 191, 0.05) 1px, transparent 1px);
+    linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
 }
 
 /* Custom scrollbar */
@@ -111,16 +111,16 @@
 }
 
 ::-webkit-scrollbar-track {
-  background: #001d4a;
+  background: #000000;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(234, 248, 191, 0.25);
+  background: rgba(252, 163, 17, 0.4);
   border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #eca400;
+  background: #fca311;
 }
 
 /* Marquee infinite scroll helper */

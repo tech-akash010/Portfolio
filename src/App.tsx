@@ -59,7 +59,7 @@ export default function App() {
         {/* Global Springy Ribbons that trail the cursor across every page */}
         <div className="fixed inset-0 pointer-events-none z-20 overflow-hidden" aria-hidden="true">
           <Ribbons
-            colors={['#eca400', '#006992', '#eaf8bf']}
+            colors={['#fca311', '#14213d', '#ffffff']}
             thickness={36}
             length={2.4}
             shape="lens"
@@ -73,7 +73,7 @@ export default function App() {
           />
         </div>
 
-        <div className="min-h-screen flex flex-col justify-between selection:bg-[#eca400] selection:text-[#001d4a]">
+        <div className="min-h-screen flex flex-col justify-between selection:bg-[#fca311] selection:text-[#000000]">
           <Navbar />
 
           <main className="flex-1">

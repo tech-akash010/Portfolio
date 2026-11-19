@@ -26,10 +26,10 @@ export const designProjects: DesignProject[] = [
       concept: 'Rhythm, Tension & Pure Geometry',
       typography: ['Space Grotesk (700)', 'Space Mono (400)', 'Inter (500)'],
       colorPalette: [
-        { name: 'Warm Canvas', hex: '#eaf8bf' },
-        { name: 'Paper Beige', hex: '#eaf8bf' },
-        { name: 'Pure Ink', hex: '#001d4a' },
-        { name: 'Signal Orange', hex: '#eca400' }
+        { name: 'Pure White', hex: '#ffffff' },
+        { name: 'Platinum Gray', hex: '#e5e5e5' },
+        { name: 'Oxford Navy', hex: '#14213d' },
+        { name: 'Amber Gold', hex: '#fca311' }
       ],
       visualElements: ['Asymmetrical coordinates', '45° sheared text blocks', 'Micro-perforations', 'Overprinted halftone patterns']
     },
@@ -94,10 +94,10 @@ export const designProjects: DesignProject[] = [
       concept: 'The Architecture of Thought',
       typography: ['Space Grotesk', 'Playfair Display', 'Space Mono'],
       colorPalette: [
-        { name: 'Canvas White', hex: '#eaf8bf' },
-        { name: 'Deep Carbon', hex: '#001d4a' },
-        { name: 'Electric Tangerine', hex: '#eca400' },
-        { name: 'Oatmeal Tone', hex: '#eaf8bf' }
+        { name: 'Pure White', hex: '#ffffff' },
+        { name: 'Pure Black', hex: '#000000' },
+        { name: 'Amber Gold', hex: '#fca311' },
+        { name: 'Platinum Gray', hex: '#e5e5e5' }
       ],
       visualElements: ['Variable line-weight logos', 'Embossed blind letterpress', 'Monochrome technical callouts']
     },
@@ -156,10 +156,10 @@ export const designProjects: DesignProject[] = [
       concept: 'Memory Meets Speculation',
       typography: ['Playfair Display', 'Space Mono'],
       colorPalette: [
-        { name: 'Parchment', hex: '#eaf8bf' },
-        { name: 'Amber Clay', hex: '#eaf8bf' },
-        { name: 'Tram Iron', hex: '#001d4a' },
-        { name: 'Sunrise Flame', hex: '#eca400' }
+        { name: 'Pure White', hex: '#ffffff' },
+        { name: 'Platinum Gray', hex: '#e5e5e5' },
+        { name: 'Oxford Navy', hex: '#14213d' },
+        { name: 'Amber Gold', hex: '#fca311' }
       ],
       visualElements: ['Isometric projection lines', 'Stipple grain textures', 'Monoline architectural outlines']
     },
@@ -218,10 +218,10 @@ export const designProjects: DesignProject[] = [
       concept: 'Instrumental Precision',
       typography: ['Space Grotesk', 'Inter', 'Space Mono'],
       colorPalette: [
-        { name: 'Paper Shell', hex: '#eaf8bf' },
-        { name: 'Panel Beige', hex: '#eaf8bf' },
-        { name: 'Dark Carbon', hex: '#001d4a' },
-        { name: 'Safety Orange', hex: '#eca400' }
+        { name: 'Pure White', hex: '#ffffff' },
+        { name: 'Platinum Gray', hex: '#e5e5e5' },
+        { name: 'Pure Black', hex: '#000000' },
+        { name: 'Amber Gold', hex: '#fca311' }
       ],
       visualElements: ['Micro-borders', 'Tabbed code docks', 'High-contrast status pills', 'Subtle hover states']
     },
@@ -280,10 +280,10 @@ export const designProjects: DesignProject[] = [
       concept: 'Open Community, Unbound Code',
       typography: ['Space Grotesk', 'Inter', 'Space Mono'],
       colorPalette: [
-        { name: 'Ivory Base', hex: '#eaf8bf' },
-        { name: 'Parchment Card', hex: '#eaf8bf' },
-        { name: 'Deep Slate', hex: '#001d4a' },
-        { name: 'Beacon Orange', hex: '#eca400' }
+        { name: 'Pure White', hex: '#ffffff' },
+        { name: 'Platinum Gray', hex: '#e5e5e5' },
+        { name: 'Oxford Navy', hex: '#14213d' },
+        { name: 'Amber Gold', hex: '#fca311' }
       ],
       visualElements: ['Terminal prompts', 'Halftone portraits', 'Brutalist registration banners']
     },
@@ -337,9 +337,9 @@ export const designProjects: DesignProject[] = [
       concept: 'Monolithic Balance',
       typography: ['Space Mono'],
       colorPalette: [
-        { name: 'Heavy Ink', hex: '#001d4a' },
-        { name: 'Warm Cream', hex: '#eaf8bf' },
-        { name: 'Burnt Orange', hex: '#eca400' }
+        { name: 'Pure Black', hex: '#000000' },
+        { name: 'Pure White', hex: '#ffffff' },
+        { name: 'Amber Gold', hex: '#fca311' }
       ],
       visualElements: ['Overlapping planar volumes', 'Negative space incisions', 'Fine technical scale metrics']
     },
@@ -664,7 +664,7 @@ export const techProjects: TechProject[] = [
       },
       {
         title: 'Bespoke Cartographic Theme',
-        description: 'Custom-designed Swiss map palette matching the portfolio’s ivory (#eaf8bf) and orange (#eca400) accents.'
+        description: 'Custom-designed Swiss map palette matching the portfolio’s monochrome (#ffffff) and amber (#fca311) accents.'
       }
     ],
     keyImplementationDetails: [

@@ -29,7 +29,7 @@ const SAMPLES = (POINTS - 1) * DETAIL + 1;
 const STRIDE = 6;
 const STEP = 1 / 120;
 const SHAPES: Record<RibbonShape, number> = { lens: 0, comet: 1, even: 2 };
-const DEFAULT_COLORS = ['#eca400', '#006992', '#eaf8bf'];
+const DEFAULT_COLORS = ['#fca311', '#14213d', '#ffffff'];
 
 const VERTEX = `#version 300 es
 in vec2 a_position;

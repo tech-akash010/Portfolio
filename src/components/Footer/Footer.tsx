@@ -11,28 +11,14 @@ export const Footer: React.FC = () => {
   const [isWaving, setIsWaving] = useState(false);
   const hasTriggeredInitialWave = useRef(false);
 
-  // Dynamic theme per route
-  const isEditorial = pathname.startsWith('/projects/design');
-  const isOcean = pathname === '/connect';
-  const isLapis = pathname === '/projects' || pathname === '/about';
-
-  const footerBg = isEditorial
-    ? 'bg-[#eaf8bf] text-[#001d4a] border-t border-[#001d4a]/15'
-    : isOcean
-    ? 'bg-[#001638] text-[#eaf8bf] border-t border-[#006992]/30'
-    : isLapis
-    ? 'bg-[#1b3452] text-[#eaf8bf] border-t border-[#eaf8bf]/15'
-    : 'bg-[#001d4a] text-[#eaf8bf] border-t border-[#eaf8bf]/15';
-
-  const bottomBarBg = isEditorial
-    ? 'bg-[#eaf8bf] border-t border-[#001d4a]/10 text-[#001d4a]/60'
-    : isOcean
-    ? 'bg-[#001638] border-t border-[#006992]/20 text-[#eaf8bf]/60'
-    : isLapis
-    ? 'bg-[#1b3452] border-t border-[#eaf8bf]/10 text-[#eaf8bf]/60'
-    : 'bg-[#001d4a] border-t border-[#eaf8bf]/10 text-[#eaf8bf]/60';
-
-  const letterFill = isEditorial ? '#001d4a' : '#eaf8bf';
+  // Footer is pure white background with black text across the site
+  const footerBg = 'bg-[#ffffff] text-[#000000] border-t border-[#000000]/15';
+  const bottomBarBg = 'bg-[#ffffff] border-t border-[#000000]/10 text-[#000000]/60';
+  const letterFill = '#000000';
+  const dividerColor = 'border-[#000000]/15';
+  const textColor = 'text-[#000000]';
+  const textMutedColor = 'text-[#000000]/70';
+  const textSubtleColor = 'text-[#000000]/50';
 
   const triggerWave = () => {
     setIsWaving(true);
@@ -152,10 +138,7 @@ export const Footer: React.FC = () => {
     },
   ];
 
-  const dividerColor = isEditorial ? 'border-[#001d4a]/15' : 'border-[#eaf8bf]/15';
-  const textColor = isEditorial ? 'text-[#001d4a]' : 'text-[#eaf8bf]';
-  const textMutedColor = isEditorial ? 'text-[#001d4a]/70' : 'text-[#eaf8bf]/70';
-  const textSubtleColor = isEditorial ? 'text-[#001d4a]/50' : 'text-[#eaf8bf]/50';
+
 
   return (
     <footer ref={footerRef} className={`relative ${footerBg} overflow-hidden transition-colors duration-500`}>
@@ -163,9 +146,8 @@ export const Footer: React.FC = () => {
       <div
         className="absolute inset-0 opacity-5 pointer-events-none"
         style={{
-          backgroundImage: isEditorial
-            ? 'linear-gradient(to right, rgba(0, 29, 74, 0.15) 1px, transparent 1px), linear-gradient(to bottom, rgba(0, 29, 74, 0.15) 1px, transparent 1px)'
-            : 'linear-gradient(to right, rgba(234, 248, 191, 0.15) 1px, transparent 1px), linear-gradient(to bottom, rgba(234, 248, 191, 0.15) 1px, transparent 1px)',
+          backgroundImage:
+            'linear-gradient(to right, rgba(0, 0, 0, 0.1) 1px, transparent 1px), linear-gradient(to bottom, rgba(0, 0, 0, 0.1) 1px, transparent 1px)',
           backgroundSize: '40px 40px',
         }}
       />
@@ -176,20 +158,20 @@ export const Footer: React.FC = () => {
           {/* Left Column: Author Mindset & Focus */}
           <div className="max-w-xl space-y-3">
             <h3 className={`font-display text-2xl sm:text-3xl font-bold tracking-tight ${textColor}`}>
-              A Mind in Motion<span className="text-[#eca400]">.</span> Think. Create. Build.
+              A Mind in Motion<span className="text-[#fca311]">.</span> Think. Create. Build.
             </h3>
             <p className={`font-body text-sm ${textMutedColor} leading-relaxed`}>
               Engineering high-performance software systems and architecting art-directed visual identities at the intersection of aesthetic precision and computational logic.
             </p>
             <div className={`flex items-center gap-3 pt-2 font-mono text-xs ${textSubtleColor}`}>
               <span className="flex items-center gap-1.5">
-                <MapPin className="w-3.5 h-3.5 text-[#eca400]" /> Kolkata, India
+                <MapPin className="w-3.5 h-3.5 text-[#fca311]" /> Kolkata, India
               </span>
               <span>•</span>
               <span>IST (UTC+5:30)</span>
               <span>•</span>
-              <span className="flex items-center gap-1 text-[#eca400]">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#eca400] animate-pulse" />
+              <span className="flex items-center gap-1 text-[#000000] font-medium">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#fca311] animate-pulse" />
                 Available for Select Projects
               </span>
             </div>
@@ -200,27 +182,13 @@ export const Footer: React.FC = () => {
             onClick={scrollToTop}
             onMouseEnter={() => setCursorType('hover')}
             onMouseLeave={resetCursor}
-            className={`group self-start md:self-auto flex items-center gap-3 px-5 py-3 rounded-full border transition-all duration-300 cursor-pointer ${
-              isEditorial
-                ? 'border-[#001d4a]/30 hover:border-[#006992] hover:bg-[#006992]/10'
-                : 'border-[#eaf8bf]/30 hover:border-[#eca400] hover:bg-[#eca400]/10'
-            }`}
+            className="group self-start md:self-auto flex items-center gap-3 px-5 py-3 rounded-full border border-[#000000]/25 hover:border-[#fca311] hover:bg-[#fca311]/10 transition-all duration-300 cursor-pointer"
             aria-label="Back to top"
           >
-            <span
-              className={`font-mono text-xs tracking-wider uppercase ${
-                isEditorial ? 'text-[#001d4a] group-hover:text-[#006992]' : 'text-[#eaf8bf] group-hover:text-[#eca400]'
-              }`}
-            >
+            <span className="font-mono text-xs tracking-wider uppercase text-[#000000] group-hover:text-[#fca311]">
               BACK TO TOP
             </span>
-            <div
-              className={`w-8 h-8 rounded-full flex items-center justify-center transition-transform group-hover:-translate-y-1 ${
-                isEditorial
-                  ? 'bg-[#001d4a] text-[#eaf8bf] group-hover:bg-[#006992] group-hover:text-[#eaf8bf]'
-                  : 'bg-[#eaf8bf] text-[#001d4a] group-hover:bg-[#eca400] group-hover:text-[#001d4a]'
-              }`}
-            >
+            <div className="w-8 h-8 rounded-full flex items-center justify-center transition-transform group-hover:-translate-y-1 bg-[#000000] text-[#ffffff] group-hover:bg-[#fca311] group-hover:text-[#000000]">
               <ArrowUp className="w-4 h-4" />
             </div>
           </button>
@@ -241,38 +209,18 @@ export const Footer: React.FC = () => {
                 className="group flex flex-col space-y-2 transition-all duration-200"
               >
                 <div className="flex items-center justify-between">
-                  <span className="font-mono text-xs text-[#eca400] font-bold">0{idx + 1}</span>
-                  <ArrowUpRight
-                    className={`w-4 h-4 transition-all group-hover:translate-x-0.5 group-hover:-translate-y-0.5 ${
-                      isEditorial
-                        ? 'text-[#001d4a]/40 group-hover:text-[#006992]'
-                        : 'text-[#eaf8bf]/40 group-hover:text-[#eca400]'
-                    }`}
-                  />
+                  <span className="font-mono text-xs text-[#fca311] font-bold">0{idx + 1}</span>
+                  <ArrowUpRight className="w-4 h-4 transition-all group-hover:translate-x-0.5 group-hover:-translate-y-0.5 text-[#000000]/40 group-hover:text-[#fca311]" />
                 </div>
 
                 <div>
-                  <span
-                    className={`font-mono text-[10px] uppercase tracking-wider block mb-1 ${
-                      isEditorial ? 'text-[#001d4a]/40' : 'text-[#eaf8bf]/40'
-                    }`}
-                  >
+                  <span className="font-mono text-[10px] uppercase tracking-wider block mb-1 text-[#000000]/50">
                     {social.category}
                   </span>
-                  <span
-                    className={`font-display font-bold text-xl block transition-colors ${
-                      isEditorial
-                        ? 'text-[#001d4a] group-hover:text-[#006992]'
-                        : 'text-[#eaf8bf] group-hover:text-[#eca400]'
-                    }`}
-                  >
+                  <span className="font-display font-bold text-xl block transition-colors text-[#000000] group-hover:text-[#fca311]">
                     {social.name}
                   </span>
-                  <span
-                    className={`font-mono text-xs mt-0.5 block truncate transition-colors ${
-                      isEditorial ? 'text-[#001d4a]/60' : 'text-[#eaf8bf]/60'
-                    }`}
-                  >
+                  <span className="font-mono text-xs mt-0.5 block truncate transition-colors text-[#000000]/60">
                     {social.handle}
                   </span>
                 </div>
@@ -283,7 +231,7 @@ export const Footer: React.FC = () => {
 
       </div>
 
-      {/* Full-Bleed Name Stage: AKASH with Wave Entrance & Interactive Wave Hover */}
+      {/* Full-Bleed Name Stage: AKASH in black on white with Wave Entrance & Interactive Wave Hover */}
       <div className="relative w-full overflow-visible select-none leading-none pt-8 pb-4">
         <svg
           viewBox="0.6 41.4 1033.8 140.8"
@@ -310,7 +258,7 @@ export const Footer: React.FC = () => {
                 d={letter.d}
                 fill={letterFill}
                 whileHover={{
-                  fill: isEditorial ? '#006992' : '#eca400',
+                  fill: '#fca311',
                   transition: { duration: 0.15 },
                 }}
                 className="transition-colors duration-200"
@@ -327,7 +275,7 @@ export const Footer: React.FC = () => {
             © {new Date().getFullYear()} AKASH KUNDU. ALL RIGHTS RESERVED.
           </div>
           <div className="flex items-center gap-2">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#eca400]" />
+            <span className="w-1.5 h-1.5 rounded-full bg-[#fca311]" />
             <span>OPEN FOR COLLABORATION</span>
           </div>
         </div>

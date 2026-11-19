@@ -106,7 +106,7 @@ export const ConnectPage: React.FC = () => {
           particleCount: 80,
           spread: 60,
           origin: { y: 0.7 },
-          colors: ['#eca400', '#eaf8bf', '#001d4a', '#eaf8bf'],
+          colors: ['#fca311', '#ffffff', '#14213d', '#ffffff'],
         });
       } else {
         // Fallback: If external endpoint is unreachable or rate-limited, provide direct mailto action and succeed
@@ -115,7 +115,7 @@ export const ConnectPage: React.FC = () => {
           particleCount: 50,
           spread: 50,
           origin: { y: 0.7 },
-          colors: ['#eca400', '#eaf8bf'],
+          colors: ['#fca311', '#ffffff'],
         });
       }
     } catch (err) {
@@ -133,12 +133,12 @@ export const ConnectPage: React.FC = () => {
   return (
     <div className="pt-36 sm:pt-40 md:pt-44 pb-24 px-6 sm:px-8 md:px-12 max-w-6xl mx-auto min-h-screen">
       {/* Editorial Header */}
-      <header className="border-b border-[#eaf8bf]/15 pb-10 mb-12">
-        <h1 className="font-display text-4xl sm:text-6xl md:text-7xl font-black tracking-tight text-[#eaf8bf] leading-[1.05]">
+      <header className="border-b border-[#ffffff]/15 pb-10 mb-12">
+        <h1 className="font-display text-4xl sm:text-6xl md:text-7xl font-black tracking-tight text-[#ffffff] leading-[1.05]">
           GOOD IDEAS START<br />
-          WITH A CONVERSATION<span className="text-[#eca400]">.</span>
+          WITH A CONVERSATION<span className="text-[#fca311]">.</span>
         </h1>
-        <p className="font-editorial italic text-xl sm:text-2xl text-[#eaf8bf]/70 mt-4 max-w-2xl leading-relaxed">
+        <p className="font-editorial italic text-xl sm:text-2xl text-[#e5e5e5]/70 mt-4 max-w-2xl leading-relaxed">
           Whether you want to build a software tool, collaborate on a visual identity, or simply chat about technology—drop a message below.
         </p>
       </header>
@@ -146,72 +146,72 @@ export const ConnectPage: React.FC = () => {
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
         {/* Left Column: Direct Inquiries Dossier & Info */}
         <div className="lg:col-span-5 space-y-8">
-          <div className="p-6 sm:p-8 bg-[#001d4a]/75 backdrop-blur-md border border-[#eaf8bf]/20 rounded-2xl space-y-6 shadow-2xl">
-            <div className="flex items-center justify-between border-b border-[#eaf8bf]/15 pb-3">
-              <span className="font-mono text-xs uppercase font-bold text-[#eaf8bf] flex items-center gap-2">
-                <Sparkles className="w-3.5 h-3.5 text-[#eca400]" /> DIRECT CHANNELS
+          <div className="p-6 sm:p-8 bg-[#14213d]/75 backdrop-blur-md border border-[#ffffff]/20 rounded-2xl space-y-6 shadow-2xl">
+            <div className="flex items-center justify-between border-b border-[#ffffff]/15 pb-3">
+              <span className="font-mono text-xs uppercase font-bold text-[#ffffff] flex items-center gap-2">
+                <Sparkles className="w-3.5 h-3.5 text-[#fca311]" /> DIRECT CHANNELS
               </span>
-              <span className="w-2 h-2 rounded-full bg-[#eca400] animate-pulse" />
+              <span className="w-2 h-2 rounded-full bg-[#fca311] animate-pulse" />
             </div>
 
             {/* Email item */}
             <div className="space-y-1">
-              <span className="font-mono text-[10px] text-[#eaf8bf]/60 uppercase tracking-widest block">
+              <span className="font-mono text-[10px] text-[#e5e5e5]/60 uppercase tracking-widest block">
                 PRIMARY INBOX
               </span>
               <div className="flex items-center justify-between">
                 <a
                   href="mailto:contact@akashkundu.dev"
-                  className="font-mono text-sm font-bold text-[#eaf8bf] hover:text-[#eca400] transition-colors"
+                  className="font-mono text-sm font-bold text-[#ffffff] hover:text-[#fca311] transition-colors"
                 >
                   contact@akashkundu.dev
                 </a>
                 <button
                   type="button"
                   onClick={copyEmailToClipboard}
-                  className="p-1.5 rounded hover:bg-[#eaf8bf]/10 text-[#eaf8bf]/70 hover:text-[#eaf8bf] transition-colors"
+                  className="p-1.5 rounded hover:bg-[#ffffff]/10 text-[#e5e5e5]/70 hover:text-[#ffffff] transition-colors"
                   title="Copy email"
                 >
                   <Copy className="w-4 h-4" />
                 </button>
               </div>
               {copiedEmail && (
-                <span className="font-mono text-[10px] text-[#eca400] block">
+                <span className="font-mono text-[10px] text-[#fca311] block">
                   ✓ Copied to clipboard!
                 </span>
               )}
             </div>
 
             {/* Location & Time */}
-            <div className="grid grid-cols-2 gap-4 pt-3 border-t border-[#eaf8bf]/10 font-mono text-xs">
+            <div className="grid grid-cols-2 gap-4 pt-3 border-t border-[#ffffff]/10 font-mono text-xs">
               <div>
-                <span className="text-[10px] text-[#eaf8bf]/60 uppercase block">LOCATION</span>
-                <span className="text-[#eaf8bf] font-semibold flex items-center gap-1 mt-0.5">
-                  <MapPin className="w-3.5 h-3.5 text-[#eca400]" /> Kolkata, India
+                <span className="text-[10px] text-[#e5e5e5]/60 uppercase block">LOCATION</span>
+                <span className="text-[#ffffff] font-semibold flex items-center gap-1 mt-0.5">
+                  <MapPin className="w-3.5 h-3.5 text-[#fca311]" /> Kolkata, India
                 </span>
               </div>
               <div>
-                <span className="text-[10px] text-[#eaf8bf]/60 uppercase block">TIMEZONE</span>
-                <span className="text-[#eaf8bf] font-semibold flex items-center gap-1 mt-0.5">
-                  <Clock className="w-3.5 h-3.5 text-[#eca400]" /> IST (UTC+5:30)
+                <span className="text-[10px] text-[#e5e5e5]/60 uppercase block">TIMEZONE</span>
+                <span className="text-[#ffffff] font-semibold flex items-center gap-1 mt-0.5">
+                  <Clock className="w-3.5 h-3.5 text-[#fca311]" /> IST (UTC+5:30)
                 </span>
               </div>
             </div>
 
             {/* Availability Badge */}
-            <div className="pt-3 border-t border-[#eaf8bf]/10">
-              <span className="text-[10px] text-[#eaf8bf]/60 uppercase block mb-1">
+            <div className="pt-3 border-t border-[#ffffff]/10">
+              <span className="text-[10px] text-[#e5e5e5]/60 uppercase block mb-1">
                 CURRENT AVAILABILITY
               </span>
-              <p className="font-body text-xs text-[#eaf8bf]/85 leading-relaxed">
+              <p className="font-body text-xs text-[#e5e5e5]/85 leading-relaxed">
                 Accepting selected design &amp; full-stack engineering collaborations for Q1–Q2 2026.
               </p>
             </div>
           </div>
 
           {/* Social Links List */}
-          <div className="p-6 bg-[#eaf8bf]/[0.03] border border-[#eaf8bf]/15 rounded-lg space-y-3 font-mono text-xs">
-            <span className="font-mono text-[10px] text-[#eca400] uppercase tracking-widest block mb-2 font-bold">
+          <div className="p-6 bg-[#14213d]/30 border border-[#ffffff]/15 rounded-lg space-y-3 font-mono text-xs">
+            <span className="font-mono text-[10px] text-[#fca311] uppercase tracking-widest block mb-2 font-bold">
               DIGITAL PROFILES
             </span>
 
@@ -228,13 +228,13 @@ export const ConnectPage: React.FC = () => {
                 rel="noopener noreferrer"
                 onMouseEnter={() => setCursorType('external')}
                 onMouseLeave={resetCursor}
-                className="flex items-center justify-between p-2 rounded hover:bg-[#eaf8bf]/5 transition-colors group"
+                className="flex items-center justify-between p-2 rounded hover:bg-[#ffffff]/5 transition-colors group"
               >
-                <span className="font-bold text-[#eaf8bf] group-hover:text-[#eca400] transition-colors">
+                <span className="font-bold text-[#ffffff] group-hover:text-[#fca311] transition-colors">
                   {profile.label}
                 </span>
-                <span className="text-[#eaf8bf]/60 flex items-center gap-1 text-[11px]">
-                  {profile.handle} <ArrowUpRight className="w-3 h-3 group-hover:text-[#eca400]" />
+                <span className="text-[#e5e5e5]/60 flex items-center gap-1 text-[11px]">
+                  {profile.handle} <ArrowUpRight className="w-3 h-3 group-hover:text-[#fca311]" />
                 </span>
               </a>
             ))}
@@ -242,17 +242,17 @@ export const ConnectPage: React.FC = () => {
         </div>
 
         {/* Right Column: Validated Interactive Editorial Contact Form */}
-        <div className="lg:col-span-7 bg-[#001d4a]/75 backdrop-blur-md border border-[#eaf8bf]/20 rounded-2xl p-6 sm:p-10 shadow-2xl">
+        <div className="lg:col-span-7 bg-[#14213d]/75 backdrop-blur-md border border-[#ffffff]/20 rounded-2xl p-6 sm:p-10 shadow-2xl">
           {status === 'success' ? (
             <div className="py-12 text-center space-y-4">
-              <div className="w-16 h-16 rounded-full bg-[#eca400]/15 text-[#eca400] flex items-center justify-center mx-auto mb-2">
+              <div className="w-16 h-16 rounded-full bg-[#fca311]/15 text-[#fca311] flex items-center justify-center mx-auto mb-2">
                 <CheckCircle2 className="w-8 h-8" />
               </div>
-              <h2 className="font-display text-3xl font-black text-[#eaf8bf]">
+              <h2 className="font-display text-3xl font-black text-[#ffffff]">
                 Message Transmitted!
               </h2>
-              <p className="font-body text-sm sm:text-base text-[#eaf8bf]/80 max-w-md mx-auto leading-relaxed">
-                Thank you for reaching out, <strong className="text-[#eaf8bf]">{formData.name}</strong>. Your inquiry has been dispatched to AK's inbox. Expect a response within 24–48 hours.
+              <p className="font-body text-sm sm:text-base text-[#e5e5e5]/80 max-w-md mx-auto leading-relaxed">
+                Thank you for reaching out, <strong className="text-[#ffffff]">{formData.name}</strong>. Your inquiry has been dispatched to AK's inbox. Expect a response within 24–48 hours.
               </p>
 
               <div className="pt-6 flex flex-col sm:flex-row justify-center gap-3">
@@ -262,7 +262,7 @@ export const ConnectPage: React.FC = () => {
                   )}&body=${encodeURIComponent(
                     `From: ${formData.name} (${formData.email})\n\n${formData.message}`
                   )}`}
-                  className="px-5 py-2.5 rounded-full bg-[#eca400] text-[#001d4a] font-mono text-xs uppercase hover:bg-[#eaf8bf] hover:text-[#001d4a] transition-colors"
+                  className="px-5 py-2.5 rounded-full bg-[#fca311] text-[#000000] font-mono text-xs uppercase hover:bg-[#ffffff] hover:text-[#000000] transition-colors font-bold"
                 >
                   Send direct backup email
                 </a>
@@ -272,7 +272,7 @@ export const ConnectPage: React.FC = () => {
                     setStatus('idle');
                     setFormData({ name: '', email: '', subject: '', message: '' });
                   }}
-                  className="px-5 py-2.5 rounded-full border border-[#eaf8bf]/20 font-mono text-xs uppercase text-[#eaf8bf] hover:bg-[#eaf8bf]/10 transition-colors"
+                  className="px-5 py-2.5 rounded-full border border-[#ffffff]/20 font-mono text-xs uppercase text-[#ffffff] hover:bg-[#ffffff]/10 transition-colors"
                 >
                   Submit Another Note
                 </button>
@@ -280,11 +280,11 @@ export const ConnectPage: React.FC = () => {
             </div>
           ) : (
             <form onSubmit={handleSubmit} noValidate className="space-y-6">
-              <div className="flex items-center justify-between border-b border-[#eaf8bf]/15 pb-3">
-                <span className="font-mono text-xs uppercase font-bold text-[#eaf8bf]">
+              <div className="flex items-center justify-between border-b border-[#ffffff]/15 pb-3">
+                <span className="font-mono text-xs uppercase font-bold text-[#ffffff]">
                   TRANSMISSION FORM
                 </span>
-                <span className="font-mono text-[10px] text-[#eca400]">
+                <span className="font-mono text-[10px] text-[#fca311]">
                   * ALL FIELDS VALIDATED
                 </span>
               </div>
@@ -293,9 +293,9 @@ export const ConnectPage: React.FC = () => {
               <div className="space-y-1.5">
                 <label
                   htmlFor="name"
-                  className="block font-mono text-xs uppercase tracking-wider text-[#eaf8bf]"
+                  className="block font-mono text-xs uppercase tracking-wider text-[#ffffff]"
                 >
-                  Your Name / Organization <span className="text-[#eca400]">*</span>
+                  Your Name / Organization <span className="text-[#fca311]">*</span>
                 </label>
                 <input
                   id="name"
@@ -303,12 +303,12 @@ export const ConnectPage: React.FC = () => {
                   placeholder="e.g. Elena Vance or Studio Alpha"
                   value={formData.name}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                  className={`w-full px-4 py-3 bg-[#eaf8bf]/[0.05] border rounded font-body text-sm text-[#eaf8bf] placeholder:text-[#eaf8bf]/40 focus:outline-none transition-colors ${
-                    errors.name ? 'border-[#eca400] bg-[#eca400]/5' : 'border-[#eaf8bf]/20 focus:border-[#eca400]'
+                  className={`w-full px-4 py-3 bg-[#000000]/40 border rounded font-body text-sm text-[#ffffff] placeholder:text-[#e5e5e5]/40 focus:outline-none transition-colors ${
+                    errors.name ? 'border-[#fca311] bg-[#fca311]/5' : 'border-[#ffffff]/20 focus:border-[#fca311]'
                   }`}
                 />
                 {errors.name && (
-                  <p className="font-mono text-[11px] text-[#eca400] flex items-center gap-1 mt-1">
+                  <p className="font-mono text-[11px] text-[#fca311] flex items-center gap-1 mt-1">
                     <AlertCircle className="w-3.5 h-3.5" /> {errors.name}
                   </p>
                 )}
@@ -318,9 +318,9 @@ export const ConnectPage: React.FC = () => {
               <div className="space-y-1.5">
                 <label
                   htmlFor="email"
-                  className="block font-mono text-xs uppercase tracking-wider text-[#eaf8bf]"
+                  className="block font-mono text-xs uppercase tracking-wider text-[#ffffff]"
                 >
-                  Your Email Address <span className="text-[#eca400]">*</span>
+                  Your Email Address <span className="text-[#fca311]">*</span>
                 </label>
                 <input
                   id="email"
@@ -328,12 +328,12 @@ export const ConnectPage: React.FC = () => {
                   placeholder="name@company.com"
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                  className={`w-full px-4 py-3 bg-[#eaf8bf]/[0.05] border rounded font-body text-sm text-[#eaf8bf] placeholder:text-[#eaf8bf]/40 focus:outline-none transition-colors ${
-                    errors.email ? 'border-[#eca400] bg-[#eca400]/5' : 'border-[#eaf8bf]/20 focus:border-[#eca400]'
+                  className={`w-full px-4 py-3 bg-[#000000]/40 border rounded font-body text-sm text-[#ffffff] placeholder:text-[#e5e5e5]/40 focus:outline-none transition-colors ${
+                    errors.email ? 'border-[#fca311] bg-[#fca311]/5' : 'border-[#ffffff]/20 focus:border-[#fca311]'
                   }`}
                 />
                 {errors.email && (
-                  <p className="font-mono text-[11px] text-[#eca400] flex items-center gap-1 mt-1">
+                  <p className="font-mono text-[11px] text-[#fca311] flex items-center gap-1 mt-1">
                     <AlertCircle className="w-3.5 h-3.5" /> {errors.email}
                   </p>
                 )}
@@ -343,9 +343,9 @@ export const ConnectPage: React.FC = () => {
               <div className="space-y-1.5">
                 <label
                   htmlFor="subject"
-                  className="block font-mono text-xs uppercase tracking-wider text-[#eaf8bf]"
+                  className="block font-mono text-xs uppercase tracking-wider text-[#ffffff]"
                 >
-                  Subject / Topic <span className="text-[#eca400]">*</span>
+                  Subject / Topic <span className="text-[#fca311]">*</span>
                 </label>
                 <input
                   id="subject"
@@ -353,12 +353,12 @@ export const ConnectPage: React.FC = () => {
                   placeholder="e.g. Full-Stack Web Collaboration or Design Identity Project"
                   value={formData.subject}
                   onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
-                  className={`w-full px-4 py-3 bg-[#eaf8bf]/[0.05] border rounded font-body text-sm text-[#eaf8bf] placeholder:text-[#eaf8bf]/40 focus:outline-none transition-colors ${
-                    errors.subject ? 'border-[#eca400] bg-[#eca400]/5' : 'border-[#eaf8bf]/20 focus:border-[#eca400]'
+                  className={`w-full px-4 py-3 bg-[#000000]/40 border rounded font-body text-sm text-[#ffffff] placeholder:text-[#e5e5e5]/40 focus:outline-none transition-colors ${
+                    errors.subject ? 'border-[#fca311] bg-[#fca311]/5' : 'border-[#ffffff]/20 focus:border-[#fca311]'
                   }`}
                 />
                 {errors.subject && (
-                  <p className="font-mono text-[11px] text-[#eca400] flex items-center gap-1 mt-1">
+                  <p className="font-mono text-[11px] text-[#fca311] flex items-center gap-1 mt-1">
                     <AlertCircle className="w-3.5 h-3.5" /> {errors.subject}
                   </p>
                 )}
@@ -369,11 +369,11 @@ export const ConnectPage: React.FC = () => {
                 <div className="flex justify-between items-center">
                   <label
                     htmlFor="message"
-                    className="block font-mono text-xs uppercase tracking-wider text-[#eaf8bf]"
+                    className="block font-mono text-xs uppercase tracking-wider text-[#ffffff]"
                   >
-                    Your Message <span className="text-[#eca400]">*</span>
+                    Your Message <span className="text-[#fca311]">*</span>
                   </label>
-                  <span className="font-mono text-[10px] text-[#eaf8bf]/50">
+                  <span className="font-mono text-[10px] text-[#e5e5e5]/50">
                     {formData.message.length} chars
                   </span>
                 </div>
@@ -383,12 +383,12 @@ export const ConnectPage: React.FC = () => {
                   placeholder="Tell me about the goals, timeline, or idea you're exploring..."
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                  className={`w-full px-4 py-3 bg-[#eaf8bf]/[0.05] border rounded font-body text-sm text-[#eaf8bf] placeholder:text-[#eaf8bf]/40 focus:outline-none transition-colors resize-y ${
-                    errors.message ? 'border-[#eca400] bg-[#eca400]/5' : 'border-[#eaf8bf]/20 focus:border-[#eca400]'
+                  className={`w-full px-4 py-3 bg-[#000000]/40 border rounded font-body text-sm text-[#ffffff] placeholder:text-[#e5e5e5]/40 focus:outline-none transition-colors resize-y ${
+                    errors.message ? 'border-[#fca311] bg-[#fca311]/5' : 'border-[#ffffff]/20 focus:border-[#fca311]'
                   }`}
                 />
                 {errors.message && (
-                  <p className="font-mono text-[11px] text-[#eca400] flex items-center gap-1 mt-1">
+                  <p className="font-mono text-[11px] text-[#fca311] flex items-center gap-1 mt-1">
                     <AlertCircle className="w-3.5 h-3.5" /> {errors.message}
                   </p>
                 )}
@@ -401,7 +401,7 @@ export const ConnectPage: React.FC = () => {
                   disabled={status === 'loading'}
                   onMouseEnter={() => setCursorType('hover')}
                   onMouseLeave={resetCursor}
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 bg-[#eca400] text-[#001d4a] font-mono text-xs uppercase tracking-wider font-bold rounded-full hover:bg-[#eaf8bf] hover:text-[#001d4a] transition-colors shadow-md disabled:opacity-50 cursor-pointer"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 bg-[#fca311] text-[#000000] font-mono text-xs uppercase tracking-wider font-bold rounded-full hover:bg-[#ffffff] hover:text-[#000000] transition-colors shadow-md disabled:opacity-50 cursor-pointer"
                 >
                   {status === 'loading' ? (
                     <span>Transmitting Payload...</span>

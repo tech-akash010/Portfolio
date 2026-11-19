@@ -56,10 +56,10 @@
 }
 
 .gallery-case-study-btn:hover {
-  background-color: #eca400 !important;
-  color: #eaf8bf !important;
+  background-color: #fca311 !important;
+  color: #000000 !important;
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(236, 164, 0, 0.35) !important;
+  box-shadow: 0 6px 20px rgba(252, 163, 17, 0.35) !important;
 }
 
 .circular-gallery-caption-text {
@@ -77,10 +77,10 @@
   width: 44px;
   height: 44px;
   padding: 0;
-  border: 1px solid rgba(234, 248, 191, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 50%;
-  background: #001d4a;
-  color: #eaf8bf;
+  background: #14213d;
+  color: #ffffff;
   cursor: pointer;
   opacity: 0;
   pointer-events: none;
@@ -95,8 +95,8 @@
 }
 
 .circular-gallery-close:hover {
-  background: #eca400;
-  color: #eaf8bf;
+  background: #fca311;
+  color: #000000;
   transform: scale(1.05);
 }
 

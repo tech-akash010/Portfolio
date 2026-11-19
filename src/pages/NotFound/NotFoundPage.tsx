@@ -8,13 +8,13 @@ export const NotFoundPage: React.FC = () => {
 
   return (
     <div className="min-h-[80vh] flex flex-col items-center justify-center pt-28 pb-16 px-6 text-center select-none">
-      <span className="font-mono text-xs tracking-widest text-[#eca400] uppercase mb-3">
+      <span className="font-mono text-xs tracking-widest text-[#fca311] uppercase mb-3">
         404 // COORDINATE UNREACHABLE
       </span>
-      <h1 className="font-display text-7xl sm:text-9xl font-black text-[#eaf8bf] tracking-tighter">
-        404<span className="text-[#eca400]">.</span>
+      <h1 className="font-display text-7xl sm:text-9xl font-black text-[#ffffff] tracking-tighter">
+        404<span className="text-[#fca311]">.</span>
       </h1>
-      <p className="font-editorial italic text-2xl text-[#eaf8bf]/70 mt-3 max-w-md">
+      <p className="font-editorial italic text-2xl text-[#e5e5e5]/70 mt-3 max-w-md">
         The requested canvas coordinate does not exist.
       </p>
       <div className="mt-8">
@@ -22,7 +22,7 @@ export const NotFoundPage: React.FC = () => {
           to="/"
           onMouseEnter={() => setCursorType('hover')}
           onMouseLeave={resetCursor}
-          className="inline-flex items-center gap-2 px-6 py-3.5 bg-[#eca400] text-[#001d4a] font-mono text-xs uppercase font-semibold rounded-full hover:bg-[#eaf8bf] hover:text-[#001d4a] transition-colors shadow-lg shadow-[#eca400]/20"
+          className="inline-flex items-center gap-2 px-6 py-3.5 bg-[#fca311] text-[#000000] font-mono text-xs uppercase font-semibold rounded-full hover:bg-[#ffffff] hover:text-[#000000] transition-colors shadow-lg shadow-[#fca311]/20"
         >
           <ArrowLeft className="w-4 h-4" />
           <span>Return to Homepage</span>

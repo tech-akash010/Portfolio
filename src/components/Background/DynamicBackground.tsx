@@ -17,30 +17,30 @@ export const DynamicBackground: React.FC<DynamicBackgroundProps> = ({
   showNoise = true,
   showRegistrationMarks = true,
 }) => {
-  // Page-specific color themes from the 5-color palette:
-  // midnight: #001d4a (Home & Tech)
-  // lapis:    #27476e (Projects Archive & About)
-  // ocean:    #006992 (Connect)
-  // editorial:#eaf8bf (Design Dossier - light tactile paper)
+  // Page-specific color themes from the 5-color palette (000000, 14213d, fca311, e5e5e5, ffffff):
+  // midnight: #000000 (Home & Tech)
+  // lapis:    #14213d (Projects Archive & About)
+  // ocean:    #000000 (Connect)
+  // editorial:#ffffff (Design Dossier - Swiss light paper)
   const themeClasses: Record<BackgroundTheme, string> = {
-    midnight: 'bg-[#001d4a] text-[#eaf8bf]',
-    lapis: 'bg-[#27476e] text-[#eaf8bf]',
-    ocean: 'bg-[#006992] text-[#eaf8bf]',
-    editorial: 'bg-[#eaf8bf] text-[#001d4a]',
+    midnight: 'bg-[#000000] text-[#ffffff]',
+    lapis: 'bg-[#14213d] text-[#ffffff]',
+    ocean: 'bg-[#000000] text-[#ffffff]',
+    editorial: 'bg-[#ffffff] text-[#000000]',
   };
 
   const gridLineColor: Record<BackgroundTheme, string> = {
-    midnight: 'rgba(234, 248, 191, 0.04)',
-    lapis: 'rgba(234, 248, 191, 0.05)',
-    ocean: 'rgba(234, 248, 191, 0.07)',
-    editorial: 'rgba(0, 29, 74, 0.06)',
+    midnight: 'rgba(255, 255, 255, 0.05)',
+    lapis: 'rgba(255, 255, 255, 0.05)',
+    ocean: 'rgba(255, 255, 255, 0.05)',
+    editorial: 'rgba(0, 0, 0, 0.06)',
   };
 
   const markColor: Record<BackgroundTheme, string> = {
-    midnight: 'rgba(236, 164, 0, 0.6)',
-    lapis: '#eca400',
-    ocean: '#eca400',
-    editorial: '#006992',
+    midnight: '#fca311',
+    lapis: '#fca311',
+    ocean: '#fca311',
+    editorial: '#14213d',
   };
 
   return (
@@ -101,9 +101,9 @@ export const DynamicBackground: React.FC<DynamicBackgroundProps> = ({
           {/* Bottom-Left Micro Scale */}
           <div className="absolute bottom-6 left-6 hidden md:flex items-center gap-3 select-none opacity-40">
             <div className="flex gap-1">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#eca400]" />
-              <span className="w-1.5 h-1.5 rounded-full bg-[#006992]" />
-              <span className="w-1.5 h-1.5 rounded-full bg-[#27476e]" />
+              <span className="w-1.5 h-1.5 rounded-full bg-[#fca311]" />
+              <span className="w-1.5 h-1.5 rounded-full bg-[#14213d]" />
+              <span className="w-1.5 h-1.5 rounded-full bg-[#e5e5e5]" />
             </div>
             <span className="font-mono text-[9px] tracking-widest uppercase">
               AXIS: {theme === 'editorial' ? 'PAPER.01' : theme === 'ocean' ? 'OCEAN.01' : theme === 'lapis' ? 'SLATE.01' : 'CORE.01'}
@@ -123,23 +123,23 @@ export const DynamicBackground: React.FC<DynamicBackgroundProps> = ({
       {/* Atmospheric Theme-Specific Geometric Accents */}
       {theme === 'editorial' && (
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute -top-32 -right-32 w-96 h-96 rounded-full border border-[#006992]/15 opacity-40" />
-          <div className="absolute top-1/3 -left-20 w-60 h-60 border border-[#001d4a]/10 rotate-12 opacity-30" />
-          <div className="absolute bottom-10 right-1/4 w-32 h-32 border-l-2 border-t-2 border-[#eca400]/40" />
+          <div className="absolute -top-32 -right-32 w-96 h-96 rounded-full border border-[#14213d]/15 opacity-40" />
+          <div className="absolute top-1/3 -left-20 w-60 h-60 border border-[#000000]/10 rotate-12 opacity-30" />
+          <div className="absolute bottom-10 right-1/4 w-32 h-32 border-l-2 border-t-2 border-[#fca311]/40" />
         </div>
       )}
 
       {theme === 'ocean' && (
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute -top-40 right-1/4 w-[500px] h-[500px] rounded-full bg-[#001d4a]/20 blur-3xl" />
-          <div className="absolute bottom-0 -left-20 w-96 h-96 rounded-full bg-[#27476e]/30 blur-2xl" />
+          <div className="absolute -top-40 right-1/4 w-[500px] h-[500px] rounded-full bg-[#14213d]/20 blur-3xl" />
+          <div className="absolute bottom-0 -left-20 w-96 h-96 rounded-full bg-[#14213d]/30 blur-2xl" />
         </div>
       )}
 
       {theme === 'lapis' && (
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute top-1/4 -right-20 w-80 h-80 rounded-full bg-[#001d4a]/30 blur-2xl" />
-          <div className="absolute bottom-1/3 -left-20 w-72 h-72 rounded-full bg-[#006992]/20 blur-2xl" />
+          <div className="absolute top-1/4 -right-20 w-80 h-80 rounded-full bg-[#000000]/30 blur-2xl" />
+          <div className="absolute bottom-1/3 -left-20 w-72 h-72 rounded-full bg-[#14213d]/40 blur-2xl" />
         </div>
       )}
     </div>
