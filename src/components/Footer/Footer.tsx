@@ -8,8 +8,8 @@ export const Footer: React.FC = () => {
   const { setCursorType, resetCursor } = useCursor();
   const { pathname } = useLocation();
   const footerRef = useRef<HTMLElement>(null);
-  const [isInView, setIsInView] = useState(false);
-  const [waveKey, setWaveKey] = useState(0);
+  const [isWaving, setIsWaving] = useState(false);
+  const hasTriggeredInitialWave = useRef(false);
 
   // Dynamic theme per route
   const isEditorial = pathname.startsWith('/projects/design');
@@ -32,37 +32,37 @@ export const Footer: React.FC = () => {
     ? 'bg-[#1b3452] border-t border-[#eaf8bf]/10 text-[#eaf8bf]/60'
     : 'bg-[#001d4a] border-t border-[#eaf8bf]/10 text-[#eaf8bf]/60';
 
-  useEffect(() => {
-    // 1. Immediate check if footer is already in view on mount
-    if (footerRef.current) {
-      const rect = footerRef.current.getBoundingClientRect();
-      if (rect.top <= window.innerHeight + 150 && rect.bottom >= 0) {
-        setIsInView(true);
-      }
-    }
+  const letterFill = isEditorial ? '#001d4a' : '#eaf8bf';
 
-    // 2. IntersectionObserver to trigger wave whenever footer opens into view
+  const triggerWave = () => {
+    setIsWaving(true);
+    setTimeout(() => {
+      setIsWaving(false);
+    }, 1200);
+  };
+
+  useEffect(() => {
+    // IntersectionObserver to trigger wave whenever footer scrolls into view
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          setIsInView(true);
-          setWaveKey((prev) => prev + 1);
-        } else {
-          // Reset when completely scrolled away so wave replays when footer is opened again
-          setIsInView(false);
+          triggerWave();
         }
       },
-      { rootMargin: '0px 0px 100px 0px', threshold: 0.05 }
+      { rootMargin: '0px 0px 120px 0px', threshold: 0.1 }
     );
 
     if (footerRef.current) {
       observer.observe(footerRef.current);
     }
 
-    // 3. Fail-safe timer: guaranteed visibility even if observer events are blocked
+    // Trigger wave once shortly after mount if already visible
     const timer = setTimeout(() => {
-      setIsInView(true);
-    }, 600);
+      if (!hasTriggeredInitialWave.current) {
+        hasTriggeredInitialWave.current = true;
+        triggerWave();
+      }
+    }, 400);
 
     return () => {
       observer.disconnect();
@@ -75,34 +75,17 @@ export const Footer: React.FC = () => {
   };
 
   const letterVariants = {
-    hidden: {
-      y: 50,
-      opacity: 0,
+    idle: {
+      y: 0,
+      opacity: 1,
     },
-    visible: (i: number) => ({
-      y: [50, -24, 8, -2, 0],
-      opacity: [0, 1, 1, 1, 1],
+    wave: (i: number) => ({
+      y: [0, -26, 8, -3, 0],
+      opacity: 1,
       transition: {
-        duration: 1.15,
-        delay: i * 0.1,
-        times: [0, 0.42, 0.72, 0.88, 1],
-        ease: [0.22, 1, 0.36, 1] as const,
-      },
-    }),
-  };
-
-  const pathVariants = {
-    hidden: {
-      fill: '#eca400',
-    },
-    visible: (i: number) => ({
-      fill: isEditorial
-        ? ['#eca400', '#eca400', '#001d4a', '#001d4a', '#001d4a']
-        : ['#eca400', '#eca400', '#eaf8bf', '#eaf8bf', '#eaf8bf'],
-      transition: {
-        duration: 1.15,
-        delay: i * 0.1,
-        times: [0, 0.42, 0.72, 0.88, 1],
+        duration: 0.95,
+        delay: i * 0.08,
+        times: [0, 0.38, 0.72, 0.88, 1],
         ease: [0.22, 1, 0.36, 1] as const,
       },
     }),
@@ -302,41 +285,39 @@ export const Footer: React.FC = () => {
 
       {/* Full-Bleed Name Stage: AKASH with Wave Entrance & Interactive Wave Hover */}
       <div className="relative w-full overflow-visible select-none leading-none pt-8 pb-4">
-        <motion.svg
-          key={waveKey}
+        <svg
           viewBox="0.6 41.4 1033.8 140.8"
           className="w-full h-auto block overflow-visible cursor-pointer"
           aria-label="AKASH"
           role="img"
-          onClick={() => setWaveKey((prev) => prev + 1)}
+          onClick={triggerWave}
+          onMouseEnter={triggerWave}
         >
           {letters.map((letter, idx) => (
             <motion.g
               key={letter.id}
               custom={idx}
-              initial="hidden"
-              animate={isInView ? 'visible' : 'hidden'}
+              initial="idle"
+              animate={isWaving ? 'wave' : 'idle'}
               variants={letterVariants}
               whileHover={{
-                y: -14,
+                y: -16,
                 transition: { type: 'spring', stiffness: 500, damping: 14 },
               }}
               className="cursor-pointer"
             >
               <motion.path
                 d={letter.d}
-                custom={idx}
-                initial="hidden"
-                animate={isInView ? 'visible' : 'hidden'}
-                variants={pathVariants}
+                fill={letterFill}
                 whileHover={{
                   fill: isEditorial ? '#006992' : '#eca400',
                   transition: { duration: 0.15 },
                 }}
+                className="transition-colors duration-200"
               />
             </motion.g>
           ))}
-        </motion.svg>
+        </svg>
       </div>
 
       {/* Bottommost Legal / Copyright Bar */}
