@@ -30,7 +30,22 @@ const ScrollToTop: React.FC = () => {
 
 // Route-aware Background Theme selector
 const BackgroundManager: React.FC = () => {
-  return <DynamicBackground theme="dark" />;
+  const { pathname } = useLocation();
+
+  let theme: BackgroundTheme = 'midnight';
+  if (pathname === '/projects') {
+    theme = 'lapis';
+  } else if (pathname.startsWith('/projects/design')) {
+    theme = 'editorial';
+  } else if (pathname.startsWith('/projects/technology')) {
+    theme = 'midnight';
+  } else if (pathname === '/about') {
+    theme = 'lapis';
+  } else if (pathname === '/connect') {
+    theme = 'ocean';
+  }
+
+  return <DynamicBackground theme={theme} />;
 };
 
 export default function App() {

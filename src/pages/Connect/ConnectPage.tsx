@@ -146,7 +146,7 @@ export const ConnectPage: React.FC = () => {
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
         {/* Left Column: Direct Inquiries Dossier & Info */}
         <div className="lg:col-span-5 space-y-8">
-          <div className="p-6 bg-[#eaf8bf]/[0.03] border border-[#eaf8bf]/15 rounded-lg space-y-6">
+          <div className="p-6 sm:p-8 bg-[#001d4a]/75 backdrop-blur-md border border-[#eaf8bf]/20 rounded-2xl space-y-6 shadow-2xl">
             <div className="flex items-center justify-between border-b border-[#eaf8bf]/15 pb-3">
               <span className="font-mono text-xs uppercase font-bold text-[#eaf8bf] flex items-center gap-2">
                 <Sparkles className="w-3.5 h-3.5 text-[#eca400]" /> DIRECT CHANNELS
@@ -242,7 +242,7 @@ export const ConnectPage: React.FC = () => {
         </div>
 
         {/* Right Column: Validated Interactive Editorial Contact Form */}
-        <div className="lg:col-span-7 bg-[#eaf8bf]/[0.03] border border-[#eaf8bf]/15 rounded-lg p-6 sm:p-10 shadow-lg">
+        <div className="lg:col-span-7 bg-[#001d4a]/75 backdrop-blur-md border border-[#eaf8bf]/20 rounded-2xl p-6 sm:p-10 shadow-2xl">
           {status === 'success' ? (
             <div className="py-12 text-center space-y-4">
               <div className="w-16 h-16 rounded-full bg-[#eca400]/15 text-[#eca400] flex items-center justify-center mx-auto mb-2">

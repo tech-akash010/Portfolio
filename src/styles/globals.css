@@ -57,9 +57,9 @@
     color: #001d4a;
   }
   body {
-    background-color: #001d4a;
+    background-color: transparent;
     color: #eaf8bf;
-    @apply bg-background text-foreground;
+    @apply bg-transparent text-foreground;
   }
 }
 

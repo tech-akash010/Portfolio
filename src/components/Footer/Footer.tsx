@@ -1,14 +1,36 @@
 import React, { useRef, useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import { useCursor } from '../CustomCursor/CursorContext';
 import { ArrowUp, ArrowUpRight, MapPin } from 'lucide-react';
 import { motion } from 'motion/react';
 
 export const Footer: React.FC = () => {
   const { setCursorType, resetCursor } = useCursor();
+  const { pathname } = useLocation();
   const footerRef = useRef<HTMLElement>(null);
   const [isInView, setIsInView] = useState(false);
-
   const [waveKey, setWaveKey] = useState(0);
+
+  // Dynamic theme per route
+  const isEditorial = pathname.startsWith('/projects/design');
+  const isOcean = pathname === '/connect';
+  const isLapis = pathname === '/projects' || pathname === '/about';
+
+  const footerBg = isEditorial
+    ? 'bg-[#eaf8bf] text-[#001d4a] border-t border-[#001d4a]/15'
+    : isOcean
+    ? 'bg-[#001638] text-[#eaf8bf] border-t border-[#006992]/30'
+    : isLapis
+    ? 'bg-[#1b3452] text-[#eaf8bf] border-t border-[#eaf8bf]/15'
+    : 'bg-[#001d4a] text-[#eaf8bf] border-t border-[#eaf8bf]/15';
+
+  const bottomBarBg = isEditorial
+    ? 'bg-[#eaf8bf] border-t border-[#001d4a]/10 text-[#001d4a]/60'
+    : isOcean
+    ? 'bg-[#001638] border-t border-[#006992]/20 text-[#eaf8bf]/60'
+    : isLapis
+    ? 'bg-[#1b3452] border-t border-[#eaf8bf]/10 text-[#eaf8bf]/60'
+    : 'bg-[#001d4a] border-t border-[#eaf8bf]/10 text-[#eaf8bf]/60';
 
   useEffect(() => {
     // 1. Immediate check if footer is already in view on mount
@@ -74,7 +96,9 @@ export const Footer: React.FC = () => {
       fill: '#eca400',
     },
     visible: (i: number) => ({
-      fill: ['#eca400', '#eca400', '#eaf8bf', '#eaf8bf', '#eaf8bf'],
+      fill: isEditorial
+        ? ['#eca400', '#eca400', '#001d4a', '#001d4a', '#001d4a']
+        : ['#eca400', '#eca400', '#eaf8bf', '#eaf8bf', '#eaf8bf'],
       transition: {
         duration: 1.15,
         delay: i * 0.1,
@@ -145,30 +169,36 @@ export const Footer: React.FC = () => {
     },
   ];
 
+  const dividerColor = isEditorial ? 'border-[#001d4a]/15' : 'border-[#eaf8bf]/15';
+  const textColor = isEditorial ? 'text-[#001d4a]' : 'text-[#eaf8bf]';
+  const textMutedColor = isEditorial ? 'text-[#001d4a]/70' : 'text-[#eaf8bf]/70';
+  const textSubtleColor = isEditorial ? 'text-[#001d4a]/50' : 'text-[#eaf8bf]/50';
+
   return (
-    <footer ref={footerRef} className="relative bg-[#001d4a] text-[#eaf8bf] border-t border-[#eaf8bf]/15 overflow-hidden">
+    <footer ref={footerRef} className={`relative ${footerBg} overflow-hidden transition-colors duration-500`}>
       {/* Subtle Swiss grid in footer background */}
       <div
         className="absolute inset-0 opacity-5 pointer-events-none"
         style={{
-          backgroundImage:
-            'linear-gradient(to right, rgba(234, 248, 191, 0.15) 1px, transparent 1px), linear-gradient(to bottom, rgba(234, 248, 191, 0.15) 1px, transparent 1px)',
+          backgroundImage: isEditorial
+            ? 'linear-gradient(to right, rgba(0, 29, 74, 0.15) 1px, transparent 1px), linear-gradient(to bottom, rgba(0, 29, 74, 0.15) 1px, transparent 1px)'
+            : 'linear-gradient(to right, rgba(234, 248, 191, 0.15) 1px, transparent 1px), linear-gradient(to bottom, rgba(234, 248, 191, 0.15) 1px, transparent 1px)',
           backgroundSize: '40px 40px',
         }}
       />
 
       <div className="relative max-w-7xl mx-auto px-6 sm:px-8 md:px-12 pt-16 pb-6">
         {/* Top Info Strip: Perspective + Back to Top */}
-        <div className="flex flex-col md:flex-row md:items-start justify-between border-b border-[#eaf8bf]/15 pb-12 gap-8">
+        <div className={`flex flex-col md:flex-row md:items-start justify-between border-b ${dividerColor} pb-12 gap-8`}>
           {/* Left Column: Author Mindset & Focus */}
           <div className="max-w-xl space-y-3">
-            <h3 className="font-display text-2xl sm:text-3xl font-bold tracking-tight text-[#eaf8bf]">
+            <h3 className={`font-display text-2xl sm:text-3xl font-bold tracking-tight ${textColor}`}>
               A Mind in Motion<span className="text-[#eca400]">.</span> Think. Create. Build.
             </h3>
-            <p className="font-body text-sm text-[#eaf8bf]/70 leading-relaxed">
+            <p className={`font-body text-sm ${textMutedColor} leading-relaxed`}>
               Engineering high-performance software systems and architecting art-directed visual identities at the intersection of aesthetic precision and computational logic.
             </p>
-            <div className="flex items-center gap-3 pt-2 font-mono text-xs text-[#eaf8bf]/60">
+            <div className={`flex items-center gap-3 pt-2 font-mono text-xs ${textSubtleColor}`}>
               <span className="flex items-center gap-1.5">
                 <MapPin className="w-3.5 h-3.5 text-[#eca400]" /> Kolkata, India
               </span>
@@ -187,20 +217,34 @@ export const Footer: React.FC = () => {
             onClick={scrollToTop}
             onMouseEnter={() => setCursorType('hover')}
             onMouseLeave={resetCursor}
-            className="group self-start md:self-auto flex items-center gap-3 px-5 py-3 rounded-full border border-[#eaf8bf]/30 hover:border-[#eca400] hover:bg-[#eca400]/10 transition-all duration-300 cursor-pointer"
+            className={`group self-start md:self-auto flex items-center gap-3 px-5 py-3 rounded-full border transition-all duration-300 cursor-pointer ${
+              isEditorial
+                ? 'border-[#001d4a]/30 hover:border-[#006992] hover:bg-[#006992]/10'
+                : 'border-[#eaf8bf]/30 hover:border-[#eca400] hover:bg-[#eca400]/10'
+            }`}
             aria-label="Back to top"
           >
-            <span className="font-mono text-xs tracking-wider uppercase text-[#eaf8bf] group-hover:text-[#eca400]">
+            <span
+              className={`font-mono text-xs tracking-wider uppercase ${
+                isEditorial ? 'text-[#001d4a] group-hover:text-[#006992]' : 'text-[#eaf8bf] group-hover:text-[#eca400]'
+              }`}
+            >
               BACK TO TOP
             </span>
-            <div className="w-8 h-8 rounded-full bg-[#eaf8bf] text-[#001d4a] flex items-center justify-center transition-transform group-hover:-translate-y-1 group-hover:bg-[#eca400] group-hover:text-[#001d4a]">
+            <div
+              className={`w-8 h-8 rounded-full flex items-center justify-center transition-transform group-hover:-translate-y-1 ${
+                isEditorial
+                  ? 'bg-[#001d4a] text-[#eaf8bf] group-hover:bg-[#006992] group-hover:text-[#eaf8bf]'
+                  : 'bg-[#eaf8bf] text-[#001d4a] group-hover:bg-[#eca400] group-hover:text-[#001d4a]'
+              }`}
+            >
               <ArrowUp className="w-4 h-4" />
             </div>
           </button>
         </div>
 
         {/* Middle Section: Clean Unboxed Social Links Directory */}
-        <div className="py-12 border-b border-[#eaf8bf]/15">
+        <div className={`py-12 border-b ${dividerColor}`}>
           {/* 5-Column Open Typography Grid (No Boxes) */}
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-8 lg:gap-12">
             {socialLinks.map((social, idx) => (
@@ -215,17 +259,37 @@ export const Footer: React.FC = () => {
               >
                 <div className="flex items-center justify-between">
                   <span className="font-mono text-xs text-[#eca400] font-bold">0{idx + 1}</span>
-                  <ArrowUpRight className="w-4 h-4 text-[#eaf8bf]/40 group-hover:text-[#eca400] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
+                  <ArrowUpRight
+                    className={`w-4 h-4 transition-all group-hover:translate-x-0.5 group-hover:-translate-y-0.5 ${
+                      isEditorial
+                        ? 'text-[#001d4a]/40 group-hover:text-[#006992]'
+                        : 'text-[#eaf8bf]/40 group-hover:text-[#eca400]'
+                    }`}
+                  />
                 </div>
 
                 <div>
-                  <span className="font-mono text-[10px] uppercase tracking-wider text-[#eaf8bf]/40 block mb-1">
+                  <span
+                    className={`font-mono text-[10px] uppercase tracking-wider block mb-1 ${
+                      isEditorial ? 'text-[#001d4a]/40' : 'text-[#eaf8bf]/40'
+                    }`}
+                  >
                     {social.category}
                   </span>
-                  <span className="font-display font-bold text-xl text-[#eaf8bf] group-hover:text-[#eca400] transition-colors block">
+                  <span
+                    className={`font-display font-bold text-xl block transition-colors ${
+                      isEditorial
+                        ? 'text-[#001d4a] group-hover:text-[#006992]'
+                        : 'text-[#eaf8bf] group-hover:text-[#eca400]'
+                    }`}
+                  >
                     {social.name}
                   </span>
-                  <span className="font-mono text-xs text-[#eaf8bf]/60 group-hover:text-[#eaf8bf] transition-colors mt-0.5 block truncate">
+                  <span
+                    className={`font-mono text-xs mt-0.5 block truncate transition-colors ${
+                      isEditorial ? 'text-[#001d4a]/60' : 'text-[#eaf8bf]/60'
+                    }`}
+                  >
                     {social.handle}
                   </span>
                 </div>
@@ -266,7 +330,7 @@ export const Footer: React.FC = () => {
                 animate={isInView ? 'visible' : 'hidden'}
                 variants={pathVariants}
                 whileHover={{
-                  fill: '#eca400',
+                  fill: isEditorial ? '#006992' : '#eca400',
                   transition: { duration: 0.15 },
                 }}
               />
@@ -276,12 +340,12 @@ export const Footer: React.FC = () => {
       </div>
 
       {/* Bottommost Legal / Copyright Bar */}
-      <div className="relative w-full border-t border-[#eaf8bf]/10 bg-[#001d4a]">
-        <div className="max-w-7xl mx-auto px-6 sm:px-8 md:px-12 py-4 flex flex-col sm:flex-row items-center justify-between font-mono text-[11px] text-[#eaf8bf]/50 gap-3">
+      <div className={`relative w-full ${bottomBarBg} transition-colors duration-500`}>
+        <div className="max-w-7xl mx-auto px-6 sm:px-8 md:px-12 py-4 flex flex-col sm:flex-row items-center justify-between font-mono text-[11px] gap-3">
           <div>
             © {new Date().getFullYear()} AKASH KUNDU. ALL RIGHTS RESERVED.
           </div>
-          <div className="flex items-center gap-2 text-[#eaf8bf]/60">
+          <div className="flex items-center gap-2">
             <span className="w-1.5 h-1.5 rounded-full bg-[#eca400]" />
             <span>OPEN FOR COLLABORATION</span>
           </div>

@@ -61,7 +61,7 @@ export const AboutPage: React.FC = () => {
           </div>
 
           {/* Quick Stat / ID Card */}
-          <div className="md:col-span-4 p-5 bg-[#eaf8bf]/[0.03] border border-[#eaf8bf]/15 rounded-xl space-y-3 font-mono text-xs">
+          <div className="md:col-span-4 p-5 bg-[#001d4a]/55 border border-[#eaf8bf]/20 rounded-xl space-y-3 font-mono text-xs shadow-lg">
             <div>
               <span className="text-[10px] text-[#eaf8bf]/60 block uppercase">DEGREE</span>
               <span className="font-bold text-[#eaf8bf]">B.Tech in CSE</span>
@@ -109,10 +109,10 @@ export const AboutPage: React.FC = () => {
 
                 {/* Milestone Content Card */}
                 <div
-                  className={`p-6 rounded-lg border transition-all ${
+                  className={`p-6 rounded-xl border transition-all ${
                     isSelected
-                      ? 'bg-[#eaf8bf]/[0.07] text-[#eaf8bf] border-[#eca400] shadow-xl'
-                      : 'bg-[#eaf8bf]/[0.02] text-[#eaf8bf] border-[#eaf8bf]/15 hover:border-[#eca400]'
+                      ? 'bg-[#001d4a]/85 text-[#eaf8bf] border-[#eca400] shadow-2xl scale-[1.01]'
+                      : 'bg-[#001d4a]/45 text-[#eaf8bf] border-[#eaf8bf]/15 hover:border-[#eca400]'
                   }`}
                 >
                   <div className="flex items-center justify-between font-mono text-xs mb-2">
@@ -174,7 +174,7 @@ export const AboutPage: React.FC = () => {
           {experienceAndLeadership.map((role) => (
             <div
               key={role.role}
-              className="p-6 sm:p-8 bg-[#eaf8bf]/[0.03] border border-[#eaf8bf]/15 rounded-lg hover:border-[#eca400] transition-colors"
+              className="p-6 sm:p-8 bg-[#001d4a]/50 border border-[#eaf8bf]/20 rounded-xl hover:border-[#eca400] transition-all shadow-lg"
             >
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-[#eaf8bf]/10 pb-4 mb-4">
                 <div>
@@ -228,7 +228,7 @@ export const AboutPage: React.FC = () => {
           </h2>
         </div>
 
-        <div className="p-8 bg-[#eaf8bf]/[0.03] border border-[#eaf8bf]/15 rounded-lg space-y-6">
+        <div className="p-8 bg-[#001d4a]/50 border border-[#eaf8bf]/20 rounded-xl space-y-6 shadow-lg">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-[#eaf8bf]/15 pb-4">
             <div>
               <div className="flex items-center gap-2 text-[#eaf8bf]">
@@ -275,7 +275,7 @@ export const AboutPage: React.FC = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {skillsData.map((cat) => (
-            <div key={cat.id} className="p-6 bg-[#eaf8bf]/[0.03] border border-[#eaf8bf]/15 rounded-lg space-y-4">
+            <div key={cat.id} className="p-6 bg-[#001d4a]/50 border border-[#eaf8bf]/20 rounded-xl space-y-4 shadow-lg">
               <div className="font-mono text-xs text-[#eca400] font-bold uppercase">
                 {cat.title}
               </div>

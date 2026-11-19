@@ -48,7 +48,7 @@ export const ProjectsIndexPage: React.FC = () => {
             to="/projects/design"
             onMouseEnter={() => setCursorType('hover')}
             onMouseLeave={resetCursor}
-            className="p-5 bg-[#eaf8bf]/[0.03] border border-[#eaf8bf]/15 rounded-lg hover:border-[#eca400] transition-all flex items-center justify-between group"
+            className="p-5 bg-[#001d4a]/50 border border-[#eaf8bf]/20 rounded-xl hover:border-[#eca400] transition-all flex items-center justify-between group shadow-lg"
           >
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 rounded-full bg-[#eaf8bf]/10 text-[#eaf8bf] flex items-center justify-center border border-[#eaf8bf]/10">
@@ -70,7 +70,7 @@ export const ProjectsIndexPage: React.FC = () => {
             to="/projects/technology"
             onMouseEnter={() => setCursorType('hover')}
             onMouseLeave={resetCursor}
-            className="p-5 bg-[#eaf8bf]/[0.03] border border-[#eaf8bf]/15 rounded-lg hover:border-[#eca400] transition-all flex items-center justify-between group"
+            className="p-5 bg-[#001d4a]/50 border border-[#eaf8bf]/20 rounded-xl hover:border-[#eca400] transition-all flex items-center justify-between group shadow-lg"
           >
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 rounded-full bg-[#eca400] text-[#001d4a] flex items-center justify-center">
@@ -93,7 +93,7 @@ export const ProjectsIndexPage: React.FC = () => {
       {/* Filter and Search Controls */}
       <div className="flex flex-col md:flex-row items-stretch md:items-center justify-between gap-4 mb-10 pb-6 border-b border-[#eaf8bf]/15">
         {/* Discipline Tabs */}
-        <div className="flex items-center gap-2 bg-[#eaf8bf]/[0.05] p-1.5 rounded-full border border-[#eaf8bf]/15 self-start">
+        <div className="flex items-center gap-2 bg-[#001d4a]/60 p-1.5 rounded-full border border-[#eaf8bf]/20 self-start shadow-md">
           <button
             onClick={() => setActiveTab('all')}
             className={`px-4 py-1.5 rounded-full font-mono text-xs uppercase tracking-wider transition-colors ${
@@ -161,7 +161,7 @@ export const ProjectsIndexPage: React.FC = () => {
                   to={`/projects/technology/${project.slug}`}
                   onMouseEnter={() => setCursorType('project', 'VIEW PROJECT')}
                   onMouseLeave={resetCursor}
-                  className="group bg-[#eaf8bf]/[0.03] border border-[#eaf8bf]/15 rounded-lg overflow-hidden flex flex-col justify-between hover:border-[#eca400] hover:shadow-lg transition-all"
+                  className="group bg-[#001d4a]/60 border border-[#eaf8bf]/20 rounded-xl overflow-hidden flex flex-col justify-between hover:border-[#eca400] hover:shadow-2xl transition-all"
                 >
                   <div className="h-52 w-full border-b border-[#eaf8bf]/10 overflow-hidden">
                     <ProjectVisualPreview slug={project.slug} />
@@ -215,7 +215,7 @@ export const ProjectsIndexPage: React.FC = () => {
                   to={`/projects/design/${project.slug}`}
                   onMouseEnter={() => setCursorType('project', 'VIEW PROJECT')}
                   onMouseLeave={resetCursor}
-                  className="group bg-[#eaf8bf]/[0.03] border border-[#eaf8bf]/15 rounded-lg overflow-hidden flex flex-col justify-between hover:border-[#eca400] hover:shadow-lg transition-all"
+                  className="group bg-[#001d4a]/60 border border-[#eaf8bf]/20 rounded-xl overflow-hidden flex flex-col justify-between hover:border-[#eca400] hover:shadow-2xl transition-all"
                 >
                   <div className="h-52 w-full border-b border-[#eaf8bf]/10 overflow-hidden">
                     <ProjectVisualPreview slug={project.slug} />

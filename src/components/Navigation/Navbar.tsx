@@ -36,13 +36,24 @@ export const Navbar: React.FC = () => {
     { name: 'Connect', path: '/connect' },
   ];
 
+  // Theme awareness based on current route
+  const isEditorial = location.pathname.startsWith('/projects/design');
+  const isOcean = location.pathname === '/connect';
+  const isLapis = location.pathname === '/projects' || location.pathname === '/about';
+
+  const scrolledBg = isEditorial
+    ? 'bg-[#eaf8bf]/90 border-b border-[#001d4a]/15 backdrop-blur-md'
+    : isOcean
+    ? 'bg-[#006992]/90 border-b border-[#eaf8bf]/15 backdrop-blur-md'
+    : isLapis
+    ? 'bg-[#27476e]/90 border-b border-[#eaf8bf]/15 backdrop-blur-md'
+    : 'bg-[#001d4a]/90 border-b border-[#eaf8bf]/10 backdrop-blur-md';
+
   return (
     <>
       <header
         className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ease-in-out px-4 sm:px-8 md:px-12 ${
-          isScrolled
-            ? 'py-3.5 bg-[#001d4a]/85 backdrop-blur-md border-b border-[#eaf8bf]/10'
-            : 'py-6 bg-transparent'
+          isScrolled ? `py-3.5 ${scrolledBg}` : 'py-6 bg-transparent'
         }`}
       >
         <div className="max-w-7xl mx-auto flex items-center justify-between">
@@ -54,7 +65,13 @@ export const Navbar: React.FC = () => {
             onMouseLeave={resetCursor}
             aria-label="AK. Home"
           >
-            <span className="font-display text-2xl md:text-3xl font-black tracking-tight transition-colors group-hover:text-[#eca400] text-[#eaf8bf]">
+            <span
+              className={`font-display text-2xl md:text-3xl font-black tracking-tight transition-colors ${
+                isEditorial
+                  ? 'text-[#001d4a] group-hover:text-[#006992]'
+                  : 'text-[#eaf8bf] group-hover:text-[#eca400]'
+              }`}
+            >
               AK<span className="text-[#eca400]">.</span>
             </span>
           </Link>
@@ -70,23 +87,29 @@ export const Navbar: React.FC = () => {
                   ? location.pathname === '/'
                   : location.pathname.startsWith(link.path);
 
+              const linkColor = isEditorial
+                ? isActive
+                  ? 'text-[#001d4a] font-bold'
+                  : 'text-[#001d4a]/70 hover:text-[#001d4a]'
+                : isActive
+                ? 'text-[#eca400] font-bold'
+                : 'text-[#eaf8bf]/70 hover:text-[#eaf8bf]';
+
+              const indicatorColor = isEditorial ? 'bg-[#006992]' : 'bg-[#eca400]';
+
               return (
                 <NavLink
                   key={link.name}
                   to={link.path}
                   onMouseEnter={() => setCursorType('hover')}
                   onMouseLeave={resetCursor}
-                  className={`relative font-mono text-xs uppercase tracking-widest py-1.5 transition-colors duration-200 ${
-                    isActive
-                      ? 'text-[#eca400] font-bold'
-                      : 'text-[#eaf8bf]/70 hover:text-[#eaf8bf]'
-                  }`}
+                  className={`relative font-mono text-xs uppercase tracking-widest py-1.5 transition-colors duration-200 ${linkColor}`}
                 >
                   <span className="relative z-10">{link.name}</span>
                   {isActive && (
                     <motion.div
                       layoutId="nav-active-indicator"
-                      className="absolute -bottom-1 left-0 right-0 h-[2px] bg-[#eca400] rounded-full"
+                      className={`absolute -bottom-1 left-0 right-0 h-[2px] ${indicatorColor} rounded-full`}
                       transition={{ type: 'spring', stiffness: 380, damping: 30 }}
                     />
                   )}
@@ -101,7 +124,11 @@ export const Navbar: React.FC = () => {
             <button
               type="button"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="md:hidden flex items-center justify-center w-10 h-10 rounded-full focus:outline-none focus:ring-2 focus:ring-[#eca400] bg-[#eaf8bf]/10 text-[#eaf8bf] border border-[#eaf8bf]/20 hover:bg-[#eaf8bf]/20 transition-colors"
+              className={`md:hidden flex items-center justify-center w-10 h-10 rounded-full focus:outline-none focus:ring-2 focus:ring-[#eca400] transition-colors ${
+                isEditorial
+                  ? 'bg-[#001d4a]/10 text-[#001d4a] border border-[#001d4a]/20 hover:bg-[#001d4a]/20'
+                  : 'bg-[#eaf8bf]/10 text-[#eaf8bf] border border-[#eaf8bf]/20 hover:bg-[#eaf8bf]/20'
+              }`}
               aria-label={mobileMenuOpen ? 'Close Menu' : 'Open Menu'}
               aria-expanded={mobileMenuOpen}
             >
